@@ -209,8 +209,6 @@ public class HomePage extends javax.swing.JFrame {
         jspmon = new javax.swing.JScrollPane();
         tblMon1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         javax.swing.GroupLayout pnHomeLayout = new javax.swing.GroupLayout(pnHome);
         pnHome.setLayout(pnHomeLayout);
         pnHomeLayout.setHorizontalGroup(
