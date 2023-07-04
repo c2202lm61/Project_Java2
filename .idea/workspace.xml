@@ -6,8 +6,73 @@
   <component name="ChangeListManager">
     <list default="true" id="d03601bc-72a5-4271-b315-4c6121f75f07" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/HomePage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/HomePage.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$34.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$35.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$36.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$37.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$38.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$39.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$39.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$40.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$41.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$41.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$42.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$42.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$43.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$43.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$44.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$44.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$45.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$45.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$46.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$46.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$47.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$47.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$48.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$48.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$49.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$49.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$50.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$50.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$51.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$51.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$52.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$52.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$53.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$53.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$54.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$54.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$55.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$55.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$56.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$56.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$57.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$57.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$58.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$58.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$59.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$59.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$60.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$60.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$61.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$61.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$62.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$62.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
