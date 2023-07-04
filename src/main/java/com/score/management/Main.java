@@ -12,8 +12,8 @@ public class Main {
         homePage.ShowHomePage();
         JDBCDriver connectMysql = new JDBCDriver();
         MainGUI mainGUI = new MainGUI();
-        Register register = new Register();
-        Login login =new Login();
+//        Register register = new Register();
+//        Login login =new Login();
 
     }
 }

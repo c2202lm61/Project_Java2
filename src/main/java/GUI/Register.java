@@ -6,7 +6,6 @@ public class Register extends JFrame{
     public Register(){
         setContentPane(registerPanel);
         setTitle("Register");
-        setResizable(false);
         setSize(600,400);
         setLocationRelativeTo(null);
         setVisible(true);
