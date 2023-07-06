@@ -1,70 +1,44 @@
 package GUI;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
-public class MainGUI extends  JFrame{
+public class MainGUI extends JFrame{
+    public JTabbedPane jTabbedPane =  new JTabbedPane();
+    JComboBox comboBox = new JComboBox<>();
+    JPanel tab1 = new JPanel();
+    JPanel tab2 = new JPanel();
+    JPanel tab3 = new JPanel();
+    JPanel tab4 = new JPanel();
+
     public MainGUI(){
         setTitle("MainGUI");
         setSize(800,600);
-        setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setContentPane(mainGUIPanel);
+        setLocationRelativeTo(null);
+        tab1.add(new JLabel("tab1"));
+        tab2.add(new JLabel("tab2"));
+        tab3.add(new JLabel("tab3"));
+        tab4.add(new JLabel("tab4"));
+        tab4.setLayout(new BorderLayout());
+        //
+        JPanel  panel1 = new JPanel();
+        panel1.setLayout(new GridLayout(2,3));
+        JLabel label = new JLabel("Tìm kiếm");
+        panel1.add(label);
+        panel1.add(new JLabel("df"));
+        panel1.add(new JComboBox<>());
+        tab4.add(panel1,BorderLayout.NORTH);
+        //declare tab
+        jTabbedPane.addTab("Trang chủ",tab1);
+        jTabbedPane.addTab("Quản lý",tab2);
+        jTabbedPane.addTab("Xem điểm",tab3);
+        jTabbedPane.addTab("Tìm kiếm",tab4);
+        setContentPane(jTabbedPane);
         setVisible(true);
-        //student
-        DefaultTableModel  model =  new DefaultTableModel();
-        model.addColumn("Mã sinh viên");
-        model.addColumn("Họ và tên");
-        model.addColumn("Mã  lớp");
-        model.addColumn("Mã khoa");
-        model.addColumn("Ngày  sinh");
-        model.addColumn("Địa  chỉ");
-        model.addColumn("Giới tính");
-        model.addColumn("Số điện thoại");
-        model.addRow(new Object[]{"1","dinh xuan tung","c220?",1,"1/1/2001","175 ts","Nam","0123456789"});
-        table1.setModel(model);
-        //teacher
-        DefaultTableModel modelTeacher = new DefaultTableModel();
-        modelTeacher.addColumn("Mã giáo viên");
-        modelTeacher.addColumn("Họ và tên");
-        modelTeacher.addColumn("Mã môn dạy");
-        modelTeacher.addColumn("Mã khối");
-        modelTeacher.addColumn("Mã lớp");
-        modelTeacher.addColumn("Ngày sinh");
-        modelTeacher.addColumn("Giới tính");
-        modelTeacher.addColumn("Email");
-        modelTeacher.addColumn("Số điện thoại");
-        modelTeacher.addRow(new Object[]{1,"Nguyen van a","MH0001","k01","LH01","01/01/2001","#D","abc@gmail.com","0123456789"});
-        teacherTable.setModel(modelTeacher);
-        DefaultTableModel modelBlock = new DefaultTableModel();
-        modelBlock.addColumn("Mã khối");
-        modelBlock.addColumn("Tên khối");
-        modelBlock.addRow(new Object[]{"k1","khoi 1"});
-        BlockTable.setModel(modelBlock);
-        DefaultTableModel modelClass = new DefaultTableModel();
-        modelClass.addColumn("Mã lớp");
-        modelClass.addColumn("Tên lớp");
-        modelClass.addColumn("Mã khối");
-        modelClass.addColumn("Khóa học");
-        Classtable.setModel(modelClass);
-        DefaultTableModel modelSubject = new DefaultTableModel();
-        modelSubject.addColumn("Mã môn học");
-        modelSubject.addColumn("Tên môn học");
-        modelSubject.addColumn("Số tiết");
-        modelSubject.addColumn("Mã khối                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ");
-        modelSubject.addColumn("Mã lớp");
-
-        SubjectTable.setModel(modelSubject);
     }
-    private JPanel mainGUIPanel;
-    private JTabbedPane tabbedPane1;
-    private JTabbedPane tabbedPane2;
-    private JTextField dfedfTextField;
-    private JComboBox comboBox1;
-    private JButton button1;
-    private JTable table1;
-    private JTable teacherTable;
-    private JTable BlockTable;
-    private JTable Classtable;
-    private JTable SubjectTable;
+
+    public static void main(String[] args) {
+        new MainGUI();
+    }
 }
