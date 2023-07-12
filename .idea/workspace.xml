@@ -4,97 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d03601bc-72a5-4271-b315-4c6121f75f07" name="Changes" comment="change MainGUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/SubjectManagement.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/SubjectManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/TeacherManagement.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/TeacherManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/HomePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPanelHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPanelHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPanelSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPanelSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelViewScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelViewScore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/CardLayoutExample1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$12.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$13.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$14.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$15.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$16.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$17.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$18.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$19.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$20.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$21.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$22.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$23.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$24.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$25.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$26.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$27.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$28.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$29.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$30.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$31.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$32.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$33.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$34.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$35.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$36.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$37.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$38.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$39.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$40.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$41.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$42.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$43.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$44.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$45.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$46.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$47.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$48.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$49.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$50.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$51.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$52.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$53.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$54.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$55.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$56.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$57.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$58.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$59.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$60.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$61.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$62.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/HomePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPanelHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPanelHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelViewScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelViewScore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" afterDir="false" />
+    <list default="true" id="d03601bc-72a5-4271-b315-4c6121f75f07" name="Changes" comment="change">
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/mainColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ContentPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/HeaderPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JBlockTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JClassTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JFooterVSC.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JHeaderVCS.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPanelSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JScoreTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JStudentTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JSubjectTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JTeacherTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/LeftPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/BlockManagement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ClassManagement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentManagement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/SubjectManagement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/mainColor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/searchTabblepane.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,20 +66,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "142",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "267",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/user/Desktop/Projects/Project_Java2/src/main/resources",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;142&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;267&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/user/Desktop/Projects/Project_Java2/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -208,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688651459017</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="change MainGUI">
+      <created>1689169750672</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689169750672</updated>
+    </task>
+    <task id="LOCAL-00006" summary="change">
+      <created>1689169781117</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689169781117</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,7 +177,8 @@
     <MESSAGE value="add table" />
     <MESSAGE value="grid" />
     <MESSAGE value="change MainGUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="change MainGUI" />
+    <MESSAGE value="change" />
+    <option name="LAST_COMMIT_MESSAGE" value="change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
