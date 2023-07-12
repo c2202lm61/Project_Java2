@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class MainGUI extends JFrame {
     public MainGUI(){
-        setTitle("Quản lý học sinh");
+        setTitle("Quản lý điểm học sinh");
         setSize(800,600);
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.addTab("Trang chủ",new JPanelHome());
@@ -21,9 +21,5 @@ public class MainGUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new MainGUI();
     }
 }
