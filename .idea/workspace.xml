@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d03601bc-72a5-4271-b315-4c6121f75f07" name="Changes" comment="change">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Class.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Score.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/TeacherManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/TeacherManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement.class" afterDir="false" />
-    </list>
+    <list default="true" id="d03601bc-72a5-4271-b315-4c6121f75f07" name="Changes" comment="add model" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689169781117</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add model">
+      <created>1689280780455</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689280780455</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +160,8 @@
     <MESSAGE value="grid" />
     <MESSAGE value="change MainGUI" />
     <MESSAGE value="change" />
-    <option name="LAST_COMMIT_MESSAGE" value="change" />
+    <MESSAGE value="add model" />
+    <option name="LAST_COMMIT_MESSAGE" value="add model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
