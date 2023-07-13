@@ -5,33 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d03601bc-72a5-4271-b315-4c6121f75f07" name="Changes" comment="change">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/mainColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ContentPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/HeaderPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JBlockTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JClassTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JFooterVSC.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JHeaderVCS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPanelSearch.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JScoreTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JStudentTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JSubjectTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JTeacherTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/LeftPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/BlockManagement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ClassManagement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentManagement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/SubjectManagement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/mainColor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/searchTabblepane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
