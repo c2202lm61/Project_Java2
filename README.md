@@ -12,14 +12,14 @@ Member:
 # Tutorial
  How to connect mysql?  
  Track the following steps  
-    Step1:
-    Go to /src/main/resourse
-    Step2:
-    Use an editor and edit file projectdata.properties
-    Example:
-    database=yourdatabase
-    username=yourusername
-    password=yourpassword
- How to login? 
-  email:admin<br>
-  password:1111
+    Step1:  
+    Go to /src/main/resourse  
+    Step2:  
+    Use an editor and edit file projectdata.properties  
+    Example:  
+    database=yourdatabase  
+    username=yourusername  
+    password=yourpassword  
+ How to login?   
+  email:admin<br>  
+  password:1111  
