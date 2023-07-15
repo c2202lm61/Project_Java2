@@ -60,6 +60,18 @@ public class JPannelManage extends JPanel{
         component6.add(new SubjectManagement());
         String card6 = "Card 6";
         secondPart.add(component6, card6);
+
+        JDesktopPane component7 = new JDesktopPane();
+        component7.setLayout(new GridLayout());
+        component7.add(new Assignment());
+        String card7 = "Card 7";
+        secondPart.add(component7, card7);
+        //
+        JDesktopPane component8 = new JDesktopPane();
+        component8.setLayout(new GridLayout());
+        component8.add(new SubjectTeachingTeacher());
+        String card8 = "Card 8";
+        secondPart.add(component8, card8);
         //
         cardLayout.show(secondPart, "Card 1");
         secondPart.setBackground(mainColor.CYAN);
@@ -106,6 +118,18 @@ public class JPannelManage extends JPanel{
                 cardLayout.show(secondPart, "Card 6");
             }
         });
+        leftPanel.button6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                cardLayout.show(secondPart, "Card 7");
+            }
+        });
+        leftPanel.button7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                cardLayout.show(secondPart, "Card 8");
+            }
+        });
         add(leftPanel, BorderLayout.WEST);
     }
 }
@@ -116,11 +140,13 @@ class LeftPanel extends JPanel{
     JButton button3;
     JButton button4;
     JButton button5;
+    JButton button6;
+    JButton button7;
     public LeftPanel(){
         setBackground(mainColor.CYAN);
         setBorder(new EmptyBorder(10,10,10,10));
         //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        JPanel panel = new JPanel(new GridLayout(6,1,0,10));
+        JPanel panel = new JPanel(new GridLayout(8,1,0,10));
         panel.setBackground(mainColor.CYAN);
         button = new JButton("Quản lý học sinh");
         button.setBorder(new EmptyBorder(10,0,10,0));
@@ -129,12 +155,15 @@ class LeftPanel extends JPanel{
         button3 = new JButton("Quản lý khoa");
         button4 = new JButton("Quản lý lớp");
         button5 = new JButton("Quản lý môn");
+        button6 = new JButton("Phân công");
+        button7 = new JButton("Giáo viên giảng dạy bộ môn");
         panel.add(button);
         panel.add(button1);
         panel.add(button2);
         panel.add(button3);
         panel.add(button4);
         panel.add(button5);
+        panel.add(button7);
         add(panel);
 
     }
