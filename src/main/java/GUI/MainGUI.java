@@ -11,7 +11,7 @@ import java.awt.*;
 public class MainGUI extends JFrame {
     public MainGUI(){
         setTitle("Quản lý điểm học sinh");
-        setSize(800,600);
+        setSize(1200,600);
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.addTab("Trang chủ",new JPanelHome());
         tabbedPane.addTab("Quản lý", new JPannelManage());

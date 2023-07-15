@@ -163,6 +163,7 @@ class LeftPanel extends JPanel{
         panel.add(button3);
         panel.add(button4);
         panel.add(button5);
+        panel.add(button6);
         panel.add(button7);
         add(panel);
 
