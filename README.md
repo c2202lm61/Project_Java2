@@ -5,7 +5,7 @@ Member:
 2. Nguyen Thi Ngan
 3. Dinh Xuan Tung
 4. Ngo Quang Duong
-# Infomation desciption
+# Information decription
  Language: JAVA(Swing)   
  Database: MySQL  
  Project management: Maven  
