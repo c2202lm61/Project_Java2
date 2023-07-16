@@ -19,7 +19,6 @@ public class BlockManagement extends JInternalFrame{
     }
 
 
-
     private JPanel panel1;
     private JButton chọnẢnhButton;
     private JButton thêmButton;

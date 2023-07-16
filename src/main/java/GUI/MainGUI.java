@@ -22,4 +22,5 @@ public class MainGUI extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+
 }

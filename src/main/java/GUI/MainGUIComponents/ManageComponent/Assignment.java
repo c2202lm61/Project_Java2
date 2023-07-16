@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class Assignment extends JInternalFrame{
+
     public Assignment(){
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
@@ -19,6 +20,8 @@ public class Assignment extends JInternalFrame{
     }
 
 
+
+    DefaultTableModel model;
 
     private JPanel AssignmentPanel;
     private JPanel panel1;
@@ -36,4 +39,28 @@ public class Assignment extends JInternalFrame{
     private JButton thêmButton;
     private JButton chọnẢnhButton;
     private JTable table1;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        model  = new DefaultTableModel();
+
+        model.addColumn("Chọn");
+        model.addColumn("Tên");
+
+        table1 = new JTable(model) {
+
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Boolean.class;
+                    default:
+                        return String.class;
+                }
+            }
+        };
+        table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
+    }
+
 }
