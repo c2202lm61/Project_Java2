@@ -7,8 +7,9 @@ public class JDBCDriver{
     static Connection conn = null;
     static ResultSet resultSet  = null;
     static Statement  stmt = null;
+    static ResourceBundle a;
     public static ResultSet ExecQuery(String sql) throws SQLException {
-        ResourceBundle a = ResourceBundle.getBundle("projectdata");
+        a = ResourceBundle.getBundle("projectdata");
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+ a.getString("database"),a.getString("username"),a.getString("password"));
             stmt = conn.createStatement();
@@ -23,5 +24,19 @@ public class JDBCDriver{
         }
 
         return resultSet;
+    }
+    public static void SetQuery(String sql) throws SQLException {
+        a = ResourceBundle.getBundle("projectdata");
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+ a.getString("database"),a.getString("username"),a.getString("password"));
+            PreparedStatement statement = conn.prepareStatement(sql);
+            int rowsAffected = statement.executeUpdate();
+            System.out.println("Database connection successfull");
+      //      System.out.println("Số dòng bị xóa: " + rowsAffected);
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
