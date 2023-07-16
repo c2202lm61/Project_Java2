@@ -7,9 +7,6 @@ import java.util.List;
 
 public class TeacherClassHandle extends AbsSQLAccess<TeacherClass> {
 
-    protected TeacherClassHandle(String table) {
-        super(table);
-    }
 
     @Override
     public void INSERT(TeacherClass item) {

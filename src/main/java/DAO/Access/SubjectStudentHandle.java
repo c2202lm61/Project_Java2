@@ -5,9 +5,6 @@ import Model.SubjectStudent;
 import java.util.List;
 
 public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
-    protected SubjectStudentHandle(String table) {
-        super(table);
-    }
 
     @Override
     public void INSERT(SubjectStudent item) {

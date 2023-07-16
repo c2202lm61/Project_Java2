@@ -6,10 +6,6 @@ import java.util.List;
 
 public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
 
-    protected TypeScoreHandle(String table) {
-        super(table);
-    }
-
     @Override
     public void INSERT(TypeScore item) {
 

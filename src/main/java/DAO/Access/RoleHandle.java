@@ -5,9 +5,6 @@ import Model.Role;
 import java.util.List;
 
 public class RoleHandle extends AbsSQLAccess<Role>{
-    protected RoleHandle(String table) {
-        super(table);
-    }
 
     @Override
     public void INSERT(Role item) {

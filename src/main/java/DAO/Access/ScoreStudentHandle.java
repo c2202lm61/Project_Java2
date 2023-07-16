@@ -5,9 +5,6 @@ import Model.Score;
 import java.util.List;
 
 public class ScoreStudentHandle extends AbsSQLAccess<Score> {
-    protected ScoreStudentHandle(String table) {
-        super(table);
-    }
 
     @Override
     public void INSERT(Score item) {

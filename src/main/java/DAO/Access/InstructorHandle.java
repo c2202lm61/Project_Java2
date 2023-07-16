@@ -7,10 +7,6 @@ import java.util.List;
 
 public class InstructorHandle  extends AbsSQLAccess<Instructor>{
 
-    protected InstructorHandle(String table) {
-        super(table);
-    }
-
     @Override
     public void INSERT(Instructor item) {
 

@@ -3,9 +3,6 @@ package DAO.Access;
 import java.util.List;
 
 public class ClassHandle extends AbsSQLAccess<Class>{
-    protected ClassHandle(String table) {
-        super(table);
-    }
 
     @Override
     public void INSERT(Class item) {
