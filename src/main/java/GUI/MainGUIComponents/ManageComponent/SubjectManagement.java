@@ -9,8 +9,10 @@ public class SubjectManagement extends JInternalFrame{
     public SubjectManagement(){
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
-        modelScoreManage.addColumn("Mã giáo viên");
-        modelScoreManage.addColumn("Họ và tên");
+        modelScoreManage.addColumn("Mã Môn Mọc");
+        modelScoreManage.addColumn("Tên Môn Học");
+        modelScoreManage.addColumn("Tín Chỉ");
+        modelScoreManage.addColumn("ID Khối");
         table1.setModel(modelScoreManage);
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(panel1);

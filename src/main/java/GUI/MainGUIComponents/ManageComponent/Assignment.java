@@ -1,13 +1,25 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class Assignment extends JInternalFrame{
     public Assignment(){
+        DefaultTableModel modelScoreManage = new DefaultTableModel();
+        modelScoreManage.addColumn("Chọn");
+        modelScoreManage.addColumn("Mã Phân Công");
+        modelScoreManage.addColumn("Số Học Kì");
+        modelScoreManage.addColumn("Năm Giảng Dạy");
+        modelScoreManage.addColumn("Mã Giáo viên bộ môn");
+        modelScoreManage.addColumn("Mã Lớp");
+        table1.setModel(modelScoreManage);
         setTitle("Phân công");
         setContentPane(AssignmentPanel);
         setVisible(true);
     }
+
+
+
     private JPanel AssignmentPanel;
     private JPanel panel1;
     private JCheckBox chọnTấtCảCheckBox;

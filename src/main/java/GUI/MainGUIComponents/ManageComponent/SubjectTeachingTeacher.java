@@ -1,13 +1,22 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class SubjectTeachingTeacher extends JInternalFrame{
     public SubjectTeachingTeacher(){
+        DefaultTableModel modelScoreManage = new DefaultTableModel();
+        modelScoreManage.addColumn("Chọn");
+        modelScoreManage.addColumn("Mã Giáo Viên Bộ Môn");
+        modelScoreManage.addColumn("Mã Giáo Viên");
+        modelScoreManage.addColumn("Mã Môn Học");
+        table1.setModel(modelScoreManage);
         setTitle("");
         setContentPane(subjectTeachingTeacherPanel);
         setVisible(true);
     }
+
+
     private JPanel subjectTeachingTeacherPanel;
     private JButton tảiLạiButton;
     private JButton xóaButton;
@@ -17,10 +26,8 @@ public class SubjectTeachingTeacher extends JInternalFrame{
     private JCheckBox chọnTấtCảCheckBox;
     private JCheckBox bỏChọnCheckBox;
     private JComboBox comboBox1;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
+    private JTextField MaGVBM;
+    private JTextField MaGV;
+    private JTextField MaMH;
     private JTable table1;
 }

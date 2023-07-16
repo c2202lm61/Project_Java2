@@ -9,8 +9,8 @@ public class ClassManagement extends JInternalFrame{
     public ClassManagement(){
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
-        modelScoreManage.addColumn("Mã giáo viên");
-        modelScoreManage.addColumn("Họ và tên");
+        modelScoreManage.addColumn("Mã Lớp");
+        modelScoreManage.addColumn("Mã khối");
         labelTable1.setModel(modelScoreManage);
 
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
