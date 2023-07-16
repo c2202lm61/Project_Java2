@@ -2,27 +2,27 @@ package DAO.Access;
 
 import Model.InstructorRole;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class InstructorRoleHandle  extends AbsSQLAccess<InstructorRole> {
-
     @Override
-    public void INSERT(InstructorRole item) {
-
-    }
-
-    @Override
-    public List<InstructorRole> SELECT(String sql) {
+    public Boolean INSERT(InstructorRole item) {
         return null;
     }
 
     @Override
-    public void UPDATE(InstructorRole item) {
-
+    public List<InstructorRole> SELECT(String sql) throws SQLException {
+        return null;
     }
 
     @Override
-    public void DELETE(int id) {
+    public Boolean UPDATE(InstructorRole item) {
+        return null;
+    }
 
+    @Override
+    public Boolean DELETE(int id) {
+        return null;
     }
 }

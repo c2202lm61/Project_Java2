@@ -2,27 +2,27 @@ package DAO.Access;
 
 import Model.TypeScore;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
-
     @Override
-    public void INSERT(TypeScore item) {
-
-    }
-
-    @Override
-    public List<TypeScore> SELECT(String sql) {
+    public Boolean INSERT(TypeScore item) {
         return null;
     }
 
     @Override
-    public void UPDATE(TypeScore item) {
-
+    public List<TypeScore> SELECT(String sql) throws SQLException {
+        return null;
     }
 
     @Override
-    public void DELETE(int id) {
+    public Boolean UPDATE(TypeScore item) {
+        return null;
+    }
 
+    @Override
+    public Boolean DELETE(int id) {
+        return null;
     }
 }

@@ -9,8 +9,8 @@ public abstract class AbsSQLAccess<T> {
 
     }
 
-    public abstract void INSERT(T item);
+    public abstract Boolean INSERT(T item);
     public abstract List<T> SELECT(String sql) throws SQLException;
-    public abstract void UPDATE(T item);
-    public abstract void DELETE(int id);
+    public abstract Boolean UPDATE(T item);
+    public abstract Boolean DELETE(int id);
 }

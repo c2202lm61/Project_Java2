@@ -3,28 +3,29 @@ package DAO.Access;
 import Model.Teacher;
 import Model.TeacherClass;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class TeacherClassHandle extends AbsSQLAccess<TeacherClass> {
 
 
     @Override
-    public void INSERT(TeacherClass item) {
-
-    }
-
-    @Override
-    public List<TeacherClass> SELECT(String sql) {
+    public Boolean INSERT(TeacherClass item) {
         return null;
     }
 
     @Override
-    public void UPDATE(TeacherClass item) {
-
+    public List<TeacherClass> SELECT(String sql) throws SQLException {
+        return null;
     }
 
     @Override
-    public void DELETE(int id) {
+    public Boolean UPDATE(TeacherClass item) {
+        return null;
+    }
 
+    @Override
+    public Boolean DELETE(int id) {
+        return null;
     }
 }

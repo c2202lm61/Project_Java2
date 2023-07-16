@@ -13,8 +13,8 @@ public class GrantHandle extends AbsSQLAccess<Block>{
         table = "grants";
     }
     @Override
-    public void INSERT(Block item) {
-
+    public Boolean INSERT(Block item) {
+        return null;
     }
 
     @Override
@@ -31,12 +31,12 @@ public class GrantHandle extends AbsSQLAccess<Block>{
     }
 
     @Override
-    public void UPDATE(Block item) {
-
+    public Boolean UPDATE(Block item) {
+        return null;
     }
 
     @Override
-    public void DELETE(int id) {
-
+    public Boolean DELETE(int id) {
+        return null;
     }
 }
