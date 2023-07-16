@@ -10,8 +10,7 @@ public class JDBCDriver{
     public static ResultSet ExecQuery(String sql) throws SQLException {
         ResourceBundle a = ResourceBundle.getBundle("projectdata");
         try {
-            conn =
-                    DriverManager.getConnection("jdbc:mysql://localhost:3306/"+ a.getString("database"),a.getString("username"),a.getString("password"));
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+ a.getString("database"),a.getString("username"),a.getString("password"));
             stmt = conn.createStatement();
             resultSet = stmt.executeQuery(sql);
             System.out.println("Database connection successfull");

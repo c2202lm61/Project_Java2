@@ -2,8 +2,9 @@ package Model;
 
 public class Block {
     public int ID;
-    public String Name;
+    public String GrandID;
 
+    public String Name;
     public void setID(int ID) {
         this.ID = ID;
     }

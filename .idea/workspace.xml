@@ -5,47 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a50f36a-48e9-49ee-93c2-f5ea398a8a07" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/Authenlication/Authenlication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/Authorization/Authority.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/AbsSQLAccess.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/ClassHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/GrantHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorRoleHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorSubjectHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/RoleHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/ScoreStudentHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/StudentHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/SubjectHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/SubjectStudentHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/TeacherClassHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DAO/Access/TypeScoreHandle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/Assignment$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Model/Instructor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Model/InstructorRole.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Model/InstructorSubject.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Model/Role.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Model/SubjectStudent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Model/TeacherClass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Model/TypeScore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/Assignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/SubjectManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/SubjectManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/SubjectTeachingTeacher.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/SubjectTeachingTeacher.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/SubjectTeachingTeacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/SubjectTeachingTeacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/JDBCDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/JDBCDriver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/Assignment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/Assignment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/ClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/ClassHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/JDBCDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/JDBCDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectdata.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projectdata.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
