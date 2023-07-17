@@ -1,16 +1,16 @@
 package Model;
 
 public class Score {
-    public int StudentID;
-    public int SubjectID;
+    public int StudentSubjectID;
+    public int TypeScoreID;
     public double ScoreValue;
 
-    public void setStudentID(int studentID) {
-        StudentID = studentID;
+    public void setStudentSubjectID(int StudentSubjectID) {
+        this.StudentSubjectID = StudentSubjectID;
     }
 
-    public int getStudentID() {
-        return StudentID;
+    public int getStudentSubjectID() {
+        return StudentSubjectID;
     }
 
     public void setScoreValue(double scoreValue) {
@@ -21,11 +21,11 @@ public class Score {
         return ScoreValue;
     }
 
-    public void setSubjectID(int subjectID) {
-        SubjectID = subjectID;
+    public void setTypeScoreID(int TypeScoreID) {
+        this.TypeScoreID = TypeScoreID;
     }
 
-    public int getSubjectID() {
-        return SubjectID;
+    public int getTypeScoreID() {
+        return TypeScoreID;
     }
 }
