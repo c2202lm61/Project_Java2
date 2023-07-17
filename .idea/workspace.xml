@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a50f36a-48e9-49ee-93c2-f5ea398a8a07" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="3a50f36a-48e9-49ee-93c2-f5ea398a8a07" name="Changes" comment="hihi dương up model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Instructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/InstructorRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/InstructorRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/InstructorSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/InstructorSubject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SubjectStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SubjectStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorRoleHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorRoleHandle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +52,19 @@
       <option name="presentableId" value="Default" />
       <updated>1689441726683</updated>
     </task>
+    <task id="LOCAL-00001" summary="hihi dương up model">
+      <created>1689582774040</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689582774040</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hihi dương up model" />
+    <option name="LAST_COMMIT_MESSAGE" value="hihi dương up model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
