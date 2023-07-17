@@ -5,7 +5,7 @@ public class Block {
     private String GrandID;
 
     private String Name;
-
+    private int bomaythich;
 
 
 
