@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a50f36a-48e9-49ee-93c2-f5ea398a8a07" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/JDBCDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/JDBCDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/ClassHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/ClassHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/JDBCDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/JDBCDriver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Block.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Class.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Class.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projectdata.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Instructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/InstructorRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/InstructorRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/InstructorSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/InstructorSubject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SubjectStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SubjectStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +44,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "285",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Test1/hi/Project_Java2",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
