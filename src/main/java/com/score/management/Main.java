@@ -18,15 +18,21 @@ public class Main {
         JFrame frame = new JFrame();
         frame.setSize(300,200);
 
-        GrantHandle grantHandle = new GrantHandle();
-        List<Block> a = null;
+//        GrantHandle grantHandle = new GrantHandle();
+//        List<Block> a = null;
+//        try {
+//            a = grantHandle.SELECT("SELECT * FROM grants");
+//            Block d = a.get(0);
+//            System.out.println(d.Name);
+//            System.out.println(d.ID);
+//            frame.add(new JButton(d.Name));
+//            frame.setVisible(true);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
         try {
-            a = grantHandle.SELECT("SELECT * FROM grants");
-            Block d = a.get(0);
-            System.out.println(d.Name);
-            System.out.println(d.ID);
-            frame.add(new JButton(d.Name));
-            frame.setVisible(true);
+            JDBCDriver.SetQuery("DELETE FROM grants");
+            System.out.println("Xóa dữ liệu thành công");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
