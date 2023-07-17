@@ -6,12 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="3a50f36a-48e9-49ee-93c2-f5ea398a8a07" name="Changes" comment="hihi dương up model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Instructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/StudentHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/StudentHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectStudentHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectStudentHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SubjectStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SubjectStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TeacherClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TeacherClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorRoleHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorRoleHandle.java" afterDir="false" />
->>>>>>> 15920b6563ac012121bd60afbf49b166d2821b58
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,18 +40,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "285",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Test1/hi/Project_Java2",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;285&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Test1/hi/Project_Java2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
