@@ -4,11 +4,11 @@ import java.sql.Date;
 
 public class Instructor {
 
-    public int ID_NUMBER;
-    public String name;
-    public Date birthday;
-    public  Boolean gender;
-    public  String password;
+    private int ID_NUMBER;
+    private String name;
+    private Date birthday;
+    private  Boolean gender;
+    private  String password;
 
     public void setID_NUMBER(int ID){
         this.ID_NUMBER= ID_NUMBER;

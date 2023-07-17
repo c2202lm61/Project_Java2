@@ -20,6 +20,7 @@ public class GrantHandle extends AbsSQLAccess<Block>{
     @Override
     public List<Block> SELECT(String sql) throws SQLException {
         List<Block> a = new ArrayList<>();
+
         final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
         while (resultSet.next()){
             Block b = new Block();

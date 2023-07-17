@@ -2,8 +2,10 @@ package Model;
 
 public class TypeScore {
 
-    public int id;
-    public String Name;
+    private int id;
+    private String Name;
+
+    
     public void setID(int ID){
         this.id= id;
     }

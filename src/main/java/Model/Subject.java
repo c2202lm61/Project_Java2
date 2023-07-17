@@ -1,11 +1,11 @@
 package Model;
 
 public class Subject {
-    public int ID;
-    public String Name;
+    private int ID;
+    private String Name;
 
-    public int Credits;
-    public int GrandID;
+    private int Credits;
+    private int GrandID;
 
 
 

@@ -3,17 +3,22 @@ package Model;
 import java.sql.Date;
 
 public class Student {
-    public int ID;
+    private int ID;
 
-    public String Name;
+    private String Name;
 
-    public String SocialSecurtyNumber;
-    public boolean  Gender;
-    public Date Birhday;
-    public String Phone;
+    private String SocialSecurtyNumber;
+    private boolean  Gender;
+    private Date Birhday;
+    private String Phone;
 
-    public String Address;
-    public int ClassID;
+    private String Address;
+    private int ClassID;
+
+
+
+
+
     public void setID(int ID){
         this.ID = ID;
     }

@@ -2,10 +2,12 @@ package Model;
 
 public class TeacherClass {
 
-    public int id_tc;
-    public int numberofsemester;
-    public int Class_code;
-    public int ID_Teach;
+    private int id_tc;
+    private int numberofsemester;
+    private int Class_code;
+    private int ID_Teach;
+
+
 
     public void  setID_Teach(int ID_Teach){this.ID_Teach = ID_Teach;}
     public void setNumberofsemester(int numberofsemester){this.numberofsemester = numberofsemester;}

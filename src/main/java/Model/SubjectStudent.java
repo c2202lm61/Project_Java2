@@ -1,9 +1,9 @@
 package Model;
 
 public class SubjectStudent {
-    public int Subject_Student_id;
-    public int student_id;
-    public int Subject_code;
+    private int Subject_Student_id;
+    private int student_id;
+    private int Subject_code;
 
     public void setSubject_code(int Subject_code){this.Subject_code = Subject_code;}
 

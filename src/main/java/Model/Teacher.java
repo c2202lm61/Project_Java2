@@ -3,14 +3,18 @@ package Model;
 import java.util.Date;
 
 public class Teacher {
-    public int ID;
-    public String Name;
-    public Boolean Gender;
-    public Date Birthday;
-    public String Address;
-    public String PhoneNumber;
-    public int SubjectID;
-    public int ClassID;
+    private int ID;
+    private String Name;
+    private Boolean Gender;
+    private Date Birthday;
+    private String Address;
+    private String PhoneNumber;
+    private int SubjectID;
+    private int ClassID;
+
+
+
+
 
     public void setID(int ID) {
         this.ID = ID;

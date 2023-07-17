@@ -1,10 +1,10 @@
 package Model;
 
 public class Class {
-    public int ID;
-    public int GrandID;
+    private int ID;
+    private int GrandID;
 
-    public int ManagerID;
+    private int ManagerID;
     public void setID(int ID){
         this.ID= ID;
     }

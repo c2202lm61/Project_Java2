@@ -1,10 +1,14 @@
 package Model;
 
 public class Block {
-    public int ID;
-    public String GrandID;
+    private int ID;
+    private String GrandID;
 
-    public String Name;
+    private String Name;
+
+
+
+
     public void setID(int ID) {
         this.ID = ID;
     }
