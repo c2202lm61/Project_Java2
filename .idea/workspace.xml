@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a50f36a-48e9-49ee-93c2-f5ea398a8a07" name="Changes" comment="hihi dương up model">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/StudentHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/StudentHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectStudentHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectStudentHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorSubjectHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorSubjectHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/RoleHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/RoleHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SubjectStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SubjectStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TypeScoreHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TypeScoreHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Instructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/TeacherClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TeacherClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
