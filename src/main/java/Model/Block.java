@@ -4,10 +4,9 @@ public class Block {
     private int ID;
     private String GrandID;
 
- 
+
 
     private String Name;
-    private int bomaythich;
 
 
 
