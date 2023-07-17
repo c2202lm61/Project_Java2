@@ -7,7 +7,7 @@ public class Instructor {
     public int ID_NUMBER;
     public String name;
     public Date birthday;
-    public  String gender;
+    public  Boolean gender;
     public  String password;
 
     public void setID_NUMBER(int ID){
@@ -27,8 +27,8 @@ public class Instructor {
         return this.birthday;
     }
 
-    public void  setGender(String gender){this.gender = gender;}
-    public  String getGender(){
+    public void  setGender(Boolean gender){this.gender = gender;}
+    public  Boolean getGender(){
         return this.gender;
     }
 

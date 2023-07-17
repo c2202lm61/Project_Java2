@@ -19,19 +19,18 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
 
     @Override
     public List<Instructor> SELECT(String sql) throws SQLException {
-List<Instructor> a = new ArrayList<>();
-final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
-while (resultSet.next()){
-    Instructor b = new Instructor();
-    b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
-    b.setName(resultSet.getString("name"));
-    b.setBirthday(resultSet.getDate("birthday"));
-    b.setGender(resultSet.getString("gender"));
-    b.setPassword(resultSet.getString("passwrod "));
-    a.add(b);
-}
-return a;
-
+    List<Instructor> a = new ArrayList<>();
+    final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
+    while (resultSet.next()){
+        Instructor b = new Instructor();
+        b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
+        b.setName(resultSet.getString("name"));
+        b.setBirthday(resultSet.getDate("birthday"));
+        b.setGender(resultSet.getBoolean("gender"));
+        b.setPassword(resultSet.getString("passwrod "));
+        a.add(b);
+        }
+    return a;
     }
 
     @Override
