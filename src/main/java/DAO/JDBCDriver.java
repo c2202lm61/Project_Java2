@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class JDBCDriver{
-    static Connection conn = null;
+    public static Connection conn = null;
     static ResultSet resultSet  = null;
     static Statement  stmt = null;
     static ResourceBundle a;
@@ -25,18 +25,25 @@ public class JDBCDriver{
 
         return resultSet;
     }
-    public static void SetQuery(String sql) throws SQLException {
+    public static Boolean SetQuery(String sql) throws SQLException {
         a = ResourceBundle.getBundle("projectdata");
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+ a.getString("database"),a.getString("username"),a.getString("password"));
             PreparedStatement statement = conn.prepareStatement(sql);
             int rowsAffected = statement.executeUpdate();
             System.out.println("Database connection successfull");
-      //      System.out.println("Số dòng bị xóa: " + rowsAffected);
+
+
             statement.close();
             conn.close();
+            if (rowsAffected == 0){
+                return false;
+            }else{
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }

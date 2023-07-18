@@ -13,6 +13,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        Block a = new Block();
+        a.setID(4);
+        a.setName("Lop2");
+       // new GrantHandle().INSERT(a);
+    //    new GrantHandle().DELETE(6);
+        new GrantHandle().UPDATE(a);
 //        Login login =new Login();
 //        MainGUI mainGUI = new MainGUI();
         JFrame frame = new JFrame();
@@ -30,11 +36,6 @@ public class Main {
 //        } catch (SQLException e) {
 //            throw new RuntimeException(e);
 //        }
-        try {
-            JDBCDriver.SetQuery("DELETE FROM grants");
-            System.out.println("Xóa dữ liệu thành công");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 }

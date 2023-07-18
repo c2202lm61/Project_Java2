@@ -3,18 +3,30 @@ package DAO.Access;
 import DAO.JDBCDriver;
 import Model.Block;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static DAO.JDBCDriver.conn;
 
 public class GrantHandle extends AbsSQLAccess<Block>{
     public GrantHandle(){
         table = "grants";
     }
     @Override
-    public Boolean INSERT(Block item) {
-        return null;
+    public Boolean INSERT(Block item)
+    {
+        String sql = "INSERT INTO `grants`(`name`) VALUES ('"+item.getName()+"')";
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("them du lieu thành công:"+a);
+
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -33,11 +45,33 @@ public class GrantHandle extends AbsSQLAccess<Block>{
 
     @Override
     public Boolean UPDATE(Block item) {
-        return null;
+        Boolean result = null;
+        String  sql= "UPDATE `grants` SET `name`='"+item.getName()+"' WHERE id="+item.getID();
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = null;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM grants WHERE id = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }
