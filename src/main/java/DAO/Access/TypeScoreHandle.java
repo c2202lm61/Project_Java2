@@ -11,7 +11,15 @@ import java.util.List;
 public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
     @Override
     public Boolean INSERT(TypeScore item) {
-        return null;
+        String sql = "INSERT INTO `type_score`(`name`) VALUES ('"+item.getName()+"')";
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("them du lieu thành công:"+a);
+
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
