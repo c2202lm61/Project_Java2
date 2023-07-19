@@ -45,7 +45,7 @@ public class GrantHandle extends AbsSQLAccess<Block>{
 
     @Override
     public Boolean UPDATE(Block item) {
-        Boolean result = null;
+        Boolean result = false;
         String  sql= "UPDATE `grants` SET `name`='"+item.getName()+"' WHERE id="+item.getID();
         System.out.println(sql);
         try {
@@ -62,7 +62,7 @@ public class GrantHandle extends AbsSQLAccess<Block>{
 
     @Override
     public Boolean DELETE(int id) {
-        Boolean result = null;
+        Boolean result = false;
         try {
             boolean a =JDBCDriver.SetQuery("DELETE FROM grants WHERE id = "+id);
             if (a)System.out.println("Xóa dữ liệu thành công");

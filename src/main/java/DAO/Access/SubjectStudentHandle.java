@@ -32,7 +32,19 @@ public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
 
     @Override
     public Boolean UPDATE(SubjectStudent item) {
-        return null;
+        Boolean result = false;
+        String  sql= "UPDATE `subject_student` SET `Subject_student_id`='"+item.getSubject_Student_id()+"',`student_id`='"+item.getStudent_id()+"',`Subject_code`='"+item.getSubject_code()+"' WHERE id="+item.getSubject_Student_id();
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override

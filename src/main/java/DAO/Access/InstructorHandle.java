@@ -21,26 +21,37 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
     @Override
     public List<Instructor> SELECT(String sql) throws SQLException {
 
-    List<Instructor> a = new ArrayList<>();
-    final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
-    while (resultSet.next()){
-        Instructor b = new Instructor();
-        b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
-        b.setName(resultSet.getString("name"));
-        b.setBirthday(resultSet.getDate("birthday"));
-        b.setGender(resultSet.getBoolean("gender"));
-        b.setPassword(resultSet.getString("passwrod "));
-        a.add(b);
-        }
-    return a;
+        List<Instructor> a = new ArrayList<>();
+        final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
+        while (resultSet.next()){
+            Instructor b = new Instructor();
+            b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
+            b.setName(resultSet.getString("name"));
+            b.setBirthday(resultSet.getDate("birthday"));
+            b.setGender(resultSet.getBoolean("gender"));
+            b.setPassword(resultSet.getString("passwrod "));
+            a.add(b);
+            }
+        return a;
 
     }
 
     @Override
     public Boolean UPDATE(Instructor item) {
-        String sql = "UPDATE `Class` SET `name`="+ MySQLSupport.addSingleQuote(item.getName())+",`password`="+MySQLSupport.addSingleQuote(item.getPassword());
+        Boolean result = false;
+        String  sql= "UPDATE `instructor` SET `ID_NUMBER`='"+item.getID_NUMBER() +"',`name`='"+item.getName() +"',`birthday`='"+item.getBirthday() +"',`Gender`='"+item.getGender() +"',`password`='"+item.getPassword() +"' WHERE id="+item.getID_NUMBER();
+
         System.out.println(sql);
-        return null;
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override

@@ -32,7 +32,19 @@ return a;
 
     @Override
     public Boolean UPDATE(InstructorRole item) {
-        return null;
+        Boolean result = false;
+        String  sql= "UPDATE `instructor_role` SET `tclass_id`='"+item.getTclass_id()+"',`Role_id`='"+item.getRole_id()+"',`ID_NUMBER`='"+item.getID_NUMBER()+"' WHERE id="+item.getTclass_id();
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override

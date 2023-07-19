@@ -31,7 +31,19 @@ public class RoleHandle extends AbsSQLAccess<Role>{
 
     @Override
     public Boolean UPDATE(Role item) {
-        return null;
+        Boolean result = false;
+        String  sql= "UPDATE `role` SET `id`='"+item.getId()+"',`role_name`='"+item.getName()+"' WHERE id="+item.getId();
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override

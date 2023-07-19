@@ -21,6 +21,7 @@ public class ScoreStudentHandle extends AbsSQLAccess<Score> {
         final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
         while (resultSet.next()){
             Score b = new Score();
+            b.setScoreID(resultSet.getInt("ScoreID"));
             b.setStudentSubjectID(resultSet.getInt("ss_id"));
             b.setScoreValue(resultSet.getDouble("ScoreValue"));
             b.setTypeScoreID(resultSet.getInt("tc_id"));
@@ -31,7 +32,20 @@ public class ScoreStudentHandle extends AbsSQLAccess<Score> {
 
     @Override
     public Boolean UPDATE(Score item) {
-        return null;
+        Boolean result = false;
+        String  sql= "UPDATE `score_student` SET `tc_id`='"+item.getTypeScoreID()+"',`ss_id`='"+item.getStudentSubjectID()+"',`ScoreValue`='"+item.getScoreID()+"',`ScoreID`='"+item.getScoreID()+"' WHERE id="+item.getScoreID();
+        String t = "INSERT INTO `MClass`(`ScoreID` , `ScoreValue`) VALUES ('"+item.getScoreID()+", '"+item.getScoreValue()+"')";
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override

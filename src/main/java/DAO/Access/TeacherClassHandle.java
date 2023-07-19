@@ -33,7 +33,20 @@ a.add(b);
 
     @Override
     public Boolean UPDATE(TeacherClass item) {
-        return null;
+
+        Boolean result = false;
+        String  sql= "UPDATE `teach_class` SET `id_tc`='"+item.getId_tc()+"',`numberofsemester`='"+item.getNumberofsemester()+"',`Class_code`='"+item.getClass_code()+"',`ID_Teach`='"+item.getID_Teach()+"' WHERE id="+item.getId_tc();
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override

@@ -29,7 +29,19 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
 
     @Override
     public Boolean UPDATE(TypeScore item) {
-        return null;
+        Boolean result = false;
+        String  sql= "UPDATE `type_score` SET `ts_id`='"+item.getID()+"',`name`='"+item.getName()+"' WHERE id="+item.getID();
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override
