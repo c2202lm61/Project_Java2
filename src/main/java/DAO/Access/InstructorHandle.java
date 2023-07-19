@@ -15,7 +15,14 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
 
     @Override
     public Boolean INSERT(Instructor item) {
-        return null;
+       String sql = "INSERT INTO `instructor`(name,birthday,Gender,password) VALUES ('"+item.getName()+"','"+item.getBirthday()+"','"+item.getGender()+"','"+item.getPassword()+"')";
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("thêm dữ .iệu thành công "+a);
+            return true;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
