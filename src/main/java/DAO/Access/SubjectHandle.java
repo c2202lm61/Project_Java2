@@ -13,7 +13,16 @@ public class SubjectHandle extends AbsSQLAccess<Subject> {
 
     @Override
     public Boolean INSERT(Subject item) {
-        return null;
+        String sql = "INSERT INTO `subject`( `Name`, `Credits`, `grant_id`) VALUES ('"+item.getName()+"',"+item.getCredits()+","+ item.getGrandID()+")";
+        System.out.println(sql);
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("them du lieu thành công:"+a);
+
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
