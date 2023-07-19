@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3a50f36a-48e9-49ee-93c2-f5ea398a8a07" name="Changes" comment="hihi dương up model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/ClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/ClassHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" afterDir="false" />
+=======
+>>>>>>> a748e63cfc3d3f47d311dc40392cfd785516de9a
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

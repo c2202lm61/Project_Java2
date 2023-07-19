@@ -26,7 +26,7 @@ public class TeacherClassHandle extends AbsSQLAccess<TeacherClass> {
            b.setId_tc(resultSet.getInt("ID_tc"));
            b.setID_Teach(resultSet.getInt("ID_Teach"));
            b.setNumberofsemester(resultSet.getInt("numberofsemester"));
-a.add(b);
+        a.add(b);
        }
     return a;
     }

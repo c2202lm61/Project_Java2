@@ -13,7 +13,15 @@ public class RoleHandle extends AbsSQLAccess<Role>{
 
     @Override
     public Boolean INSERT(Role item) {
-        return null;
+        String sql = "INSERT INTO `role`(`role_name`) VALUES ('"+item.getName()+"')";
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("them du lieu thành công:"+a);
+
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
