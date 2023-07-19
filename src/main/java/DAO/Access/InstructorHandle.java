@@ -1,6 +1,7 @@
 package DAO.Access;
 
 import DAO.JDBCDriver;
+import DAO.MySQLSupport;
 import Model.Block;
 import Model.Instructor;
 
@@ -37,6 +38,8 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
 
     @Override
     public Boolean UPDATE(Instructor item) {
+        String sql = "UPDATE `Class` SET `name`="+ MySQLSupport.addSingleQuote(item.getName())+",`password`="+MySQLSupport.addSingleQuote(item.getPassword());
+        System.out.println(sql);
         return null;
     }
 

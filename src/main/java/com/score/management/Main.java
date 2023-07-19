@@ -1,8 +1,10 @@
 package com.score.management;
 import DAO.Access.GrantHandle;
+import DAO.Access.InstructorHandle;
 import DAO.JDBCDriver;
 import GUI.*;
 import Model.Block;
+import Model.Instructor;
 import Model.Student;
 
 import javax.swing.*;
@@ -19,6 +21,10 @@ public class Main {
        // new GrantHandle().INSERT(a);
     //    new GrantHandle().DELETE(6);
         new GrantHandle().UPDATE(a);
+        Instructor instructor = new Instructor();
+        instructor.setName("Nak");
+        instructor.setPassword("!23");
+        new InstructorHandle().UPDATE(instructor);
 //        Login login =new Login();
 //        MainGUI mainGUI = new MainGUI();
         JFrame frame = new JFrame();

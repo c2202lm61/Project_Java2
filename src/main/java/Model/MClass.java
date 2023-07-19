@@ -1,6 +1,6 @@
 package Model;
 
-public class Class {
+public class MClass {
     private int ID;
     private int GrandID;
 
