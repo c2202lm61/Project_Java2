@@ -12,13 +12,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Role role =new Role();
-        role.setName("Leader");
-        new RoleHandle().INSERT(role);
+        new MainGUI();
+//        Role role =new Role();
+//        role.setName("Leader");
+//        new RoleHandle().INSERT(role);
 //        Login login =new Login();
 //        MainGUI mainGUI = new MainGUI();
-        JFrame frame = new JFrame();
-        frame.setSize(300,200);
+//        JFrame frame = new JFrame();
+//        frame.setSize(300,200);
 
 //        GrantHandle grantHandle = new GrantHandle();
 //        List<Block> a = null;

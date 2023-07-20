@@ -1,17 +1,36 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import DAO.Access.GrantHandle;
+import Model.Block;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 
 public class BlockManagement extends JInternalFrame{
     public BlockManagement(){
+        GrantHandle grantHandle = new GrantHandle();
+        List<Block> a = null;
+        try {
+            a = grantHandle.SELECT("SELECT * FROM grants");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         DefaultTableModel modelScoreManage = new DefaultTableModel();
+        Iterator<Block> blockIterator = a.iterator();
+
         modelScoreManage.addColumn("Chọn");
         modelScoreManage.addColumn("Mã Khối");
         modelScoreManage.addColumn("Tên Khối");
+        while (blockIterator.hasNext()){
+            modelScoreManage.addRow(new Object[]{true,blockIterator.next().getID(),blockIterator.next().getName()});
+        }
         table1.setModel(modelScoreManage);
+
 
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(panel1);
