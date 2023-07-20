@@ -12,7 +12,16 @@ public class StudentHandle extends AbsSQLAccess<Student>{
 
     @Override
     public Boolean INSERT(Student item) {
-        return null;
+        Boolean result = false;
+        String sql = "INSERT INTO `student`(`Social_Securty_Number`, `Current_address`, `Phone`, `Birthday`, `Gender`, `Class_code`, `Name`)" + " VALUES ('"+item.getSocialSecurtyNumber()+"','"+item.getAddress()+"','"+item.getPhone()+"','"+item.getBirthday()+"','"+item.getGender()+"','"+item.getClassID()+"','"+item.getName()+"')";
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("thêm dữ .iệu thành công "+a);
+            result = true;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override
@@ -52,6 +61,16 @@ public class StudentHandle extends AbsSQLAccess<Student>{
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM `student` WHERE `Student_id` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }

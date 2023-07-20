@@ -15,14 +15,16 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
 
     @Override
     public Boolean INSERT(Instructor item) {
-       String sql = "INSERT INTO `instructor`(name,birthday,Gender,password) VALUES ('"+item.getName()+"','"+item.getBirthday()+"','"+item.getGender()+"','"+item.getPassword()+"')";
+        Boolean result = false;
+        String sql = "INSERT INTO `instructor`(`name`,`birthday`,`Gender`,`password`) VALUES ('"+item.getName()+"','"+item.getBirthday()+"','"+item.getGender()+"','"+item.getPassword()+"')";
         try {
             boolean a = JDBCDriver.SetQuery(sql);
-            System.out.println("thêm dữ .iệu thành công "+a);
-            return true;
+            System.out.println("thêm dữ liệu thành công "+a);
+            result = true;
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+        return result;
     }
 
     @Override
@@ -63,6 +65,16 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery(" DELETE FROM `instructor` WHERE `ID_NUMBER` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }

@@ -13,7 +13,16 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
 
     @Override
     public Boolean INSERT(InstructorSubject item) {
-        return null;
+        Boolean result = false;
+        String sql = "INSERT INTO `instructor_subject`(`ID_NUMBER`, `Subject_code`) VALUES ('"+item.getID_NUMBER()+"','"+item.getSubject_code()+"')";
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("thêm dữ .iệu thành công "+a);
+            result = true;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override
@@ -49,6 +58,16 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM `instructor_subject` WHERE `ID_Teach` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }

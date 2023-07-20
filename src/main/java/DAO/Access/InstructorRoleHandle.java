@@ -12,7 +12,16 @@ import java.util.List;
 public class InstructorRoleHandle  extends AbsSQLAccess<InstructorRole> {
     @Override
     public Boolean INSERT(InstructorRole item) {
-        return null;
+        Boolean result = false;
+        String sql = "INSERT INTO `instructor_role`(`Role_id`, `ID_NUMBER`) VALUES ('"+item.getRole_id()+"','"+item.getID_NUMBER()+"')";
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("thêm dữ .iệu thành công "+a);
+            result = true;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override
@@ -49,6 +58,16 @@ return a;
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM `instructor_role` WHERE `tclass_id` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }

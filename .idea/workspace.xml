@@ -18,12 +18,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectStudentHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectStudentHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TypeScoreHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TypeScoreHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/InstructorRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/InstructorRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/InstructorSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/InstructorSubject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TeacherClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TeacherClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

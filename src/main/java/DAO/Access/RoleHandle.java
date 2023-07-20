@@ -13,15 +13,16 @@ public class RoleHandle extends AbsSQLAccess<Role>{
 
     @Override
     public Boolean INSERT(Role item) {
+        Boolean result = false;
         String sql = "INSERT INTO `role`(`role_name`) VALUES ('"+item.getName()+"')";
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("them du lieu thành công:"+a);
-
-            return true;
+            result = true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return result;
     }
 
     @Override
@@ -56,6 +57,16 @@ public class RoleHandle extends AbsSQLAccess<Role>{
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM `role` WHERE `id` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }

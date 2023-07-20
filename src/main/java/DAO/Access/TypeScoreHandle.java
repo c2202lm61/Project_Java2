@@ -11,15 +11,17 @@ import java.util.List;
 public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
     @Override
     public Boolean INSERT(TypeScore item) {
+        boolean result = false;
         String sql = "INSERT INTO `type_score`(`name`) VALUES ('"+item.getName()+"')";
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("them du lieu thành công:"+a);
 
-            return true;
+            result = true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return result;
     }
 
     @Override
@@ -54,6 +56,16 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM `type_score` WHERE `ts_id` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }

@@ -13,15 +13,16 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
     @Override
     // check lại hộ em nhe
     public Boolean INSERT(MClass item) {
-        String sql = "INSERT INTO `MClass`(grand_id,ID_MANAGER) VALUES ('"+item.getGrandID()+"','"+item.getManagerID()+"'),";
+        Boolean result = false;
+        String sql = "INSERT INTO `MClass`(`grand_id`,`ID_MANAGER`) VALUES ('"+item.getGrandID()+"','"+item.getManagerID()+"'),";
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);
-            return true;
+            result = true;
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
-
+        return result;
     }
 
     @Override
@@ -58,6 +59,16 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM `class` WHERE `class_code` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }
