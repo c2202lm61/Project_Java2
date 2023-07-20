@@ -11,15 +11,17 @@ import java.util.List;
 public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
     @Override
     public Boolean INSERT(TypeScore item) {
+        boolean result = false;
         String sql = "INSERT INTO `type_score`(`name`) VALUES ('"+item.getName()+"')";
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("them du lieu thành công:"+a);
 
-            return true;
+            result = true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return result;
     }
 
     @Override
@@ -37,11 +39,33 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
 
     @Override
     public Boolean UPDATE(TypeScore item) {
-        return null;
+        Boolean result = false;
+        String  sql= "UPDATE `type_score` SET `ts_id`='"+item.getID()+"',`name`='"+item.getName()+"' WHERE id="+item.getID();
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM `type_score` WHERE `ts_id` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }

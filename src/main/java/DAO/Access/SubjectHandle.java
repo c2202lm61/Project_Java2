@@ -13,16 +13,17 @@ public class SubjectHandle extends AbsSQLAccess<Subject> {
 
     @Override
     public Boolean INSERT(Subject item) {
+        Boolean result = false;
         String sql = "INSERT INTO `subject`( `Name`, `Credits`, `grant_id`) VALUES ('"+item.getName()+"',"+item.getCredits()+","+ item.getGrandID()+")";
         System.out.println(sql);
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("them du lieu thành công:"+a);
-
-            return true;
+            result = true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return result;
     }
 
     @Override
@@ -42,11 +43,33 @@ public class SubjectHandle extends AbsSQLAccess<Subject> {
 
     @Override
     public Boolean UPDATE(Subject item) {
-        return null;
+        Boolean result = false;
+        String  sql= "UPDATE `subject` SET `Subject_code`='"+item.getID()+"',`Name`='"+item.getName()+"',`Credits`='"+item.getCredits()+"',`grant_id`='"+item.getGrandID()+"' WHERE id="+item.getID();
+        System.out.println(sql);
+        try {
+            boolean a =JDBCDriver.SetQuery(sql);
+            if (a)System.out.println("Cập nhật dữ liệu thành công");
+            else System.out.println("Cập nhật dữ liệu không thành công");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     @Override
     public Boolean DELETE(int id) {
-        return null;
+        Boolean result = false;
+        try {
+            boolean a =JDBCDriver.SetQuery("DELETE FROM `subject` WHERE `Subject_code` = "+id);
+            if (a)System.out.println("Xóa dữ liệu thành công");
+            else System.out.println("Dữ liệu đó không tồn tại");
+            result = true;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 }
