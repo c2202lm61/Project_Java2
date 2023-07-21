@@ -1,27 +1,49 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import DAO.Access.InstructorHandle;
+import DAO.Access.TeacherClassHandle;
+import Model.Instructor;
+import Model.TeacherClass;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 
 public class TeacherManagement extends JInternalFrame{
     public TeacherManagement(){
+        InstructorHandle instuctorHandle = new InstructorHandle();
+        List<Instructor> a = null;
+        try {
+            a = instuctorHandle.SELECT("SELECT * FROM `instructor`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Iterator<Instructor> instructorIterator = a.iterator();
+        //----------------------------------------------------
         DefaultTableModel modelTeacherManage = new DefaultTableModel();
         modelTeacherManage.addColumn("Chọn");
         modelTeacherManage.addColumn("Mã giáo viên");
         modelTeacherManage.addColumn("Họ và tên");
-        modelTeacherManage.addColumn("Mã  lớp chủ nhiệm");
         modelTeacherManage.addColumn("Giới tính");
-        modelTeacherManage.addColumn("Số điện  thoại");
         modelTeacherManage.addColumn("Ngày sinh");
         modelTeacherManage.addColumn("Password");
         modelTeacherManage.addColumn("Email");
-        table1.setModel(modelTeacherManage);
+        modelTeacherManage.addColumn("Phone");
 
+        //----------------------------------------------------
+        while (instructorIterator.hasNext()){
+            modelTeacherManage.addRow(new Object[]{true,instructorIterator.next().getID_NUMBER(),instructorIterator.next().getName(),instructorIterator.next().getGender(),instructorIterator.next().getBirthday(),instructorIterator.next().getPassword(),instructorIterator.next().getEmail(),instructorIterator.next().getPhone()});
+        }
+        table1.setModel(modelTeacherManage);
+        //----------------------------------------------------
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(TeacherManagentPanel);
         setVisible(true);
+        //----------------------------------------------------
     }
 
     private JPanel TeacherManagentPanel;

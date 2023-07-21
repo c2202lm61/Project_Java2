@@ -9,6 +9,8 @@ public class Instructor {
     private Date birthday;
     private  Boolean gender;
     private  String password;
+    private  String Email;
+    private  String Phone;
 
     public void setID_NUMBER(int ID){
         this.ID_NUMBER= ID_NUMBER;
@@ -36,5 +38,14 @@ public class Instructor {
     public String getPassword(){
         return this.password;
     }
+    public  void setEmail(String Email){this.Email = Email;}
+    public String getEmail(){
+        return this.Email;
+    }
+    public  void setPhone(String Phone){this.Phone=Phone;}
+    public String getPhone(){
+        return this.Phone;
+    }
+
 
 }
