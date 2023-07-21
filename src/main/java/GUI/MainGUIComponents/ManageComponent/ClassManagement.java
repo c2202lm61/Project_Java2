@@ -7,15 +7,24 @@ import java.awt.*;
 
 public class ClassManagement extends JInternalFrame{
     public ClassManagement(){
+
+
+        // table view (phan nay ko duoc code)--------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
         modelScoreManage.addColumn("Mã Lớp");
         modelScoreManage.addColumn("Mã khối");
+        // ----------------------
+
+
         labelTable1.setModel(modelScoreManage);
 
+        // set layout (phan nay ko duoc code) -----------------------
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(ClassManagementPanel);
         setVisible(true);
+        //---------------------------------
+
     }
     private JPanel ClassManagementPanel;
     private JTable labelTable1;
