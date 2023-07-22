@@ -6,6 +6,8 @@ import javax.swing.table.DefaultTableModel;
 public class Assignment extends JInternalFrame{
 
     public Assignment(){
+
+        //-------------------------------------------------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
         modelScoreManage.addColumn("Mã Phân Công");
@@ -13,10 +15,13 @@ public class Assignment extends JInternalFrame{
         modelScoreManage.addColumn("Năm Giảng Dạy");
         modelScoreManage.addColumn("Mã Giáo viên bộ môn");
         modelScoreManage.addColumn("Mã Lớp");
+        //----------------------------------------------------------------
         table1.setModel(modelScoreManage);
+        //--------------------------------------------------------------------
         setTitle("Phân công");
         setContentPane(AssignmentPanel);
         setVisible(true);
+        //------------------------------------------------------------
     }
 
 

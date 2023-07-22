@@ -1,12 +1,26 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import DAO.Access.ClassHandle;
+import Model.MClass;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 
 public class ClassManagement extends JInternalFrame{
     public ClassManagement(){
+        ClassHandle classHandle = new ClassHandle();
+        List<MClass> a = null;
+        try {
+            a = classHandle.SELECT("SELECT * FROM `class`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Iterator<MClass> classIterator = a.iterator();
 
 
         // table view (phan nay ko duoc code)--------------
@@ -14,8 +28,11 @@ public class ClassManagement extends JInternalFrame{
         modelScoreManage.addColumn("Chọn");
         modelScoreManage.addColumn("Mã Lớp");
         modelScoreManage.addColumn("Mã khối");
+        modelScoreManage.addColumn("Mã Nhân Viên");
         // ----------------------
-
+        while(classIterator.hasNext()){
+            modelScoreManage.addRow(new Object[]{true,classIterator.next().getID(),classIterator.next().getGrandID(),classIterator.next().getManagerID()});
+        }
 
         labelTable1.setModel(modelScoreManage);
 

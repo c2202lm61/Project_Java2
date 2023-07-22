@@ -34,6 +34,7 @@ public class ScoreManagement extends JInternalFrame {
     }
 
     public ScoreManagement(){
+        
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
         modelScoreManage.addColumn("Mã học sinh");
