@@ -1,9 +1,16 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import DAO.Access.ScoreStudentHandle;
+import DAO.Access.SubjectStudentHandle;
+import Model.Score;
+import Model.SubjectStudent;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.List;
 
 public class ScoreManagement extends JInternalFrame {
     private JPanel scoreManageComponent;
@@ -34,7 +41,9 @@ public class ScoreManagement extends JInternalFrame {
     }
 
     public ScoreManagement(){
-        
+
+
+        //------------------------------------------------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
         modelScoreManage.addColumn("Mã học sinh");
@@ -45,10 +54,13 @@ public class ScoreManagement extends JInternalFrame {
         modelScoreManage.addColumn("Điểm thi cuối kì 1");
         modelScoreManage.addColumn("Điểm thi giữa kì 2");
         modelScoreManage.addColumn("Điểm thi cuối kì 2");
+        //-----------------------------------------------
         table1.setModel(modelScoreManage);
 
+        //-----------------------------------------------------------------
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(scoreManageComponent);
         setVisible(true);
+        //----------------------------------------------------------------------
     }
 }
