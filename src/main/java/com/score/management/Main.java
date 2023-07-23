@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 public class Main {
     public static void main(String[] args) {
 //        Instructor instructor = new Instructor();
-//        instructor.setName("Pham Qun depzaivkl");
+//        instructor.setName("Pham Qun depzaivkl111111111");
 //        instructor.setPassword("qqqq111");
 //        instructor.setGender(true);
 //        String dateString = "2000-11-13";
