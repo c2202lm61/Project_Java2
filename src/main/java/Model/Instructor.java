@@ -1,12 +1,12 @@
 package Model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Instructor {
 
     private int ID_NUMBER;
     private String name;
-    private Date birthday;
+    private LocalDate birthday;
     private  Boolean gender;
     private  String password;
     private  String Email;
@@ -24,8 +24,9 @@ public class Instructor {
         return this.name;
     }
 
-    public  void  setBirthday(Date birthday){this.birthday = birthday;}
-    public  Date getBirthday(){
+
+    public  void  setBirthday(LocalDate birthday){this.birthday = birthday;}
+    public  LocalDate getBirthday(){
         return this.birthday;
     }
 

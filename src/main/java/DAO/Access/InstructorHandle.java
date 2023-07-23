@@ -16,14 +16,15 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
     @Override
     public Boolean INSERT(Instructor item) {
         Boolean result = false;
-        String sql = "INSERT INTO `instructor`(`name`,`birthday`,`Gender`,`password`,`Email`,`Phone`) VALUES ('"+item.getName()+"','"+item.getBirthday()+"','"+item.getGender()+"','"+item.getPassword()+"','"+item.getEmail()+"','"+item.getPhone()+"')";
-        try {
-            boolean a = JDBCDriver.SetQuery(sql);
-            System.out.println("thêm dữ liệu thành công "+a);
-            result = true;
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
+        String sql = "INSERT INTO `instructor`(`name`,`birthday`,`Gender`,`password`,`Email`,`Phone`) VALUES ('"+item.getName()+"','"+item.getBirthday()+"',"+item.getGender()+",'"+item.getPassword()+"','"+item.getEmail()+"','"+item.getPhone()+"')";
+        System.out.println(sql);
+//        try {
+//            boolean a = JDBCDriver.SetQuery(sql);
+//            System.out.println("thêm dữ liệu thành công "+a);
+//            result = true;
+//        }catch (SQLException e){
+//            throw new RuntimeException(e);
+//        }
         return result;
     }
 
@@ -35,8 +36,8 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
         while (resultSet.next()){
             Instructor b = new Instructor();
             b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
+
             b.setName(resultSet.getString("name"));
-            b.setBirthday(resultSet.getDate("birthday"));
             b.setGender(resultSet.getBoolean("gender"));
             b.setPassword(resultSet.getString("password"));
             b.setEmail(resultSet.getString("Email"));
@@ -50,7 +51,7 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
     @Override
     public Boolean UPDATE(Instructor item) {
         Boolean result = false;
-        String  sql= "UPDATE `instructor` SET `ID_NUMBER`='"+item.getID_NUMBER() +"',`name`='"+item.getName() +"',`birthday`='"+item.getBirthday() +"',`Gender`='"+item.getGender() +"',`password`='"+item.getPassword() +"',`Email`='"+item.getEmail() +"',`Phone`='"+item.getPhone() +"' WHERE id="+item.getID_NUMBER();
+        String  sql= "UPDATE `instructor` SET `ID_NUMBER`='"+item.getID_NUMBER() +"',`name`='"+item.getName() +"',`birthday`='"+item.getBirthday() +"',`Gender`="+item.getGender() +",`password`='"+item.getPassword() +"',`Email`='"+item.getEmail() +"',`Phone`='"+item.getPhone() +"' WHERE id="+item.getID_NUMBER();
 
         System.out.println(sql);
         try {
