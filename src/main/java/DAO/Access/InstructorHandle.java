@@ -38,13 +38,9 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
         while (resultSet.next()){
             Instructor b = new Instructor();
             b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
-<<<<<<< HEAD
-=======
-
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate date = LocalDate.parse(resultSet.getString("birthday"), formatter);
             b.setBirthday(date);
->>>>>>> ef1f15f1202b227b5b81343b4144cff0c7383d4a
             b.setName(resultSet.getString("name"));
             b.setGender(resultSet.getBoolean("gender"));
             b.setPassword(resultSet.getString("password"));
