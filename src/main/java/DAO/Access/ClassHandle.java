@@ -32,7 +32,7 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
         while (resultSet.next()){
             MClass b = new MClass();
             b.setID(resultSet.getInt("class_code"));
-            b.setGrandID(resultSet.getInt("grand_id"));
+            b.setGrandID(resultSet.getInt("grant_id"));
             b.setManagerID(resultSet.getInt("ID_manager"));
             a.add(b);
         }
