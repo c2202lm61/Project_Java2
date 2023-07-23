@@ -37,7 +37,8 @@ public class StudentManagement extends JInternalFrame {
         modelStudentManage.addColumn("Mã Lớp");
         // ----------------------------------------
         while (studentIterator.hasNext()){
-            modelStudentManage.addRow(new Object[]{true,studentIterator.next().getID(),studentIterator.next().getName(),studentIterator.next().getGender(),studentIterator.next().getBirthday(),studentIterator.next().getAddress(), studentIterator.next().getPhone(),studentIterator.next().getClassID()});
+            Student student = studentIterator.next();
+            modelStudentManage.addRow(new Object[]{true,student.getID(),student.getName(),student.getGender(),student.getBirthday(),student.getAddress(), student.getPhone(),student.getClassID()});
         }
         table1.setModel(modelStudentManage);
 

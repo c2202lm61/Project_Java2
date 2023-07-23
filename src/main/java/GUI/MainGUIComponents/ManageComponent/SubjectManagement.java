@@ -33,7 +33,8 @@ public class SubjectManagement extends JInternalFrame{
         //------------------------------------
 
         while (subjectIterator.hasNext()){
-            modelScoreManage.addRow(new Object[]{true,subjectIterator.next().getID(),subjectIterator.next().getName(),subjectIterator.next().getCredits(),subjectIterator.next().getGrandID()});
+            Subject subject = subjectIterator.next();
+            modelScoreManage.addRow(new Object[]{true,subject.getID(),subject.getName(),subject.getCredits(),subject.getGrandID()});
         }
         table1.setModel(modelScoreManage);
 

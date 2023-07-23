@@ -28,7 +28,8 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         modelScoreManage.addColumn("Mã Môn Học");
         //-----------------------------------------------
         while (instructorsubjectIterator.hasNext()){
-            modelScoreManage.addRow(new Object[]{true,instructorsubjectIterator.next().getID_Teach(),instructorsubjectIterator.next().getID_NUMBER(),instructorsubjectIterator.next().getSubject_code()});
+            InstructorSubject instructorSubject = instructorsubjectIterator.next();
+            modelScoreManage.addRow(new Object[]{true,instructorSubject.getID_Teach(),instructorSubject.getID_NUMBER(),instructorSubject.getSubject_code()});
         }
         table1.setModel(modelScoreManage);
         //-----------------------------------------------

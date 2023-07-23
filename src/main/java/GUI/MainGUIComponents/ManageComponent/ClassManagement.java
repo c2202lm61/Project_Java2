@@ -31,7 +31,8 @@ public class ClassManagement extends JInternalFrame{
         modelScoreManage.addColumn("Mã Nhân Viên");
         // ----------------------
         while(classIterator.hasNext()){
-            modelScoreManage.addRow(new Object[]{true,classIterator.next().getID(),classIterator.next().getGrandID(),classIterator.next().getManagerID()});
+            MClass mclass = classIterator.next();
+            modelScoreManage.addRow(new Object[]{true,mclass.getID(),mclass.getGrandID(),mclass.getManagerID()});
         }
 
         labelTable1.setModel(modelScoreManage);

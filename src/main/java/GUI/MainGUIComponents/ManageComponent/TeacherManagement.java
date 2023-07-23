@@ -36,7 +36,8 @@ public class TeacherManagement extends JInternalFrame{
 
         //----------------------------------------------------
         while (instructorIterator.hasNext()){
-            modelTeacherManage.addRow(new Object[]{true,instructorIterator.next().getID_NUMBER(),instructorIterator.next().getName(),instructorIterator.next().getGender(),instructorIterator.next().getBirthday(),instructorIterator.next().getPassword(),instructorIterator.next().getEmail(),instructorIterator.next().getPhone()});
+            Instructor instructor = instructorIterator.next();
+            modelTeacherManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),instructor.getGender(),instructor.getBirthday(),instructor.getPassword(),instructor.getEmail(),instructor.getPhone()});
         }
         table1.setModel(modelTeacherManage);
         //----------------------------------------------------

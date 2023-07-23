@@ -30,7 +30,8 @@ public class BlockManagement extends JInternalFrame{
         // --------------------------
 
         while (blockIterator.hasNext()){
-            modelScoreManage.addRow(new Object[]{true,blockIterator.next().getID(),blockIterator.next().getName()});
+            Block block = blockIterator.next();
+            modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});
         }
         table1.setModel(modelScoreManage);
 
