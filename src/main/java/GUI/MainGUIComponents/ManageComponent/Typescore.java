@@ -3,6 +3,7 @@ package GUI.MainGUIComponents.ManageComponent;
 import javax.swing.*;
 
 public class Typescore {
+
     private JTable table1;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
