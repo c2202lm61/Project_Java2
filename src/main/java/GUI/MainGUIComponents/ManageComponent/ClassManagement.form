@@ -113,7 +113,9 @@
               </component>
               <component id="cf547" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="52" height="16"/>
+                  </grid>
                 </constraints>
                 <properties>
                   <text value="Ma Lop"/>
@@ -121,24 +123,23 @@
               </component>
               <component id="4ecab" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="52" height="16"/>
+                  </grid>
                 </constraints>
                 <properties>
                   <text value="Ma Khoi"/>
                 </properties>
               </component>
-              <component id="fca08" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+              <component id="fca08" class="javax.swing.JComboBox" binding="MaKhoi">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <model>
-                    <item value="k01"/>
-                    <item value="k02"/>
-                  </model>
+                  <model/>
                 </properties>
               </component>
-              <component id="b084f" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="b084f" class="javax.swing.JTextField" binding="Malop">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>

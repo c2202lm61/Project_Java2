@@ -1,24 +1,56 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import DAO.Access.TeacherClassHandle;
+import Model.TeacherClass;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Assignment extends JInternalFrame{
-
+    public List<TeacherClass> a = new ArrayList();
     public Assignment(){
+
+
+        //-------------------------------------------------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
         modelScoreManage.addColumn("Mã Phân Công");
         modelScoreManage.addColumn("Số Học Kì");
-        modelScoreManage.addColumn("Năm Giảng Dạy");
         modelScoreManage.addColumn("Mã Giáo viên bộ môn");
         modelScoreManage.addColumn("Mã Lớp");
         table1.setModel(modelScoreManage);
+        refreshTable();
+        //----------------------------------------------------------------
+
+
+        //--------------------------------------------------------------------
         setTitle("Phân công");
         setContentPane(AssignmentPanel);
         setVisible(true);
+        //------------------------------------------------------------
     }
+    public void refreshTable() {
+        DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+        modelScoreManage.setRowCount(0); // Clear existing data in the table
 
+        TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
+        this.a = null;
+        try {
+            a = teacherClassHandle.SELECT("SELECT * FROM `teach_class`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        Iterator<TeacherClass> teacherClassIterator = a.iterator();
+        while (teacherClassIterator.hasNext()){
+            TeacherClass teacherClass = teacherClassIterator.next();
+            modelScoreManage.addRow(new Object[]{true,teacherClass.getId_tc(),teacherClass.getNumberofsemester(),teacherClass.getID_Teach(),teacherClass.getClass_code()});
+        }
+    }
 
 
     DefaultTableModel model;

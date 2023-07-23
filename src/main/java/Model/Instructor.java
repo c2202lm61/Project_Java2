@@ -1,18 +1,21 @@
 package Model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Instructor {
 
     private int ID_NUMBER;
     private String name;
-    private Date birthday;
+    private LocalDate birthday;
     private  Boolean gender;
     private  String password;
+    private  String Email;
+    private  String Phone;
 
-    public void setID_NUMBER(int ID){
-        this.ID_NUMBER= ID_NUMBER;
+    public void setID_NUMBER(int ID_NUMBER) {
+        this.ID_NUMBER = ID_NUMBER;
     }
+
     public int getID_NUMBER(){
         return this.ID_NUMBER;
     }
@@ -22,8 +25,9 @@ public class Instructor {
         return this.name;
     }
 
-    public  void  setBirthday(Date birthday){this.birthday = birthday;}
-    public  Date getBirthday(){
+
+    public  void  setBirthday(LocalDate birthday){this.birthday = birthday;}
+    public  LocalDate getBirthday(){
         return this.birthday;
     }
 
@@ -36,5 +40,14 @@ public class Instructor {
     public String getPassword(){
         return this.password;
     }
+    public  void setEmail(String Email){this.Email = Email;}
+    public String getEmail(){
+        return this.Email;
+    }
+    public  void setPhone(String Phone){this.Phone=Phone;}
+    public String getPhone(){
+        return this.Phone;
+    }
+
 
 }
