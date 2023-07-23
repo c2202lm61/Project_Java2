@@ -7,6 +7,8 @@ import Model.Instructor;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,13 +20,13 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
         Boolean result = false;
         String sql = "INSERT INTO `instructor`(`name`,`birthday`,`Gender`,`password`,`Email`,`Phone`) VALUES ('"+item.getName()+"','"+item.getBirthday()+"',"+item.getGender()+",'"+item.getPassword()+"','"+item.getEmail()+"','"+item.getPhone()+"')";
         System.out.println(sql);
-//        try {
-//            boolean a = JDBCDriver.SetQuery(sql);
-//            System.out.println("thêm dữ liệu thành công "+a);
-//            result = true;
-//        }catch (SQLException e){
-//            throw new RuntimeException(e);
-//        }
+        try {
+            boolean a = JDBCDriver.SetQuery(sql);
+            System.out.println("thêm dữ liệu thành công "+a);
+            result = true;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
         return result;
     }
 
@@ -36,6 +38,13 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
         while (resultSet.next()){
             Instructor b = new Instructor();
             b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
+<<<<<<< HEAD
+=======
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date = LocalDate.parse(resultSet.getString("birthday"), formatter);
+            b.setBirthday(date);
+>>>>>>> ef1f15f1202b227b5b81343b4144cff0c7383d4a
             b.setName(resultSet.getString("name"));
             b.setGender(resultSet.getBoolean("gender"));
             b.setPassword(resultSet.getString("password"));
