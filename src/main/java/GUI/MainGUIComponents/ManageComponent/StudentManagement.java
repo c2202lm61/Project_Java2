@@ -1,12 +1,10 @@
 package GUI.MainGUIComponents.ManageComponent;
 
-<<<<<<< HEAD
+
 import DAO.Access.ClassHandle;
 import DAO.Access.StudentHandle;
 import Model.MClass;
-=======
-import DAO.Access.StudentHandle;
->>>>>>> 2b1a9b6a986d8ce95692a5938cf4d5c13d8c50d1
+
 import Model.Student;
 
 import javax.swing.*;
@@ -14,12 +12,11 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.SQLException;
-<<<<<<< HEAD
+
 import java.util.List;
 
-public class StudentManagement extends JInternalFrame {
 
-=======
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -70,7 +67,7 @@ public class StudentManagement extends JInternalFrame {
 
 
     }
->>>>>>> 2b1a9b6a986d8ce95692a5938cf4d5c13d8c50d1
+
     private JPanel StudentManagementPanel;
     private JButton chọnẢnhButton;
     private JButton thêmButton;

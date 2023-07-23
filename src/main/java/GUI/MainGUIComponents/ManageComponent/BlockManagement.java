@@ -1,8 +1,9 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+
 import DAO.Access.GrantHandle;
 import Model.Block;
-
+import GUI.MainGUIComponents.ManageComponent.ClassManagement;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
@@ -40,6 +41,7 @@ public class BlockManagement extends JInternalFrame{
                 Block block = new Block();
                 int makhoi = Integer.parseInt(MaKhoi.getText());
                 String tenkhoi = TenKhoi.getText();
+
                 block.setID(makhoi);
                 block.setName(tenkhoi);
                 GrantHandle grantHandle = new GrantHandle();
@@ -53,10 +55,12 @@ public class BlockManagement extends JInternalFrame{
     }
 
     public void refreshTable() {
+        GrantHandle grantHandle = new GrantHandle();
+
+
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table
 
-        GrantHandle grantHandle = new GrantHandle();
         this.a = null;
         try {
             a = grantHandle.SELECT("SELECT * FROM grants");
@@ -67,8 +71,10 @@ public class BlockManagement extends JInternalFrame{
         Iterator<Block> blockIterator = a.iterator();
         while (blockIterator.hasNext()){
             Block block = blockIterator.next();
+
             modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});
         }
+
 
     }
 

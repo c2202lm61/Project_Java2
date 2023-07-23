@@ -49,11 +49,7 @@ public class JPannelManage extends JPanel{
         String card4 = "Card 4";
         secondPart.add(component4, card4);
         //
-        JDesktopPane component5 = new JDesktopPane();
-        component5.setLayout(new GridLayout());
-        component5.add(new ClassManagement());
-        String card5 = "Card 5";
-        secondPart.add(component5, card5);
+
         //
         JDesktopPane component6 = new JDesktopPane();
         component6.setLayout(new GridLayout());
@@ -96,6 +92,7 @@ public class JPannelManage extends JPanel{
         });
         leftPanel.button2.addActionListener(new ActionListener() {
             @Override
+
             public void actionPerformed(ActionEvent actionEvent) {
                 cardLayout.show(secondPart, "Card 3");
             }
@@ -105,12 +102,21 @@ public class JPannelManage extends JPanel{
             public void actionPerformed(ActionEvent actionEvent) {
                 cardLayout.show(secondPart, "Card 4");
             }
+
         });
         leftPanel.button4.addActionListener(new ActionListener() {
             @Override
+
             public void actionPerformed(ActionEvent actionEvent) {
+                JDesktopPane component5 = new JDesktopPane();
+                component5.setLayout(new GridLayout());
+                component5.add(new ClassManagement());
+                String card5 = "Card 5";
+                secondPart.add(component5, card5);
                 cardLayout.show(secondPart, "Card 5");
+
             }
+
         });
         leftPanel.button5.addActionListener(new ActionListener() {
             @Override
