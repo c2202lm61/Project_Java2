@@ -36,7 +36,6 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
         while (resultSet.next()){
             Instructor b = new Instructor();
             b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
-
             b.setName(resultSet.getString("name"));
             b.setGender(resultSet.getBoolean("gender"));
             b.setPassword(resultSet.getString("password"));

@@ -1,13 +1,14 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import DAO.Access.SubjectHandle;
-import Model.MClass;
 import Model.Subject;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,11 +30,19 @@ public class SubjectManagement extends JInternalFrame{
 
         table1.setModel(modelScoreManage);
         refreshTable();
+
+
         //---------------------------------------------
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(panel1);
         setVisible(true);
         //-----------------------------------------
+        insert.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -59,7 +68,7 @@ public class SubjectManagement extends JInternalFrame{
     private JTextField textField3;
     private JComboBox comboBox1;
     private JButton xóaButton;
-    private JButton thêmButton;
+    private JButton insert;
     private JButton sửaButton;
     private JButton resetButton;
     private JButton chọnButton;
