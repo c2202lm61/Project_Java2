@@ -10,20 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-//        Instructor instructor = new Instructor();
-//        instructor.setName("Pham Qun depzaivkl111111111");
-//        instructor.setPassword("qqqq111");
-//        instructor.setGender(true);
-//        String dateString = "2000-11-13";
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//        LocalDate date = LocalDate.parse(dateString, formatter);
-//        instructor.setBirthday(date);
-//        instructor.setEmail("abc@gmail.com");
-//        instructor.setPhone("01234561");
-//        new InstructorHandle().INSERT(instructor);
 
         new MainGUI();
-
-
     }
 }

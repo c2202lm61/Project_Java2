@@ -63,9 +63,8 @@ public class SubjectManagement extends JInternalFrame{
 
     }
     private JPanel panel1;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField mamh;
+    private JTextField tinchi;
     private JComboBox comboBox1;
     private JButton xóaButton;
     private JButton insert;
@@ -77,4 +76,5 @@ public class SubjectManagement extends JInternalFrame{
     private JComboBox comboBox2;
     private JButton zAButton;
     private JButton aZButton;
+    private JTextField TenMon;
 }
