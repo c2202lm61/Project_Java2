@@ -38,7 +38,7 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
             b.setName(resultSet.getString("name"));
             b.setBirthday(resultSet.getDate("birthday"));
             b.setGender(resultSet.getBoolean("gender"));
-            b.setPassword(resultSet.getString("passwrod"));
+            b.setPassword(resultSet.getString("password"));
             b.setEmail(resultSet.getString("Email"));
             b.setPhone(resultSet.getString("Phone"));
             a.add(b);

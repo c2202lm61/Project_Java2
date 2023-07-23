@@ -6,20 +6,15 @@ import Model.InstructorSubject;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class SubjectTeachingTeacher extends JInternalFrame{
-
+    private List<InstructorSubject> a = new ArrayList<>();
     public SubjectTeachingTeacher(){
-        InstructorSubjectHandle instuctorHandle = new InstructorSubjectHandle();
-        List<InstructorSubject> a = null;
-        try {
-            a = instuctorHandle.SELECT("SELECT * FROM `instructor_subject`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        Iterator<InstructorSubject> instructorsubjectIterator = a.iterator();
+
+
         //-----------------------------------------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
@@ -27,11 +22,9 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         modelScoreManage.addColumn("Mã Giáo Viên");
         modelScoreManage.addColumn("Mã Môn Học");
         //-----------------------------------------------
-        while (instructorsubjectIterator.hasNext()){
-            InstructorSubject instructorSubject = instructorsubjectIterator.next();
-            modelScoreManage.addRow(new Object[]{true,instructorSubject.getID_Teach(),instructorSubject.getID_NUMBER(),instructorSubject.getSubject_code()});
-        }
+
         table1.setModel(modelScoreManage);
+        refreshTable();
         //-----------------------------------------------
         setTitle("");
         setContentPane(subjectTeachingTeacherPanel);
@@ -39,7 +32,24 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         //-----------------------------------------------
     }
 
+    public void refreshTable() {
+        DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+        modelScoreManage.setRowCount(0); // Clear existing data in the table
 
+        InstructorSubjectHandle instuctorHandle = new InstructorSubjectHandle();
+        this.a = null;
+        try {
+            a = instuctorHandle.SELECT("SELECT * FROM `instructor_subject`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Iterator<InstructorSubject> instructorsubjectIterator = a.iterator();
+        while (instructorsubjectIterator.hasNext()){
+            InstructorSubject instructorSubject = instructorsubjectIterator.next();
+            modelScoreManage.addRow(new Object[]{true,instructorSubject.getID_Teach(),instructorSubject.getID_NUMBER(),instructorSubject.getSubject_code()});
+        }
+
+    }
     private JPanel subjectTeachingTeacherPanel;
     private JButton tảiLạiButton;
     private JButton xóaButton;
