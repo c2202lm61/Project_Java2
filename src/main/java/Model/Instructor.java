@@ -12,9 +12,10 @@ public class Instructor {
     private  String Email;
     private  String Phone;
 
-    public void setID_NUMBER(int ID){
-        this.ID_NUMBER= ID_NUMBER;
+    public void setID_NUMBER(int ID_NUMBER) {
+        this.ID_NUMBER = ID_NUMBER;
     }
+
     public int getID_NUMBER(){
         return this.ID_NUMBER;
     }
