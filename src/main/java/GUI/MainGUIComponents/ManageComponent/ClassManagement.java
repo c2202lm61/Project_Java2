@@ -8,19 +8,15 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class ClassManagement extends JInternalFrame{
+    public List<MClass> a = new ArrayList<>();
     public ClassManagement(){
-        ClassHandle classHandle = new ClassHandle();
-        List<MClass> a = null;
-        try {
-            a = classHandle.SELECT("SELECT * FROM `class`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        Iterator<MClass> classIterator = a.iterator();
+
+
 
 
         // table view (phan nay ko duoc code)--------------
@@ -30,13 +26,9 @@ public class ClassManagement extends JInternalFrame{
         modelScoreManage.addColumn("Mã khối");
         modelScoreManage.addColumn("Mã Nhân Viên");
         // ----------------------
-        while(classIterator.hasNext()){
-            MClass mclass = classIterator.next();
-            modelScoreManage.addRow(new Object[]{true,mclass.getID(),mclass.getGrandID(),mclass.getManagerID()});
-        }
-
         labelTable1.setModel(modelScoreManage);
 
+        refreshTable();
         // set layout (phan nay ko duoc code) -----------------------
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(ClassManagementPanel);
@@ -44,6 +36,26 @@ public class ClassManagement extends JInternalFrame{
         //---------------------------------
 
     }
+    public void refreshTable() {
+        DefaultTableModel modelScoreManage = (DefaultTableModel) labelTable1.getModel();
+        modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+        ClassHandle classHandle = new ClassHandle();
+        this.a = null;
+        try {
+            a = classHandle.SELECT("SELECT * FROM `class`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Iterator<MClass> classIterator = a.iterator();
+
+        while(classIterator.hasNext()){
+            MClass mclass = classIterator.next();
+            modelScoreManage.addRow(new Object[]{true,mclass.getID(),mclass.getGrandID(),mclass.getManagerID()});
+        }
+
+    }
+    private JComboBox MaKhoi;
     private JPanel ClassManagementPanel;
     private JTable labelTable1;
     private JButton button1;
@@ -54,6 +66,5 @@ public class ClassManagement extends JInternalFrame{
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
     private JComboBox comboBox1;
-    private JComboBox comboBox2;
-    private JTextField textField1;
+    private JTextField Malop;
 }

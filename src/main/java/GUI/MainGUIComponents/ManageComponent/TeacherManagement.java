@@ -10,19 +10,14 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class TeacherManagement extends JInternalFrame{
+    private List<Instructor> a = new ArrayList<>();
     public TeacherManagement(){
-        InstructorHandle instuctorHandle = new InstructorHandle();
-        List<Instructor> a = null;
-        try {
-            a = instuctorHandle.SELECT("SELECT * FROM `instructor`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        Iterator<Instructor> instructorIterator = a.iterator();
+
         //----------------------------------------------------
         DefaultTableModel modelTeacherManage = new DefaultTableModel();
         modelTeacherManage.addColumn("Chọn");
@@ -33,20 +28,34 @@ public class TeacherManagement extends JInternalFrame{
         modelTeacherManage.addColumn("Password");
         modelTeacherManage.addColumn("Email");
         modelTeacherManage.addColumn("Phone");
-
-        //----------------------------------------------------
-        while (instructorIterator.hasNext()){
-            Instructor instructor = instructorIterator.next();
-            modelTeacherManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),instructor.getGender(),instructor.getBirthday(),instructor.getPassword(),instructor.getEmail(),instructor.getPhone()});
-        }
         table1.setModel(modelTeacherManage);
+        //----------------------------------------------------
+
+        refreshTable();
         //----------------------------------------------------
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(TeacherManagentPanel);
         setVisible(true);
         //----------------------------------------------------
     }
+    public void refreshTable() {
+        DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+        modelScoreManage.setRowCount(0); // Clear existing data in the table
 
+        InstructorHandle instuctorHandle = new InstructorHandle();
+        this.a = null;
+        try {
+            a = instuctorHandle.SELECT("SELECT * FROM `instructor`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Iterator<Instructor> instructorIterator = a.iterator();
+        while (instructorIterator.hasNext()){
+            Instructor instructor = instructorIterator.next();
+            modelScoreManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),instructor.getGender(),instructor.getBirthday(),instructor.getPassword(),instructor.getEmail(),instructor.getPhone()});
+        }
+
+    }
     private JPanel TeacherManagentPanel;
     private JButton thêmButton;
     private JButton sửaButton;

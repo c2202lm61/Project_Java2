@@ -8,21 +8,15 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class StudentManagement extends JInternalFrame {
-
+    private List<Student> a = new ArrayList<>();
     public StudentManagement(){
 
-        StudentHandle studentHandle = new StudentHandle();
-        List<Student> a = null;
-        try {
-            a = studentHandle.SELECT("SELECT * FROM `student`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        Iterator<Student> studentIterator = a.iterator();
+
 
 
         // table view (phan nay ko duoc code)--------------
@@ -36,10 +30,7 @@ public class StudentManagement extends JInternalFrame {
         modelStudentManage.addColumn("Phone");
         modelStudentManage.addColumn("Mã Lớp");
         // ----------------------------------------
-        while (studentIterator.hasNext()){
-            Student student = studentIterator.next();
-            modelStudentManage.addRow(new Object[]{true,student.getID(),student.getName(),student.getGender(),student.getBirthday(),student.getAddress(), student.getPhone(),student.getClassID()});
-        }
+
         table1.setModel(modelStudentManage);
 
         // set layout (phan nay ko duoc code) -----------------------
@@ -47,6 +38,25 @@ public class StudentManagement extends JInternalFrame {
         setContentPane(StudentManagementPanel);
         setVisible(true);
         //--------------------------------------------------
+    }
+    public void refreshTable() {
+        DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+        modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+        StudentHandle studentHandle = new StudentHandle();
+                this.a = null;
+                try {
+                    a = studentHandle.SELECT("SELECT * FROM `student`");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+        Iterator<Student> studentIterator = a.iterator();
+        while (studentIterator.hasNext()){
+            Student student = studentIterator.next();
+            modelScoreManage.addRow(new Object[]{true,student.getID(),student.getName(),student.getGender(),student.getBirthday(),student.getAddress(), student.getPhone(),student.getClassID()});
+        }
+
+
     }
     private JPanel StudentManagementPanel;
     private JButton chọnẢnhButton;

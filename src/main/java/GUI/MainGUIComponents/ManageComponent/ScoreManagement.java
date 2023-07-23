@@ -32,6 +32,8 @@ public class ScoreManagement extends JInternalFrame {
     private JTextField DiemThiGiuaKi2;
     private JTextField DiemThiCuoiKi2;
 
+
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("ScoreManagement");
         frame.setContentPane(new ScoreManagement().scoreManageComponent);
