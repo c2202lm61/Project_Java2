@@ -1,6 +1,6 @@
 package Model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Student {
     private int ID;
@@ -9,7 +9,7 @@ public class Student {
 
     private String SocialSecurtyNumber;
     private boolean  Gender;
-    private Date Birhday;
+    private LocalDate Birhday;
     private String Phone;
 
     private String Address;
@@ -51,10 +51,10 @@ public class Student {
     public Boolean getGender(){
         return this.Gender;
     }
-    public void setBirthday(Date Birthday){
+    public void setBirthday(LocalDate Birthday){
         this.Birhday = Birthday;
     }
-    public Date getBirthday(){
+    public LocalDate getBirthday(){
         return this.Birhday;
     }
     public void setAddress(String Address){

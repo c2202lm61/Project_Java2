@@ -14,7 +14,7 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
     // check lại hộ em nhe
     public Boolean INSERT(MClass item) {
         Boolean result = false;
-        String sql = "INSERT INTO `MClass`(`grand_id`,`ID_MANAGER`) VALUES ('"+item.getGrandID()+"','"+item.getManagerID()+"'),";
+        String sql = "INSERT INTO `class`(`grant_id`,`ID_MANAGER`) VALUES ("+item.getGrandID()+","+item.getManagerID()+")";
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);
@@ -32,7 +32,7 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
         while (resultSet.next()){
             MClass b = new MClass();
             b.setID(resultSet.getInt("class_code"));
-            b.setGrandID(resultSet.getInt("grand_id"));
+            b.setGrandID(resultSet.getInt("grant_id"));
             b.setManagerID(resultSet.getInt("ID_manager"));
             a.add(b);
         }

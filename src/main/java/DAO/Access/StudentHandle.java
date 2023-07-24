@@ -5,6 +5,8 @@ import Model.Student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +15,11 @@ public class StudentHandle extends AbsSQLAccess<Student>{
     @Override
     public Boolean INSERT(Student item) {
         Boolean result = false;
-        String sql = "INSERT INTO `student`(`Social_Securty_Number`, `Current_address`, `Phone`, `Birthday`, `Gender`, `Class_code`, `Name`)" + " VALUES ('"+item.getSocialSecurtyNumber()+"','"+item.getAddress()+"','"+item.getPhone()+"','"+item.getBirthday()+"','"+item.getGender()+"','"+item.getClassID()+"','"+item.getName()+"')";
+        String sql = "INSERT INTO `student`(`Social_Securty_Number`, `Current_address`, `Phone`, `Birthday`, `Gender`, `Class_code`, `Name`)" + " VALUES ('"+item.getSocialSecurtyNumber()+"','"+item.getAddress()+"','"+item.getPhone()+"','"+item.getBirthday()+"',"+item.getGender()+","+item.getClassID()+",'"+item.getName()+"')";
+        System.out.println(sql);
         try {
             boolean a = JDBCDriver.SetQuery(sql);
-            System.out.println("thêm dữ .iệu thành công "+a);
+            System.out.println("thêm dữ liệu thành công "+a);
             result = true;
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -33,10 +36,13 @@ public class StudentHandle extends AbsSQLAccess<Student>{
             b.setID(resultSet.getInt("Student_id"));
             b.setName(resultSet.getString("Name"));
             b.setSocialSecurtyNumber(resultSet.getString("Social_Securty_Number"));
-            b.setBirthday(resultSet.getDate("Birthday"));
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date = LocalDate.parse(resultSet.getString("birthday"), formatter);
+            b.setBirthday(date);
             b.setGender(resultSet.getBoolean("Gender"));
             b.setAddress(resultSet.getString("Current_address"));
-            b.setAddress(resultSet.getString("Phone"));
+            b.setPhone(resultSet.getString("Phone"));
+            b.setClassID(resultSet.getInt("Class_code"));
             a.add(b);
         }
         return a;

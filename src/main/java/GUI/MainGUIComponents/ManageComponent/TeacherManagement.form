@@ -74,7 +74,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="d7311" class="javax.swing.JButton" binding="thêmButton" default-binding="true">
+              <component id="d7311" class="javax.swing.JButton" binding="insertButton">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -167,7 +167,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="40e7e" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+                  <component id="40e7e" class="javax.swing.JTextField" binding="instName">
                     <constraints>
                       <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -177,7 +177,7 @@
                       <font size="20"/>
                     </properties>
                   </component>
-                  <component id="4ed37" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+                  <component id="4ed37" class="javax.swing.JTextField" binding="insBirthday">
                     <constraints>
                       <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -185,9 +185,10 @@
                     </constraints>
                     <properties>
                       <font size="20"/>
+                      <text value=""/>
                     </properties>
                   </component>
-                  <component id="12ab4" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+                  <component id="12ab4" class="javax.swing.JTextField" binding="insEmail">
                     <constraints>
                       <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -215,7 +216,7 @@
                       <text value="Giới tính"/>
                     </properties>
                   </component>
-                  <component id="fb1e2" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+                  <component id="fb1e2" class="javax.swing.JComboBox" binding="insGender">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -262,7 +263,7 @@
                       <font size="20"/>
                     </properties>
                   </component>
-                  <component id="8309a" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+                  <component id="8309a" class="javax.swing.JTextField" binding="insPhone">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -270,9 +271,10 @@
                     </constraints>
                     <properties>
                       <font size="20"/>
+                      <text value=""/>
                     </properties>
                   </component>
-                  <component id="464da" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
+                  <component id="464da" class="javax.swing.JPasswordField" binding="insPassword">
                     <constraints>
                       <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>

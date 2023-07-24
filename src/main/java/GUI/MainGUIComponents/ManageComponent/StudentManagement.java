@@ -3,29 +3,31 @@ package GUI.MainGUIComponents.ManageComponent;
 
 import DAO.Access.ClassHandle;
 import DAO.Access.StudentHandle;
-import Model.MClass;
 
+import Model.MClass;
 import Model.Student;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-
 public class StudentManagement extends JInternalFrame {
+    private List<MClass> mClassList;
+
     private List<Student> a = new ArrayList<>();
     public StudentManagement(){
-
-
 
 
         // table view (phan nay ko duoc code)--------------
@@ -41,14 +43,48 @@ public class StudentManagement extends JInternalFrame {
         // ----------------------------------------
 
         table1.setModel(modelStudentManage);
-
+        refreshTable();
         // set layout (phan nay ko duoc code) -----------------------
         setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
         setContentPane(StudentManagementPanel);
         setVisible(true);
         //--------------------------------------------------
+        insertButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student student = new Student();
+                student.setName(stdName.getText());
+                String dateString = stdBirthday.getText();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate date = LocalDate.parse(dateString, formatter);
+                student.setBirthday(date);
+
+                student.setAddress(stdAddress.getText());
+                student.setGender(true);
+                student.setPhone(stdPhone.getText());
+                student.setClassID(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
+                student.setSocialSecurtyNumber(stdSeNumber.getText());
+                new StudentHandle().INSERT(student);
+                System.out.println("them du lieu thanh cong");
+            }
+        });
     }
     public void refreshTable() {
+        //get  classitem add combobox
+        this.mClassList = null;
+        try {
+            mClassList = new ClassHandle().SELECT("SELECT * FROM `class`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Iterator<MClass> classIterator = mClassList.iterator();
+
+        while(classIterator.hasNext()){
+            MClass mclass = classIterator.next();
+            stdClass.addItem(mclass.getID());
+        }
+        System.out.println(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
+        //prindata
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table
 
@@ -68,24 +104,26 @@ public class StudentManagement extends JInternalFrame {
 
     }
 
+
     private JPanel StudentManagementPanel;
     private JButton chọnẢnhButton;
-    private JButton thêmButton;
+    private JButton insertButton;
     private JButton sửaButton;
     private JButton xóaButton;
     private JButton tảiLạiButton;
     private JCheckBox chọnTấtCảCheckBox;
     private JCheckBox bỏChọnCheckBox;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JComboBox comboBox1;
-    private JTextField textField4;
-    private JTextField textField5;
+    private JTextField stdID;
+    private JTextField stdName;
+    private JComboBox stdGender;
+    private JTextField stdBirthday;
+    private JTextField stdAddress;
     private JComboBox comboBox2;
     private JTable table1;
     private JScrollPane studentTableManage;
-
+    private JComboBox stdClass;
+    private JTextField stdPhone;
+    private JTextField stdSeNumber;
 
 
 }

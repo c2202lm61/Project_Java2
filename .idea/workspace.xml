@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="0da5191a-dc2f-4ec6-b5c2-b1bd661bbab2" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/TypescoreManagement.form" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/TypescoreManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/Typescore.form" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/Typescore.java" beforeDir="false" />
+=======
+    <list default="true" id="a053e887-e5a2-40ed-a142-4ee55078c65e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/Validation.java" afterDir="false" />
+>>>>>>> 6283d60621faeb7b71a2e04f4f694431d411bb38
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +34,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Sya1kPvfshbMFA0yMxgPR4KXcc" />
+  <component name="ProjectId" id="2Szf5rRi7jz22vaL3oiod6hgCIc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -48,9 +54,43 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="0da5191a-dc2f-4ec6-b5c2-b1bd661bbab2" name="Changes" comment="" />
       <created>1690121066887</created>
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.score.management.Main" />
+      <module name="Project_Java_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.score.management.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a053e887-e5a2-40ed-a142-4ee55078c65e" name="Changes" comment="" />
+      <created>1690154154968</created>
+>>>>>>> 6283d60621faeb7b71a2e04f4f694431d411bb38
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1690121066887</updated>
+      <updated>1690154154968</updated>
     </task>
     <servers />
   </component>
