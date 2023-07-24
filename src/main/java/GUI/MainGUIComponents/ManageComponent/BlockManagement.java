@@ -51,7 +51,7 @@ public class BlockManagement extends JInternalFrame{
 
         });
 
-
+        // mouth over to table
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -65,6 +65,8 @@ public class BlockManagement extends JInternalFrame{
 
             }
         });
+
+        //delete
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,6 +77,19 @@ public class BlockManagement extends JInternalFrame{
                 TenKhoi.setText(null);
                 refreshTable();
 
+            }
+        });
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Block block = new Block();
+                int id = Integer.valueOf(MaKhoi.getText());
+                String tenkhoi = TenKhoi.getText();
+                block.setID(id);
+                block.setName(tenkhoi);
+                GrantHandle grantHandle = new GrantHandle();
+                grantHandle.UPDATE(block);
+                refreshTable();
             }
         });
     }
@@ -106,7 +121,7 @@ public class BlockManagement extends JInternalFrame{
     private JPanel panel1;
     private JButton chọnẢnhButton;
     private JButton insert;
-    private JButton sửaButton;
+    private JButton update;
     private JButton delete;
     private JButton tảiLạiButton;
     private JTable table1;

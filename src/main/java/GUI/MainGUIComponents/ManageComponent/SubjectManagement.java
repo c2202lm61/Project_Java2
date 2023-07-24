@@ -11,6 +11,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -42,7 +44,7 @@ public class SubjectManagement extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String TenMonHoc = TenMon.getName();
+                String TenMonHoc = TenMon.getText();
                 int TinChi = Integer.parseInt(tinchi.getText());
                 int Khoi = (int)comboBox1.getSelectedItem();
 
@@ -55,6 +57,54 @@ public class SubjectManagement extends JInternalFrame{
                 refreshTable();
 
 
+            }
+        });
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( table1.getValueAt(clickedRow, 1));
+                String maMon = String.valueOf( table1.getValueAt(clickedRow,2));
+                String Tinchi  = String.valueOf(table1.getValueAt(clickedRow,3));
+                int khoi  = (int)table1.getValueAt(clickedRow,4);
+                System.out.println(khoi);
+                mamh.setText(id);
+                TenMon.setText(maMon);
+                tinchi.setText(Tinchi);
+                comboBox1.setSelectedItem(khoi);
+
+            }
+        });
+
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.valueOf(mamh.getText());
+                SubjectHandle subjectHandle = new SubjectHandle();
+                subjectHandle.DELETE(id);
+                mamh.setText(null);
+                TenMon.setText(null);
+                tinchi.setText(null);
+                comboBox1.setSelectedItem(null);
+                refreshTable();
+            }
+        });
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.valueOf(mamh.getText());
+                String TenMonHoc = TenMon.getText();
+                int TinChi = Integer.parseInt(tinchi.getText());
+                int Khoi = (int)comboBox1.getSelectedItem();
+
+                Subject subject = new Subject();
+                subject.setID(id);
+                subject.setName(TenMonHoc);
+                subject.setCredits(TinChi);
+                subject.setGrandID(Khoi);
+                SubjectHandle subjectHandle = new SubjectHandle();
+                subjectHandle.UPDATE(subject);
+                refreshTable();
             }
         });
     }
@@ -95,9 +145,9 @@ public class SubjectManagement extends JInternalFrame{
     private JTextField mamh;
     private JTextField tinchi;
     private JComboBox comboBox1;
-    private JButton xóaButton;
+    private JButton delete;
     private JButton insert;
-    private JButton sửaButton;
+    private JButton update;
     private JButton resetButton;
     private JButton chọnButton;
     private JButton bỏChọnButton;
