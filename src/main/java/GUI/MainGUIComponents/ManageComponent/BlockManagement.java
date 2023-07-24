@@ -3,13 +3,15 @@ package GUI.MainGUIComponents.ManageComponent;
 
 import DAO.Access.GrantHandle;
 import Model.Block;
-import GUI.MainGUIComponents.ManageComponent.ClassManagement;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -50,6 +52,30 @@ public class BlockManagement extends JInternalFrame{
         });
 
 
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                 int clickedRow = table1.rowAtPoint(e.getPoint());
+                 String id = String.valueOf( table1.getValueAt(clickedRow, 1));
+                 String Name =String.valueOf( table1.getValueAt(clickedRow,2));
+
+                 MaKhoi.setText(id);
+                 TenKhoi.setText(Name);
+
+
+            }
+        });
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.valueOf(MaKhoi.getText());
+                GrantHandle grantHandle = new GrantHandle();
+                grantHandle.DELETE(id);
+                MaKhoi.setText(null);
+                TenKhoi.setText(null);
+                refreshTable();
+            }
+        });
     }
 
     public void refreshTable() {
@@ -80,7 +106,7 @@ public class BlockManagement extends JInternalFrame{
     private JButton chọnẢnhButton;
     private JButton insert;
     private JButton sửaButton;
-    private JButton xóaButton;
+    private JButton delete;
     private JButton tảiLạiButton;
     private JTable table1;
     private JCheckBox checkBox1;
