@@ -74,6 +74,7 @@ public class BlockManagement extends JInternalFrame{
                 MaKhoi.setText(null);
                 TenKhoi.setText(null);
                 refreshTable();
+
             }
         });
     }
