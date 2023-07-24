@@ -41,7 +41,7 @@ public class RoleHandle extends AbsSQLAccess<Role>{
     @Override
     public Boolean UPDATE(Role item) {
         Boolean result = false;
-        String  sql= "UPDATE `role` SET `id`='"+item.getId()+"',`role_name`='"+item.getName()+"' WHERE id="+item.getId();
+        String  sql= "UPDATE `role` SET `id`="+item.getId()+",`role_name`='"+item.getName()+"' WHERE id="+item.getId();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

@@ -55,7 +55,7 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
     @Override
     public Boolean UPDATE(Instructor item) {
         Boolean result = false;
-        String  sql= "UPDATE `instructor` SET `ID_NUMBER`='"+item.getID_NUMBER() +"',`name`='"+item.getName() +"',`birthday`='"+item.getBirthday() +"',`Gender`="+item.getGender() +",`password`='"+item.getPassword() +"',`Email`='"+item.getEmail() +"',`Phone`='"+item.getPhone() +"' WHERE id="+item.getID_NUMBER();
+        String  sql= "UPDATE `instructor` SET `ID_NUMBER`="+item.getID_NUMBER() +",`name`='"+item.getName() +"',`birthday`='"+item.getBirthday() +"',`Gender`="+item.getGender() +",`password`='"+item.getPassword() +"',`Email`='"+item.getEmail() +"',`Phone`='"+item.getPhone() +"' WHERE id="+item.getID_NUMBER();
 
         System.out.println(sql);
         try {

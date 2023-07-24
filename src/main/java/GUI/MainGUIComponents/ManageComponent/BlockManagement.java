@@ -39,10 +39,8 @@ public class BlockManagement extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Block block = new Block();
-                int makhoi = Integer.parseInt(MaKhoi.getText());
                 String tenkhoi = TenKhoi.getText();
 
-                block.setID(makhoi);
                 block.setName(tenkhoi);
                 GrantHandle grantHandle = new GrantHandle();
                 grantHandle.INSERT(block);
