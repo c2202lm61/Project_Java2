@@ -1,10 +1,16 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import DAO.Access.InstructorHandle;
 import DAO.Access.InstructorSubjectHandle;
+import DAO.Access.SubjectHandle;
+import Model.Instructor;
 import Model.InstructorSubject;
+import Model.Subject;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -30,16 +36,53 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         setContentPane(subjectTeachingTeacherPanel);
         setVisible(true);
         //-----------------------------------------------
+        insert.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int magv = (int)MaGV.getSelectedItem();
+                int mamh = (int)MaMH.getSelectedItem();
+                InstructorSubject instructorSubject = new InstructorSubject();
+                instructorSubject.setSubject_code(mamh);
+                instructorSubject.setID_NUMBER(magv);
+                InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
+                instructorSubjectHandle.INSERT(instructorSubject);
+                refreshTable();
+            }
+        });
     }
 
     public void refreshTable() {
+        List<Instructor> maGV = null;
+        InstructorHandle instructorHandle = new InstructorHandle();
+        try {
+            maGV = instructorHandle.SELECT("SELECT * FROM `instructor`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for(Instructor obj: maGV){
+            MaGV.addItem(obj.getID_NUMBER());
+        }
+
+        List<Subject> maMH = null;
+        SubjectHandle subjectHandle = new SubjectHandle();
+        try {
+            maMH = subjectHandle.SELECT("SELECT * FROM `subject`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for(Subject obj1: maMH){
+            MaGV.addItem(obj1.getID());
+        }
+
+
+
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table
 
-        InstructorSubjectHandle instuctorHandle = new InstructorSubjectHandle();
+        InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
         this.a = null;
         try {
-            a = instuctorHandle.SELECT("SELECT * FROM `instructor_subject`");
+            a = instructorSubjectHandle.SELECT("SELECT * FROM `instructor_subject`");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -54,13 +97,13 @@ public class SubjectTeachingTeacher extends JInternalFrame{
     private JButton tảiLạiButton;
     private JButton xóaButton;
     private JButton sửaButton;
-    private JButton thêmButton;
+    private JButton insert;
     private JButton chọnẢnhButton;
     private JCheckBox chọnTấtCảCheckBox;
     private JCheckBox bỏChọnCheckBox;
     private JComboBox comboBox1;
     private JTextField MaGVBM;
-    private JTextField MaGV;
-    private JTextField MaMH;
     private JTable table1;
+    private JComboBox MaGV;
+    private JComboBox MaMH;
 }

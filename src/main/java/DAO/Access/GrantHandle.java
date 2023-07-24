@@ -47,7 +47,7 @@ public class GrantHandle extends AbsSQLAccess<Block>{
     @Override
     public Boolean UPDATE(Block item) {
         Boolean result = false;
-        String  sql= "UPDATE `grants` SET `name`='"+item.getName()+"' WHERE id="+item.getID();
+        String  sql= "UPDATE `grants` SET `id`="+item.getID()+" `name`='"+item.getName()+"' WHERE id="+item.getID();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

@@ -14,7 +14,7 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
     @Override
     public Boolean INSERT(InstructorSubject item) {
         Boolean result = false;
-        String sql = "INSERT INTO `instructor_subject`(`ID_NUMBER`, `Subject_code`) VALUES ('"+item.getID_NUMBER()+"','"+item.getSubject_code()+"')";
+        String sql = "INSERT INTO `instructor_subject`(`ID_NUMBER`, `Subject_code`) VALUES ("+item.getID_NUMBER()+","+item.getSubject_code()+")";
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);
@@ -42,7 +42,7 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
     @Override
     public Boolean UPDATE(InstructorSubject item) {
         Boolean result = false;
-        String  sql= "UPDATE `instructor_subject` SET `ID_Teach`='"+item.getID_Teach()+"',`ID_NUMBER`='"+item.getID_NUMBER()+"',`Subject_code`='"+item.getSubject_code()+"' WHERE id="+item.getID_Teach();
+        String  sql= "UPDATE `instructor_subject` SET `ID_Teach`="+item.getID_Teach()+",`ID_NUMBER`="+item.getID_NUMBER()+",`Subject_code`="+item.getSubject_code()+" WHERE id="+item.getID_Teach();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

@@ -10,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -39,10 +41,8 @@ public class BlockManagement extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Block block = new Block();
-                int makhoi = Integer.parseInt(MaKhoi.getText());
                 String tenkhoi = TenKhoi.getText();
 
-                block.setID(makhoi);
                 block.setName(tenkhoi);
                 GrantHandle grantHandle = new GrantHandle();
                 grantHandle.INSERT(block);
@@ -52,6 +52,22 @@ public class BlockManagement extends JInternalFrame{
         });
 
 
+        table1.addMouseListener(new MouseAdapter() {
+            /**
+             * {@inheritDoc}
+             *
+             * @param e
+             */
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int index  = table1.getSelectedRow();
+                if (index >= 0) {
+                    // Lấy dữ liệu từ cột cụ thể, ví dụ cột đầu tiên:
+                    Object data = table1.getValueAt(index, 2);
+                    System.out.println("Dữ liệu hàng đã chọn: " + data.toString());
+                }
+            }
+        });
     }
 
     public void refreshTable() {

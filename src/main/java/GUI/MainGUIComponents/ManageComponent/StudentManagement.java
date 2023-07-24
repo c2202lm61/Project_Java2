@@ -83,7 +83,7 @@ public class StudentManagement extends JInternalFrame {
             MClass mclass = classIterator.next();
             stdClass.addItem(mclass.getID());
         }
-        System.out.println(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
+
         //prindata
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table

@@ -99,7 +99,6 @@ public class TeacherManagement extends JInternalFrame{
     private JTextField instName;
     private JTextField insBirthday;
     private JTextField insEmail;
-    private JTextField textField5;
     private JTextField insPhone;
     private JPasswordField insPassword;
     private JTable table1;

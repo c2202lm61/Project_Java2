@@ -228,9 +228,7 @@
                 </constraints>
                 <properties>
                   <font size="18"/>
-                  <model>
-                    <item value="K01"/>
-                  </model>
+                  <model/>
                 </properties>
               </component>
               <component id="55c06" class="javax.swing.JTextField" binding="TenMon">

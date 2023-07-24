@@ -1,6 +1,8 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import DAO.Access.GrantHandle;
 import DAO.Access.SubjectHandle;
+import Model.Block;
 import Model.Subject;
 
 import javax.swing.*;
@@ -40,11 +42,38 @@ public class SubjectManagement extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String TenMonHoc = TenMon.getName();
+                int TinChi = Integer.parseInt(tinchi.getText());
+                int Khoi = (int)comboBox1.getSelectedItem();
+
+                Subject subject = new Subject();
+                subject.setName(TenMonHoc);
+                subject.setCredits(TinChi);
+                subject.setGrandID(Khoi);
+                SubjectHandle subjectHandle = new SubjectHandle();
+                subjectHandle.INSERT(subject);
+                refreshTable();
+
 
             }
         });
     }
     public void refreshTable() {
+        GrantHandle grantHandle = new GrantHandle();
+        List<Block> idList = new ArrayList<>();
+        try {
+            idList = grantHandle.SELECT("SELECT * FROM grants");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Add the IDs to the JComboBox
+        for (Block obj : idList) {
+            comboBox1.addItem(obj.getID());
+        }
+
+
+
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table
 

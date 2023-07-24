@@ -3,7 +3,9 @@ package GUI.MainGUIComponents.ManageComponent;
 import DAO.Access.ClassHandle;
 
 import DAO.Access.GrantHandle;
+import DAO.Access.InstructorHandle;
 import Model.Block;
+import Model.Instructor;
 import Model.MClass;
 
 import javax.swing.*;
@@ -45,8 +47,9 @@ public class ClassManagement extends JInternalFrame{
             public void actionPerformed(ActionEvent e) {
                 MClass mClass = new MClass();
                 int makhoi = (int)MaKhoi.getSelectedItem();
-                int magvcn = Integer.parseInt(macvcn.getText());
-                System.out.println(magvcn);
+
+                int magvcn = (int)MaGVCN.getSelectedItem();
+
                 mClass.setGrandID(makhoi);
                 mClass.setManagerID(magvcn);
                 new ClassHandle().INSERT(mClass);
@@ -68,6 +71,18 @@ public class ClassManagement extends JInternalFrame{
         // Add the IDs to the JComboBox
         for (Block obj : idList) {
             MaKhoi.addItem(obj.getID());
+        }
+        InstructorHandle instructorHandle = new InstructorHandle();
+        List<Instructor> maGVCNlist = new ArrayList<>();
+        try {
+            maGVCNlist = instructorHandle.SELECT("SELECT * FROM `instructor`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Add the IDs to the JComboBox
+        for (Instructor inst : maGVCNlist) {
+            MaGVCN.addItem(inst.getID_NUMBER());
         }
         // Assuming you want to preselect an ID in the JComboBox (let's call it selectedID):
 
@@ -99,8 +114,8 @@ public class ClassManagement extends JInternalFrame{
     private JButton button5;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
-    private JComboBox comboBox1;
     private JTextField Malop;
-    private JTextField macvcn;
+    private JComboBox MaGVCN;
+
 
 }

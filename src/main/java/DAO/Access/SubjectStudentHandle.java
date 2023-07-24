@@ -13,7 +13,7 @@ public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
     @Override
     public Boolean INSERT(SubjectStudent item) {
         Boolean result = false;
-        String sql = "INSERT INTO `subject_student`(`student_id`, `Subject_code`) VALUES ('"+item.getStudent_id()+"','"+item.getSubject_code()+"')";
+        String sql = "INSERT INTO `subject_student`(`student_id`, `Subject_code`) VALUES ("+item.getStudent_id()+","+item.getSubject_code()+")";
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);
@@ -42,7 +42,7 @@ public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
     @Override
     public Boolean UPDATE(SubjectStudent item) {
         Boolean result = false;
-        String  sql= "UPDATE `subject_student` SET `Subject_student_id`='"+item.getSubject_Student_id()+"',`student_id`='"+item.getStudent_id()+"',`Subject_code`='"+item.getSubject_code()+"' WHERE id="+item.getSubject_Student_id();
+        String  sql= "UPDATE `subject_student` SET `Subject_student_id`="+item.getSubject_Student_id()+",`student_id`="+item.getStudent_id()+",`Subject_code`="+item.getSubject_code()+" WHERE id="+item.getSubject_Student_id();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);
