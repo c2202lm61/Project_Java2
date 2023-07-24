@@ -47,11 +47,12 @@ public class ClassManagement extends JInternalFrame{
             public void actionPerformed(ActionEvent e) {
                 MClass mClass = new MClass();
                 int makhoi = (int)MaKhoi.getSelectedItem();
+
                 int magvcn = (int)MaGVCN.getSelectedItem();
+
                 mClass.setGrandID(makhoi);
                 mClass.setManagerID(magvcn);
-                ClassHandle classHandle = new ClassHandle();
-                classHandle.INSERT(mClass);
+                new ClassHandle().INSERT(mClass);
                 refreshTable();
             }
         });

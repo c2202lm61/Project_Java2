@@ -147,6 +147,17 @@ public class JPannelManage extends JPanel{
                 cardLayout.show(secondPart, "Card 8");
             }
         });
+        leftPanel.button8.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JDesktopPane component9 = new JDesktopPane();
+                component9.setLayout(new GridLayout());
+                component9.add(new TypescoreManagement());
+                String card9 = "Card 9";
+                secondPart.add(component9, card9);
+                cardLayout.show(secondPart, "Card 9");
+            }
+        });
         add(leftPanel, BorderLayout.WEST);
     }
 }
@@ -159,6 +170,7 @@ class LeftPanel extends JPanel{
     JButton button5;
     JButton button6;
     JButton button7;
+    JButton button8;
     public LeftPanel(){
         setBackground(mainColor.CYAN);
         setBorder(new EmptyBorder(10,10,10,10));
@@ -174,6 +186,7 @@ class LeftPanel extends JPanel{
         button5 = new JButton("Quản lý môn");
         button6 = new JButton("Phân công");
         button7 = new JButton("Giáo viên giảng dạy bộ môn");
+        button8 = new JButton("Loai Diem");
         panel.add(button);
         panel.add(button1);
         panel.add(button2);
@@ -182,6 +195,7 @@ class LeftPanel extends JPanel{
         panel.add(button5);
         panel.add(button6);
         panel.add(button7);
+        panel.add(button8);
         add(panel);
 
     }
