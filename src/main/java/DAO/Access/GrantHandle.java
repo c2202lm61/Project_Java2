@@ -19,8 +19,14 @@ public class GrantHandle extends AbsSQLAccess<Block>{
     public Boolean INSERT(Block item)
     {
         Boolean result = false;
-        String sql = "INSERT INTO `grants`(`name`) VALUES ('"+item.getName()+"')";
-        try {
+        String sql;
+        if(item.getID() == -1){
+            sql = "INSERT INTO `grants`(`name`) VALUES ('"+item.getName()+"')";
+        }else {
+            sql = "INSERT INTO `grants`(`id`,`name`) VALUES ("+item.getID()+",'"+item.getName()+"')";
+        }
+
+         try{
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("them du lieu thành công:"+a);
             result = true;
@@ -29,6 +35,7 @@ public class GrantHandle extends AbsSQLAccess<Block>{
         }
         return result;
     }
+
 
     @Override
     public List<Block> SELECT(String sql) throws SQLException {
