@@ -39,20 +39,20 @@
                   <text value="thêm"/>
                 </properties>
               </component>
-              <component id="e429f" class="javax.swing.JButton" binding="button3" default-binding="true">
+              <component id="e429f" class="javax.swing.JButton" binding="update">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Sửa"/>
                 </properties>
               </component>
-              <component id="daec" class="javax.swing.JButton" binding="button4" default-binding="true">
+              <component id="daec" class="javax.swing.JButton" binding="delete">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Xóa"/>
                 </properties>
               </component>
               <component id="813f1" class="javax.swing.JButton" binding="button5" default-binding="true">

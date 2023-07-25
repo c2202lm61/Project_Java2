@@ -65,7 +65,7 @@ public class StudentManagement extends JInternalFrame {
                 student.setClassID(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
                 student.setSocialSecurtyNumber(stdSeNumber.getText());
                 new StudentHandle().INSERT(student);
-                System.out.println("them du lieu thanh cong");
+                refreshTable();
             }
         });
     }

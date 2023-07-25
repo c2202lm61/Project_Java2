@@ -9,6 +9,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -43,6 +45,40 @@ public class TypescoreManagement extends JInternalFrame {
                 refreshTable();
             }
         });
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( table1.getValueAt(clickedRow, 1));
+                String ten = String.valueOf( table1.getValueAt(clickedRow,2));
+                ts_id.setText(id);
+                name.setText(ten);
+            }
+        });
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.valueOf(ts_id.getText());
+                TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
+                typeScoreHandle.DELETE(id);
+                ts_id.setText(null);
+                name.setText(null);
+                refreshTable();
+            }
+        });
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TypeScore typeScore = new TypeScore();
+                int id = Integer.valueOf(ts_id.getText());
+                String tenloaidiem = name.getText();
+                typeScore.setID(id);
+                typeScore.setName(tenloaidiem);
+                TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
+                typeScoreHandle.UPDATE(typeScore);
+                refreshTable();
+            }
+        });
     }
     public void refreshTable(){
         TypeScoreHandle TypeScoreHandle = new TypeScoreHandle();
@@ -62,9 +98,9 @@ public class TypescoreManagement extends JInternalFrame {
     private JTable table1;
     private JButton chọnẢnhButton;
     private JButton insert;
-    private JButton sửaButton;
+    private JButton update;
     private JButton tảiLạiButton;
-    private JButton xóaButton;
+    private JButton delete;
     private JComboBox comboBox1;
     private JTextField ts_id;
     private JTextField name;

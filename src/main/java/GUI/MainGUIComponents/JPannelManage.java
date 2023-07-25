@@ -175,7 +175,7 @@ class LeftPanel extends JPanel{
         setBackground(mainColor.CYAN);
         setBorder(new EmptyBorder(10,10,10,10));
         //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        JPanel panel = new JPanel(new GridLayout(8,1,0,10));
+        JPanel panel = new JPanel(new GridLayout(9,1,0,10));
         panel.setBackground(mainColor.CYAN);
         button = new JButton("Quản lý học sinh");
         button.setBorder(new EmptyBorder(10,0,10,0));
