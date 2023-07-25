@@ -89,7 +89,51 @@ public class TeacherManagement extends JInternalFrame{
                 insPhone.setText(String.valueOf( table1.getValueAt(clickedRow,7)));
             }
         });
+<<<<<<< HEAD
 
+=======
+        deleteButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new InstructorHandle().DELETE(Integer.parseInt(insID.getText()));
+                refreshTable();
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Instructor instructor = new Instructor();
+                instructor.setID_NUMBER(Integer.parseInt(insID.getText()));
+                instructor.setName(instName.getText());
+                instructor.setPassword(insPassword.getText());
+                if(insGender.getSelectedIndex() ==0)
+                    instructor.setGender(false);
+                else {
+                    instructor.setGender(true);
+                }
+
+                String dateString = insBirthday.getText();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate date = LocalDate.parse(dateString, formatter);
+                instructor.setBirthday(date);
+                instructor.setEmail(insEmail.getText());
+                instructor.setPhone(insPhone.getText());
+                new InstructorHandle().UPDATE(instructor);
+                System.out.println("update du lieu thanh cong");
+                refreshTable();
+            }
+        });
+>>>>>>> c15189de549fe233c3e29db6309be77a924701a0
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -111,8 +155,8 @@ public class TeacherManagement extends JInternalFrame{
     }
     private JPanel TeacherManagentPanel;
     private JButton insertButton;
-    private JButton sửaButton;
-    private JButton xóaButton;
+    private JButton updateButton;
+    private JButton deleteButton;
     private JButton tảiLạiButton;
     private JButton chọnẢnhButton;
     private JCheckBox checkBox1;
