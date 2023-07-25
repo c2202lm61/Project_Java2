@@ -2,10 +2,8 @@ package GUI.MainGUIComponents.ManageComponent;
 
 
 import DAO.Access.ClassHandle;
-import DAO.Access.InstructorHandle;
 import DAO.Access.StudentHandle;
 
-import Model.Instructor;
 import Model.MClass;
 import Model.Student;
 
@@ -130,6 +128,13 @@ public class StudentManagement extends JInternalFrame {
                 refreshTable();
             }
         });
+        subjectStudentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StudentSubjectManagement studentSubjectManagement = new StudentSubjectManagement();
+
+            }
+        });
     }
     public void refreshTable() {
         //get  classitem add combobox
@@ -172,7 +177,6 @@ public class StudentManagement extends JInternalFrame {
     private JButton insertButton;
     private JButton updateButton;
     private JButton deleteButton;
-    private JButton tảiLạiButton;
     private JCheckBox chọnTấtCảCheckBox;
     private JCheckBox bỏChọnCheckBox;
     private JTextField stdID;
@@ -186,6 +190,7 @@ public class StudentManagement extends JInternalFrame {
     private JComboBox stdClass;
     private JTextField stdPhone;
     private JTextField stdSeNumber;
+    private JButton subjectStudentButton;
 
 
 }

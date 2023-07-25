@@ -1,37 +1,25 @@
 package GUI.MainGUIComponents.ManageComponent;
 
-import DAO.Access.ScoreStudentHandle;
-import DAO.Access.SubjectStudentHandle;
-import Model.Score;
-import Model.SubjectStudent;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.sql.SQLException;
-import java.util.List;
 
 public class ScoreManagement extends JInternalFrame {
     private JPanel scoreManageComponent;
     private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
+    private JButton insert;
+    private JButton update;
+    private JButton delete;
     private JButton button5;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
     private JComboBox comboBox1;
     private JTable table1;
-    private JTextField MaHocSinh;
-    private JTextField MaMonHoc;
-    private JTextField Diem15;
-    private JTextField Diem45;
-    private JTextField DiemThiGiuaKi1;
-    private JTextField DiemThiCuoiKi1;
-    private JTextField DiemThiGiuaKi2;
-    private JTextField DiemThiCuoiKi2;
-
+    private JTextField id;
+    private JComboBox typeScore;
+    private JTextField value;
+    private JLabel Điểm;
 
 
     public static void main(String[] args) {
