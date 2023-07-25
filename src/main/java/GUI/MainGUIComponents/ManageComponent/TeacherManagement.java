@@ -91,9 +91,12 @@ public class TeacherManagement extends JInternalFrame{
                 insPhone.setText(String.valueOf( table1.getValueAt(clickedRow,7)));
             }
         });
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 5f15381d16fcee383b92f202d820a861299a16ac
         deleteButton.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
@@ -135,7 +138,10 @@ public class TeacherManagement extends JInternalFrame{
                 refreshTable();
             }
         });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5f15381d16fcee383b92f202d820a861299a16ac
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
