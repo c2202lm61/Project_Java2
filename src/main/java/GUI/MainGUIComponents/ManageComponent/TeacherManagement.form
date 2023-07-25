@@ -156,11 +156,7 @@
                       <text value="Email"/>
                     </properties>
                   </component>
-<<<<<<< HEAD
-                  <component id="a352f" class="javax.swing.JTextField" binding="ID">
-=======
                   <component id="a352f" class="javax.swing.JTextField" binding="insID">
->>>>>>> 9af30d8a4e2529d1ca9f6229ed794a3e974f2c0d
                     <constraints>
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -220,19 +216,6 @@
                       <text value="Giới tính"/>
                     </properties>
                   </component>
-                  <component id="fb1e2" class="javax.swing.JComboBox" binding="insGender">
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <font size="18"/>
-                      <model>
-                        <item value="Nam"/>
-                        <item value="Nữ"/>
-                        <item value="Pê đê"/>
-                      </model>
-                    </properties>
-                  </component>
                   <component id="93db2" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -275,6 +258,17 @@
                       <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </vspacer>
+                  <component id="237eb" class="javax.swing.JComboBox" binding="insGender">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <model>
+                        <item value="Nam"/>
+                        <item value="Nu"/>
+                      </model>
+                    </properties>
+                  </component>
                 </children>
               </grid>
             </children>

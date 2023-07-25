@@ -15,7 +15,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -47,30 +46,30 @@ public class TeacherManagement extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Instructor instructor = new Instructor();
-
-                instructor.setName(instName.getText());
-                instructor.setPassword(insPassword.getText());
-                if(insGender.getSelectedIndex() ==0)
-                    instructor.setGender(false);
-                else {
-                    instructor.setGender(true);
+                try{
+                    if(String.valueOf(insID.getText()).equals("")){
+                        instructor.setID_NUMBER(-1);
+                    }else{
+                        int id = Integer.valueOf(insID.getText());
+                        instructor.setID_NUMBER(id);
+                    }
+                    String dateString = insBirthday.getText();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate date = LocalDate.parse(dateString, formatter);
+                    instructor.setBirthday(date);
+                    instructor.setEmail(insEmail.getText());
+                    instructor.setPhone(insPhone.getText());
+                    new InstructorHandle().INSERT(instructor);
+                    System.out.println("them du lieu thanh cong");
+                    refreshTable();
+                } catch (NumberFormatException e1){
+                    throw new RuntimeException(e1);
                 }
 
-                String dateString = insBirthday.getText();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate date = LocalDate.parse(dateString, formatter);
-                instructor.setBirthday(date);
-                instructor.setEmail(insEmail.getText());
-                instructor.setPhone(insPhone.getText());
-                new InstructorHandle().INSERT(instructor);
-                System.out.println("them du lieu thanh cong");
             }
+
         });
-<<<<<<< HEAD
 
-
-
-=======
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -90,7 +89,7 @@ public class TeacherManagement extends JInternalFrame{
                 insPhone.setText(String.valueOf( table1.getValueAt(clickedRow,7)));
             }
         });
->>>>>>> 9af30d8a4e2529d1ca9f6229ed794a3e974f2c0d
+
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -119,16 +118,14 @@ public class TeacherManagement extends JInternalFrame{
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
     private JComboBox comboBox1;
-    private JComboBox insGender;
-<<<<<<< HEAD
-    private JTextField ID;
-=======
+
     private JTextField insID;
->>>>>>> 9af30d8a4e2529d1ca9f6229ed794a3e974f2c0d
+
     private JTextField instName;
     private JTextField insBirthday;
     private JTextField insEmail;
     private JTextField insPhone;
     private JPasswordField insPassword;
     private JTable table1;
+    private JComboBox insGender;
 }
