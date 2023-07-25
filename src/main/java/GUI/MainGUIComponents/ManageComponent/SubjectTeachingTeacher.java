@@ -11,6 +11,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -46,6 +48,46 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                 instructorSubject.setID_NUMBER(magv);
                 InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
                 instructorSubjectHandle.INSERT(instructorSubject);
+                refreshTable();
+            }
+        });
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( table1.getValueAt(clickedRow, 1));
+                int maMon = (int)( table1.getValueAt(clickedRow,2));
+                int Tinchi  = (int)(table1.getValueAt(clickedRow,3));
+                MaGVBM.setText(id);
+                MaGV.setSelectedItem(maMon);
+                MaMH.setSelectedItem(Tinchi);
+            }
+        });
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.valueOf(MaGVBM.getText());
+                InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
+                instructorSubjectHandle.DELETE(id);
+                MaGVBM.setText(null);
+                MaGV.setSelectedItem(null);
+                MaMH.setSelectedItem(null);
+                refreshTable();
+            }
+        });
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.valueOf(MaGVBM.getText());
+                int magv = (int)MaGV.getSelectedItem();
+                int mamh = (int)MaMH.getSelectedItem();
+                InstructorSubject instructorSubject = new InstructorSubject();
+
+                instructorSubject.setID_Teach(id);
+                instructorSubject.setSubject_code(mamh);
+                instructorSubject.setID_NUMBER(magv);
+                InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
+                instructorSubjectHandle.UPDATE(instructorSubject);
                 refreshTable();
             }
         });
@@ -95,8 +137,8 @@ public class SubjectTeachingTeacher extends JInternalFrame{
     }
     private JPanel subjectTeachingTeacherPanel;
     private JButton tảiLạiButton;
-    private JButton xóaButton;
-    private JButton sửaButton;
+    private JButton delete;
+    private JButton update;
     private JButton insert;
     private JButton chọnẢnhButton;
     private JCheckBox chọnTấtCảCheckBox;

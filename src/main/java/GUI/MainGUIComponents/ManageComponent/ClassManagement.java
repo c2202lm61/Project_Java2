@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
@@ -53,6 +55,48 @@ public class ClassManagement extends JInternalFrame{
                 mClass.setGrandID(makhoi);
                 mClass.setManagerID(magvcn);
                 new ClassHandle().INSERT(mClass);
+                refreshTable();
+            }
+        });
+        labelTable1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = labelTable1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( labelTable1.getValueAt(clickedRow, 1));
+                int Makhoi = (int)labelTable1.getValueAt(clickedRow,2);
+                int Magv  = (int)(labelTable1.getValueAt(clickedRow,3));
+                Malop.setText(id);
+                MaGVCN.setSelectedItem(Magv);
+                MaKhoi.setSelectedItem(Makhoi);
+
+
+            }
+        });
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.valueOf(Malop.getText());
+                ClassHandle classHandle = new ClassHandle();
+                classHandle.DELETE(id);
+                Malop.setText(null);
+                MaGVCN.setSelectedItem(null);
+                MaKhoi.setSelectedItem(null);
+                refreshTable();
+            }
+        });
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MClass mClass = new MClass();
+                int id = Integer.valueOf(Malop.getText());
+                int makhoi = (int)MaKhoi.getSelectedItem();
+
+                int magvcn = (int)MaGVCN.getSelectedItem();
+
+                mClass.setGrandID(makhoi);
+                mClass.setID(id);
+                mClass.setManagerID(magvcn);
+                new ClassHandle().UPDATE(mClass);
                 refreshTable();
             }
         });
@@ -109,8 +153,8 @@ public class ClassManagement extends JInternalFrame{
     private JTable labelTable1;
     private JButton button1;
     private JButton insert;
-    private JButton button3;
-    private JButton button4;
+    private JButton update;
+    private JButton delete;
     private JButton button5;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;

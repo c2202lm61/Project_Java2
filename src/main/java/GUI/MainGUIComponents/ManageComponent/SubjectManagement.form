@@ -116,7 +116,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="d2e48" class="javax.swing.JButton" binding="xóaButton" default-binding="true">
+          <component id="d2e48" class="javax.swing.JButton" binding="delete">
             <constraints>
               <grid row="1" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -132,7 +132,7 @@
               <text value="Thêm"/>
             </properties>
           </component>
-          <component id="ce29a" class="javax.swing.JButton" binding="sửaButton" default-binding="true">
+          <component id="ce29a" class="javax.swing.JButton" binding="update">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

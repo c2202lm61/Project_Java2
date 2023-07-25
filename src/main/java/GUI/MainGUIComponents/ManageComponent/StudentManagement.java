@@ -2,8 +2,10 @@ package GUI.MainGUIComponents.ManageComponent;
 
 
 import DAO.Access.ClassHandle;
+import DAO.Access.InstructorHandle;
 import DAO.Access.StudentHandle;
 
+import Model.Instructor;
 import Model.MClass;
 import Model.Student;
 
@@ -95,6 +97,36 @@ public class StudentManagement extends JInternalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new StudentHandle().DELETE(Integer.parseInt(stdID.getText()));
+
+                refreshTable();
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Student student = new Student();
+                student.setID(Integer.parseInt(stdID.getText()));
+                student.setName(stdName.getText());
+                String dateString = stdBirthday.getText();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate date = LocalDate.parse(dateString, formatter);
+                student.setBirthday(date);
+                if(stdGender.getSelectedIndex() == 1){
+                    student.setGender(true);
+                }else {
+                    student.setGender(false);
+                }
+                student.setAddress(stdAddress.getText());
+                student.setPhone(stdPhone.getText());
+                student.setClassID(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
+                student.setSocialSecurtyNumber(stdSeNumber.getText());
+                new StudentHandle().UPDATE(student);
                 refreshTable();
             }
         });
@@ -138,7 +170,7 @@ public class StudentManagement extends JInternalFrame {
     private JPanel StudentManagementPanel;
     private JButton chọnẢnhButton;
     private JButton insertButton;
-    private JButton sửaButton;
+    private JButton updateButton;
     private JButton deleteButton;
     private JButton tảiLạiButton;
     private JCheckBox chọnTấtCảCheckBox;

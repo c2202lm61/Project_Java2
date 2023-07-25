@@ -9,8 +9,7 @@ import Model.TeacherClass;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -50,6 +49,51 @@ public class Assignment extends JInternalFrame{
                 teacherClass.setClass_code(MaLH);
                 teacherClass.setID_Teach(MaGVBM);
                 teacherClassHandle.INSERT(teacherClass);
+                refreshTable();
+            }
+            });
+
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( table1.getValueAt(clickedRow, 1));
+                String SohocKy =String.valueOf( table1.getValueAt(clickedRow,2));
+                int Magvbm = (int)( table1.getValueAt(clickedRow,3));
+                int Malop = (int)( table1.getValueAt(clickedRow,4));
+                textField1.setText(id);
+                textField2.setText(SohocKy);
+                comboBox2.setSelectedItem(Magvbm);
+                comboBox3.setSelectedItem(Malop);
+            }
+        });
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int id = Integer.valueOf(textField1.getText());
+                TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
+                teacherClassHandle.DELETE(id);
+                textField1.setText(null);
+                textField2.setText(null);
+                comboBox2.setSelectedItem(null);
+                comboBox3.setSelectedItem(null);
+                refreshTable();
+            }
+        });
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
+                int id = Integer.valueOf(textField1.getText());
+                String sohocky = textField2.getText();
+                int MaGVBM = (int) comboBox2.getSelectedItem();
+                int MaLH = (int) comboBox3.getSelectedItem();
+                TeacherClass teacherClass = new TeacherClass();
+                teacherClass.setId_tc(id);
+                teacherClass.setNumberofsemester(sohocky);
+                teacherClass.setClass_code(MaLH);
+                teacherClass.setID_Teach(MaGVBM);
+                teacherClassHandle.UPDATE(teacherClass);
                 refreshTable();
             }
         });
@@ -113,8 +157,8 @@ public class Assignment extends JInternalFrame{
     private JTextField textField1;
     private JTextField textField2;
     private JButton tảiLạiButton;
-    private JButton xóaButton;
-    private JButton sửaButton;
+    private JButton delete;
+    private JButton update;
     private JButton insert;
     private JButton chọnẢnhButton;
     private JTable table1;
