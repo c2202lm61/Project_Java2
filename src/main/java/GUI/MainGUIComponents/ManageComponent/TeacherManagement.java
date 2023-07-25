@@ -9,10 +9,13 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -40,14 +43,11 @@ public class TeacherManagement extends JInternalFrame{
         setVisible(true);
         //----------------------------------------------------
         insertButton.addActionListener(new ActionListener() {
-            /**
-             * Invoked when an action occurs.
-             *
-             * @param e the event to be processed
-             */
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 Instructor instructor = new Instructor();
+
                 instructor.setName(instName.getText());
                 instructor.setPassword(insPassword.getText());
                 if(insGender.getSelectedIndex() ==0)
@@ -66,6 +66,9 @@ public class TeacherManagement extends JInternalFrame{
                 System.out.println("them du lieu thanh cong");
             }
         });
+
+
+
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -95,7 +98,7 @@ public class TeacherManagement extends JInternalFrame{
     private JCheckBox checkBox2;
     private JComboBox comboBox1;
     private JComboBox insGender;
-    private JTextField textField1;
+    private JTextField ID;
     private JTextField instName;
     private JTextField insBirthday;
     private JTextField insEmail;
