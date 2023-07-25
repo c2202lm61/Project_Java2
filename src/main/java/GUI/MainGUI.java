@@ -17,6 +17,7 @@ public class MainGUI extends JFrame {
         tabbedPane.addTab("Quản lý", new JPannelManage());
         tabbedPane.addTab("Xem điểm", new JPannelViewScore());
         tabbedPane.addTab("Tìm kiếm",new JPanelSearch());
+        tabbedPane.addTab("Nạp tiền", new JButton("Nạp tiền bằng qua bankking"));
         add(tabbedPane);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
