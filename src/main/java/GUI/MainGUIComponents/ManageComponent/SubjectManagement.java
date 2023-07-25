@@ -44,11 +44,21 @@ public class SubjectManagement extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String TenMonHoc = TenMon.getText();
+
+
                 int TinChi = Integer.parseInt(tinchi.getText());
                 int Khoi = (int)comboBox1.getSelectedItem();
 
                 Subject subject = new Subject();
+                try {
+                    if(String.valueOf(mamh.getText()).equals("")){
+                        subject.setID(-1);
+                    }else {
+                        int id = Integer.valueOf(mamh.getText());
+                        subject.setID(id);
+                    }
                 subject.setName(TenMonHoc);
                 subject.setCredits(TinChi);
                 subject.setGrandID(Khoi);
@@ -58,6 +68,9 @@ public class SubjectManagement extends JInternalFrame{
 
 
             }
+                catch (NumberFormatException e1){
+                    throw new RuntimeException(e1);
+                }}
         });
         table1.addMouseListener(new MouseAdapter() {
             @Override

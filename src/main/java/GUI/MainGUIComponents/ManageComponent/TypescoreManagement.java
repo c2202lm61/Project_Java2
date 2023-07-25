@@ -37,12 +37,22 @@ public class TypescoreManagement extends JInternalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 TypeScore typeScore = new TypeScore();
-                String tenloaidiem = name.getText();
+                try{
+                    if(String.valueOf(ts_id.getText()).equals("")){
+                        typeScore.setID(-1);
+                    }else{
+                        int id = Integer.valueOf(ts_id.getText());
+                        typeScore.setID(id);
+                    }
+                    String tenloaidiem = name.getText();
+                    typeScore.setName(tenloaidiem);
+                    TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
+                    typeScoreHandle.INSERT(typeScore);
+                    refreshTable();
+                }catch (NumberFormatException e1){
+                    throw new RuntimeException(e1);
+                }
 
-                typeScore.setName(tenloaidiem);
-                TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
-                typeScoreHandle.INSERT(typeScore);
-                refreshTable();
             }
         });
         table1.addMouseListener(new MouseAdapter() {

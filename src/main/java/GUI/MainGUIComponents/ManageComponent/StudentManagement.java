@@ -57,6 +57,13 @@ public class StudentManagement extends JInternalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Student student = new Student();
+                try {
+                    if(String.valueOf(stdID.getText()).equals("")){
+                        student.setID(-1);
+                    }else {
+                        int id = Integer.valueOf(stdID.getText());
+                      student.setID(id);
+                    }
                 student.setName(stdName.getText());
                 String dateString = stdBirthday.getText();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -74,7 +81,9 @@ public class StudentManagement extends JInternalFrame {
                 new StudentHandle().INSERT(student);
                 System.out.println("them du lieu thanh cong");
                 refreshTable();
-            }
+            }catch (NumberFormatException e1){
+                    throw new RuntimeException(e1);
+                }}
         });
         table1.addMouseListener(new MouseAdapter() {
             @Override
