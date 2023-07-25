@@ -52,7 +52,7 @@ public class StudentHandle extends AbsSQLAccess<Student>{
     @Override
     public Boolean UPDATE(Student item) {
         Boolean result = false;
-        String  sql= "UPDATE `student` SET `Student_id`="+item.getID()+",`Social_Securty_Number`='"+item.getSocialSecurtyNumber()+"',`Current_address`='"+item.getAddress()+"',`Phone`='"+item.getPhone()+"',`Birthday`='"+item.getBirthday()+"',`Gender`='"+item.getGender()+"',`Class_code`="+item.getClassID()+",`Name`='"+item.getName()+"' WHERE id="+item.getID();
+        String  sql= "UPDATE `student` SET `Student_id`="+item.getID()+",`Social_Securty_Number`='"+item.getSocialSecurtyNumber()+"',`Current_address`='"+item.getAddress()+"',`Phone`='"+item.getPhone()+"',`Birthday`='"+item.getBirthday()+"',`Gender`="+item.getGender()+",`Class_code`="+item.getClassID()+",`Name`='"+item.getName()+"' WHERE Student_id="+item.getID();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

@@ -9,6 +9,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -66,6 +68,25 @@ public class TeacherManagement extends JInternalFrame{
                 System.out.println("them du lieu thanh cong");
             }
         });
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( table1.getValueAt(clickedRow, 1));
+                String Name =String.valueOf( table1.getValueAt(clickedRow,2));
+                insID.setText(id);
+                instName.setText(Name);
+                if (Boolean.parseBoolean(String.valueOf( table1.getValueAt(clickedRow, 3)))){
+                    insGender.setSelectedIndex(0);
+                }else {
+                    insGender.setSelectedIndex(1);
+                }
+                insBirthday.setText(String.valueOf( table1.getValueAt(clickedRow,4)));
+                insPassword.setText(String.valueOf( table1.getValueAt(clickedRow,5)));
+                insEmail.setText(String.valueOf( table1.getValueAt(clickedRow,6)));
+                insPhone.setText(String.valueOf( table1.getValueAt(clickedRow,7)));
+            }
+        });
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -95,7 +116,7 @@ public class TeacherManagement extends JInternalFrame{
     private JCheckBox checkBox2;
     private JComboBox comboBox1;
     private JComboBox insGender;
-    private JTextField textField1;
+    private JTextField insID;
     private JTextField instName;
     private JTextField insBirthday;
     private JTextField insEmail;

@@ -2,8 +2,10 @@ package GUI.MainGUIComponents.ManageComponent;
 
 
 import DAO.Access.ClassHandle;
+import DAO.Access.InstructorHandle;
 import DAO.Access.StudentHandle;
 
+import Model.Instructor;
 import Model.MClass;
 import Model.Student;
 
@@ -13,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
 import java.time.LocalDate;
@@ -58,13 +62,71 @@ public class StudentManagement extends JInternalFrame {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate date = LocalDate.parse(dateString, formatter);
                 student.setBirthday(date);
-
+                if(stdGender.getSelectedIndex() == 1){
+                    student.setGender(true);
+                }else {
+                    student.setGender(false);
+                }
                 student.setAddress(stdAddress.getText());
-                student.setGender(true);
                 student.setPhone(stdPhone.getText());
                 student.setClassID(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
                 student.setSocialSecurtyNumber(stdSeNumber.getText());
                 new StudentHandle().INSERT(student);
+                System.out.println("them du lieu thanh cong");
+                refreshTable();
+            }
+        });
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                stdID.setText(String.valueOf( table1.getValueAt(clickedRow,1)));
+                stdName.setText(String.valueOf( table1.getValueAt(clickedRow,2)));
+                stdBirthday.setText(String.valueOf( table1.getValueAt(clickedRow,4)));
+                stdAddress.setText(String.valueOf( table1.getValueAt(clickedRow,5)));
+                stdPhone.setText(String.valueOf( table1.getValueAt(clickedRow,6)));
+                stdSeNumber.setText(String.valueOf( table1.getValueAt(clickedRow,6)));
+                stdClass.setSelectedItem(table1.getValueAt(clickedRow,7));
+                if(String.valueOf( table1.getValueAt(clickedRow,3)) == "true")
+                    stdGender.setSelectedIndex(1);
+                else
+                    stdGender.setSelectedIndex(0);
+            }
+        });
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new StudentHandle().DELETE(Integer.parseInt(stdID.getText()));
+
+                refreshTable();
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Student student = new Student();
+                student.setID(Integer.parseInt(stdID.getText()));
+                student.setName(stdName.getText());
+                String dateString = stdBirthday.getText();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate date = LocalDate.parse(dateString, formatter);
+                student.setBirthday(date);
+                if(stdGender.getSelectedIndex() == 1){
+                    student.setGender(true);
+                }else {
+                    student.setGender(false);
+                }
+                student.setAddress(stdAddress.getText());
+                student.setPhone(stdPhone.getText());
+                student.setClassID(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
+                student.setSocialSecurtyNumber(stdSeNumber.getText());
+                new StudentHandle().UPDATE(student);
                 refreshTable();
             }
         });
@@ -108,8 +170,8 @@ public class StudentManagement extends JInternalFrame {
     private JPanel StudentManagementPanel;
     private JButton chọnẢnhButton;
     private JButton insertButton;
-    private JButton sửaButton;
-    private JButton xóaButton;
+    private JButton updateButton;
+    private JButton deleteButton;
     private JButton tảiLạiButton;
     private JCheckBox chọnTấtCảCheckBox;
     private JCheckBox bỏChọnCheckBox;
