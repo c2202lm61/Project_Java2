@@ -34,7 +34,7 @@
                   <text value="Thêm"/>
                 </properties>
               </component>
-              <component id="3246a" class="javax.swing.JButton" binding="sửaButton" default-binding="true">
+              <component id="3246a" class="javax.swing.JButton" binding="updateButton">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -42,7 +42,7 @@
                   <text value="Sửa"/>
                 </properties>
               </component>
-              <component id="647f3" class="javax.swing.JButton" binding="xóaButton" default-binding="true">
+              <component id="647f3" class="javax.swing.JButton" binding="deleteButton">
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -97,8 +97,8 @@
                     <properties>
                       <font size="18"/>
                       <model>
-                        <item value="Nam"/>
                         <item value="Nữ"/>
+                        <item value="Nam"/>
                       </model>
                     </properties>
                   </component>

@@ -66,9 +66,31 @@ public class TeacherManagement extends JInternalFrame{
                 System.out.println("them du lieu thanh cong");
             }
         });
+<<<<<<< HEAD
 
 
 
+=======
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( table1.getValueAt(clickedRow, 1));
+                String Name =String.valueOf( table1.getValueAt(clickedRow,2));
+                insID.setText(id);
+                instName.setText(Name);
+                if (Boolean.parseBoolean(String.valueOf( table1.getValueAt(clickedRow, 3)))){
+                    insGender.setSelectedIndex(0);
+                }else {
+                    insGender.setSelectedIndex(1);
+                }
+                insBirthday.setText(String.valueOf( table1.getValueAt(clickedRow,4)));
+                insPassword.setText(String.valueOf( table1.getValueAt(clickedRow,5)));
+                insEmail.setText(String.valueOf( table1.getValueAt(clickedRow,6)));
+                insPhone.setText(String.valueOf( table1.getValueAt(clickedRow,7)));
+            }
+        });
+>>>>>>> 9af30d8a4e2529d1ca9f6229ed794a3e974f2c0d
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -98,7 +120,11 @@ public class TeacherManagement extends JInternalFrame{
     private JCheckBox checkBox2;
     private JComboBox comboBox1;
     private JComboBox insGender;
+<<<<<<< HEAD
     private JTextField ID;
+=======
+    private JTextField insID;
+>>>>>>> 9af30d8a4e2529d1ca9f6229ed794a3e974f2c0d
     private JTextField instName;
     private JTextField insBirthday;
     private JTextField insEmail;

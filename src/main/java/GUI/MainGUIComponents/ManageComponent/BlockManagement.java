@@ -41,12 +41,24 @@ public class BlockManagement extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Block block = new Block();
-                String tenkhoi = TenKhoi.getText();
 
-                block.setName(tenkhoi);
-                GrantHandle grantHandle = new GrantHandle();
-                grantHandle.INSERT(block);
-                refreshTable();
+                try {
+                    if(String.valueOf(MaKhoi.getText()).equals("")){
+                        block.setID(-1);
+                    }else {
+                        int id = Integer.valueOf(MaKhoi.getText());
+                        block.setID(id);
+                    }
+
+                    String tenkhoi = TenKhoi.getText();
+                    block.setName(tenkhoi);
+                    GrantHandle grantHandle = new GrantHandle();
+                    grantHandle.INSERT(block);
+                    refreshTable();
+                } catch (NumberFormatException e1){
+                    throw new RuntimeException(e1);
+                }
+
             }
 
         });
@@ -84,6 +96,7 @@ public class BlockManagement extends JInternalFrame{
             public void actionPerformed(ActionEvent e) {
                 Block block = new Block();
                 int id = Integer.valueOf(MaKhoi.getText());
+
                 String tenkhoi = TenKhoi.getText();
                 block.setID(id);
                 block.setName(tenkhoi);
