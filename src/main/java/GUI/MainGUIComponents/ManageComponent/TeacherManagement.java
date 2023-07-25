@@ -53,6 +53,8 @@ public class TeacherManagement extends JInternalFrame{
                         int id = Integer.valueOf(insID.getText());
                         instructor.setID_NUMBER(id);
                     }
+                    instructor.setName(instName.getText());
+                    instructor.setPassword(insPassword.getText());
                     String dateString = insBirthday.getText();
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     LocalDate date = LocalDate.parse(dateString, formatter);
@@ -89,9 +91,9 @@ public class TeacherManagement extends JInternalFrame{
                 insPhone.setText(String.valueOf( table1.getValueAt(clickedRow,7)));
             }
         });
-<<<<<<< HEAD
 
-=======
+
+
         deleteButton.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
@@ -133,7 +135,7 @@ public class TeacherManagement extends JInternalFrame{
                 refreshTable();
             }
         });
->>>>>>> c15189de549fe233c3e29db6309be77a924701a0
+
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
