@@ -27,7 +27,9 @@ public class StudentSubjectManagement extends JFrame {
 
         // set layout (phan nay ko duoc code) -----------------------
         add(StudentSubjectPanel);
+
         setSize(800,600);
+        setLocationRelativeTo(null);
         setVisible(true);
 
     }

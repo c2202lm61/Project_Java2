@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="bc8fb0ba-ded7-423f-9e5a-049ef8d75d84" name="Changes" comment="">
+    <list default="true" id="e5658062-254d-4d55-81fb-546ea66a8a04" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/ClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/ClassHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" afterDir="false" />
@@ -17,109 +16,25 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TypeScoreHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TypeScoreHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectdata.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/TeacherManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/ClassHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/ClassHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorRoleHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorRoleHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorSubjectHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorSubjectHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/RoleHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/RoleHandle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/StudentHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/StudentHandle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projectdata.properties" afterDir="false" />
-=======
-    <list default="true" id="2c49f948-a7e6-44d3-a89e-8249e0c3de79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/LeftPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/LeftPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" afterDir="false" />
->>>>>>> 950b4806ebef56f0a010f36cd1992beb32efc0e3
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2T4SVyKWXdrKad1h2VjrldWGrMb" />
-=======
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2T6dBSztc1o6eJL9I4Mabyngc8B" />
->>>>>>> 950b4806ebef56f0a010f36cd1992beb32efc0e3
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="bc8fb0ba-ded7-423f-9e5a-049ef8d75d84" name="Changes" comment="" />
-      <created>1690300892555</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1690300892555</updated>
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "240"
+    "git-widget-placeholder": "Merging main"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.score.management.Main" />
-      <module name="Project_Java_2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.score.management.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="2c49f948-a7e6-44d3-a89e-8249e0c3de79" name="Changes" comment="" />
-      <created>1690367334608</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1690367334608</updated>
->>>>>>> 950b4806ebef56f0a010f36cd1992beb32efc0e3
-    </task>
     <servers />
   </component>
 </project>
