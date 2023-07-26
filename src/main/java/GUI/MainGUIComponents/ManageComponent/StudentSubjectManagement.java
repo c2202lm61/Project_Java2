@@ -35,6 +35,9 @@ public class StudentSubjectManagement extends JFrame {
         // set layout (phan nay ko duoc code) -----------------------
         add(StudentSubjectPanel);
         setSize(400,200);
+
+        setLocationRelativeTo(null);
+
         setVisible(true);
 
         insertButton.addActionListener(new ActionListener() {

@@ -54,6 +54,7 @@ public class ScoreManagement extends JFrame {
         //-----------------------------------------------------------------
         add(scoreManageComponent);
         setSize(600,400);
+        setLocationRelativeTo(null);
         setVisible(true);
 
 

@@ -14,7 +14,11 @@ public class TeacherClassHandle extends AbsSQLAccess<TeacherClass> {
     @Override
     public Boolean INSERT(TeacherClass item) {
         Boolean result = false;
-        String sql = "INSERT INTO `teach_class`(`numberofsemester`, `Class_code`, `ID_Teach`) VALUES ('"+item.getNumberofsemester()+"',"+item.getClass_code()+","+item.getID_Teach()+")";
+        String sql;
+        if(item.getClass_code() == -1){sql = "INSERT INTO `teach_class`(`numberofsemester`, `Class_code`, `ID_Teach`) VALUES ('"+item.getNumberofsemester()+"',"+item.getClass_code()+","+item.getID_Teach()+")";}
+        else {sql = "INSERT INTO `teach_class`(`id_tc`,`numberofsemester`, `Class_code`, `ID_Teach`) VALUES ('"+item.getClass_code()+"','"+item.getNumberofsemester()+"'," +
+                ""+item.getClass_code()+","+item.getID_Teach()+")";}
+
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);

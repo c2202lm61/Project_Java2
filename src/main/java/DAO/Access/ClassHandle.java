@@ -14,8 +14,16 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
     // check lại hộ em nhe
     public Boolean INSERT(MClass item) {
         Boolean result = false;
+        String sql;
+        if(item.getID() == -1){
+            sql = "INSERT INTO `class`(`grant_id`,`ID_MANAGER`) VALUES ('"+item.getGrandID()+"','"+item.getManagerID()+"')";
+        } else {
+            sql = "INSERT INTO `class`(`class_code`,`grant_id`,`ID_MANAGER`) VALUES ("+item.getID()+","+item.getGrandID()+",'"+item.getManagerID()+"')";
 
-        String sql = "INSERT INTO `class`(`grant_id`,`ID_MANAGER`) VALUES ("+item.getGrandID()+","+item.getManagerID()+")";
+        }
+
+
+
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);

@@ -12,7 +12,10 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
     @Override
     public Boolean INSERT(TypeScore item) {
         boolean result = false;
-        String sql = "INSERT INTO `type_score`(`name`) VALUES ('"+item.getName()+"')";
+        String sql;
+        if(item.getID() == -1){sql = "INSERT INTO `type_score`(`name`) VALUES ('"+item.getName()+"')";}
+        else {sql = "INSERT INTO `type_score`(`name`,`ts_id`) VALUES ('"+item.getID()+"','"+item.getName()+"')";}
+
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("them du lieu thành công:"+a);
@@ -30,7 +33,7 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
        final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
        while (resultSet.next()){
            TypeScore b = new TypeScore();
-           b.setID(resultSet.getInt("id"));
+           b.setID(resultSet.getInt("ts_id"));
            b.setName(resultSet.getString("name"));
            a.add(b);
        }
