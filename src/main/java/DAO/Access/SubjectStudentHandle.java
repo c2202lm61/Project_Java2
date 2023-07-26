@@ -13,7 +13,13 @@ public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
     @Override
     public Boolean INSERT(SubjectStudent item) {
         Boolean result = false;
-        String sql = "INSERT INTO `subject_student`(`student_id`, `Subject_code`) VALUES ("+item.getStudent_id()+","+item.getSubject_code()+")";
+        String sql;
+        if(item.getSubject_Student_id() == -1){
+            sql = "INSERT INTO `subject_student`(`student_id`, `Subject_code`) VALUES ("+item.getStudent_id()+","+item.getSubject_code()+")";
+        }else {
+            sql = "INSERT INTO `subject_student`(`Subject_student_id`, `student_id`, `Subject_code`) VALUES ("+item.getSubject_Student_id()+","+item.getStudent_id()+","+item.getSubject_code()+")";
+        }
+
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);
@@ -30,7 +36,7 @@ public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
         final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
         while (resultSet.next()){
             SubjectStudent b = new SubjectStudent();
-            b.setSubject_Student_id(resultSet.getInt("Subject_student_id\tstudent_id\tSubject_code"));
+            b.setSubject_Student_id(resultSet.getInt("Subject_student_id"));
             b.setStudent_id(resultSet.getInt("student_id"));
             b.setSubject_code(resultSet.getInt("Subject_code"));
             a.add(b);
@@ -42,7 +48,7 @@ public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
     @Override
     public Boolean UPDATE(SubjectStudent item) {
         Boolean result = false;
-        String  sql= "UPDATE `subject_student` SET `Subject_student_id`="+item.getSubject_Student_id()+",`student_id`="+item.getStudent_id()+",`Subject_code`="+item.getSubject_code()+" WHERE id="+item.getSubject_Student_id();
+        String  sql= "UPDATE `subject_student` SET `Subject_student_id`="+item.getSubject_Student_id()+",`student_id`="+item.getStudent_id()+",`Subject_code`="+item.getSubject_code()+" WHERE `Subject_student_id`="+item.getSubject_Student_id();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

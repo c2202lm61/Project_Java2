@@ -44,7 +44,7 @@ public class TeacherClassHandle extends AbsSQLAccess<TeacherClass> {
     public Boolean UPDATE(TeacherClass item) {
 
         Boolean result = false;
-        String  sql= "UPDATE `teach_class` SET `id_tc`="+item.getId_tc()+",`numberofsemester`='"+item.getNumberofsemester()+"',`Class_code`="+item.getClass_code()+",`ID_Teach`="+item.getID_Teach()+" WHERE id="+item.getId_tc();
+        String  sql= "UPDATE `teach_class` SET `id_tc`="+item.getId_tc()+",`numberofsemester`='"+item.getNumberofsemester()+"',`Class_code`="+item.getClass_code()+",`ID_Teach`="+item.getID_Teach()+" WHERE `id_tc`="+item.getId_tc();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

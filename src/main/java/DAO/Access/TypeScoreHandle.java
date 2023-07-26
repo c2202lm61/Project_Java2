@@ -40,7 +40,7 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
     @Override
     public Boolean UPDATE(TypeScore item) {
         Boolean result = false;
-        String  sql= "UPDATE `type_score` SET `ts_id`="+item.getID()+",`name`='"+item.getName()+"' WHERE id="+item.getID();
+        String  sql= "UPDATE `type_score` SET `ts_id`="+item.getID()+",`name`='"+item.getName()+"' WHERE `ts_id`="+item.getID();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

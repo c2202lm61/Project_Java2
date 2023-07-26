@@ -72,25 +72,7 @@ public class JPannelManage extends JPanel{
                 cardLayout.show(secondPart, "Card 2");
             }
         });
-        leftPanel.button2.addActionListener(new ActionListener() {
-            @Override
 
-            public void actionPerformed(ActionEvent actionEvent) {
-
-                JDesktopPane component3 = new JDesktopPane();
-                component3.setLayout(new GridLayout());
-                try {
-                    component3.add(new ScoreManagement());
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-                String card3 = "Card 3";
-                secondPart.add(component3, card3);
-                //
-
-                cardLayout.show(secondPart, "Card 3");
-            }
-        });
         leftPanel.button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -169,7 +151,6 @@ public class JPannelManage extends JPanel{
 class LeftPanel extends JPanel{
     JButton button;
     JButton button1;
-    JButton button2;
     JButton button3;
     JButton button4;
     JButton button5;
@@ -185,7 +166,6 @@ class LeftPanel extends JPanel{
         button = new JButton("Quản lý học sinh");
         button.setBorder(new EmptyBorder(10,0,10,0));
         button1 = new JButton("Quản lý giáo viên");
-        button2 = new JButton("Quản lý điểm");
         button3 = new JButton("Quản lý khoa");
         button4 = new JButton("Quản lý lớp");
         button5 = new JButton("Quản lý môn");
@@ -194,7 +174,6 @@ class LeftPanel extends JPanel{
         button8 = new JButton("Loai Diem");
         panel.add(button);
         panel.add(button1);
-        panel.add(button2);
         panel.add(button3);
         panel.add(button4);
         panel.add(button5);

@@ -140,7 +140,7 @@ public class StudentManagement extends JInternalFrame {
         subjectStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StudentSubjectManagement studentSubjectManagement = new StudentSubjectManagement();
+                StudentSubjectManagement studentSubjectManagement = new StudentSubjectManagement(Integer.parseInt(stdID.getText()));
 
             }
         });
