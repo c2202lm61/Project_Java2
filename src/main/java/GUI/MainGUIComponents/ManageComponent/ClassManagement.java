@@ -48,16 +48,33 @@ public class ClassManagement extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 MClass mClass = new MClass();
+                try {
+                    if(String.valueOf(Malop.getText()).equals("")){
+                        mClass.setID(-1);
+                    }else {
+                        int id = Integer.valueOf(Malop.getText());
+                        mClass.setID(id);
+                    }
                 int makhoi = (int)MaKhoi.getSelectedItem();
 
                 int magvcn = (int)MaGVCN.getSelectedItem();
+
 
                 mClass.setGrandID(makhoi);
                 mClass.setManagerID(magvcn);
                 new ClassHandle().INSERT(mClass);
                 refreshTable();
-            }
+            }catch (NumberFormatException e1){
+                    throw new RuntimeException(e1);
+                }}
+
+
+
+
+
+
         });
+
         labelTable1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

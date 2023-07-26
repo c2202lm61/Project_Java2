@@ -44,12 +44,22 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                 int magv = (int)MaGV.getSelectedItem();
                 int mamh = (int)MaMH.getSelectedItem();
                 InstructorSubject instructorSubject = new InstructorSubject();
+                try {
+                    if(String.valueOf(MaGVBM.getText()).equals("")){
+                        instructorSubject.setID_Teach(-1);
+                    }else {
+                        int id = Integer.valueOf(MaGVBM.getText());
+                        instructorSubject.setID_Teach(id);
+                    }
                 instructorSubject.setSubject_code(mamh);
                 instructorSubject.setID_NUMBER(magv);
                 InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
                 instructorSubjectHandle.INSERT(instructorSubject);
                 refreshTable();
             }
+                catch (NumberFormatException e1){
+                    throw new RuntimeException(e1);
+                }}
         });
         table1.addMouseListener(new MouseAdapter() {
             @Override
