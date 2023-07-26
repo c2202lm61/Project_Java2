@@ -2,7 +2,6 @@ package Controllers.Authenlication;
 
 import DAO.JDBCDriver;
 import Model.Instructor;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
