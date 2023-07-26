@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class JPannelManage extends JPanel{
     JPanel secondPart = new JPanel();
@@ -78,7 +79,11 @@ public class JPannelManage extends JPanel{
 
                 JDesktopPane component3 = new JDesktopPane();
                 component3.setLayout(new GridLayout());
-                component3.add(new ScoreManagement());
+                try {
+                    component3.add(new ScoreManagement());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 String card3 = "Card 3";
                 secondPart.add(component3, card3);
                 //
