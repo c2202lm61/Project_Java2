@@ -7,7 +7,7 @@ public class TypeScore {
 
     
     public void setID(int ID){
-        this.id= id;
+        this.id= ID;
     }
     public int getID(){
         return this.id;
