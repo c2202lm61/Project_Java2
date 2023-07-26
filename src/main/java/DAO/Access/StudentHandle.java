@@ -15,8 +15,13 @@ public class StudentHandle extends AbsSQLAccess<Student>{
     @Override
     public Boolean INSERT(Student item) {
         Boolean result = false;
+        String sql;
+        if( item.getID() == -1) {
+            sql = "INSERT INTO `student`(`Social_Securty_Number`, `Current_address`, `Phone`, `Birthday`, `Gender`, `Class_code`, `Name`)" + " VALUES ('"+item.getSocialSecurtyNumber()+"','"+item.getAddress()+"','"+item.getPhone()+"','"+item.getBirthday()+"'," +
+                    ""+item.getGender()+","+item.getClassID()+",'"+item.getName()+"')";
+        } else { sql = "INSERT INTO `student`(`Student_id`,`Social_Securty_Number`, `Current_address`, `Phone`, `Birthday`, `Gender`, `Class_code`, `Name`)" + " VALUES ('"+item.getID()+"','"+item.getSocialSecurtyNumber()+"','"+item.getAddress()+"','"+item.getPhone()+"','"+item.getBirthday()+"',"+item.getGender()+","+item.getClassID()+",'"+item.getName()+"')";
+        }
 
-        String sql = "INSERT INTO `student`(`Social_Securty_Number`, `Current_address`, `Phone`, `Birthday`, `Gender`, `Class_code`, `Name`)" + " VALUES ('"+item.getSocialSecurtyNumber()+"','"+item.getAddress()+"','"+item.getPhone()+"','"+item.getBirthday()+"',"+item.getGender()+","+item.getClassID()+",'"+item.getName()+"')";
         System.out.println(sql);
         try {
             boolean a = JDBCDriver.SetQuery(sql);

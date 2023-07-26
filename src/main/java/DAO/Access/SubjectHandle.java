@@ -14,7 +14,10 @@ public class SubjectHandle extends AbsSQLAccess<Subject> {
     @Override
     public Boolean INSERT(Subject item) {
         Boolean result = false;
-        String sql = "INSERT INTO `subject`( `Name`, `Credits`, `grant_id`) VALUES ('"+item.getName()+"',"+item.getCredits()+","+ item.getGrandID()+")";
+        String sql;
+        if(item.getID() == -1){sql = "INSERT INTO `subject`( `Name`, `Credits`, `grant_id`) VALUES ('"+item.getName()+"',"+item.getCredits()+","+ item.getGrandID()+")";}
+        else {sql = "INSERT INTO `subject`(`Subject_code` `Name`, `Credits`, `grant_id`) VALUES ('"+item.getID()+"','"+item.getName()+"',"+item.getCredits()+","+ item.getGrandID()+")";}
+
         System.out.println(sql);
         try {
             boolean a = JDBCDriver.SetQuery(sql);
