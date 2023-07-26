@@ -14,7 +14,12 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
     @Override
     public Boolean INSERT(InstructorSubject item) {
         Boolean result = false;
-        String sql = "INSERT INTO `instructor_subject`(`ID_NUMBER`, `Subject_code`) VALUES ("+item.getID_NUMBER()+","+item.getSubject_code()+")";
+        String sql;
+        if (item.getID_Teach() == -1){sql = "INSERT INTO `instructor_subject`(`ID_NUMBER`, `Subject_code`) VALUES ("+item.getID_NUMBER()+","+item.getSubject_code()+")";}
+        else {
+            sql = "INSERT INTO `instructor_subject`(`ID_Teach`,`ID_NUMBER`, `Subject_code`) VALUES ("+item.getID_NUMBER()+","+item.getSubject_code()+", "+item.getID_Teach()+")";
+        }
+
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);
