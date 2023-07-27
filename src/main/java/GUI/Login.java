@@ -1,8 +1,11 @@
 package GUI;
 
+import Controllers.Authenlication.Authenlication;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class Login extends JDialog{
     public Login(){
@@ -15,12 +18,18 @@ public class Login extends JDialog{
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if (textField1.getText().equals("admin")&&passwordField1.getText().equals("1111")) {
-                    new MainGUI();
-                    dispose();
+                try {
+                    Authenlication.Login(EmailTextFiled.getText(),passwordField.getText());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
                 }
-                else
-                    JOptionPane.showMessageDialog(btnLogin,"Thông tin tài khoản hoặc mật khẩu không chính xác!");
+//                if (textField1.getText().equals("admin")&&passwordField1.getText().equals("1111")) {
+//                    new MainGUI();
+//                    dispose();
+//                }
+//                else
+//                    JOptionPane.showMessageDialog(btnLogin,"Thông tin tài khoản hoặc mật khẩu không chính xác!");
+             //   Authenlication.Login();
             }
         });
         registerButton.addActionListener(new ActionListener() {
@@ -30,8 +39,8 @@ public class Login extends JDialog{
             }
         });
     }
-    private JTextField textField1;
-    private JPasswordField passwordField1;
+    private JTextField EmailTextFiled;
+    private JPasswordField passwordField;
     private JPanel loginPanel;
     private JButton btnLogin;
     private JButton registerButton;

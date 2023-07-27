@@ -8,23 +8,23 @@ public class Validation {
             "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]+$");
     private static final Pattern PASSWORD_PATTERN = Pattern.compile(
             "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^*]).{8,}$");
-    public static Boolean checkEmail(String email){
+    public static Boolean isEmail(String email){
 
         return EMAIL_PATTERN.matcher(email).matches();
     }
-    public static Boolean checkPassword(String password){
+    public static Boolean isStrongPassword(String password){
 
         return PASSWORD_PATTERN.matcher(password).matches();
     }
-    public static Boolean checkFullName(String fullname){
+    public static Boolean isFullName(String fullname){
 
         return fullname.matches("[a-zA-Z ]+");
     }
-    public static Boolean checkPhone(String  phone){
+    public static Boolean isPhone(String  phone){
 
-        return phone.matches("[0-9]{10}");
+        return phone.matches("[0-9]{8}");
     }
-    public static Boolean checkBirthday(LocalDate birthday){
+    public static Boolean isBirthday(LocalDate birthday){
 
         return birthday.isBefore(LocalDate.now());
     }
@@ -34,7 +34,7 @@ public class Validation {
         return year - birthday.getYear() == age;
     }
     public static Boolean checkLogin(String email, String password) {
-        return checkEmail(email) && checkPassword(password);
+        return isEmail(email) && isStrongPassword(password);
     }
 }
 
