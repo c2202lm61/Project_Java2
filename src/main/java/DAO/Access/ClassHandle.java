@@ -52,7 +52,7 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
     public Boolean UPDATE(MClass item) {
 
         Boolean result = false;
-        String  sql= "UPDATE `class` SET `class_code`="+item.getID()+",`grant_id`="+item.getGrandID()+",`ID_manager`="+item.getManagerID()+" WHERE id="+item.getID();
+        String  sql= "UPDATE `class` SET `class_code`="+item.getID()+",`grant_id`="+item.getGrandID()+",`ID_manager`="+item.getManagerID()+" WHERE `class_code`="+item.getID();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

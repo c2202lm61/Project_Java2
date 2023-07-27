@@ -47,7 +47,7 @@ public class SubjectHandle extends AbsSQLAccess<Subject> {
     @Override
     public Boolean UPDATE(Subject item) {
         Boolean result = false;
-        String  sql= "UPDATE `subject` SET `Subject_code`="+item.getID()+",`Name`='"+item.getName()+"',`Credits`="+item.getCredits()+",`grant_id`="+item.getGrandID()+" WHERE id="+item.getID();
+        String  sql= "UPDATE `subject` SET `Subject_code`="+item.getID()+",`Name`='"+item.getName()+"',`Credits`="+item.getCredits()+",`grant_id`="+item.getGrandID()+" WHERE `Subject_code`="+item.getID();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

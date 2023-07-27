@@ -13,7 +13,13 @@ public class ScoreStudentHandle extends AbsSQLAccess<Score> {
     @Override
     public Boolean INSERT(Score item) {
         Boolean result = false;
-        String sql = "INSERT INTO `score_student`(`ts_id`, `ss_id`, `ScoreValue`) VALUES ("+item.getTypeScoreID()+","+item.getStudentSubjectID()+","+item.getScoreValue()+")";
+        String sql;
+        if(item.getScoreID() == -1){
+            sql = "INSERT INTO `score_student`(`ts_id`, `ss_id`, `ScoreValue`) VALUES ("+item.getTypeScoreID()+","+item.getStudentSubjectID()+","+item.getScoreValue()+")";
+        }else {
+            sql = "INSERT INTO `score_student`(`ts_id`, `ss_id`, `ScoreValue`,`ScoreID`) VALUES ("+item.getTypeScoreID()+","+item.getStudentSubjectID()+","+item.getScoreValue()+","+item.getScoreID()+")";
+
+        }
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);
@@ -42,8 +48,7 @@ public class ScoreStudentHandle extends AbsSQLAccess<Score> {
     @Override
     public Boolean UPDATE(Score item) {
         Boolean result = false;
-        String  sql= "UPDATE `score_student` SET `ts_id`="+item.getTypeScoreID()+",`ss_id`="+item.getStudentSubjectID()+",`ScoreValue`="+item.getScoreID()+",`ScoreID`="+item.getScoreID()+" WHERE id="+item.getScoreID();
-        String t = "INSERT INTO `MClass`(`ScoreID` , `ScoreValue`) VALUES ('"+item.getScoreID()+", '"+item.getScoreValue()+"')";
+        String  sql= "UPDATE `score_student` SET `ts_id`="+item.getTypeScoreID()+",`ss_id`="+item.getStudentSubjectID()+",`ScoreValue`="+item.getScoreID()+",`ScoreID`="+item.getScoreID()+" WHERE `ScoreID`="+item.getScoreID();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);
