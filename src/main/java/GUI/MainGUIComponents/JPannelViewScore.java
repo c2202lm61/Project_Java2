@@ -10,15 +10,20 @@ public class JPannelViewScore extends JPanel {
         defaultTableModel.addColumn("STT");
         defaultTableModel.addColumn("Mã học sinh");
         defaultTableModel.addColumn("Tên học sinh");
-        defaultTableModel.addColumn("Điểm 15p");
-        defaultTableModel.addColumn("Điểm 45p");
         defaultTableModel.addColumn("Môn");
-        defaultTableModel.addColumn("Lớp");
-        defaultTableModel.addColumn("Khối");
-        defaultTableModel.addColumn("Mã giáo viên");
+        defaultTableModel.addColumn("Điểm Hệ Số 1");
+        defaultTableModel.addColumn("Điểm Hệ Số 2");
+        defaultTableModel.addColumn("Điểm Hệ Số 3");
+        defaultTableModel.addColumn("Điểm Hệ Số 3");
+        defaultTableModel.addColumn("Tổng Điểm");
         table1.setModel(defaultTableModel);
+
+
         setLayout(new  GridLayout(1,1));
         add(panel1);
+    }
+    public void refresh(){
+
     }
     private JPanel panel1;
     private JComboBox comboBox1;
