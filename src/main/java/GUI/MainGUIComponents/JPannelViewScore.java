@@ -11,6 +11,7 @@ public class JPannelViewScore extends JPanel {
         defaultTableModel.addColumn("Mã học sinh");
         defaultTableModel.addColumn("Tên học sinh");
         defaultTableModel.addColumn("Môn");
+        defaultTableModel.addColumn("Khoi");
         defaultTableModel.addColumn("Điểm Hệ Số 1");
         defaultTableModel.addColumn("Điểm Hệ Số 2");
         defaultTableModel.addColumn("Điểm Hệ Số 3");

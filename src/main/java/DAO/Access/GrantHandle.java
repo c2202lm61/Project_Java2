@@ -12,9 +12,7 @@ import java.util.List;
 import static DAO.JDBCDriver.conn;
 
 public class GrantHandle extends AbsSQLAccess<Block>{
-    public GrantHandle(){
-        table = "grants";
-    }
+
     @Override
     public Boolean INSERT(Block item)
     {
