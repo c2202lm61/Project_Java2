@@ -65,30 +65,30 @@ public class SortData {
         }
         return result;
     }
-    public static void main(String[] args) {
-        List<Student> students = new ArrayList<>();
-        Student student1 = new Student();
-        student1.setName("Ngo Quang Duong");
-        Student student2 = new Student();
-        student2.setName("Dinh Xuan Tung");
-        Student student3 = new Student();
-        student3.setName("Pham Minh Quan");
-        students.add(student1);
-        students.add(student2);
-        students.add(student3);
-
-        // Tìm kiếm danh sách sinh viên theo tên
-        String nameToSearch = "Quân";
-        List<Student> foundStudents = SortData.searchByName(students, nameToSearch);
-
-        // In danh sách sinh viên tìm thấy
-        if (foundStudents.isEmpty()) {
-            System.out.println("Không tìm thấy sinh viên có tên: " + nameToSearch);
-        } else {
-            System.out.println("Danh sách sinh viên có tên: " + nameToSearch);
-            for (Student student : foundStudents) {
-                System.out.println(student.getName());
-            }
-        }
-    }
+//    public static void main(String[] args) {
+//        List<Student> students = new ArrayList<>();
+//        Student student1 = new Student();
+//        student1.setName("Ngo Quang Duong");
+//        Student student2 = new Student();
+//        student2.setName("Dinh Xuan Tung");
+//        Student student3 = new Student();
+//        student3.setName("Pham Minh Quan");
+//        students.add(student1);
+//        students.add(student2);
+//        students.add(student3);
+//
+//        // Tìm kiếm danh sách sinh viên theo tên
+//        String nameToSearch = "Quân";
+//        List<Student> foundStudents = SortData.searchByName(students, nameToSearch);
+//
+//        // In danh sách sinh viên tìm thấy
+//        if (foundStudents.isEmpty()) {
+//            System.out.println("Không tìm thấy sinh viên có tên: " + nameToSearch);
+//        } else {
+//            System.out.println("Danh sách sinh viên có tên: " + nameToSearch);
+//            for (Student student : foundStudents) {
+//                System.out.println(student.getName());
+//            }
+//        }
+//    }
 }
