@@ -14,7 +14,8 @@ public class InstructorRoleHandle  extends AbsSQLAccess<InstructorRole> {
     public Boolean INSERT(InstructorRole item) {
         Boolean result = false;
         String sql;
-        if (item.getRole_id() == -1){sql = "ISNERT INTO `instructor_role`(`Role_id`,`ID_NUMBER`) VALUES("+item.getRole_id()+","+item.getID_NUMBER()+")";}
+        if (item.getRole_id() == -1){
+            sql = "ISNERT INTO `instructor_role`(`Role_id`,`ID_NUMBER`) VALUES("+item.getRole_id()+","+item.getID_NUMBER()+")";}
         else {sql = "INSERT INTO `instructor_role`(`tclass_id`,`Role_id`, `ID_NUMBER`) VALUES ("+item.getTclass_id()+","+item.getRole_id()+","+item.getID_NUMBER()+")";}
 
         try {
@@ -38,7 +39,7 @@ public class InstructorRoleHandle  extends AbsSQLAccess<InstructorRole> {
             b.setTclass_id(resultSet.getInt("Tclass_id"));
             a.add(b);
         }
-return a;
+        return a;
 
     }
 

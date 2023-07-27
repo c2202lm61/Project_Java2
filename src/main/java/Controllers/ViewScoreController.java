@@ -18,25 +18,15 @@ public class ViewScoreController  {
 
     public List<ViewScore> SELECT(int MaKHoi, int MaLop, int MaMH) throws SQLException {
 
-        List<ViewScore> a = new ArrayList<>();
-
-
-        StudentHandle studentHandle = new StudentHandle();
-
-        List<Student> students = null;
-                try {
-                    students = studentHandle.SELECT("SELECT student.Name, student.Class_code, subject_student.Subject_code,score_student.ScoreValue,score_student.ts_id FROM `student`  INNER JOIN subject_student ON subject_student.student_id = student.Student_id ");
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-        Iterator<Student> studentIterator = students.iterator();
-        while (studentIterator.hasNext()){
-            Student student = studentIterator.next();
-
+        List<ViewScore> a= null;
+        float total = 0;
+        int count = 0;
+        String sql ="";
+        final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
+        while (resultSet.next()){
+            total += resultSet.getInt("ScoreValue");
+            count+=1;
         }
-
-
-
         return a;
     }
 
