@@ -5,59 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d822c9-958e-414a-9663-a672e75458d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/SortData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/SortData$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/SortData$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/SortData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Authenlication/Authenlication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Authenlication/Authenlication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/ClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/ClassHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorRoleHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorRoleHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorSubjectHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/InstructorSubjectHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/RoleHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/RoleHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/StudentHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/StudentHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/SubjectHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TeacherClassHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/TypeScoreHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/TypeScoreHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/TypeScore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelViewScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelViewScore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectdata.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/Authenlication/Authenlication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/Authenlication/Authenlication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/Validation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/Validation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/ClassHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/ClassHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorRoleHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorRoleHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorSubjectHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/InstructorSubjectHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/RoleHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/RoleHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/StudentHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/StudentHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/SubjectHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/SubjectHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/TeacherClassHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/TeacherClassHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/Access/TypeScoreHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/Access/TypeScoreHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/StudentSubjectManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/TypeScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/TypeScore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projectdata.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2T9XXQdNkn1KKDAVa8njm4SZfwe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\E_project\PROJECT_JAVA_test\Project_java_intelij\Project_Java2\src\main\java\DAO" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53d822c9-958e-414a-9663-a672e75458d5" name="Changes" comment="" />
+      <created>1690456316425</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690456316425</updated>
+    </task>
     <servers />
   </component>
 </project>
