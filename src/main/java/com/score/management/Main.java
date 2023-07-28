@@ -10,9 +10,9 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
-        new Login();
+//        new Login();
      //   new Register();
-      //  new MainGUI();
+        new MainGUI();
 
     }
 }

@@ -1,10 +1,17 @@
 package GUI.MainGUIComponents;
 
+import DAO.Access.GrantHandle;
+import Model.Block;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class JPanelSearch extends JPanel {
     public JPanelSearch(){
@@ -37,6 +44,7 @@ class HeaderPanel extends JPanel{
         add(topPanel,BorderLayout.NORTH);
         add(bottomPanel,BorderLayout.SOUTH);
     }
+
 }
 class ContentPanel extends JPanel{
     public ContentPanel(){
@@ -62,7 +70,6 @@ class JStudentTable extends JTable{
         model.addColumn("Địa chỉ");
         model.addColumn("Giới tính");
         model.addColumn("Số điện thoại");
-        model.addRow(new Object[]{1,"do nam tram","1/2/2002","noi nao do","3d","0123456789"});
         setModel(model);
     }
 }
@@ -75,7 +82,6 @@ class JTeacherTable extends JTable{
         model.addColumn("Địa chỉ");
         model.addColumn("Giới tính");
         model.addColumn("Số điện thoại");
-        model.addRow(new Object[]{1,"giao vien","1/2/2002","noi nao do","3d","0123456789"});
         setModel(model);
     }
 }
@@ -84,9 +90,30 @@ class JBlockTable extends JTable{
         DefaultTableModel  model = new DefaultTableModel();
         model.addColumn("id");
         model.addColumn("Tên khối");
-        model.addRow(new Object[]{1,"A"});
+
+
+
+        GrantHandle grantHandle = new GrantHandle();
+
+        List<Block> a =new ArrayList<>();
+        model.setRowCount(0); // Clear existing data in the table
+
+        try {
+            a = grantHandle.SELECT("SELECT * FROM grants");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        Iterator<Block> blockIterator = a.iterator();
+        while (blockIterator.hasNext()){
+            Block block = blockIterator.next();
+            model.addRow(new Object[]{block.getID(),block.getName()});
+        }
+
+
         setModel(model);
     }
+
 }
 class JClassTable extends JTable{
     public JClassTable(){
@@ -95,7 +122,6 @@ class JClassTable extends JTable{
         model.addColumn("Tên Lớp");
         model.addColumn("id khối");
         model.addColumn("TeacherId");
-        model.addRow(new Object[]{1,"1a",1,12});
         setModel(model);
     }
 }
@@ -104,7 +130,6 @@ class JSubjectTable extends JTable{
         DefaultTableModel  model = new DefaultTableModel();
         model.addColumn("id");
         model.addColumn("Tên môn hoc");
-        model.addRow(new Object[]{1,"Math"});
         setModel(model);
     }
 }

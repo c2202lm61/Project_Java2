@@ -30,7 +30,7 @@ public class JPannelViewScore extends JPanel {
         defaultTableModel.addColumn("Điểm Hệ Số 1");
         defaultTableModel.addColumn("Điểm Hệ Số 2");
         defaultTableModel.addColumn("Điểm Hệ Số 3");
-        defaultTableModel.addColumn("Điểm Hệ Số 3");
+        defaultTableModel.addColumn("Điểm Hệ Số 4");
         defaultTableModel.addColumn("Tổng Điểm");
         table1.setModel(defaultTableModel);
         refresh();
@@ -51,9 +51,10 @@ public class JPannelViewScore extends JPanel {
                     throw new RuntimeException(e1);
                 }
                 Iterator<ViewScore> studentIterator = a.iterator();
+                int i = 1;
                 while (studentIterator.hasNext()){
                     ViewScore viewScore = studentIterator.next();
-                    modelScoreManage.addRow(new Object[]{true});
+                    modelScoreManage.addRow(new Object[]{i,viewScore.getMaHocSinh(),viewScore.getTenHS(),viewScore.getMaMon(),viewScore.getMaLop(),viewScore.getMaKhoi(),viewScore.getDHS1(),viewScore.getDHS2(),viewScore.getDHS3(),viewScore.getDHS4(),viewScore.getTongDien()});
                 }
             }
         });
