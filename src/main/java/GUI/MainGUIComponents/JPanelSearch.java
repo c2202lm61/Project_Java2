@@ -1,7 +1,14 @@
 package GUI.MainGUIComponents;
 
+import DAO.Access.GrantHandle;
+import Model.Block;
+
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class JPanelSearch extends JPanel{
     public JPanelSearch(){
