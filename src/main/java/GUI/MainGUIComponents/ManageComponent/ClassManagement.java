@@ -67,12 +67,6 @@ public class ClassManagement extends JInternalFrame{
             }catch (NumberFormatException e1){
                     throw new RuntimeException(e1);
                 }}
-
-
-
-
-
-
         });
 
         labelTable1.addMouseListener(new MouseAdapter() {
@@ -128,11 +122,11 @@ public class ClassManagement extends JInternalFrame{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         // Add the IDs to the JComboBox
         for (Block obj : idList) {
             MaKhoi.addItem(obj.getID());
         }
+
         InstructorHandle instructorHandle = new InstructorHandle();
         List<Instructor> maGVCNlist = new ArrayList<>();
         try {
@@ -145,6 +139,8 @@ public class ClassManagement extends JInternalFrame{
         for (Instructor inst : maGVCNlist) {
             MaGVCN.addItem(inst.getID_NUMBER());
         }
+
+
         // Assuming you want to preselect an ID in the JComboBox (let's call it selectedID):
 
         DefaultTableModel modelScoreManage = (DefaultTableModel) labelTable1.getModel();

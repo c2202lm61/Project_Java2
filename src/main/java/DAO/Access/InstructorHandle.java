@@ -38,19 +38,21 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
 
         List<Instructor> a = new ArrayList<>();
         final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
-        while (resultSet.next()){
+        while (resultSet.next()) {
             Instructor b = new Instructor();
             b.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate date = LocalDate.parse(resultSet.getString("birthday"), formatter);
             b.setBirthday(date);
+            System.out.println(resultSet.getString("birthday"));
             b.setName(resultSet.getString("name"));
             b.setGender(resultSet.getBoolean("gender"));
             b.setPassword(resultSet.getString("password"));
             b.setEmail(resultSet.getString("Email"));
             b.setPhone(resultSet.getString("Phone"));
             a.add(b);
-            }
+        }
+
         return a;
 
     }
