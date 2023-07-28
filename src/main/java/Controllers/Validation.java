@@ -1,5 +1,9 @@
 package Controllers;
 
+import DAO.JDBCDriver;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 
@@ -24,17 +28,27 @@ public class Validation {
 
         return phone.matches("[0-9]{8}");
     }
+    // check birthday is valid
     public static Boolean isBirthday(LocalDate birthday){
 
         return birthday.isBefore(LocalDate.now());
     }
+    // chech age is valid
     public static Boolean checkAge(int age,int year){
 
         LocalDate birthday = null;
         return year - birthday.getYear() == age;
     }
+    //
     public static Boolean checkLogin(String email, String password) {
         return isEmail(email) && isStrongPassword(password);
+    }
+
+    //check has email
+    public static Boolean hasEmail(String email) throws SQLException {
+        ResultSet resultSet = JDBCDriver.ExecQuery("SELECT * FROM instructor WHERE Email = "+"'"+email+"'");
+        if(resultSet.next()) return true;
+        else return false;
     }
 }
 

@@ -1,11 +1,17 @@
 package GUI.MainGUIComponents;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.SQLException;
-public class Popup {
+
+
+public class Popup extends JFrame{
+    private JPanel PopUp;
     private JButton OKButton;
+
+    public Popup()  {
+        setContentPane(PopUp);
+        setSize(400,300);
+        setVisible(true);
+    }
 
 
 }
