@@ -34,10 +34,6 @@ public class Main {
         new MainGUI();
 //        new Popup();
 
-
-
-
-        new MainGUI();
 //        List<ViewScoreBeta> viewScore = ViewScore.viewScoreBetaList();
 //        Iterator<ViewScoreBeta> viewScoreBetaIterator = viewScore.iterator();
 //        while (viewScoreBetaIterator.hasNext()){

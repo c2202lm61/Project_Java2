@@ -56,9 +56,15 @@ public class TeacherManagement extends JInternalFrame{
                     instructor.setName(instName.getText());
                     instructor.setPassword(insPassword.getText());
                     String dateString = insBirthday.getText();
+
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     LocalDate date = LocalDate.parse(dateString, formatter);
                     instructor.setBirthday(date);
+                    if(insGender.getSelectedIndex() ==0)
+                        instructor.setGender(false);
+                    else {
+                        instructor.setGender(true);
+                    }
                     instructor.setEmail(insEmail.getText());
                     instructor.setPhone(insPhone.getText());
                     new InstructorHandle().INSERT(instructor);
