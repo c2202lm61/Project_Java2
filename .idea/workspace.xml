@@ -5,16 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a658fe53-3557-4de3-9122-5deec83a1b86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/ViewScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ComboBoxItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/ViewScoreBeta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/DAO/ViewScore.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/ComboBoxItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Model/ViewScoreBeta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/BlockManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ClassManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/StudentManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/TeacherManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/TeacherManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/LeftPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/LeftPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projectdata.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,26 +40,6 @@
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.score.management.Main" />
-      <module name="Project_Java_2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.score.management.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TaskManager">
     <servers />
