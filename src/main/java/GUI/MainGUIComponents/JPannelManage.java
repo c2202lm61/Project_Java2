@@ -134,6 +134,7 @@ public class JPannelManage extends JPanel{
                 cardLayout.show(secondPart, "Card 8");
             }
         });
+
         leftPanel.button8.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -143,6 +144,18 @@ public class JPannelManage extends JPanel{
                 String card9 = "Card 9";
                 secondPart.add(component9, card9);
                 cardLayout.show(secondPart, "Card 9");
+            }
+        });
+        leftPanel.button9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JDesktopPane component10 = new JDesktopPane();
+                component10.setLayout(new GridLayout());
+                    component10.add(new ScoreManagementBeta());
+
+                String card10 = "Card10";
+                secondPart.add(component10, card10);
+                cardLayout.show(secondPart, "Card10");
             }
         });
         add(leftPanel, BorderLayout.WEST);
@@ -157,6 +170,7 @@ class LeftPanel extends JPanel{
     JButton button6;
     JButton button7;
     JButton button8;
+    JButton button9;
     public LeftPanel(){
         setBackground(mainColor.CYAN);
         setBorder(new EmptyBorder(10,10,10,10));
@@ -171,7 +185,8 @@ class LeftPanel extends JPanel{
         button5 = new JButton("Quản lý môn");
         button6 = new JButton("Phân công");
         button7 = new JButton("Giáo viên giảng dạy bộ môn");
-        button8 = new JButton("Loai Diem");
+        button8 = new JButton("Loại điểm");
+        button9 = new JButton("Chấm điểm beta");
         panel.add(button);
         panel.add(button1);
         panel.add(button3);
@@ -180,6 +195,7 @@ class LeftPanel extends JPanel{
         panel.add(button6);
         panel.add(button7);
         panel.add(button8);
+        panel.add(button9);
         add(panel);
 
     }

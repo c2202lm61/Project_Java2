@@ -3,16 +3,30 @@ package com.score.management;
 import Controllers.Authenlication.Authenlication;
 import Controllers.Validation;
 import DAO.Access.InstructorHandle;
+import DAO.ViewScore;
 import GUI.Login;
 import GUI.MainGUI;
 import GUI.Register;
 import Model.Instructor;
+import Model.ViewScoreBeta;
 
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         new MainGUI();
+//        List<ViewScoreBeta> viewScore = ViewScore.viewScoreBetaList();
+//        Iterator<ViewScoreBeta> viewScoreBetaIterator = viewScore.iterator();
+//        while (viewScoreBetaIterator.hasNext()){
+//           ViewScoreBeta viewScoreBeta = viewScoreBetaIterator.next();
+//            System.out.println("studentID:"+viewScoreBeta.getStudentID());
+//            System.out.println("studentName"+viewScoreBeta.getStudentName());
+//            System.out.println("ClassCode"+viewScoreBeta.getClassCode());
+//            System.out.println("GrantID"+viewScoreBeta.getGrantId());
+//            System.out.println("GrantName"+viewScoreBeta.getGrantName());
+//            System.out.println("SubjectStudentID"+viewScoreBeta.getSubjectStudentID());
+//        }
     }
 }
