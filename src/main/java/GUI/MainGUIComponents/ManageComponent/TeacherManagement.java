@@ -139,7 +139,7 @@ public class TeacherManagement extends JInternalFrame{
                 refreshTable();
             }
         });
-                updateButton.addActionListener(new ActionListener() {
+                searchButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         if(searchByNameCheckBox.isSelected()){
@@ -154,7 +154,8 @@ public class TeacherManagement extends JInternalFrame{
                             Iterator<Instructor> instructorIterator = a.iterator();;
                             while (instructorIterator.hasNext()){
                                 Instructor instructor = instructorIterator.next();
-                                if(String.valueOf(instructor.getName()).contains(searchinput.getText())){modelTeacherManage.addRow(new Object[]{true, instructor.getID_NUMBER(),instructor.getName()});}
+                                if(String.valueOf(instructor.getName()).contains(searchinput.getText())){modelTeacherManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),instructor.getPassword(),instructor.getBirthday(),instructor.getGender()
+                                        ,instructor.getPhone(),instructor.getEmail()});}
 
                             }
                         }else {
@@ -170,7 +171,8 @@ public class TeacherManagement extends JInternalFrame{
                             Iterator<Instructor> instructorIterator = a.iterator();
                             while (instructorIterator.hasNext()){
                                 Instructor instructor = instructorIterator.next();
-                                if(instructor.getID_NUMBER() == Integer.valueOf(searchinput.getText())){modelTeacherManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName()});}
+                                if(instructor.getID_NUMBER() == Integer.valueOf(searchinput.getText())){modelTeacherManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),instructor.getPassword(),instructor.getBirthday(),instructor.getGender()
+                                        ,instructor.getPhone(),instructor.getEmail()});}
                             }
                         }
 

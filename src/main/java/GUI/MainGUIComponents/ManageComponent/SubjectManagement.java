@@ -20,7 +20,7 @@ import java.util.List;
 
 
 public class SubjectManagement extends JInternalFrame{
-    private List<Subject> a = new ArrayList<>();
+    public List<Subject> a = new ArrayList<>();
     public SubjectManagement(){
 
         //--------------------------------------
@@ -120,6 +120,55 @@ public class SubjectManagement extends JInternalFrame{
                 refreshTable();
             }
         });
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (searchByNameCheckBox.isSelected()){
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    SubjectHandle subjectHandle = new SubjectHandle();
+                    a = null;
+                    try {
+                        a = subjectHandle.SELECT("SELECT * FROM `subject`");
+                    } catch (SQLException e1) {
+                        throw new RuntimeException(e1);
+                    }
+                    Iterator<Subject> subjectIterator = a.iterator();
+                    while (subjectIterator.hasNext()){
+                        Subject subject = subjectIterator.next();
+                        if(subject.getName().contains(searchinput.getText())){
+                            modelScoreManage.addRow(new Object[]{true,subject.getID(),subject.getName(),subject.getCredits(),subject.getGrandID()});
+                        }
+
+                    }
+                }else {
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    SubjectHandle subjectHandle = new SubjectHandle();
+                    a = null;
+                    try {
+                        a = subjectHandle.SELECT("SELECT * FROM `subject`");
+                    } catch (SQLException e1) {
+                        throw new RuntimeException(e1);
+                    }
+                    Iterator<Subject> subjectIterator = a.iterator();
+                    while (subjectIterator.hasNext()){
+                        Subject subject = subjectIterator.next();
+                        if(subject.getID() == Integer.valueOf(searchinput.getText())){
+                            modelScoreManage.addRow(new Object[]{true,subject.getID(),subject.getName(),subject.getCredits(),subject.getGrandID()});
+                        }
+                    }
+                }
+            }
+        });
     }
     public void refreshTable() {
         GrantHandle grantHandle = new GrantHandle();
@@ -169,4 +218,7 @@ public class SubjectManagement extends JInternalFrame{
     private JButton zAButton;
     private JButton aZButton;
     private JTextField TenMon;
+    private JTextField searchinput;
+    private JButton searchButton;
+    private JCheckBox searchByNameCheckBox;
 }
