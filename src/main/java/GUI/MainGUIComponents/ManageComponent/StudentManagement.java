@@ -144,6 +144,54 @@ public class StudentManagement extends JInternalFrame {
 
             }
         });
+        reloadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
+        Search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(searchByNameCheckBox.isSelected()){
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    StudentHandle studentHandle = new StudentHandle();
+                    a = null;
+                    try {
+                        a = studentHandle.SELECT("SELECT * FROM `student`");
+                    } catch (SQLException e2) {
+                        throw new RuntimeException(e2);
+                    }
+                    Iterator<Student> studentIterator = a.iterator();
+                    while (studentIterator.hasNext()){
+                        Student student = studentIterator.next();
+                        if(student.getName().contains(String.valueOf(searchinput.getText()))){
+                            modelScoreManage.addRow(new Object[]{true,student.getID(),student.getName(),student.getGender(),student.getBirthday(),student.getAddress(), student.getPhone(),student.getClassID()});
+                        }
+                    }
+                }else {
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    StudentHandle studentHandle = new StudentHandle();
+                    a = null;
+                    try {
+                        a = studentHandle.SELECT("SELECT * FROM `student`");
+                    } catch (SQLException e2) {
+                        throw new RuntimeException(e2);
+                    }
+                    Iterator<Student> studentIterator = a.iterator();
+                    while (studentIterator.hasNext()){
+                        Student student = studentIterator.next();
+                        if(student.getID() == Integer.valueOf(searchinput.getText())){
+                            modelScoreManage.addRow(new Object[]{true,student.getID(),student.getName(),student.getGender(),student.getBirthday(),student.getAddress(), student.getPhone(),student.getClassID()});
+                        }
+                    }
+                }
+            }
+        });
     }
     public void refreshTable() {
         //get  classitem add combobox
@@ -182,7 +230,7 @@ public class StudentManagement extends JInternalFrame {
 
 
     private JPanel StudentManagementPanel;
-    private JButton chọnẢnhButton;
+    private JButton reloadButton;
     private JButton insertButton;
     private JButton updateButton;
     private JButton deleteButton;
@@ -200,6 +248,9 @@ public class StudentManagement extends JInternalFrame {
     private JTextField stdPhone;
     private JTextField stdSeNumber;
     private JButton subjectStudentButton;
+    private JTextField searchinput;
+    private JButton Search;
+    private JCheckBox searchByNameCheckBox;
 
 
 }
