@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 public class StudentManagement extends JInternalFrame {
-    private List<MClass> mClassList;
+    public List<MClass> mClassList;
 
     private List<Student> a = new ArrayList<>();
     public StudentManagement(){

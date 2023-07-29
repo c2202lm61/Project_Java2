@@ -15,9 +15,11 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
     public Boolean INSERT(InstructorSubject item) {
         Boolean result = false;
         String sql;
-        if (item.getID_Teach() == -1){sql = "INSERT INTO `instructor_subject`(`ID_NUMBER`, `Subject_code`) VALUES ("+item.getID_NUMBER()+","+item.getSubject_code()+")";}
+        if (item.getID_Teach() == -1){
+            sql = "INSERT INTO `instructor_subject`(`ID_NUMBER`, `Subject_code`) VALUES ("+item.getID_NUMBER()+","+item.getSubject_code()+")";
+        }
         else {
-            sql = "INSERT INTO `instructor_subject`(`ID_Teach`,`ID_NUMBER`, `Subject_code`) VALUES ("+item.getID_NUMBER()+","+item.getSubject_code()+", "+item.getID_Teach()+")";
+            sql = "INSERT INTO `instructor_subject`(`ID_Teach`,`ID_NUMBER`,`Subject_code`) VALUES ("+item.getID_Teach()+","+item.getID_NUMBER()+","+item.getSubject_code()+" )";
         }
 
         try {
