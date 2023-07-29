@@ -223,8 +223,8 @@
                     <properties>
                       <font size="18"/>
                       <model>
-                        <item value="Nam"/>
                         <item value="Nữ"/>
+                        <item value="Nam"/>
                       </model>
                     </properties>
                   </component>
