@@ -134,6 +134,12 @@ public class TeacherManagement extends JInternalFrame{
             }
         });
 
+        tảiLạiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -172,4 +178,7 @@ public class TeacherManagement extends JInternalFrame{
     private JPasswordField insPassword;
     private JTable table1;
     private JComboBox insGender;
+    private JTextField searchinput;
+    private JButton searchButton;
+    private JCheckBox searchByNameCheckBox;
 }
