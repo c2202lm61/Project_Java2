@@ -50,7 +50,7 @@ public class Authenlication {
             e.printStackTrace();
         }
         try {
-          Boolean result =  JDBCDriver.SetQuery("INSERT INTO `instructor`(`name`, `password`, `Email`,`Phone`) VALUES ('"+fullname+"','"+password+"','"+email+"','01234567')");
+          Boolean result =  JDBCDriver.SetQuery("INSERT INTO `instructor`(`name`, `password`, `Email`,`Phone`,`birthday`) VALUES ('"+fullname+"','"+password+"','"+email+"','01234567','1999-01-01')");
           if(result){
               System.out.println("Thêm dữ liệu thành công");
           }else {
