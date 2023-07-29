@@ -282,6 +282,17 @@
                       </hspacer>
                     </children>
                   </grid>
+                  <scrollpane id="a851f">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="d5082" class="javax.swing.JTable" binding="SubjecTable" custom-create="true">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
                 </children>
               </grid>
             </children>

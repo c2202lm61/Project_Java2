@@ -111,6 +111,35 @@ public class ClassManagement extends JInternalFrame{
                 refreshTable();
             }
         });
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel modelScoreManage = (DefaultTableModel) labelTable1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                ClassHandle classHandle = new ClassHandle();
+                a = null;
+                try {
+                    a = classHandle.SELECT("SELECT * FROM `class`");
+                } catch (SQLException e3) {
+                    throw new RuntimeException(e3);
+                }
+                Iterator<MClass> classIterator = a.iterator();
+
+                while(classIterator.hasNext()){
+                    MClass mclass = classIterator.next();
+                    if(mclass.getID() == Integer.valueOf(searchinput.getText())){
+                        modelScoreManage.addRow(new Object[]{true,mclass.getID(),mclass.getGrandID(),mclass.getManagerID()});
+                    }
+                }
+            }
+        });
+        reload.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
     }
 
     public void refreshTable() {
@@ -168,11 +197,13 @@ public class ClassManagement extends JInternalFrame{
     private JButton insert;
     private JButton update;
     private JButton delete;
-    private JButton button5;
+    private JButton reload;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
     private JTextField Malop;
     private JComboBox MaGVCN;
+    private JTextField searchinput;
+    private JButton searchButton;
 
 
 }

@@ -119,11 +119,11 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         SubjectHandle subjectHandle = new SubjectHandle();
         try {
             maMH = subjectHandle.SELECT("SELECT * FROM `subject`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e1) {
+            throw new RuntimeException(e1);
         }
         for(Subject obj1: maMH){
-            MaGV.addItem(obj1.getID());
+            MaMH.addItem(obj1.getID());
         }
 
 

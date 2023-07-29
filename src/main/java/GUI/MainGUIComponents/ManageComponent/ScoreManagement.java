@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class ScoreManagement extends JFrame {
+public class ScoreManagement extends JInternalFrame {
 
     private JPanel scoreManageComponent;
 
@@ -54,7 +54,6 @@ public class ScoreManagement extends JFrame {
         //-----------------------------------------------------------------
         add(scoreManageComponent);
         setSize(600,400);
-        setLocationRelativeTo(null);
         setVisible(true);
 
 
@@ -154,7 +153,6 @@ public class ScoreManagement extends JFrame {
             Score score = scoreIterator.next();
             modelScoreManage.addRow(new Object[]{true,score.getScoreID(),score.getStudentSubjectID(),score.getTypeScoreID(),score.getScoreValue()});
         }
-
 
     }
 }

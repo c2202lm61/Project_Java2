@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BlockManagement extends JInternalFrame{
-    public List<Block> a = new ArrayList<>();
+
     public BlockManagement(){
 
         // table view (phan nay ko duoc code)--------------
@@ -105,6 +105,51 @@ public class BlockManagement extends JInternalFrame{
                 refreshTable();
             }
         });
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(searchByNameCheckBox.isSelected()){
+                    GrantHandle grantHandle = new GrantHandle();
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+                    a = null;
+                    try {
+                        a = grantHandle.SELECT("SELECT * FROM grants");
+                    } catch (SQLException e1) {
+                        throw new RuntimeException(e1);
+                    }
+
+                    Iterator<Block> blockIterator = a.iterator();
+                    while (blockIterator.hasNext()){
+                        Block block = blockIterator.next();
+                        if(String.valueOf(block.getName()).contains(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
+                    }
+                }else{
+                    GrantHandle grantHandle = new GrantHandle();
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+                    a = null;
+                    try {
+                        a = grantHandle.SELECT("SELECT * FROM grants");
+                    } catch (SQLException e1) {
+                        throw new RuntimeException(e1);
+                    }
+
+                    Iterator<Block> blockIterator = a.iterator();
+                    while (blockIterator.hasNext()){
+                        Block block = blockIterator.next();
+                        if(block.getID() == Integer.valueOf(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
+                    }
+                }
+
+            }
+        });
+        refreshButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
     }
 
     public void refreshTable() {
@@ -131,18 +176,23 @@ public class BlockManagement extends JInternalFrame{
 
     }
 
+    public List<Block> a = new ArrayList<>();
+
     private JPanel panel1;
     private JButton chọnẢnhButton;
     private JButton insert;
     private JButton update;
     private JButton delete;
-    private JButton tảiLạiButton;
+    private JButton refreshButton;
     private JTable table1;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
     private JComboBox comboBox1;
     private JTextField MaKhoi;
     private JTextField TenKhoi;
+    private JTextField TextSearch;
+    private JButton searchButton;
+    private JCheckBox searchByNameCheckBox;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
