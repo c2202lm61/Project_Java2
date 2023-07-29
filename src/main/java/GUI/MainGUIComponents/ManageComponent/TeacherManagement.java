@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class TeacherManagement extends JInternalFrame{
-    private List<Instructor> a = new ArrayList<>();
+    public List<Instructor> a = new ArrayList<>();
     public TeacherManagement(){
 
         //----------------------------------------------------
@@ -139,6 +139,45 @@ public class TeacherManagement extends JInternalFrame{
                 refreshTable();
             }
         });
+                searchButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if(searchByNameCheckBox.isSelected()){
+                            InstructorHandle instructorHandle = new InstructorHandle();
+                            DefaultTableModel modelTeacherManage = (DefaultTableModel) table1.getModel();
+                            modelTeacherManage.setRowCount(0);
+                            a = null;
+                            try {
+                                a = instructorHandle.SELECT("SELECT * FROM instructor");
+                            } catch (SQLException e1){throw new RuntimeException(e1);}
+
+                            Iterator<Instructor> instructorIterator = a.iterator();;
+                            while (instructorIterator.hasNext()){
+                                Instructor instructor = instructorIterator.next();
+                                if(String.valueOf(instructor.getName()).contains(searchinput.getText())){modelTeacherManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),instructor.getPassword(),instructor.getBirthday(),instructor.getGender()
+                                        ,instructor.getPhone(),instructor.getEmail()});}
+
+                            }
+                        }else {
+                            InstructorHandle instructorHandle = new InstructorHandle();
+                            DefaultTableModel modelTeacherManage = (DefaultTableModel) table1.getModel();
+                            modelTeacherManage.setRowCount(0);
+                            a = null;
+                            try {
+                                a = instructorHandle.SELECT("SELECT * FROM instructor");
+                            }catch (SQLException e1){
+                                throw  new RuntimeException(e1);
+                            }
+                            Iterator<Instructor> instructorIterator = a.iterator();
+                            while (instructorIterator.hasNext()){
+                                Instructor instructor = instructorIterator.next();
+                                if(instructor.getID_NUMBER() == Integer.valueOf(searchinput.getText())){modelTeacherManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),instructor.getPassword(),instructor.getBirthday(),instructor.getGender()
+                                        ,instructor.getPhone(),instructor.getEmail()});}
+                            }
+                        }
+
+                    }
+                });
 
         tảiLạiButton.addActionListener(new ActionListener() {
             @Override
@@ -147,6 +186,8 @@ public class TeacherManagement extends JInternalFrame{
             }
         });
     }
+
+
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table

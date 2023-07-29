@@ -41,7 +41,6 @@ public class BlockManagement extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Block block = new Block();
-
                 try {
                     if(String.valueOf(MaKhoi.getText()).equals("")){
                         block.setID(-1);

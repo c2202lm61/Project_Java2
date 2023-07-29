@@ -41,8 +41,6 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int magv = (int)MaGV.getSelectedItem();
-                int mamh = (int)MaMH.getSelectedItem();
                 InstructorSubject instructorSubject = new InstructorSubject();
                 try {
                     if(String.valueOf(MaGVBM.getText()).equals("")){
@@ -51,15 +49,19 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                         int id = Integer.valueOf(MaGVBM.getText());
                         instructorSubject.setID_Teach(id);
                     }
-                instructorSubject.setSubject_code(mamh);
-                instructorSubject.setID_NUMBER(magv);
-                InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
-                instructorSubjectHandle.INSERT(instructorSubject);
-                refreshTable();
-            }
+                    int magv = (int)MaGV.getSelectedItem();
+                    int mamh = (int)MaMH.getSelectedItem();
+                    instructorSubject.setSubject_code(mamh);
+                    instructorSubject.setID_NUMBER(magv);
+                    InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
+                    instructorSubjectHandle.INSERT(instructorSubject);
+                    refreshTable();
+                }
                 catch (NumberFormatException e1){
                     throw new RuntimeException(e1);
-                }}
+                }
+
+            }
         });
         table1.addMouseListener(new MouseAdapter() {
             @Override
