@@ -154,6 +154,5 @@ public class ScoreManagement extends JInternalFrame {
             modelScoreManage.addRow(new Object[]{true,score.getScoreID(),score.getStudentSubjectID(),score.getTypeScoreID(),score.getScoreValue()});
         }
 
-
     }
 }

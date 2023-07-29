@@ -1,16 +1,18 @@
 package GUI.MainGUIComponents;
 
-import DAO.Access.GrantHandle;
-import Model.Block;
-
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class JPanelSearch extends JPanel{
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("JPanelSearch");
+        frame.setContentPane(new JPanelSearch().panel1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
     public JPanelSearch(){
         setLayout(new GridLayout(1,1));
         add(panel1);
@@ -31,4 +33,16 @@ public class JPanelSearch extends JPanel{
     private JButton tìmButton4;
     private JButton tìmButton3;
     private JTextField textField4;
+    private JTable SubjecTable;
+
+    private void createUIComponents() {
+        SubjecTable = new JTable();
+        DefaultTableModel SubjectTableModel =new DefaultTableModel();
+        SubjectTableModel.addColumn("Chọn");
+        SubjectTableModel.addColumn("Mã Môn Mọc");
+        SubjectTableModel.addColumn("Tên Môn Học");
+        SubjectTableModel.addColumn("Tín Chỉ");
+        SubjectTableModel.addColumn("ID Khối");
+        SubjecTable.setModel(SubjectTableModel);
+    }
 }
