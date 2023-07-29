@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class TeacherManagement extends JInternalFrame{
-    private List<Instructor> a = new ArrayList<>();
+    public List<Instructor> a = new ArrayList<>();
     public TeacherManagement(){
 
         //----------------------------------------------------

@@ -29,7 +29,7 @@ public class Main {
 //        new Login();
      //   new Register();
 //        new MainGUI();
-        new Popup();
+//        new Popup();
 
 
 
