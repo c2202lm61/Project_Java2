@@ -19,7 +19,7 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
     public Boolean INSERT(Instructor item) {
         Boolean result = false;
         String sql;
-        if (item.getID_NUMBER() == -1 ){sql = "INSERT INTO `instructor`(`name`,`birthday`,`Gender`,`password`,`Email`,`Phone`) VALUES ('"+item.getName()+"','"+item.getBirthday()+"','"+item.getGender()+"','"+item.getPassword()+"','"+item.getEmail()+"','"+item.getPhone()+"')";}
+        if (item.getID_NUMBER() == -1 ){sql = "INSERT INTO `instructor`(`name`,`birthday`,`Gender`,`password`,`Email`,`Phone`) VALUES ('"+item.getName()+"','"+item.getBirthday()+"',"+item.getGender()+",'"+item.getPassword()+"','"+item.getEmail()+"','"+item.getPhone()+"')";}
         else {sql = "INSERT INTO `instructor`(`ID_NUMBER`,`name`,`birthday`,`Gender`,`password`,`Email`,`Phone`) VALUES ('"+item.getID_NUMBER()+"','"+item.getName()+"','"+item.getBirthday()+"',"+item.getGender()+",'"+item.getPassword()+"','"+item.getEmail()+"','"+item.getPhone()+"')";}
 
         System.out.println(sql);
