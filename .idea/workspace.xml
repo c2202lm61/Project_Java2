@@ -5,39 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ee8ae91-4dca-4836-8bc6-ac025d99366d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/Popup.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/Popup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/2857437.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/close2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/close3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/close4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/wrong1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/Popup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/images/2857437.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/images/close2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/images/close3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/images/close4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/images/wrong1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPanelSearch.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPanelSearch.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPanelSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPanelSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ContentPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/HeaderPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JBlockTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JClassTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPanelSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPanelSearch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JStudentTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JSubjectTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JTeacherTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/searchTabblepane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/score/management/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projectdata.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +17,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "Merging main"
+    "git-widget-placeholder": "main"
   }
 }]]></component>
   <component name="TaskManager">
