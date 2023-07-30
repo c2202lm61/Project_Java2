@@ -86,11 +86,8 @@ public class TeacherManagement extends JInternalFrame{
                 String Name =String.valueOf( table1.getValueAt(clickedRow,2));
                 insID.setText(id);
                 instName.setText(Name);
-                if (Boolean.parseBoolean(String.valueOf( table1.getValueAt(clickedRow, 3)))){
-                    insGender.setSelectedIndex(0);
-                }else {
-                    insGender.setSelectedIndex(1);
-                }
+                insGender.setSelectedItem(String.valueOf( table1.getValueAt(clickedRow, 3)));
+
                 insBirthday.setText(String.valueOf( table1.getValueAt(clickedRow,4)));
                 insPassword.setText(String.valueOf( table1.getValueAt(clickedRow,5)));
                 insEmail.setText(String.valueOf( table1.getValueAt(clickedRow,6)));
@@ -202,7 +199,8 @@ public class TeacherManagement extends JInternalFrame{
         Iterator<Instructor> instructorIterator = a.iterator();
         while (instructorIterator.hasNext()){
             Instructor instructor = instructorIterator.next();
-            modelScoreManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),instructor.getGender(),instructor.getBirthday(),instructor.getPassword(),instructor.getEmail(),instructor.getPhone()});
+            String gender = (instructor.getGender()) ? "Nam":"Nữ";
+            modelScoreManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),gender,instructor.getBirthday(),instructor.getPassword(),instructor.getEmail(),instructor.getPhone()});
         }
 
     }

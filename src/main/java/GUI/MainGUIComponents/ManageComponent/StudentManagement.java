@@ -94,10 +94,7 @@ public class StudentManagement extends JInternalFrame {
                 stdPhone.setText(String.valueOf( table1.getValueAt(clickedRow,6)));
                 stdSeNumber.setText(String.valueOf( table1.getValueAt(clickedRow,6)));
                 stdClass.setSelectedItem(table1.getValueAt(clickedRow,7));
-                if(String.valueOf( table1.getValueAt(clickedRow,3)) == "true")
-                    stdGender.setSelectedIndex(1);
-                else
-                    stdGender.setSelectedIndex(0);
+                stdGender.setSelectedItem(table1.getValueAt(clickedRow,3));
             }
         });
         deleteButton.addActionListener(new ActionListener() {
@@ -222,7 +219,8 @@ public class StudentManagement extends JInternalFrame {
         Iterator<Student> studentIterator = a.iterator();
         while (studentIterator.hasNext()){
             Student student = studentIterator.next();
-            modelScoreManage.addRow(new Object[]{true,student.getID(),student.getName(),student.getGender(),student.getBirthday(),student.getAddress(), student.getPhone(),student.getClassID()});
+            String gender = (student.getGender()) ? "Nam":"Nữ";
+            modelScoreManage.addRow(new Object[]{true,student.getID(),student.getName(),gender,student.getBirthday(),student.getAddress(), student.getPhone(),student.getClassID()});
         }
 
 
