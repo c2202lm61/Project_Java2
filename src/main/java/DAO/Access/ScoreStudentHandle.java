@@ -14,15 +14,17 @@ public class ScoreStudentHandle extends AbsSQLAccess<Score> {
     public Boolean INSERT(Score item) {
         Boolean result = false;
         String sql;
+
         if(item.getScoreID() == -1){
             sql = "INSERT INTO `score_student`(`ts_id`, `ss_id`, `ScoreValue`) VALUES ("+item.getTypeScoreID()+","+item.getStudentSubjectID()+","+item.getScoreValue()+")";
+            System.out.println(sql);
         }else {
             sql = "INSERT INTO `score_student`(`ts_id`, `ss_id`, `ScoreValue`,`ScoreID`) VALUES ("+item.getTypeScoreID()+","+item.getStudentSubjectID()+","+item.getScoreValue()+","+item.getScoreID()+")";
 
         }
         try {
             boolean a = JDBCDriver.SetQuery(sql);
-            System.out.println("thêm dữ .iệu thành công "+a);
+            System.out.println("thêm điểm thành công "+a);
             result = true;
         }catch (SQLException e){
             throw new RuntimeException(e);
