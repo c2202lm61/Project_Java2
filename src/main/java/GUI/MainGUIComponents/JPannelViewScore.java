@@ -42,11 +42,30 @@ public class JPannelViewScore extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
                 modelScoreManage.setRowCount(0); // Clear existing data in the table
-
                 new ViewScoreController();
                 List<ViewScore> a =null;
+                String sql = "SELECT class.grant_id,class.class_code,student.Name,student.Student_id,subject_student.Subject_student_id,subject_student.Subject_code FROM class INNER JOIN student on student.Class_code = class.class_code INNER JOIN subject_student on student.Student_id = subject_student.student_id";
+
+                if((grantCheckBox.isSelected() || classCheckBox.isSelected() || subjectCheckBox.isSelected())){
+                    sql += " WHERE";
+                    if(grantCheckBox.isSelected()){
+                        sql += " class.grant_id = "+(int)comboBox2.getSelectedItem();
+                        if(classCheckBox.isSelected() || subjectCheckBox.isSelected()){
+                            sql += " AND";
+                        }
+                    }
+                    if(classCheckBox.isSelected()){
+                        sql += " class.class_code = "+(int)comboBox3.getSelectedItem();
+                        if( subjectCheckBox.isSelected()){
+                            sql += " AND";
+                        }
+                    }
+                    if(subjectCheckBox.isSelected()){
+                        sql += " subject_student.Subject_code = "+(int)comboBox4.getSelectedItem();
+                    }
+                }
                 try {
-                    a = new ViewScoreController().SELECT((int)comboBox2.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox4.getSelectedItem() );
+                    a = new ViewScoreController().SELECT(sql);
                 } catch (SQLException e1) {
                     throw new RuntimeException(e1);
                 }
@@ -59,6 +78,7 @@ public class JPannelViewScore extends JPanel {
             }
         });
     }
+
     public void refresh(){
         List<Block> idList = null;
         try {
@@ -66,7 +86,7 @@ public class JPannelViewScore extends JPanel {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        comboBox2.removeAllItems();
         // Add the IDs to the JComboBox
         for (Block obj : idList) {
             comboBox2.addItem(obj.getID());
@@ -79,10 +99,8 @@ public class JPannelViewScore extends JPanel {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Iterator<MClass> classIterator = mClassList.iterator();
-
-        while(classIterator.hasNext()){
-            MClass mclass = classIterator.next();
+        comboBox3.removeAllItems();
+        for (MClass mclass: mClassList){
             comboBox3.addItem(mclass.getID());
         }
         List<Subject> monhoc = null;
@@ -91,9 +109,31 @@ public class JPannelViewScore extends JPanel {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        comboBox4.removeAllItems();
         for(Subject obj1: monhoc){
             comboBox4.addItem(obj1.getID());
         }
+
+
+        DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
+                new ViewScoreController();
+                List<ViewScore> a =null;
+                String sql = "SELECT class.grant_id,class.class_code,student.Name,student.Student_id,subject_student.Subject_student_id,subject_student.Subject_code FROM class INNER JOIN student on student.Class_code = class.class_code INNER JOIN subject_student on student.Student_id = subject_student.student_id";
+
+                try {
+                    a = new ViewScoreController().SELECT(sql);
+                } catch (SQLException e1) {
+                    throw new RuntimeException(e1);
+                }
+                Iterator<ViewScore> studentIterator = a.iterator();
+                int i = 1;
+                while (studentIterator.hasNext()){
+                    ViewScore viewScore = studentIterator.next();
+                    modelScoreManage.addRow(new Object[]{i,viewScore.getMaHocSinh(),viewScore.getTenHS(),viewScore.getMaMon(),viewScore.getMaLop(),viewScore.getMaKhoi(),viewScore.getDHS1(),viewScore.getDHS2(),viewScore.getDHS3(),viewScore.getDHS4(),viewScore.getTongDien()});
+                    i++;
+                }
+
     }
     private JPanel panel1;
     private JComboBox comboBox1;
@@ -103,11 +143,11 @@ public class JPannelViewScore extends JPanel {
     private JTextField textField1;
     private JTable table1;
     private JButton xemĐiểmCủaTôiButton;
-    private JCheckBox khốiCheckBox;
+    private JCheckBox grantCheckBox;
     private JComboBox comboBox2;
     private JComboBox comboBox3;
-    private JCheckBox lớpCheckBox;
+    private JCheckBox classCheckBox;
     private JComboBox comboBox4;
-    private JCheckBox mônCheckBox;
+    private JCheckBox subjectCheckBox;
     private JButton showButton;
 }
