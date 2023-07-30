@@ -22,10 +22,11 @@ public class ViewScore {
                 viewScoreBeta.setStudentID(resultSet.getInt("Student_id"));
                 viewScoreBeta.setStudentName(resultSet.getString("Student_name"));
                 viewScoreBeta.setGrantID(resultSet.getInt("grant_id"));
-//                viewScoreBeta.setSubjectCode(resultSet.getInt("Subject_code"));
+                viewScoreBeta.setSubjectCode(resultSet.getInt("Subject_code"));
                 viewScoreBeta.setClassCode(resultSet.getInt("class_code"));
-//                viewScoreBeta.setScoreValue(resultSet.getInt("ScoreValue"));
-//                viewScoreBeta.setScoreType(resultSet.getInt("ScoreType"));
+                viewScoreBeta.setScoreValue(resultSet.getDouble("ScoreValue"));
+              //  viewScoreBeta.setScoreType(resultSet.getInt("ScoreType"));
+                viewScoreBeta.setScoreType2(resultSet.getString("ScoreType"));
                 scoreBetaList.add(viewScoreBeta);
 
             }

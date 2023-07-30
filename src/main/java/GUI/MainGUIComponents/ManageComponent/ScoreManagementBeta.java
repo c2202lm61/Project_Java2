@@ -8,10 +8,7 @@ import Model.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,6 +28,14 @@ public class ScoreManagementBeta extends JInternalFrame {
         setContentPane(panel1);
         setVisible(true);
         updateTypeCore();
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( table1.getValueAt(clickedRow, 0));
+                scrStudentID.setText(id);
+            }
+        });
         scrBlock.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -90,6 +95,7 @@ public class ScoreManagementBeta extends JInternalFrame {
                             }
                             new ScoreStudentHandle().INSERT(score);
                             System.out.println("Chấm điểm thành công");
+                            updateTable();
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -136,7 +142,7 @@ public class ScoreManagementBeta extends JInternalFrame {
                         viewScoreBeta.getClassCode(),
                         viewScoreBeta.getSubjectCode(),
                         viewScoreBeta.getScoreValue(),
-                        viewScoreBeta.getScoreType()
+                        viewScoreBeta.getScoreType2()
                 });
             }
         });

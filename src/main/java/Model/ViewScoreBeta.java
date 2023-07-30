@@ -8,6 +8,7 @@ public class ViewScoreBeta {
     private int subjectCode;
     private double scoreValue;
     private int scoreType;
+    private String scoreType2;
 
     public int getStudentID() {
         return studentID;
@@ -63,5 +64,13 @@ public class ViewScoreBeta {
 
     public int getScoreType() {
         return scoreType;
+    }
+
+    public String getScoreType2() {
+        return scoreType2;
+    }
+
+    public void setScoreType2(String scoreType2) {
+        this.scoreType2 = scoreType2;
     }
 }
