@@ -107,33 +107,16 @@ public class BlockManagement extends JInternalFrame{
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                GrantHandle grantHandle = new GrantHandle();
+                DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
                 if(searchByNameCheckBox.isSelected()){
-                    GrantHandle grantHandle = new GrantHandle();
-                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
-                    modelScoreManage.setRowCount(0); // Clear existing data in the table
-                    a = null;
-                    try {
-                        a = grantHandle.SELECT("SELECT * FROM grants");
-                    } catch (SQLException e1) {
-                        throw new RuntimeException(e1);
-                    }
-
                     Iterator<Block> blockIterator = a.iterator();
                     while (blockIterator.hasNext()){
                         Block block = blockIterator.next();
                         if(String.valueOf(block.getName()).contains(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
                     }
                 }else{
-                    GrantHandle grantHandle = new GrantHandle();
-                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
-                    modelScoreManage.setRowCount(0); // Clear existing data in the table
-                    a = null;
-                    try {
-                        a = grantHandle.SELECT("SELECT * FROM grants");
-                    } catch (SQLException e1) {
-                        throw new RuntimeException(e1);
-                    }
-
                     Iterator<Block> blockIterator = a.iterator();
                     while (blockIterator.hasNext()){
                         Block block = blockIterator.next();

@@ -116,14 +116,6 @@ public class ClassManagement extends JInternalFrame{
             public void actionPerformed(ActionEvent e) {
                 DefaultTableModel modelScoreManage = (DefaultTableModel) labelTable1.getModel();
                 modelScoreManage.setRowCount(0); // Clear existing data in the table
-
-                ClassHandle classHandle = new ClassHandle();
-                a = null;
-                try {
-                    a = classHandle.SELECT("SELECT * FROM `class`");
-                } catch (SQLException e3) {
-                    throw new RuntimeException(e3);
-                }
                 Iterator<MClass> classIterator = a.iterator();
 
                 while(classIterator.hasNext()){

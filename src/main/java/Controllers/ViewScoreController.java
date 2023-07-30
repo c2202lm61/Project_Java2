@@ -16,12 +16,9 @@ import java.util.List;
 
 public class ViewScoreController  {
 
-    public List<ViewScore> SELECT(int MaKHoi, int MaLop, int MaMH) throws SQLException {
+    public List<ViewScore> SELECT(String sql) throws SQLException {
 
         List<ViewScore> a= new ArrayList<>();
-        float total = 0;
-        int count = 0;
-        String sql = "SELECT class.grant_id,class.class_code,student.Name,student.Student_id,subject_student.Subject_student_id,subject_student.Subject_code FROM class INNER JOIN student on student.Class_code = class.class_code INNER JOIN subject_student on student.Student_id = subject_student.student_id WHERE class.grant_id = "+MaKHoi+" AND class.class_code = "+MaLop+" AND subject_student.Subject_code = "+MaMH+"";
         final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
         while (resultSet.next()){
             ViewScore b = new ViewScore();

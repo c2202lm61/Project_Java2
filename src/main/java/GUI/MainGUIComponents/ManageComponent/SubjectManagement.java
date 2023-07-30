@@ -129,17 +129,11 @@ public class SubjectManagement extends JInternalFrame{
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (searchByNameCheckBox.isSelected()){
-                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
-                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+                DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
 
-                    SubjectHandle subjectHandle = new SubjectHandle();
-                    a = null;
-                    try {
-                        a = subjectHandle.SELECT("SELECT * FROM `subject`");
-                    } catch (SQLException e1) {
-                        throw new RuntimeException(e1);
-                    }
+                SubjectHandle subjectHandle = new SubjectHandle();
+                if (searchByNameCheckBox.isSelected()){
                     Iterator<Subject> subjectIterator = a.iterator();
                     while (subjectIterator.hasNext()){
                         Subject subject = subjectIterator.next();
@@ -149,16 +143,6 @@ public class SubjectManagement extends JInternalFrame{
 
                     }
                 }else {
-                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
-                    modelScoreManage.setRowCount(0); // Clear existing data in the table
-
-                    SubjectHandle subjectHandle = new SubjectHandle();
-                    a = null;
-                    try {
-                        a = subjectHandle.SELECT("SELECT * FROM `subject`");
-                    } catch (SQLException e1) {
-                        throw new RuntimeException(e1);
-                    }
                     Iterator<Subject> subjectIterator = a.iterator();
                     while (subjectIterator.hasNext()){
                         Subject subject = subjectIterator.next();
