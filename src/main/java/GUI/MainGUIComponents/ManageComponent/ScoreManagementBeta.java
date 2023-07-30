@@ -46,25 +46,19 @@ public class ScoreManagementBeta extends JInternalFrame {
             }
         });
         scrEval.addActionListener(new ActionListener() {
-            /**
-             * Invoked when an action occurs.
-             *
-             * @param e the event to be processed
-             */
             @Override
             public void actionPerformed(ActionEvent e) {
-                ComboBoxItem selectedItem = (ComboBoxItem) scrSubject.getSelectedItem();
-                if (selectedItem != null) {
-                    int classID = (int) selectedItem.getHiddenValue();
-                    System.out.println("Selected class ID: " + classID);
-                } else System.out.println("No item selected in the ComboBox.");
-
+                ComboBoxItem subjectItem = (ComboBoxItem) scrSubject.getSelectedItem();
+                int subjectCode;
+                if (subjectItem != null) {
+                    subjectCode = (int) subjectItem.getHiddenValue();
+                } else return;
                 Thread thread1 = new Thread(() -> {
                     ResultSet resultSet = null;
                     try {
-                        resultSet = JDBCDriver.ExecQuery("SELECT * FROM subject_student WHERE Subject_code =4 AND student_id = 25");
+                        resultSet = JDBCDriver.ExecQuery("SELECT * FROM subject_student WHERE Subject_code ="+subjectCode+" AND student_id = "+Integer.parseInt(scrStudentID.getText()));
                         if (!resultSet.next()) {
-                            if (JDBCDriver.SetQuery("INSERT INTO `subject_student`( `student_id`, `Subject_code`) VALUES (25,4)"))
+                            if (JDBCDriver.SetQuery("INSERT INTO `subject_student`( `student_id`, `Subject_code`) VALUES ("+scrStudentID.getText()+","+subjectCode+")"));
                                 System.out.println("Thêm subject_student thành công");
                         }
                     } catch (SQLException ex) {
@@ -74,15 +68,26 @@ public class ScoreManagementBeta extends JInternalFrame {
                 Thread thread2 = new Thread(() -> {
                     ResultSet resultSet = null;
                     try {
-                        resultSet = JDBCDriver.ExecQuery("SELECT * FROM subject_student WHERE Subject_code =4 AND student_id = 25");
+
+                        resultSet = JDBCDriver.ExecQuery("SELECT * FROM subject_student WHERE Subject_code ="+subjectCode+" AND student_id = "+Integer.parseInt(scrStudentID.getText()));
                         if (resultSet.next()) {
                             System.out.println("Có dữ liệu");
-                            System.out.println("id  :" + resultSet.getInt("Subject_student_id"));
                             Score score = new Score();
                             score.setScoreID(-1);
-                            score.setTypeScoreID(1);
+                            //
+                            ComboBoxItem tsc = (ComboBoxItem) scrTypeScore.getSelectedItem();
+                            if (tsc != null) {
+                                int TypeScoreID = (int) tsc.getHiddenValue();
+                                score.setTypeScoreID(TypeScoreID);
+                            } else return;
+
                             score.setStudentSubjectID(resultSet.getInt("Subject_student_id"));
-                            score.setScoreValue(8);
+                            try {
+                                score.setScoreValue(Double.valueOf(scrScore.getText()));
+                            } catch (NumberFormatException ex) {
+                                System.out.println("Giá trị điểm nhập  vào không hợp lệ");
+                                return;
+                            }
                             new ScoreStudentHandle().INSERT(score);
                             System.out.println("Chấm điểm thành công");
                         }
@@ -186,6 +191,7 @@ public class ScoreManagementBeta extends JInternalFrame {
         while (typeScoreIterator.hasNext()) {
             TypeScore typeScore = typeScoreIterator.next();
             scrTypeScore.addItem(new ComboBoxItem(typeScore.getName(), typeScore.getID()));
+            System.out.println(typeScore.getID());
         }
     }
 

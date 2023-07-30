@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6512be61-85f9-4277-aa12-5ed58a743306" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Access/ScoreStudentHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Access/ScoreStudentHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ViewScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ViewScore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ViewScoreBeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ViewScoreBeta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/score/management/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projectdata.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projectdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projectdata.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta$3.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +50,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/ManageComponent/ScoreManagementBeta.java</url>
-          <line>54</line>
+          <line>49</line>
           <properties method="actionPerformed">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
