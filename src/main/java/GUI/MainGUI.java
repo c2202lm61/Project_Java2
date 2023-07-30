@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 
 public class MainGUI extends JFrame {
     public MainGUI(){
+        setDefaultLookAndFeelDecorated(true);
+        ImageIcon img = new ImageIcon("./icon.png");
+        setIconImage(img.getImage());
         setTitle("Quản lý điểm học sinh");
         setSize(1200,600);
         JTabbedPane tabbedPane = new JTabbedPane();
