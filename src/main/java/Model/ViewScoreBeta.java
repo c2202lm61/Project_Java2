@@ -1,49 +1,67 @@
 package Model;
 
 public class ViewScoreBeta {
-    private int StudentID;
-    private String StudentName;
-    private int ClassCode;
-    private int  GrantId;
-    private String GrantName;
+    private int studentID;
+    private String studentName;
+    private int  classCode;
+    private int grantID;
+    private int subjectCode;
+    private double scoreValue;
+    private int scoreType;
 
     public int getStudentID() {
-        return StudentID;
+        return studentID;
     }
 
     public void setStudentID(int studentID) {
-        StudentID = studentID;
+        this.studentID = studentID;
     }
 
     public String getStudentName() {
-        return StudentName;
+        return studentName;
     }
 
     public void setStudentName(String studentName) {
-        StudentName = studentName;
+        this.studentName = studentName;
     }
 
     public int getClassCode() {
-        return ClassCode;
+        return classCode;
     }
 
     public void setClassCode(int classCode) {
-        ClassCode = classCode;
+        this.classCode = classCode;
     }
 
-    public int getGrantId() {
-        return GrantId;
+    public int getGrantID() {
+        return grantID;
     }
 
-    public void setGrantId(int grantId) {
-        GrantId = grantId;
+    public void setGrantID(int grantID) {
+        this.grantID = grantID;
     }
 
-    public String getGrantName() {
-        return GrantName;
+    public void setSubjectCode(int subjectCode) {
+        this.subjectCode = subjectCode;
     }
 
-    public void setGrantName(String grantName) {
-        GrantName = grantName;
+    public int getSubjectCode() {
+        return subjectCode;
+    }
+
+    public void setScoreValue(double scoreValue) {
+        this.scoreValue = scoreValue;
+    }
+
+    public double getScoreValue() {
+        return scoreValue;
+    }
+
+    public void setScoreType(int scoreType) {
+        this.scoreType = scoreType;
+    }
+
+    public int getScoreType() {
+        return scoreType;
     }
 }
