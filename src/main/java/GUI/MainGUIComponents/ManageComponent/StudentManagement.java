@@ -150,17 +150,10 @@ public class StudentManagement extends JInternalFrame {
         Search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
+                StudentHandle studentHandle = new StudentHandle();
                 if(searchByNameCheckBox.isSelected()){
-                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
-                    modelScoreManage.setRowCount(0); // Clear existing data in the table
-
-                    StudentHandle studentHandle = new StudentHandle();
-                    a = null;
-                    try {
-                        a = studentHandle.SELECT("SELECT * FROM `student`");
-                    } catch (SQLException e2) {
-                        throw new RuntimeException(e2);
-                    }
                     Iterator<Student> studentIterator = a.iterator();
                     while (studentIterator.hasNext()){
                         Student student = studentIterator.next();
@@ -169,16 +162,6 @@ public class StudentManagement extends JInternalFrame {
                         }
                     }
                 }else {
-                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
-                    modelScoreManage.setRowCount(0); // Clear existing data in the table
-
-                    StudentHandle studentHandle = new StudentHandle();
-                    a = null;
-                    try {
-                        a = studentHandle.SELECT("SELECT * FROM `student`");
-                    } catch (SQLException e2) {
-                        throw new RuntimeException(e2);
-                    }
                     Iterator<Student> studentIterator = a.iterator();
                     while (studentIterator.hasNext()){
                         Student student = studentIterator.next();
