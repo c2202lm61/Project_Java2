@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b66244f3-4658-4879-925c-8294567b8390" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/HeaderPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/HeaderPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/SupportDeveloper.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/SupportDeveloper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/JPannelManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/JPannelManage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/HeaderPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainGUIComponents/HeaderPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/HeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MainGUIComponents/HeaderPanel.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +38,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "git-widget-placeholder": "main"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="HeaderPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.MainGUIComponents.HeaderPanel" />
