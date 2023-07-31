@@ -1,9 +1,6 @@
 package GUI;
 
-import GUI.MainGUIComponents.JPanelHome;
-import GUI.MainGUIComponents.JPanelSearch;
-import GUI.MainGUIComponents.JPannelManage;
-import GUI.MainGUIComponents.JPannelViewScore;
+import GUI.MainGUIComponents.*;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -14,14 +11,18 @@ import java.awt.event.ActionListener;
 
 public class MainGUI extends JFrame {
     public MainGUI(){
+        setDefaultLookAndFeelDecorated(true);
+        ImageIcon img = new ImageIcon("./icon.png");
+        String relativePath = "./src/main/resources/images/";
+        setIconImage(img.getImage());
         setTitle("Quản lý điểm học sinh");
         setSize(1200,600);
         JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("Trang chủ",new JPanelHome());
-        tabbedPane.addTab("Quản lý", new JPannelManage());
-        tabbedPane.addTab("Xem điểm", new JPannelViewScore());
-        tabbedPane.addTab("Tìm kiếm",new JPanelSearch());
-        tabbedPane.addTab("Nạp tiền", new JButton("Nạp tiền bằng qua bankking"));
+        tabbedPane.addTab("Trang chủ",new ImageIcon(relativePath+"house.png"),new JpanelHome());
+        tabbedPane.addTab("Quản lý",new ImageIcon(relativePath+"management.png"), new JPannelManage());
+        tabbedPane.addTab("Xem điểm",new ImageIcon(relativePath+"analysis.png"), new JPannelViewScore());
+        tabbedPane.addTab("Giới thiệu",new ImageIcon(relativePath+"info.png"),new MyInfo());
+        tabbedPane.addTab("Nạp tiền",new ImageIcon(relativePath+"pay.png"), new SupportDeveloper());
         add(tabbedPane);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
