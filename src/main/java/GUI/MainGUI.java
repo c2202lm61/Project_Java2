@@ -21,7 +21,7 @@ public class MainGUI extends JFrame {
         tabbedPane.addTab("Trang chủ",new ImageIcon(relativePath+"house.png"),new JPanelHome());
         tabbedPane.addTab("Quản lý",new ImageIcon(relativePath+"management.png"), new JPannelManage());
         tabbedPane.addTab("Xem điểm",new ImageIcon(relativePath+"analysis.png"), new JPannelViewScore());
-        tabbedPane.addTab("Giới thiệu",new ImageIcon(relativePath+"info.png"),new JPanelSearch());
+        tabbedPane.addTab("Giới thiệu",new ImageIcon(relativePath+"info.png"),new MyInfo());
         tabbedPane.addTab("Nạp tiền",new ImageIcon(relativePath+"pay.png"), new SupportDeveloper());
         add(tabbedPane);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
