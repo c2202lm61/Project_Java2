@@ -17,7 +17,7 @@ public class JPannelManage extends JPanel{
         JPanel firstPart = new JPanel();
         firstPart.setBackground(mainColor.CYAN);
         firstPart.setPreferredSize(new Dimension(100, 100)); // Đặt kích thước theo ý muốn
-        add(firstPart, BorderLayout.NORTH);
+        add(new HeaderPanel(), BorderLayout.NORTH);
 
         // Phần thứ hai
         CardLayout cardLayout = new CardLayout();
