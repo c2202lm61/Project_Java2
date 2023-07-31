@@ -18,7 +18,7 @@ public class MainGUI extends JFrame {
         setTitle("Quản lý điểm học sinh");
         setSize(1200,600);
         JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("Trang chủ",new ImageIcon(relativePath+"house.png"),new JPanelHome());
+        tabbedPane.addTab("Trang chủ",new ImageIcon(relativePath+"house.png"),new JpanelHome());
         tabbedPane.addTab("Quản lý",new ImageIcon(relativePath+"management.png"), new JPannelManage());
         tabbedPane.addTab("Xem điểm",new ImageIcon(relativePath+"analysis.png"), new JPannelViewScore());
         tabbedPane.addTab("Giới thiệu",new ImageIcon(relativePath+"info.png"),new MyInfo());
