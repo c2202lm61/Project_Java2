@@ -72,8 +72,6 @@ public class BlockManagement extends JInternalFrame{
 
                  MaKhoi.setText(id);
                  TenKhoi.setText(Name);
-
-
             }
         });
 

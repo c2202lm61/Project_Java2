@@ -76,4 +76,5 @@ public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
         }
         return result;
     }
+
 }

@@ -50,7 +50,7 @@ public class ScoreStudentHandle extends AbsSQLAccess<Score> {
     @Override
     public Boolean UPDATE(Score item) {
         Boolean result = false;
-        String  sql= "UPDATE `score_student` SET `ts_id`="+item.getTypeScoreID()+",`ss_id`="+item.getStudentSubjectID()+",`ScoreValue`="+item.getScoreID()+",`ScoreID`="+item.getScoreID()+" WHERE `ScoreID`="+item.getScoreID();
+        String  sql= "UPDATE `score_student` SET `ts_id`="+item.getTypeScoreID()+",`ss_id`="+item.getStudentSubjectID()+",`ScoreValue`="+item.getScoreValue()+",`ScoreID`="+item.getScoreID()+" WHERE `ScoreID`="+item.getScoreID();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);

@@ -1,112 +1,25 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import DAO.Access.*;
-import DAO.JDBCDriver;
 import DAO.ViewScore;
 import GUI.ComboBoxItem;
 import Model.*;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.sql.ResultSet;
+import java.awt.event.*;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class ScoreManagementBeta extends JInternalFrame {
     Thread t1, t2, t3;
-    List<Block> blockList;
 
+    List<ViewScoreBeta> scoreBetaList;
     public ScoreManagementBeta() {
-        updateTypeCore();
-        updateBlock();
-        updateClass();
-        updateSubject();
-        updateTable();
-        setContentPane(panel1);
-        setVisible(true);
-        updateTypeCore();
-        scrBlock.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateClass();
-                updateSubject();
-                updateTable();
-            }
-        });
-        scrClass.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateTable();
-            }
-        });
-        scrEval.addActionListener(new ActionListener() {
-            /**
-             * Invoked when an action occurs.
-             *
-             * @param e the event to be processed
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ComboBoxItem selectedItem = (ComboBoxItem) scrSubject.getSelectedItem();
-                if (selectedItem != null) {
-                    int classID = (int) selectedItem.getHiddenValue();
-                    System.out.println("Selected class ID: " + classID);
-                } else System.out.println("No item selected in the ComboBox.");
 
-                Thread thread1 = new Thread(() -> {
-                    ResultSet resultSet = null;
-                    try {
-                        resultSet = JDBCDriver.ExecQuery("SELECT * FROM subject_student WHERE Subject_code =4 AND student_id = 25");
-                        if (!resultSet.next()) {
-                            if (JDBCDriver.SetQuery("INSERT INTO `subject_student`( `student_id`, `Subject_code`) VALUES (25,4)"))
-                                System.out.println("Thêm subject_student thành công");
-                        }
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                });
-                Thread thread2 = new Thread(() -> {
-                    ResultSet resultSet = null;
-                    try {
-                        resultSet = JDBCDriver.ExecQuery("SELECT * FROM subject_student WHERE Subject_code =4 AND student_id = 25");
-                        if (resultSet.next()) {
-                            System.out.println("Có dữ liệu");
-                            System.out.println("id  :" + resultSet.getInt("Subject_student_id"));
-                            Score score = new Score();
-                            score.setScoreID(-1);
-                            score.setTypeScoreID(1);
-                            score.setStudentSubjectID(resultSet.getInt("Subject_student_id"));
-                            score.setScoreValue(8);
-                            new ScoreStudentHandle().INSERT(score);
-                            System.out.println("Chấm điểm thành công");
-                        }
-                    } catch (SQLException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                });
-                thread1.start();
-                try {
-                    thread1.join();
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
-                thread2.start();
-                try {
-                    thread2.join();
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        });
-    }
-
-    void updateTable() {
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.addColumn("MãSV");
         tableModel.addColumn("TênSV");
@@ -115,12 +28,277 @@ public class ScoreManagementBeta extends JInternalFrame {
         tableModel.addColumn("Mã Môn học");
         tableModel.addColumn("Điểm");
         tableModel.addColumn("Hệ số");
-        int classID;
-        if (scrClass.getSelectedItem() == null)
-            classID = 0;
-        else classID = Integer.parseInt(String.valueOf(scrClass.getSelectedItem()));
+        table1.setModel(tableModel);
+        updateTypeCore();
+        updateBlock();
+        updateClass();
+        updateSubject();
+        refreshTable();
+        setContentPane(panel1);
+        setVisible(true);
+//        updateTypeCore();
+
+        scrEval.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    ComboBoxItem comboBoxSubject = (ComboBoxItem) scrSubject.getSelectedItem();
+                    ComboBoxItem comboBoxTypeScore = (ComboBoxItem) scrTypeScore.getSelectedItem();
+                    if (comboBoxSubject != null && comboBoxTypeScore != null) {
+                        int subjectID = (int) comboBoxSubject.getHiddenValue();
+                        int typeScoreID = (int) comboBoxTypeScore.getHiddenValue();
+
+                        ViewScore viewScore = new ViewScore();
+                        viewScore.INSERT(Integer.valueOf(scrStudentID.getText()),subjectID,typeScoreID,Float.valueOf(scrScore.getText()));
+                        refreshTable();
+                        DefaultTableModel tableModel = (DefaultTableModel) table1.getModel();
+                        tableModel.setRowCount(0);
+                        Iterator<ViewScoreBeta> scoreBetaIterator = scoreBetaList.iterator();
+                        while (scoreBetaIterator.hasNext()) {
+                            ViewScoreBeta viewScoreBeta = scoreBetaIterator.next();
+                            if (viewScoreBeta.getStudentID() == Integer.valueOf(scrStudentID.getText()) && viewScoreBeta.getSubjectCode() == subjectID){
+                                tableModel.addRow(new Object[]{
+                                        viewScoreBeta.getStudentID(),
+                                        viewScoreBeta.getStudentName(),
+                                        viewScoreBeta.getGrantID(),
+                                        viewScoreBeta.getClassCode(),
+                                        viewScoreBeta.getSubjectCode(),
+                                        viewScoreBeta.getScoreValue(),
+                                        viewScoreBeta.getScoreType()
+                                });
+                            }
+
+                        }
+                        refreshTable();
+                    } else System.out.println("No item selected in the ComboBox.");
+                }catch (NumberFormatException e1){
+                    throw new RuntimeException(e1);
+                }
+
+
+            }
+        });
+
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+//                int
+                int id = (int)( table1.getValueAt(clickedRow, 0));
+
+                int blockID = (int)table1.getValueAt(clickedRow, 2);
+                int classID = (int)table1.getValueAt(clickedRow, 3);
+                double scoreValue = (double)table1.getValueAt(clickedRow,5);
+                int typescore = (int)(table1.getValueAt(clickedRow,6));
+                int subjectID = (int)(table1.getValueAt(clickedRow,4));
+
+
+                tempViewScore.setStudentID(id);
+                tempViewScore.setScoreType(typescore);
+                tempViewScore.setScoreValue(scoreValue);
+                tempViewScore.setStudentName(String.valueOf(table1.getValueAt(clickedRow,1)));
+                tempViewScore.setClassCode(classID);
+                tempViewScore.setGrantID(blockID);
+                tempViewScore.setSubjectCode(subjectID);
+
+
+                scrStudentID.setText(String.valueOf(id));
+                scrBlock.setSelectedItem(blockID);
+                scrClass.setSelectedItem(classID);
+                scrScore.setText(String.valueOf(scoreValue));
+
+                for (int i = 0; i< scrTypeScore.getItemCount(); i++){
+                    ComboBoxItem typescoreCB = (ComboBoxItem) scrTypeScore.getItemAt(i);
+                    if((int)typescoreCB.getHiddenValue() == typescore ){
+                        scrSubject.setSelectedItem(typescoreCB);
+                        break;
+                    }
+                }
+
+                if(subjectID != 0){
+                    for (int i = 0; i< scrSubject.getItemCount(); i++){
+                        ComboBoxItem subjectcb = (ComboBoxItem) scrSubject.getItemAt(i);
+                        if((int)subjectcb.getHiddenValue() ==  subjectID){
+                            scrSubject.setSelectedItem(subjectcb);
+                            break;
+                        }
+                    }
+                    DefaultTableModel tableModel = (DefaultTableModel) table1.getModel();
+                    tableModel.setRowCount(0);Iterator<ViewScoreBeta> scoreBetaIterator = scoreBetaList.iterator();
+                    while (scoreBetaIterator.hasNext()) {
+                        ViewScoreBeta viewScoreBeta = scoreBetaIterator.next();
+                        if (viewScoreBeta.getStudentID() == Integer.valueOf(id) && viewScoreBeta.getSubjectCode() == subjectID){
+                            tableModel.addRow(new Object[]{
+                                    viewScoreBeta.getStudentID(),
+                                    viewScoreBeta.getStudentName(),
+                                    viewScoreBeta.getGrantID(),
+                                    viewScoreBeta.getClassCode(),
+                                    viewScoreBeta.getSubjectCode(),
+                                    viewScoreBeta.getScoreValue(),
+                                    viewScoreBeta.getScoreType()
+                            });
+                        }
+
+                    }
+                }else {
+                    DefaultTableModel tableModel = (DefaultTableModel) table1.getModel();
+                    tableModel.setRowCount(0);Iterator<ViewScoreBeta> scoreBetaIterator = scoreBetaList.iterator();
+                    while (scoreBetaIterator.hasNext()) {
+                        ViewScoreBeta viewScoreBeta = scoreBetaIterator.next();
+                        if (viewScoreBeta.getStudentID() == Integer.valueOf(id)){
+                            tableModel.addRow(new Object[]{
+                                    viewScoreBeta.getStudentID(),
+                                    viewScoreBeta.getStudentName(),
+                                    viewScoreBeta.getGrantID(),
+                                    viewScoreBeta.getClassCode(),
+                                    viewScoreBeta.getSubjectCode(),
+                                    viewScoreBeta.getScoreValue(),
+                                    viewScoreBeta.getScoreType()
+                            });
+                        }
+
+                    }
+                }
+
+            }
+        });
+
+        scrStudentID.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if (hocsinhCheckBox.isSelected()){
+                    refreshTable();
+                }
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if (hocsinhCheckBox.isSelected()){
+                    refreshTable();
+                }
+            }
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if (hocsinhCheckBox.isSelected()){
+                    refreshTable();
+                }
+            }
+        });
+
+
+
+        scrBlock.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(grantCheckBox.isSelected()){
+                    updateClass();
+                    updateSubject();
+                    refreshTable();
+                }
+
+            }
+        });
+
+
+
+        scrClass.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(lopCheckBox.isSelected()) {
+                    refreshTable();
+                }
+
+            }
+        });
+        scrSubject.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(MonCheckBox.isSelected()) {
+                    refreshTable();
+                }
+            }
+        });
+        grantCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
+        lopCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
+        MonCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
+        hocsinhCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
+        scrReload.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshTable();
+            }
+        });
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewScore().DELETE(tempViewScore);
+                refreshTable();
+            }
+        });
+        update.addActionListener(new ActionListener() {
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+                ComboBoxItem typescore = (ComboBoxItem) scrTypeScore.getSelectedItem();
+                new ViewScore().UPDATE(tempViewScore, (int)(typescore.getHiddenValue()),Float.valueOf(scrScore.getText()));
+                refreshTable();
+            }
+        });
+    }
+
+
+
+    void refreshTable() {
+        DefaultTableModel tableModel = (DefaultTableModel) table1.getModel();
+        tableModel.setRowCount(0);
         t3 = new Thread(() -> {
-            List<ViewScoreBeta> scoreBetaList = ViewScore.viewScoreBetaList(Integer.parseInt(String.valueOf(scrBlock.getSelectedItem())), classID);
+            ViewScore viewScore = new ViewScore();
+            String sql ="SELECT s.Student_id,s.Name AS Student_name, c.class_code, c.grant_id, ss.Subject_code, COALESCE(score.ScoreValue, NULL) AS ScoreValue, ts.ts_id AS ScoreType " +
+                "FROM student AS s LEFT JOIN class AS c ON s.Class_code = c.class_code LEFT JOIN grants AS g ON c.grant_id = g.id LEFT JOIN subject_student AS ss ON s.Student_id = ss.student_id LEFT JOIN score_student AS score ON ss.Subject_student_id = score.ss_id LEFT JOIN type_score AS ts ON score.ts_id = ts.ts_id ";
+            if(grantCheckBox.isSelected() || lopCheckBox.isSelected() || MonCheckBox.isSelected() || hocsinhCheckBox.isSelected() ){
+            sql += "WHERE ";
+            if (grantCheckBox.isSelected()) {
+                sql += "c.grant_id = "+(int)scrBlock.getSelectedItem()+" ";
+                if(lopCheckBox.isSelected() || MonCheckBox.isSelected() || hocsinhCheckBox.isSelected())sql+="AND ";
+            }
+            if (lopCheckBox.isSelected()) {
+                sql += "c.class_code = "+(int)scrClass.getSelectedItem()+" ";
+                if( MonCheckBox.isSelected() || hocsinhCheckBox.isSelected())sql+="AND ";
+            }
+            if (MonCheckBox.isSelected()) {
+                ComboBoxItem subjectID= (ComboBoxItem)scrSubject.getSelectedItem();
+                sql += "ss.Subject_code = "+(int)subjectID.getHiddenValue()+" ";
+                if( hocsinhCheckBox.isSelected())sql+="AND ";
+            }
+            if (hocsinhCheckBox.isSelected()){
+                sql += "s.Student_id = "+Integer.valueOf(scrStudentID.getText())+" ";
+            }
+        }
+            scoreBetaList = viewScore.viewScoreBetaList(sql);
             Iterator<ViewScoreBeta> scoreBetaIterator = scoreBetaList.iterator();
             while (scoreBetaIterator.hasNext()) {
                 ViewScoreBeta viewScoreBeta = scoreBetaIterator.next();
@@ -141,10 +319,11 @@ public class ScoreManagementBeta extends JInternalFrame {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        table1.setModel(tableModel);
     }
 
+
     void updateBlock() {
+        List<Block> blockList;
         scrBlock.removeAllItems();
         try {
             blockList = new GrantHandle().SELECT("SELECT * FROM `grants`");
@@ -162,14 +341,12 @@ public class ScoreManagementBeta extends JInternalFrame {
 
         List<MClass> mClassList = null;
         try {
-            mClassList = new ClassHandle().SELECT("SELECT * FROM `class` WHERE grant_id = " + Integer.parseInt(String.valueOf(scrBlock.getSelectedItem())));
+            mClassList = new ClassHandle().SELECT("SELECT * FROM `class` WHERE grant_id = " + (int)(scrBlock.getSelectedItem()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Iterator<MClass> mClassIterator = mClassList.iterator();
         scrClass.removeAllItems();
-        while (mClassIterator.hasNext()) {
-            MClass mClass = mClassIterator.next();
+        for (MClass mClass: mClassList){
             scrClass.addItem(mClass.getID());
         }
     }
@@ -182,9 +359,7 @@ public class ScoreManagementBeta extends JInternalFrame {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Iterator<TypeScore> typeScoreIterator = typeScores.iterator();
-        while (typeScoreIterator.hasNext()) {
-            TypeScore typeScore = typeScoreIterator.next();
+        for (TypeScore typeScore: typeScores) {
             scrTypeScore.addItem(new ComboBoxItem(typeScore.getName(), typeScore.getID()));
         }
     }
@@ -193,17 +368,16 @@ public class ScoreManagementBeta extends JInternalFrame {
         scrSubject.removeAllItems();
         List<Subject> subjectList = null;
         try {
-            subjectList = new SubjectHandle().SELECT("SELECT * FROM `subject` WHERE grant_id = " + Integer.parseInt(String.valueOf(scrBlock.getSelectedItem())));
+            subjectList = new SubjectHandle().SELECT("SELECT * FROM `subject` WHERE grant_id = " + (int)(scrBlock.getSelectedItem()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Iterator<Subject> subjectIterator = subjectList.iterator();
-        while (subjectIterator.hasNext()) {
-            Subject mClass = subjectIterator.next();
-            scrSubject.addItem(new ComboBoxItem(mClass.getName(), mClass.getID()));
+        for (Subject subject: subjectList) {
+            scrSubject.addItem(new ComboBoxItem(subject.getName(), subject.getID()));
         }
     }
 
+    public ViewScoreBeta tempViewScore = new ViewScoreBeta() ;
     private JPanel panel1;
     private JTable table1;
     private JComboBox scrBlock;
@@ -216,6 +390,11 @@ public class ScoreManagementBeta extends JInternalFrame {
     private JTextField scrStudentID;
     private JComboBox scrTypeScore;
     private JTextField scrScore;
-    private JTextField textField3;
-    private JButton tìmKiếmButton;
+    private JCheckBox grantCheckBox;
+    private JCheckBox lopCheckBox;
+    private JCheckBox MonCheckBox;
+    private JCheckBox hocsinhCheckBox;
+    private JButton delete;
+    private JButton update;
+
 }

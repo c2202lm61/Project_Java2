@@ -23,7 +23,7 @@ public class Score {
     }
 
     public void setScoreValue(double scoreValue) {
-        ScoreValue = scoreValue;
+        this.ScoreValue = scoreValue;
     }
 
     public double getScoreValue() {
