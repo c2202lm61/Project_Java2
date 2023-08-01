@@ -1,6 +1,6 @@
 package Model;
 
-public class Block {
+public class Block implements Name{
     private int ID;
     private String GrandID;
 
@@ -20,6 +20,7 @@ public class Block {
     public void setName(String name) {
         Name = name;
     }
+    @Override
     public String getName() {
         return Name;
     }

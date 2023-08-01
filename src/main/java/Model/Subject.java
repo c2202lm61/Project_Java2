@@ -1,6 +1,6 @@
 package Model;
 
-public class Subject {
+public class Subject implements Name {
     private int ID;
     private String Name;
 
@@ -19,7 +19,7 @@ public class Subject {
     public void setName(String name) {
         Name = name;
     }
-
+    @Override
     public String getName() {
         return Name;
     }

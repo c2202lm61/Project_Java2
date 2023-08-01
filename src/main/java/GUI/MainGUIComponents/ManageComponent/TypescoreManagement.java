@@ -1,5 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.SortA_Z;
+import Controllers.SortZ_A;
 import DAO.Access.TypeScoreHandle;
 import Model.TypeScore;
 import javax.swing.*;
@@ -13,6 +15,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -87,6 +90,33 @@ public class TypescoreManagement extends JInternalFrame {
                 TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
                 typeScoreHandle.UPDATE(typeScore);
                 refreshTable();
+            }
+        });
+        comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(comboBox1.getSelectedIndex()==0) {
+                    Collections.sort(a, new SortA_Z());
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+                    Iterator<TypeScore> typeScoreIterator = a.iterator();
+                    while (typeScoreIterator.hasNext()){
+                        TypeScore typeScore = typeScoreIterator.next();
+                        modelScoreManage.addRow(new Object[]{true,typeScore.getID(),typeScore.getName()});
+        }
+
+                }
+                else if (comboBox1.getSelectedIndex()==1){
+                    Collections.sort(a, new SortZ_A());
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    Iterator<TypeScore> typeScoreIterator = a.iterator();
+                    while (typeScoreIterator.hasNext()){
+                        TypeScore typeScore = typeScoreIterator.next();
+                        modelScoreManage.addRow(new Object[]{true,typeScore.getID(),typeScore.getName()});
+        }
+                }
             }
         });
     }

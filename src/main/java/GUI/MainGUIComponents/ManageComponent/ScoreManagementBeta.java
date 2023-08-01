@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.SortZ_A;
 import DAO.Access.*;
 import DAO.ViewScore;
 import GUI.ComboBoxItem;
@@ -11,6 +12,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -64,7 +66,7 @@ public class ScoreManagementBeta extends JInternalFrame {
                             if (viewScoreBeta.getStudentID() == Integer.valueOf(scrStudentID.getText()) && viewScoreBeta.getSubjectCode() == subjectID){
                                 tableModel.addRow(new Object[]{
                                         viewScoreBeta.getStudentID(),
-                                        viewScoreBeta.getStudentName(),
+                                        viewScoreBeta.getName(),
                                         viewScoreBeta.getGrantID(),
                                         viewScoreBeta.getClassCode(),
                                         viewScoreBeta.getSubjectCode(),
@@ -101,7 +103,7 @@ public class ScoreManagementBeta extends JInternalFrame {
                 tempViewScore.setStudentID(id);
                 tempViewScore.setScoreType(typescore);
                 tempViewScore.setScoreValue(scoreValue);
-                tempViewScore.setStudentName(String.valueOf(table1.getValueAt(clickedRow,1)));
+                tempViewScore.setName(String.valueOf(table1.getValueAt(clickedRow,1)));
                 tempViewScore.setClassCode(classID);
                 tempViewScore.setGrantID(blockID);
                 tempViewScore.setSubjectCode(subjectID);
@@ -135,7 +137,7 @@ public class ScoreManagementBeta extends JInternalFrame {
                         if (viewScoreBeta.getStudentID() == Integer.valueOf(id) && viewScoreBeta.getSubjectCode() == subjectID){
                             tableModel.addRow(new Object[]{
                                     viewScoreBeta.getStudentID(),
-                                    viewScoreBeta.getStudentName(),
+                                    viewScoreBeta.getName(),
                                     viewScoreBeta.getGrantID(),
                                     viewScoreBeta.getClassCode(),
                                     viewScoreBeta.getSubjectCode(),
@@ -153,7 +155,7 @@ public class ScoreManagementBeta extends JInternalFrame {
                         if (viewScoreBeta.getStudentID() == Integer.valueOf(id)){
                             tableModel.addRow(new Object[]{
                                     viewScoreBeta.getStudentID(),
-                                    viewScoreBeta.getStudentName(),
+                                    viewScoreBeta.getName(),
                                     viewScoreBeta.getGrantID(),
                                     viewScoreBeta.getClassCode(),
                                     viewScoreBeta.getSubjectCode(),
@@ -268,6 +270,48 @@ public class ScoreManagementBeta extends JInternalFrame {
                 refreshTable();
             }
         });
+        aZButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Collections.sort(scoreBetaList, new SortZ_A());
+                DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
+                Iterator<ViewScoreBeta> scoreBetaIterator = scoreBetaList.iterator();
+                while (scoreBetaIterator.hasNext()) {
+                    ViewScoreBeta viewScoreBeta = scoreBetaIterator.next();
+                    tableModel.addRow(new Object[]{
+                            viewScoreBeta.getStudentID(),
+                            viewScoreBeta.getName(),
+                            viewScoreBeta.getGrantID(),
+                            viewScoreBeta.getClassCode(),
+                            viewScoreBeta.getSubjectCode(),
+                            viewScoreBeta.getScoreValue(),
+                            viewScoreBeta.getScoreType()
+                    });
+                }
+            }
+        });
+        zAButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Collections.sort(scoreBetaList, new SortZ_A());
+                DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
+                Iterator<ViewScoreBeta> scoreBetaIterator = scoreBetaList.iterator();
+                while (scoreBetaIterator.hasNext()) {
+                    ViewScoreBeta viewScoreBeta = scoreBetaIterator.next();
+                    tableModel.addRow(new Object[]{
+                            viewScoreBeta.getStudentID(),
+                            viewScoreBeta.getName(),
+                            viewScoreBeta.getGrantID(),
+                            viewScoreBeta.getClassCode(),
+                            viewScoreBeta.getSubjectCode(),
+                            viewScoreBeta.getScoreValue(),
+                            viewScoreBeta.getScoreType()
+                    });
+                }
+            }
+        });
     }
 
 
@@ -304,7 +348,7 @@ public class ScoreManagementBeta extends JInternalFrame {
                 ViewScoreBeta viewScoreBeta = scoreBetaIterator.next();
                 tableModel.addRow(new Object[]{
                         viewScoreBeta.getStudentID(),
-                        viewScoreBeta.getStudentName(),
+                        viewScoreBeta.getName(),
                         viewScoreBeta.getGrantID(),
                         viewScoreBeta.getClassCode(),
                         viewScoreBeta.getSubjectCode(),
@@ -396,5 +440,7 @@ public class ScoreManagementBeta extends JInternalFrame {
     private JCheckBox hocsinhCheckBox;
     private JButton delete;
     private JButton update;
+    private JButton aZButton;
+    private JButton zAButton;
 
 }

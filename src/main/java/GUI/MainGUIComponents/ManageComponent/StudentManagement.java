@@ -1,6 +1,8 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 
+import Controllers.SortA_Z;
+import Controllers.SortZ_A;
 import DAO.Access.ClassHandle;
 import DAO.Access.StudentHandle;
 
@@ -19,6 +21,7 @@ import java.sql.SQLException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -172,6 +175,35 @@ public class StudentManagement extends JInternalFrame {
                 }
             }
         });
+        comboBox2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(comboBox2.getSelectedIndex()==0) {
+                    Collections.sort(a, new SortA_Z());
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    Iterator<Student> studentIterator = a.iterator();
+                    while (studentIterator.hasNext()) {
+                        Student student = studentIterator.next();
+                        String gender = (student.getGender()) ? "Nam" : "Nữ";
+                        modelScoreManage.addRow(new Object[]{true, student.getID(), student.getName(), gender, student.getBirthday(), student.getAddress(), student.getPhone(), student.getClassID()});
+                    }
+                }
+                else if (comboBox2.getSelectedIndex()==1){
+                    Collections.sort(a, new SortZ_A());
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    Iterator<Student> studentIterator = a.iterator();
+                    while (studentIterator.hasNext()) {
+                        Student student = studentIterator.next();
+                        String gender = (student.getGender()) ? "Nam" : "Nữ";
+                        modelScoreManage.addRow(new Object[]{true, student.getID(), student.getName(), gender, student.getBirthday(), student.getAddress(), student.getPhone(), student.getClassID()});
+                    }
+                }
+            }
+        });
     }
     public void refreshTable() {
         //get  classitem add combobox
@@ -199,6 +231,7 @@ public class StudentManagement extends JInternalFrame {
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
+
         Iterator<Student> studentIterator = a.iterator();
         while (studentIterator.hasNext()){
             Student student = studentIterator.next();

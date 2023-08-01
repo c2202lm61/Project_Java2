@@ -1,6 +1,6 @@
 package Model;
 
-public class TypeScore {
+public class TypeScore implements Name {
 
     private int id;
     private String Name;
@@ -15,6 +15,7 @@ public class TypeScore {
     public void setName(String Name){
         this.Name = Name;
     }
+    @Override
     public String getName(){
         return this.Name;
     }

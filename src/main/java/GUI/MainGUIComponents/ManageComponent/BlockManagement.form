@@ -18,14 +18,6 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="143f0" class="javax.swing.JButton" binding="chọnẢnhButton" default-binding="true">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Chọn ảnh"/>
-                </properties>
-              </component>
               <component id="b7c6b" class="javax.swing.JButton" binding="insert">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -56,6 +48,17 @@
                 </constraints>
                 <properties>
                   <text value="Tải lại"/>
+                </properties>
+              </component>
+              <component id="eb090" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="A-Z"/>
+                    <item value="Z-A"/>
+                  </model>
                 </properties>
               </component>
             </children>
