@@ -1,6 +1,6 @@
 package Model;
 
-public class ViewScoreBeta {
+public class ViewScoreBeta implements Name {
     private int studentID;
     private String studentName;
     private int  classCode;
@@ -8,7 +8,6 @@ public class ViewScoreBeta {
     private int subjectCode;
     private double scoreValue;
     private int scoreType;
-    private String scoreType2;
 
     public int getStudentID() {
         return studentID;
@@ -17,12 +16,12 @@ public class ViewScoreBeta {
     public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
-
-    public String getStudentName() {
+    @Override
+    public String getName() {
         return studentName;
     }
 
-    public void setStudentName(String studentName) {
+    public void setName(String studentName) {
         this.studentName = studentName;
     }
 
@@ -66,11 +65,4 @@ public class ViewScoreBeta {
         return scoreType;
     }
 
-    public String getScoreType2() {
-        return scoreType2;
-    }
-
-    public void setScoreType2(String scoreType2) {
-        this.scoreType2 = scoreType2;
-    }
 }

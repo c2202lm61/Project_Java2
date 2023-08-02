@@ -22,7 +22,7 @@ public class ViewScore {
             while (resultSet.next()){
                 ViewScoreBeta viewScoreBeta = new ViewScoreBeta();
                 viewScoreBeta.setStudentID(resultSet.getInt("Student_id"));
-                viewScoreBeta.setStudentName(resultSet.getString("Student_name"));
+                viewScoreBeta.setName(resultSet.getString("Student_name"));
                 viewScoreBeta.setGrantID(resultSet.getInt("grant_id"));
                 viewScoreBeta.setSubjectCode(resultSet.getInt("Subject_code"));
                 viewScoreBeta.setClassCode(resultSet.getInt("class_code"));

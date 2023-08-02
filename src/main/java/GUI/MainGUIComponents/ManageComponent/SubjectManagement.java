@@ -1,5 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.SortA_Z;
+import Controllers.SortZ_A;
 import DAO.Access.GrantHandle;
 import DAO.Access.SubjectHandle;
 import Model.Block;
@@ -15,6 +17,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -150,6 +153,33 @@ public class SubjectManagement extends JInternalFrame{
                             modelScoreManage.addRow(new Object[]{true,subject.getID(),subject.getName(),subject.getCredits(),subject.getGrandID()});
                         }
                     }
+                }
+            }
+        });
+        aZButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Collections.sort(a, new SortA_Z());
+                DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
+                Iterator<Subject> subjectIterator = a.iterator();
+                while (subjectIterator.hasNext()){
+                    Subject subject = subjectIterator.next();
+                    modelScoreManage.addRow(new Object[]{true,subject.getID(),subject.getName(),subject.getCredits(),subject.getGrandID()});
+                }
+
+            }
+        });
+        zAButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Collections.sort(a, new SortZ_A());
+                DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                modelScoreManage.setRowCount(0); // Clear existing data in the table
+                Iterator<Subject> subjectIterator = a.iterator();
+                while (subjectIterator.hasNext()){
+                    Subject subject = subjectIterator.next();
+                    modelScoreManage.addRow(new Object[]{true,subject.getID(),subject.getName(),subject.getCredits(),subject.getGrandID()});
                 }
             }
         });

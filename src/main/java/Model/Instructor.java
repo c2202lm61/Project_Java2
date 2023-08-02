@@ -2,7 +2,7 @@ package Model;
 
 import java.time.LocalDate;
 
-public class Instructor {
+public class Instructor implements Name {
 
     private int ID_NUMBER;
     private String name;
@@ -21,6 +21,7 @@ public class Instructor {
     }
 
     public void setName(String name){ this.name = name;}
+    @Override
     public String getName(){
         return this.name;
     }

@@ -1,5 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.SortA_Z;
+import Controllers.SortZ_A;
 import DAO.Access.InstructorHandle;
 import Model.Instructor;
 
@@ -15,6 +17,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -166,6 +169,34 @@ public class TeacherManagement extends JInternalFrame{
                 refreshTable();
             }
         });
+        comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (comboBox1.getSelectedIndex() == 0) {
+                    Collections.sort(a, new SortA_Z());
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    Iterator<Instructor> instructorIterator = a.iterator();
+                    while (instructorIterator.hasNext()) {
+                        Instructor instructor = instructorIterator.next();
+                        String gender = (instructor.getGender()) ? "Nam" : "Nữ";
+                        modelScoreManage.addRow(new Object[]{true, instructor.getID_NUMBER(), instructor.getName(), gender, instructor.getBirthday(), instructor.getPassword(), instructor.getEmail(), instructor.getPhone()});
+                    }
+                } else if (comboBox1.getSelectedIndex() == 1) {
+                    Collections.sort(a, new SortZ_A());
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    Iterator<Instructor> instructorIterator = a.iterator();
+                    while (instructorIterator.hasNext()){
+                        Instructor instructor = instructorIterator.next();
+                        String gender = (instructor.getGender()) ? "Nam":"Nữ";
+                        modelScoreManage.addRow(new Object[]{true,instructor.getID_NUMBER(),instructor.getName(),gender,instructor.getBirthday(),instructor.getPassword(),instructor.getEmail(),instructor.getPhone()});
+                    }
+                }
+            }
+        });
     }
 
 
@@ -180,6 +211,7 @@ public class TeacherManagement extends JInternalFrame{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
         Iterator<Instructor> instructorIterator = a.iterator();
         while (instructorIterator.hasNext()){
             Instructor instructor = instructorIterator.next();

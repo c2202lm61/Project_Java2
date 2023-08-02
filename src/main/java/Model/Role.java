@@ -1,6 +1,6 @@
 package Model;
 
-public class Role {
+public class Role implements Name{
     private int id;
     private String name;
 
@@ -8,6 +8,7 @@ public class Role {
     public void setId(int id){this.id = id;}
     public int getId(){return this.id ;}
     public void setName(String name){this.name = name;}
+    @Override
     public String getName(){return this.name ;}
 
 }

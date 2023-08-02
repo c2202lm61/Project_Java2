@@ -1,6 +1,8 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 
+import Controllers.SortA_Z;
+import Controllers.SortZ_A;
 import DAO.Access.GrantHandle;
 import Model.Block;
 
@@ -14,6 +16,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -130,6 +133,34 @@ public class BlockManagement extends JInternalFrame{
                 refreshTable();
             }
         });
+        comboBox2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(comboBox2.getSelectedIndex()==0) {
+                    Collections.sort(a, new SortA_Z());
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    Iterator<Block> blockIterator = a.iterator();
+                    while (blockIterator.hasNext()){
+                        Block block = blockIterator.next();
+                        if(String.valueOf(block.getName()).contains(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
+                    }
+                }
+                else if (comboBox2.getSelectedIndex()==1){
+                    Collections.sort(a, new SortZ_A());
+                    DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
+                    modelScoreManage.setRowCount(0); // Clear existing data in the table
+
+                    Iterator<Block> blockIterator = a.iterator();
+                    while (blockIterator.hasNext()){
+                        Block block = blockIterator.next();
+                        if(String.valueOf(block.getName()).contains(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
+                    }
+
+                }
+            }
+        });
     }
 
     public void refreshTable() {
@@ -159,7 +190,6 @@ public class BlockManagement extends JInternalFrame{
     public List<Block> a = new ArrayList<>();
 
     private JPanel panel1;
-    private JButton chọnẢnhButton;
     private JButton insert;
     private JButton update;
     private JButton delete;
@@ -173,6 +203,7 @@ public class BlockManagement extends JInternalFrame{
     private JTextField TextSearch;
     private JButton searchButton;
     private JCheckBox searchByNameCheckBox;
+    private JComboBox comboBox2;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here

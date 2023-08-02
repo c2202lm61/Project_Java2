@@ -20,9 +20,10 @@ public class Validation {
 
         return PASSWORD_PATTERN.matcher(password).matches();
     }
-    public static Boolean isFullName(String fullname){
+    public static boolean isFullName(String fullname) {
+        String regex = "^[\\p{L}\\s]+$";
 
-        return fullname.matches("[a-zA-Z ]+");
+        return Pattern.matches(regex, fullname);
     }
     public static Boolean isPhone(String  phone){
 

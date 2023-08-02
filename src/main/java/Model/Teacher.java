@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-public class Teacher {
+public class Teacher implements Name {
     private int ID;
     private String Name;
     private Boolean Gender;
@@ -28,6 +28,7 @@ public class Teacher {
         Name = name;
     }
 
+    @Override
     public String getName() {
         return Name;
     }
