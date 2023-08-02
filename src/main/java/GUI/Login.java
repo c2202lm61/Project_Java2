@@ -35,6 +35,7 @@ public class Login extends JDialog{
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
                 new Register();
             }
         });
