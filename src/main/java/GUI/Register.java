@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 
 public class Register extends JFrame{
     public Register(){
+        setDefaultLookAndFeelDecorated(true);
+        ImageIcon img = new ImageIcon("./icon.png");
+        String relativePath = "./src/main/resources/images/";
+        setIconImage(img.getImage());
         setContentPane(registerPanel);
         setTitle("Register");
         setSize(600,350);
@@ -22,6 +26,13 @@ public class Register extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Authenlication.Register(Email.getText(),Password.getText(),Fullname.getText());
+            }
+        });
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
+                new Login();
             }
         });
     }

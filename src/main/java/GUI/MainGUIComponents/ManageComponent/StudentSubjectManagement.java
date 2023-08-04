@@ -60,33 +60,54 @@ public class StudentSubjectManagement extends JFrame {
                     subjectStudentHandle.INSERT(subjectStudent);
                     refreshTable(id);
                 } catch (NumberFormatException e1){
-                    throw new RuntimeException(e1);
+                    JOptionPane.showMessageDialog(null,"Mã Cho Điểm không hợp lệ");
+                            return;
                 }
             }
         });
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SubjectStudent subjectStudent = new SubjectStudent();
-                int ss_id = Integer.valueOf(machodiem.getText());
-                int mamon = (int)mamh.getSelectedItem();
-                subjectStudent.setSubject_Student_id(ss_id);
-                subjectStudent.setStudent_id(id);
-                subjectStudent.setSubject_code(mamon);
-                SubjectStudentHandle subjectStudentHandle = new SubjectStudentHandle();
-                subjectStudentHandle.UPDATE(subjectStudent);
-                refreshTable(id);
+                try {
+                    int ss_id = Integer.valueOf(machodiem.getText());
+                    if(ss_id <1){
+                        JOptionPane.showMessageDialog(null,"Mã Cho Điểm không hợp lệ");
+                        return;
+                    }
+                    SubjectStudent subjectStudent = new SubjectStudent();
+                    int mamon = (int)mamh.getSelectedItem();
+                    subjectStudent.setSubject_Student_id(ss_id);
+                    subjectStudent.setStudent_id(id);
+                    subjectStudent.setSubject_code(mamon);
+                    SubjectStudentHandle subjectStudentHandle = new SubjectStudentHandle();
+                    subjectStudentHandle.UPDATE(subjectStudent);
+                    refreshTable(id);
+                } catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null,"Mã Cho Điểm không hợp lệ");
+                            return;
+                }
+
             }
         });
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int ss_id = Integer.valueOf(machodiem.getText());
-                SubjectStudentHandle subjectStudentHandle = new SubjectStudentHandle();
-                subjectStudentHandle.DELETE(id);
-                machodiem.setText(null);
-                mamh.setSelectedItem(null);
-                refreshTable(id);
+                try {
+                    int ss_id = Integer.valueOf(machodiem.getText());
+                    if(ss_id <1){
+                        JOptionPane.showMessageDialog(null,"Mã Cho Điểm không hợp lệ");
+                        return;
+                    }
+                    SubjectStudentHandle subjectStudentHandle = new SubjectStudentHandle();
+                    subjectStudentHandle.DELETE(id);
+                    machodiem.setText(null);
+                    mamh.setSelectedItem(null);
+                    refreshTable(id);
+                } catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null,"Mã Cho Điểm không hợp lệ");
+                            return;
+                }
+
             }
         });
         table1.addMouseListener(new MouseAdapter() {

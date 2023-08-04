@@ -40,16 +40,29 @@ public class Assignment extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
-                String sohocky = textField2.getText();
-                int MaGVBM = (int) comboBox2.getSelectedItem();
-                int MaLH = (int) comboBox3.getSelectedItem();
-                TeacherClass teacherClass = new TeacherClass();
-                teacherClass.setNumberofsemester(sohocky);
-                teacherClass.setClass_code(MaLH);
-                teacherClass.setID_Teach(MaGVBM);
-                teacherClassHandle.INSERT(teacherClass);
-                refreshTable();
+                try{
+                    TeacherClass teacherClass = new TeacherClass();
+                    if(String.valueOf(tc_id.getText()).equals("")){
+                        teacherClass.setId_tc(-1);
+                    }else {
+                        int maChoDiem = Integer.valueOf(tc_id.getText());
+                        teacherClass.setId_tc(maChoDiem);
+                    }
+                    TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
+                    String sohocky = textField2.getText();
+                    int MaGVBM = (int) comboBox2.getSelectedItem();
+                    int MaLH = (int) comboBox3.getSelectedItem();
+
+                    teacherClass.setNumberofsemester(sohocky);
+                    teacherClass.setClass_code(MaLH);
+                    teacherClass.setID_Teach(MaGVBM);
+                    teacherClassHandle.INSERT(teacherClass);
+                    refreshTable();
+                }catch (Exception e1){
+                    JOptionPane.showMessageDialog(null,"Mã Phân Công không hợp lệ");
+                    return;
+                }
+
             }
             });
 
@@ -61,7 +74,7 @@ public class Assignment extends JInternalFrame{
                 String SohocKy =String.valueOf( table1.getValueAt(clickedRow,2));
                 int Magvbm = (int)( table1.getValueAt(clickedRow,3));
                 int Malop = (int)( table1.getValueAt(clickedRow,4));
-                textField1.setText(id);
+                tc_id.setText(id);
                 textField2.setText(SohocKy);
                 comboBox2.setSelectedItem(Magvbm);
                 comboBox3.setSelectedItem(Malop);
@@ -70,31 +83,49 @@ public class Assignment extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.valueOf(textField1.getText());
-                TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
-                teacherClassHandle.DELETE(id);
-                textField1.setText(null);
-                textField2.setText(null);
-                comboBox2.setSelectedItem(null);
-                comboBox3.setSelectedItem(null);
-                refreshTable();
+                try{
+                    int id = Integer.valueOf(tc_id.getText());
+                    if(id<1){
+                        JOptionPane.showMessageDialog(null, "Mã Phân Công không hợp lệ");
+                        return;
+                    }
+                    TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
+                    teacherClassHandle.DELETE(id);
+                    tc_id.setText(null);
+                    textField2.setText(null);
+                    comboBox2.setSelectedItem(null);
+                    comboBox3.setSelectedItem(null);
+                    refreshTable();
+                }catch (Exception e1){
+                    JOptionPane.showMessageDialog(null, "Mã Phân Công không hợp lệ");
+                }
+
             }
         });
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
-                int id = Integer.valueOf(textField1.getText());
-                String sohocky = textField2.getText();
-                int MaGVBM = (int) comboBox2.getSelectedItem();
-                int MaLH = (int) comboBox3.getSelectedItem();
-                TeacherClass teacherClass = new TeacherClass();
-                teacherClass.setId_tc(id);
-                teacherClass.setNumberofsemester(sohocky);
-                teacherClass.setClass_code(MaLH);
-                teacherClass.setID_Teach(MaGVBM);
-                teacherClassHandle.UPDATE(teacherClass);
-                refreshTable();
+                try{
+                    TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
+                    int id = Integer.valueOf(tc_id.getText());
+                    if(id<1){
+                        JOptionPane.showMessageDialog(null, "Mã Phân Công không hợp lệ");
+                        return;
+                    }
+                    String sohocky = textField2.getText();
+                    int MaGVBM = (int) comboBox2.getSelectedItem();
+                    int MaLH = (int) comboBox3.getSelectedItem();
+                    TeacherClass teacherClass = new TeacherClass();
+                    teacherClass.setId_tc(id);
+                    teacherClass.setNumberofsemester(sohocky);
+                    teacherClass.setClass_code(MaLH);
+                    teacherClass.setID_Teach(MaGVBM);
+                    teacherClassHandle.UPDATE(teacherClass);
+                    refreshTable();
+                }catch (Exception e1){
+                    JOptionPane.showMessageDialog(null, "Mã Phân Công không hợp lệ");
+                }
+
             }
         });
     }
@@ -154,7 +185,7 @@ public class Assignment extends JInternalFrame{
     private JCheckBox chọnTấtCảCheckBox;
     private JCheckBox bỏChọnCheckBox;
     private JComboBox comboBox1;
-    private JTextField textField1;
+    private JTextField tc_id;
     private JTextField textField2;
     private JButton tảiLạiButton;
     private JButton delete;

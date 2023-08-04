@@ -3,9 +3,11 @@ package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
+import Controllers.Validation;
 import DAO.Access.ClassHandle;
 import DAO.Access.StudentHandle;
 
+import DAO.JDBCDriver;
 import Model.MClass;
 import Model.Student;
 
@@ -65,22 +67,33 @@ public class StudentManagement extends JInternalFrame {
                         int id = Integer.valueOf(stdID.getText());
                       student.setID(id);
                     }
-                student.setName(stdName.getText());
+                    if(!Validation.isFullName(stdName.getText())){JOptionPane.showMessageDialog(null,"Tên không hợp lệ"); return;}
+                        student.setName(stdName.getText());
                 String dateString = stdBirthday.getText();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate date = LocalDate.parse(dateString, formatter);
-                student.setBirthday(date);
-                if(stdGender.getSelectedIndex() == 1){
+                try {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate date = LocalDate.parse(dateString, formatter);
+                    student.setBirthday(date);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,"Ngày sinh  không hợp lệ");
+                    return;
+                }
+
+
+                    if(stdGender.getSelectedIndex() == 1){
                     student.setGender(true);
                 }else {
                     student.setGender(false);
                 }
+                    if (stdAddress.getText().length() == 0){JOptionPane.showMessageDialog(null,"Địa chỉ không hợp lệ"); return;}
                 student.setAddress(stdAddress.getText());
+                    if (stdPhone.getText().length() != 8){JOptionPane.showMessageDialog(null,"Số điện thoại không hợp lệ"); return;}
                 student.setPhone(stdPhone.getText());
                 student.setClassID(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
+                    if (stdSeNumber.getText().length() != 8){JOptionPane.showMessageDialog(null,"Số điện thoại phụ huynh không hợp lệ"); return;}
                 student.setSocialSecurtyNumber(stdSeNumber.getText());
                 new StudentHandle().INSERT(student);
-                System.out.println("them du lieu thanh cong");
+                JOptionPane.showMessageDialog(null,"Thêm học sinh thành công");
                 refreshTable();
             }catch (NumberFormatException e1){
                     throw new RuntimeException(e1);
@@ -103,8 +116,22 @@ public class StudentManagement extends JInternalFrame {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new StudentHandle().DELETE(Integer.parseInt(stdID.getText()));
+                try {
+                    Integer.parseInt(stdID.getText());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null,"ID học sinh không hợp lệ");
+                    return;
+                }
+                try {
+                   Boolean a = JDBCDriver.SetQuery("DELETE FROM `student` WHERE `Student_id` = "+stdID.getText());
+                    if (a)
+                        JOptionPane.showMessageDialog(null,"Xóa học sinh thành công");
+                    else
+                        JOptionPane.showMessageDialog(null,"Xóa học sinh không thành công");
 
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null,"Bạn không thể xóa do điểm của  học sinh đang  tồn tại");
+                }
                 refreshTable();
             }
         });
@@ -118,22 +145,38 @@ public class StudentManagement extends JInternalFrame {
             public void actionPerformed(ActionEvent e) {
 
                 Student student = new Student();
+                try {
+                    Integer.parseInt(stdID.getText());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null,"ID học sinh không hợp lệ");
+                    return;
+                }
                 student.setID(Integer.parseInt(stdID.getText()));
+                if(!Validation.isFullName(stdName.getText())){JOptionPane.showMessageDialog(null,"Tên không hợp lệ"); return;};
                 student.setName(stdName.getText());
                 String dateString = stdBirthday.getText();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate date = LocalDate.parse(dateString, formatter);
-                student.setBirthday(date);
+                try {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate date = LocalDate.parse(dateString, formatter);
+                    student.setBirthday(date);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,"Ngày sinh  không hợp lệ");
+                    return;
+                }
                 if(stdGender.getSelectedIndex() == 1){
                     student.setGender(true);
                 }else {
                     student.setGender(false);
                 }
+                if (stdAddress.getText().length() == 0){JOptionPane.showMessageDialog(null,"Địa chỉ không hợp lệ"); return;}
                 student.setAddress(stdAddress.getText());
+                if (stdPhone.getText().length() != 8){JOptionPane.showMessageDialog(null,"Số điện thoại không hợp lệ"); return;}
                 student.setPhone(stdPhone.getText());
                 student.setClassID(Integer.parseInt(String.valueOf(stdClass.getSelectedItem())));
+                if (stdSeNumber.getText().length() != 8){JOptionPane.showMessageDialog(null,"Số điện thoại phụ huynh không hợp lệ"); return;}
                 student.setSocialSecurtyNumber(stdSeNumber.getText());
                 new StudentHandle().UPDATE(student);
+                JOptionPane.showMessageDialog(null,"Cập nhật thông tin thành công");
                 refreshTable();
             }
         });

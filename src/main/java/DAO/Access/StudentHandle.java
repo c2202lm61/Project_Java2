@@ -72,17 +72,13 @@ public class StudentHandle extends AbsSQLAccess<Student>{
     }
 
     @Override
-    public Boolean DELETE(int id) {
-        Boolean result = false;
-        try {
+    public Boolean DELETE(int id) throws SQLException {
+        Boolean result;
+
             boolean a =JDBCDriver.SetQuery("DELETE FROM `student` WHERE `Student_id` = "+id);
             if (a)System.out.println("Xóa dữ liệu thành công");
-            else System.out.println("Dữ liệu đó không tồn tại");
             result = true;
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
         return result;
     }
 }

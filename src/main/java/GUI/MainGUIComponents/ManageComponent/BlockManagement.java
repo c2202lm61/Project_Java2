@@ -51,16 +51,20 @@ public class BlockManagement extends JInternalFrame{
                         int id = Integer.valueOf(MaKhoi.getText());
                         block.setID(id);
                     }
-
-                    String tenkhoi = TenKhoi.getText();
+                } catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
+                    return;
+                }
+                String tenkhoi = TenKhoi.getText();
+                if(tenkhoi.equals("")){
+                    JOptionPane.showMessageDialog(null,"Tên Khối không hợp lệ");
+                    return;
+                }else{
                     block.setName(tenkhoi);
                     GrantHandle grantHandle = new GrantHandle();
                     grantHandle.INSERT(block);
                     refreshTable();
-                } catch (NumberFormatException e1){
-                    throw new RuntimeException(e1);
                 }
-
             }
 
         });
@@ -82,12 +86,18 @@ public class BlockManagement extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.valueOf(MaKhoi.getText());
-                GrantHandle grantHandle = new GrantHandle();
-                grantHandle.DELETE(id);
-                MaKhoi.setText(null);
-                TenKhoi.setText(null);
-                refreshTable();
+                try {
+                    int id = Integer.valueOf(MaKhoi.getText());
+                    GrantHandle grantHandle = new GrantHandle();
+                    grantHandle.DELETE(id);
+                    MaKhoi.setText(null);
+                    TenKhoi.setText(null);
+                    refreshTable();
+                }catch (Exception e1){
+                    JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
+                    return;
+                }
+
 
             }
         });
@@ -95,14 +105,33 @@ public class BlockManagement extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Block block = new Block();
-                int id = Integer.valueOf(MaKhoi.getText());
+                try {
 
-                String tenkhoi = TenKhoi.getText();
-                block.setID(id);
-                block.setName(tenkhoi);
-                GrantHandle grantHandle = new GrantHandle();
-                grantHandle.UPDATE(block);
-                refreshTable();
+                    int id = Integer.valueOf(MaKhoi.getText());
+                    if (id >= 1){
+                        String tenkhoi = TenKhoi.getText();
+
+                        if (tenkhoi.equals("")){
+                            JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
+                            return;
+                        }else {
+                            block.setID(id);
+
+                            block.setName(tenkhoi);
+                            GrantHandle grantHandle = new GrantHandle();
+                            grantHandle.UPDATE(block);
+                            refreshTable();
+                        }
+
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
+                        return;
+                    }
+                }catch (Exception e1){
+                    JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
+                    return;
+                }
             }
         });
         searchButton.addActionListener(new ActionListener() {
