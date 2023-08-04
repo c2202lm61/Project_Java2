@@ -1,6 +1,7 @@
 package com.score.management;
 
 import GUI.Login;
+import GUI.MainGUI;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -12,7 +13,8 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) throws AWTException {
-        new Login();
+      //  new Login();
+        new MainGUI();
         if (!SystemTray.isSupported()) {
             System.err.println("System tray feature is not supported");
             return;

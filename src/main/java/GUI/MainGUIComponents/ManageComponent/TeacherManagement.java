@@ -2,6 +2,7 @@ package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
+import Controllers.Validation;
 import DAO.Access.InstructorHandle;
 import Model.Instructor;
 
@@ -45,20 +46,44 @@ public class TeacherManagement extends JInternalFrame{
         setVisible(true);
         //----------------------------------------------------
         insertButton.addActionListener(new ActionListener() {
-
+            String dateString = insBirthday.getText();
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Validation.isFullName(instName.getText())){JOptionPane.showMessageDialog(null,"Tên không hợp lệ"); return;};
+                String dateString = insBirthday.getText();
+                try {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate date = LocalDate.parse(dateString, formatter);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,"Ngày sinh  không hợp lệ");
+                    return;
+                }
+                if (!Validation.isEmail(insEmail.getText())){
+                    JOptionPane.showMessageDialog(null,"Email  không hợp lệ");
+                    return;
+                }
+                if (insPhone.getText().length() != 8){
+                    JOptionPane.showMessageDialog(null,"Số điện thoại  không hợp lệ");
+                    return;
+                }
+                if (!Validation.isStrongPassword(insPassword.getText())){
+                    JOptionPane.showMessageDialog(null,"Mật khẩu  không hợp lệ");
+                    return;
+                };
                 Instructor instructor = new Instructor();
                 try{
+
+
                     if(String.valueOf(insID.getText()).equals("")){
                         instructor.setID_NUMBER(-1);
                     }else{
                         int id = Integer.valueOf(insID.getText());
                         instructor.setID_NUMBER(id);
                     }
+
                     instructor.setName(instName.getText());
                     instructor.setPassword(insPassword.getText());
-                    String dateString = insBirthday.getText();
+
 
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     LocalDate date = LocalDate.parse(dateString, formatter);
@@ -71,7 +96,7 @@ public class TeacherManagement extends JInternalFrame{
                     instructor.setEmail(insEmail.getText());
                     instructor.setPhone(insPhone.getText());
                     new InstructorHandle().INSERT(instructor);
-                    System.out.println("them du lieu thanh cong");
+                    JOptionPane.showMessageDialog(null,"Thêm  giáo viên thành công");
                     refreshTable();
                 } catch (NumberFormatException e1){
                     throw new RuntimeException(e1);
@@ -106,7 +131,12 @@ public class TeacherManagement extends JInternalFrame{
              */
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (!Validation.isNumeric(insID.getText())){
+                    JOptionPane.showMessageDialog(null,"ID  không hợp lệ");
+                    return;
+                }
                 new InstructorHandle().DELETE(Integer.parseInt(insID.getText()));
+                JOptionPane.showMessageDialog(null,"Xóa giáo viên thành công");
                 refreshTable();
             }
         });
@@ -118,6 +148,31 @@ public class TeacherManagement extends JInternalFrame{
              */
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (!Validation.isNumeric(insID.getText())){
+                    JOptionPane.showMessageDialog(null,"ID  không hợp lệ");
+                    return;
+                }
+                if(!Validation.isFullName(instName.getText())){JOptionPane.showMessageDialog(null,"Tên không hợp lệ"); return;};
+                String dateString = insBirthday.getText();
+                try {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate date = LocalDate.parse(dateString, formatter);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,"Ngày sinh  không hợp lệ");
+                    return;
+                }
+                if (!Validation.isEmail(insEmail.getText())){
+                    JOptionPane.showMessageDialog(null,"Email  không hợp lệ");
+                    return;
+                }
+                if (insPhone.getText().length() != 8){
+                    JOptionPane.showMessageDialog(null,"Số điện thoại  không hợp lệ");
+                    return;
+                }
+                if (!Validation.isStrongPassword(insPassword.getText())){
+                    JOptionPane.showMessageDialog(null,"Mật khẩu  không hợp lệ");
+                    return;
+                };
                 Instructor instructor = new Instructor();
                 instructor.setID_NUMBER(Integer.parseInt(insID.getText()));
                 instructor.setName(instName.getText());
@@ -128,14 +183,14 @@ public class TeacherManagement extends JInternalFrame{
                     instructor.setGender(true);
                 }
 
-                String dateString = insBirthday.getText();
+
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate date = LocalDate.parse(dateString, formatter);
                 instructor.setBirthday(date);
                 instructor.setEmail(insEmail.getText());
                 instructor.setPhone(insPhone.getText());
                 new InstructorHandle().UPDATE(instructor);
-                System.out.println("update du lieu thanh cong");
+                JOptionPane.showMessageDialog(null,"Cập nhật giáo viên thành công");
                 refreshTable();
             }
         });
