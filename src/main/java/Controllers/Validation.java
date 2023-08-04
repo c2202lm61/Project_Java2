@@ -8,6 +8,9 @@ import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 public class Validation {
+    public static boolean isNumeric(String str) {
+        return str.matches("^\\d+$");
+    }
     private static final Pattern EMAIL_PATTERN = Pattern.compile(
             "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]+$");
     private static final Pattern PASSWORD_PATTERN = Pattern.compile(

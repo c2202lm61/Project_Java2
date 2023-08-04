@@ -186,6 +186,7 @@
                 </constraints>
                 <properties>
                   <font size="18"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="95458" class="javax.swing.JLabel">

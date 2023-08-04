@@ -2,6 +2,7 @@ package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
+import Controllers.Validation;
 import DAO.Access.GrantHandle;
 import DAO.Access.SubjectHandle;
 import Model.Block;
@@ -47,6 +48,14 @@ public class SubjectManagement extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Validation.isFullName(TenMon.getText())){
+                    JOptionPane.showMessageDialog(null,"Tên môn học không hợp lệ");
+                    return;
+                }
+                if(!Validation.isNumeric(tinchi.getText())){
+                    JOptionPane.showMessageDialog(null,"Tín chỉ không hợp lệ");
+                    return;
+                }
 
                 String TenMonHoc = TenMon.getText();
 
@@ -67,6 +76,7 @@ public class SubjectManagement extends JInternalFrame{
                 subject.setGrandID(Khoi);
                 SubjectHandle subjectHandle = new SubjectHandle();
                 subjectHandle.INSERT(subject);
+                JOptionPane.showMessageDialog(null,"Thêm môn học thành công");
                 refreshTable();
 
 
@@ -95,19 +105,36 @@ public class SubjectManagement extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Validation.isNumeric(mamh.getText())){
+                    JOptionPane.showMessageDialog(null,"ID không hợp lệ");
+                    return;
+                }
                 int id = Integer.valueOf(mamh.getText());
                 SubjectHandle subjectHandle = new SubjectHandle();
                 subjectHandle.DELETE(id);
+                JOptionPane.showMessageDialog(null,"Xóa môn học thành công");
                 mamh.setText(null);
                 TenMon.setText(null);
                 tinchi.setText(null);
-                comboBox1.setSelectedItem(null);
+             //   comboBox1.setSelectedItem(null);
                 refreshTable();
             }
         });
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Validation.isNumeric(mamh.getText())){
+                    JOptionPane.showMessageDialog(null,"ID không hợp lệ");
+                    return;
+                }
+                if(!Validation.isFullName(TenMon.getText())){
+                    JOptionPane.showMessageDialog(null,"Tên môn học không hợp lệ");
+                    return;
+                }
+                if(!Validation.isNumeric(tinchi.getText())){
+                    JOptionPane.showMessageDialog(null,"Tín chỉ không hợp lệ");
+                    return;
+                }
                 int id = Integer.valueOf(mamh.getText());
                 String TenMonHoc = TenMon.getText();
                 int TinChi = Integer.parseInt(tinchi.getText());
@@ -120,6 +147,7 @@ public class SubjectManagement extends JInternalFrame{
                 subject.setGrandID(Khoi);
                 SubjectHandle subjectHandle = new SubjectHandle();
                 subjectHandle.UPDATE(subject);
+                JOptionPane.showMessageDialog(null,"Cập  nhật môn học thành  công");
                 refreshTable();
             }
         });
