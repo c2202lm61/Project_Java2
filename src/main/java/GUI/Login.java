@@ -7,13 +7,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-public class Login extends JDialog{
+public class Login extends JFrame{
     public Login(){
+        setDefaultLookAndFeelDecorated(true);
+        ImageIcon img = new ImageIcon("./icon.png");
+        String relativePath = "./src/main/resources/images/";
+        setIconImage(img.getImage());
         setTitle("Login");
         setContentPane(loginPanel);
         setSize(630,300);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         btnLogin.addActionListener(new ActionListener() {
             @Override

@@ -55,18 +55,17 @@ public class ClassManagement extends JInternalFrame{
                         int id = Integer.valueOf(Malop.getText());
                         mClass.setID(id);
                     }
-                int makhoi = (int)MaKhoi.getSelectedItem();
-
-                int magvcn = (int)MaGVCN.getSelectedItem();
-
-
-                mClass.setGrandID(makhoi);
-                mClass.setManagerID(magvcn);
-                new ClassHandle().INSERT(mClass);
-                refreshTable();
-            }catch (NumberFormatException e1){
-                    throw new RuntimeException(e1);
-                }}
+                    int makhoi = (int)MaKhoi.getSelectedItem();
+                    int magvcn = (int)MaGVCN.getSelectedItem();
+                    mClass.setGrandID(makhoi);
+                    mClass.setManagerID(magvcn);
+                    new ClassHandle().INSERT(mClass);
+                    refreshTable();
+                }catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null,"Mã Lớp không hợp lệ");
+                    return;
+                }
+            }
         });
 
         labelTable1.addMouseListener(new MouseAdapter() {
@@ -86,29 +85,44 @@ public class ClassManagement extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.valueOf(Malop.getText());
-                ClassHandle classHandle = new ClassHandle();
-                classHandle.DELETE(id);
-                Malop.setText(null);
-                MaGVCN.setSelectedItem(null);
-                MaKhoi.setSelectedItem(null);
-                refreshTable();
+                try {
+                    int id = Integer.valueOf(Malop.getText());
+                    ClassHandle classHandle = new ClassHandle();
+                    classHandle.DELETE(id);
+                    Malop.setText(null);
+                    MaGVCN.setSelectedItem(null);
+                    MaKhoi.setSelectedItem(null);
+                    refreshTable();
+                }catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null,"Mã Lớp không hợp lệ");
+                    return;
+                }
+
             }
         });
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MClass mClass = new MClass();
-                int id = Integer.valueOf(Malop.getText());
-                int makhoi = (int)MaKhoi.getSelectedItem();
+                try {
+                    MClass mClass = new MClass();
+                    int id = Integer.valueOf(Malop.getText());
+                    if(id >= 1){
+                        JOptionPane.showMessageDialog(null,"Mã Lớp không hợp lệ");
+                    return;
+                    }else {
+                        int makhoi = (int)MaKhoi.getSelectedItem();
+                        int magvcn = (int)MaGVCN.getSelectedItem();
+                        mClass.setGrandID(makhoi);
+                        mClass.setID(id);
+                        mClass.setManagerID(magvcn);
+                        new ClassHandle().UPDATE(mClass);
+                        refreshTable();
+                    }
+                }catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null,"Mã Lớp không hợp lệ");
+                    return;
+                }
 
-                int magvcn = (int)MaGVCN.getSelectedItem();
-
-                mClass.setGrandID(makhoi);
-                mClass.setID(id);
-                mClass.setManagerID(magvcn);
-                new ClassHandle().UPDATE(mClass);
-                refreshTable();
             }
         });
         searchButton.addActionListener(new ActionListener() {

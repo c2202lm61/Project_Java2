@@ -67,7 +67,7 @@ public class StudentManagement extends JInternalFrame {
                         int id = Integer.valueOf(stdID.getText());
                       student.setID(id);
                     }
-                    if(!Validation.isFullName(stdName.getText())){JOptionPane.showMessageDialog(null,"Tên không hợp lệ"); return;};
+                    if(!Validation.isFullName(stdName.getText())){JOptionPane.showMessageDialog(null,"Tên không hợp lệ"); return;}
                         student.setName(stdName.getText());
                 String dateString = stdBirthday.getText();
                 try {

@@ -11,9 +11,12 @@ import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static javax.swing.JDialog.setDefaultLookAndFeelDecorated;
+
 public class Main {
+
     public static void main(String[] args) throws AWTException {
-      //  new Login();
+//        new Login();
         new MainGUI();
         if (!SystemTray.isSupported()) {
             System.err.println("System tray feature is not supported");

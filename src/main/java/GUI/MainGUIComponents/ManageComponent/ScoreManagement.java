@@ -60,9 +60,10 @@ public class ScoreManagement extends JInternalFrame {
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Score score = new Score();
+
 
                 try {
+                    Score score = new Score();
                     if(String.valueOf(MaDiem.getText()).equals("")){
                         score.setScoreID(-1);
                     }else {
@@ -71,12 +72,17 @@ public class ScoreManagement extends JInternalFrame {
                     }
                     score.setStudentSubjectID(ss_id);
                     score.setTypeScoreID((int)loaidiem.getSelectedItem());
-                    score.setScoreValue(Float.valueOf(value.getText()));
+                    try{
+                        score.setScoreValue(Float.valueOf(value.getText()));
+                    }catch (NumberFormatException e2){
+                        JOptionPane.showMessageDialog(null, "Điểm Số không hợp lệ");
+                        return;
+                    }
                     ScoreStudentHandle scoreStudentHandle = new ScoreStudentHandle();
                     scoreStudentHandle.INSERT(score);
                     refreshTable(ss_id);
                 } catch (NumberFormatException e1){
-                    throw new RuntimeException(e1);
+                    JOptionPane.showMessageDialog(null, "Mã Điểm không hợp lệ");
                 }
             }
         });
@@ -98,28 +104,50 @@ public class ScoreManagement extends JInternalFrame {
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Score score = new Score();
-                int id = Integer.valueOf(MaDiem.getText());
+                try {
+                    Score score = new Score();
+                    int id = Integer.valueOf(MaDiem.getText());
+                    if(id < 1){
+                        JOptionPane.showMessageDialog(null, "Mã Điểm không hợp lệ");
+                        return;
+                    }
+                    score.setScoreID(id);
+                    score.setStudentSubjectID(ss_id);
+                    score.setTypeScoreID((int)(loaidiem.getSelectedItem()));
+                    try{
+                        score.setScoreValue(Float.valueOf(value.getText()));
+                    }catch (NumberFormatException e2){
+                        JOptionPane.showMessageDialog(null, "Điểm Số không hợp lệ");
+                        return;
+                    }
+                    ScoreStudentHandle scoreStudentHandle = new ScoreStudentHandle();
+                    scoreStudentHandle.UPDATE(score);
+                    refreshTable(ss_id);
+                } catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null, "Mã Điểm không hợp lệ");
+                }
 
-                score.setScoreID(id);
-                score.setStudentSubjectID(ss_id);
-                score.setTypeScoreID((int)(loaidiem.getSelectedItem()));
-                score.setScoreValue(Float.valueOf(value.getText()));
-                ScoreStudentHandle scoreStudentHandle = new ScoreStudentHandle();
-                scoreStudentHandle.UPDATE(score);
-                refreshTable(ss_id);
             }
         });
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.valueOf(MaDiem.getText());
-                ScoreStudentHandle scoreStudentHandle = new ScoreStudentHandle();
-                scoreStudentHandle.DELETE(id);
-                MaDiem.setText(null);
-                 loaidiem.setSelectedItem(null);
-                 value.setText(null);
-                refreshTable(ss_id);
+                try {
+                    int id = Integer.valueOf(MaDiem.getText());
+                    if(id < 1){
+                        JOptionPane.showMessageDialog(null, "Mã Điểm không hợp lệ");
+                        return;
+                    }
+                    ScoreStudentHandle scoreStudentHandle = new ScoreStudentHandle();
+                    scoreStudentHandle.DELETE(id);
+                    MaDiem.setText(null);
+                    loaidiem.setSelectedItem(null);
+                    value.setText(null);
+                    refreshTable(ss_id);
+                } catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null, "Mã Điểm không hợp lệ");
+                }
+
             }
         });
     }

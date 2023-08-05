@@ -35,7 +35,7 @@ public class RoleHandle extends AbsSQLAccess<Role>{
          while (resultSet.next()){
              Role b = new Role();
              b.setId(resultSet.getInt("id"));
-             b.setName(resultSet.getString("name"));
+             b.setName(resultSet.getString("role_name"));
              a.add(b);
          }
          return a;

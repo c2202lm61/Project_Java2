@@ -56,7 +56,14 @@ public class ScoreManagementBeta extends JInternalFrame {
                         int typeScoreID = (int) comboBoxTypeScore.getHiddenValue();
 
                         ViewScore viewScore = new ViewScore();
-                        viewScore.INSERT(Integer.valueOf(scrStudentID.getText()),subjectID,typeScoreID,Float.valueOf(scrScore.getText()));
+                        float diem;
+                        try{
+                            diem = Float.valueOf(scrScore.getText());
+                        }catch (NumberFormatException e1){
+                            JOptionPane.showMessageDialog(null, "Điểm không hợp lệ");
+                            return;
+                        }
+                        viewScore.INSERT(Integer.valueOf(scrStudentID.getText()),subjectID,typeScoreID,diem);
                         refreshTable();
                         DefaultTableModel tableModel = (DefaultTableModel) table1.getModel();
                         tableModel.setRowCount(0);
@@ -79,7 +86,7 @@ public class ScoreManagementBeta extends JInternalFrame {
                         refreshTable();
                     } else System.out.println("No item selected in the ComboBox.");
                 }catch (NumberFormatException e1){
-                    throw new RuntimeException(e1);
+                    JOptionPane.showMessageDialog(null, "Mã Học Sinh không hợp lệ");
                 }
 
 
@@ -257,17 +264,27 @@ public class ScoreManagementBeta extends JInternalFrame {
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ViewScore().DELETE(tempViewScore);
-                refreshTable();
+                try{
+                    new ViewScore().DELETE(tempViewScore);
+                    refreshTable();
+                }catch (Exception e1){
+                    JOptionPane.showMessageDialog(null, "Xóa Không Hợp Lệ");
+                }
+
             }
         });
         update.addActionListener(new ActionListener() {
             @Override
 
             public void actionPerformed(ActionEvent e) {
-                ComboBoxItem typescore = (ComboBoxItem) scrTypeScore.getSelectedItem();
-                new ViewScore().UPDATE(tempViewScore, (int)(typescore.getHiddenValue()),Float.valueOf(scrScore.getText()));
-                refreshTable();
+                try{
+                    ComboBoxItem typescore = (ComboBoxItem) scrTypeScore.getSelectedItem();
+                    new ViewScore().UPDATE(tempViewScore, (int)(typescore.getHiddenValue()),Float.valueOf(scrScore.getText()));
+                    refreshTable();
+                }catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null, "Điểm không hợp lệ");
+                }
+
             }
         });
         aZButton.addActionListener(new ActionListener() {

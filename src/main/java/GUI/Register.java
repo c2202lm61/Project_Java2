@@ -6,8 +6,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Register extends JDialog{
+public class Register extends JFrame{
     public Register(){
+        setDefaultLookAndFeelDecorated(true);
+        ImageIcon img = new ImageIcon("./icon.png");
+        String relativePath = "./src/main/resources/images/";
+        setIconImage(img.getImage());
         setContentPane(registerPanel);
         setTitle("Register");
         setSize(600,350);
