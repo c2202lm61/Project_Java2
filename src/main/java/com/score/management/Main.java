@@ -16,8 +16,8 @@ import static javax.swing.JDialog.setDefaultLookAndFeelDecorated;
 public class Main {
 
     public static void main(String[] args) throws AWTException {
-        new Login();
-//        new MainGUI();
+//        new Login();
+        new MainGUI();
         if (!SystemTray.isSupported()) {
             System.err.println("System tray feature is not supported");
             return;
