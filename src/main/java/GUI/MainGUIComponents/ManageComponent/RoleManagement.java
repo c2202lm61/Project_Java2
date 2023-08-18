@@ -13,10 +13,13 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
+import DAO.Access.InstructorRoleHandle;
 
 public class RoleManagement extends JInternalFrame {
 
@@ -111,6 +114,29 @@ public class RoleManagement extends JInternalFrame {
                 updateTableAsigment();
             }
         });
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(chooseTable.getSelectedIndex() == 0){
+                    int clickedRow = table1.rowAtPoint(e.getPoint());
+                    int teachid =  Integer.parseInt(String.valueOf( table1.getValueAt(clickedRow, 2)));
+                    try {
+                        List<InstructorRole> a = new InstructorRoleHandle().SELECT("SELECT * FROM `instructor_role` WHERE `tclass_id` =" +teachid);
+                        for(InstructorRole instructorRole : a){
+                            roleCombobox.setSelectedItem(instructorRole.getRole_id());
+                            insID.setText(String.valueOf(instructorRole.getID_NUMBER()));
+                        }
+
+                    } catch (SQLException e1) {
+                        throw new RuntimeException(e1);
+                    }
+                }else if(chooseTable.getSelectedIndex() == 1){
+                    int clickedRow = table1.rowAtPoint(e.getPoint());
+                    roleID.setText( String.valueOf( table1.getValueAt(clickedRow, 0)));
+                    roleName.setText(String.valueOf( table1.getValueAt(clickedRow,1)));
+                }
+            }
+        });
     }
     public void updateTableRole(){
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -173,6 +199,7 @@ public class RoleManagement extends JInternalFrame {
         }
 
     }
+
     private JPanel mainPanel;
     private JTable table1;
     private JButton insertIR;
