@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class Login extends JFrame{
     public Login(){
-        setDefaultLookAndFeelDecorated(true);
         ImageIcon img = new ImageIcon("./icon.png");
         String relativePath = "./src/main/resources/images/";
         setIconImage(img.getImage());

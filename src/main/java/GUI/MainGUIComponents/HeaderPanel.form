@@ -48,7 +48,7 @@
               </component>
             </children>
           </grid>
-          <component id="2a7" class="javax.swing.JLabel">
+          <component id="2a7" class="javax.swing.JLabel" binding="insName">
             <constraints border-constraint="Center"/>
             <properties>
               <font style="1"/>
@@ -56,7 +56,7 @@
               <text value="Doãn Chí Bình"/>
             </properties>
           </component>
-          <component id="629cd" class="javax.swing.JLabel">
+          <component id="629cd" class="javax.swing.JLabel" binding="insID">
             <constraints border-constraint="East"/>
             <properties>
               <font style="1"/>

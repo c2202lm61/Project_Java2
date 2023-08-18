@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 public class Authenlication {
     //Session Login
+    public static Instructor insLogin = new Instructor();
     public static Instructor InstructorAccess;
     public static void Login(String email, String password) throws SQLException {
         if(!Validation.isEmail(email)){
@@ -24,7 +25,11 @@ public class Authenlication {
         ResultSet resultSet =JDBCDriver.ExecQuery("SELECT * FROM instructor WHERE Email = "+"'"+email+"'");
 
         while (resultSet.next()){
-            if(email.equals(resultSet.getString("Email")) && password.equals(resultSet.getString("Password"))){
+            insLogin.setEmail(resultSet.getString("Email"));
+            insLogin.setPassword(resultSet.getString("Password"));
+            insLogin.setName(resultSet.getString("name"));
+            insLogin.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
+            if(email.equals(insLogin.getEmail()) && password.equals(insLogin.getPassword())){
                 new MainGUI();
             }else {
                 JOptionPane.showMessageDialog( null,"Thông tin tài khoản hoặc mật khẩu không chính xác");

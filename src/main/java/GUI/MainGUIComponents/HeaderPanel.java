@@ -1,5 +1,7 @@
 package GUI.MainGUIComponents;
 
+import Controllers.Authenlication.Authenlication;
+
 import javax.swing.*;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.awt.*;
@@ -11,6 +13,8 @@ import java.time.format.DateTimeFormatter;
 
 public class HeaderPanel extends JPanel{
     public HeaderPanel() {
+        insName.setText(Authenlication.insLogin.getName());
+        insID.setText(String.valueOf(Authenlication.insLogin.getID_NUMBER()));
         setLayout(new GridLayout());
         add(panel1);
         Timer timer = new Timer(1000, new ActionListener() {
@@ -33,4 +37,6 @@ public class HeaderPanel extends JPanel{
     }
     private JPanel panel1;
     private JLabel HeaderDate;
+    private JLabel insName;
+    private JLabel insID;
 }
