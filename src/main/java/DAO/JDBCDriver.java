@@ -8,6 +8,13 @@ public class JDBCDriver{
     static ResultSet resultSet  = null;
     static Statement  stmt = null;
     static ResourceBundle a;
+    public static void DestroyConnection(){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static ResultSet ExecQuery(String sql) throws SQLException {
         a = ResourceBundle.getBundle("projectdata");
         try {
@@ -22,8 +29,8 @@ public class JDBCDriver{
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
         }
-
-        return resultSet;
+        ResultSet resultSet1 = resultSet;
+        return resultSet1;
     }
     public static Boolean SetQuery(String sql) throws SQLException {
         a = ResourceBundle.getBundle("projectdata");

@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
@@ -46,8 +47,13 @@ public class SubjectManagement extends JInternalFrame{
         setVisible(true);
         //-----------------------------------------
         insert.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForSubject()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 if(!Validation.isFullName(TenMon.getText())){
                     JOptionPane.showMessageDialog(null,"Tên môn học không hợp lệ");
                     return;
@@ -105,6 +111,10 @@ public class SubjectManagement extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForSubject()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 if(!Validation.isNumeric(mamh.getText())){
                     JOptionPane.showMessageDialog(null,"ID không hợp lệ");
                     return;
@@ -123,6 +133,10 @@ public class SubjectManagement extends JInternalFrame{
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForSubject()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 if(!Validation.isNumeric(mamh.getText())){
                     JOptionPane.showMessageDialog(null,"ID không hợp lệ");
                     return;

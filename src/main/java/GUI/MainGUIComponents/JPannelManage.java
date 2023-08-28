@@ -170,6 +170,19 @@ public class JPannelManage extends JPanel{
                 cardLayout.show(secondPart, "Card11");
             }
         });
+        leftPanel.button11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JDesktopPane component12 = new JDesktopPane();
+                component12.setLayout(new GridLayout());
+                component12.add(new AuthorizationManagement());
+
+                String card12 = "Card12";
+                secondPart.add(component12, card12);
+                cardLayout.show(secondPart, "Card12");
+            }
+        });
+
         add(leftPanel, BorderLayout.WEST);
     }
 }
@@ -184,11 +197,12 @@ class LeftPanel extends JPanel{
     JButton button8;
     JButton button9;
     JButton button10;
+    JButton button11;
     public LeftPanel(){
         setBackground(mainColor.CYAN);
         setBorder(new EmptyBorder(10,10,10,10));
         //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        JPanel panel = new JPanel(new GridLayout(10,1,0,10));
+        JPanel panel = new JPanel(new GridLayout(11,1,0,10));
         panel.setBackground(mainColor.CYAN);
         button = new JButton("Quản lý học sinh");
         button.setBorder(new EmptyBorder(10,0,10,0));
@@ -199,9 +213,9 @@ class LeftPanel extends JPanel{
         button6 = new JButton("Phân công");
         button7 = new JButton("Giáo viên giảng dạy bộ môn");
         button8 = new JButton("Loại điểm");
-        button9 = new JButton("Chấm điểm beta");
-        button10  = new JButton("Chức vụ, vai trò giáo viên");
-        button10.setBackground(new Color(255,255,255));
+        button9 = new JButton("Chấm điểm");
+        button10  = new JButton("Vai trò giáo viên");
+        button11 = new JButton("Uỷ quyền");
         panel.add(button);
         panel.add(button1);
         panel.add(button3);
@@ -212,6 +226,7 @@ class LeftPanel extends JPanel{
         panel.add(button8);
         panel.add(button9);
         panel.add(button10);
+        panel.add(button11);
         add(panel);
 
     }

@@ -1,8 +1,10 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 
+import Controllers.Authorization.Authorization;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
+import Controllers.Validation;
 import DAO.Access.GrantHandle;
 import Model.Block;
 
@@ -21,7 +23,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BlockManagement extends JInternalFrame{
-
     public BlockManagement(){
 
         // table view (phan nay ko duoc code)--------------
@@ -43,6 +44,10 @@ public class BlockManagement extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForBlock()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 Block block = new Block();
                 try {
                     if(String.valueOf(MaKhoi.getText()).equals("")){
@@ -86,6 +91,14 @@ public class BlockManagement extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForBlock()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
+                if(!Validation.isNumeric(MaKhoi.getText())){
+                    JOptionPane.showMessageDialog(null,"Mã khối không hợp lệ");
+                    return;
+                }
                 try {
                     int id = Integer.valueOf(MaKhoi.getText());
                     GrantHandle grantHandle = new GrantHandle();
@@ -93,9 +106,8 @@ public class BlockManagement extends JInternalFrame{
                     MaKhoi.setText(null);
                     TenKhoi.setText(null);
                     refreshTable();
-                }catch (Exception e1){
-                    JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
-                    return;
+                }catch (Exception ex){
+                    ex.printStackTrace();
                 }
 
 
@@ -104,11 +116,15 @@ public class BlockManagement extends JInternalFrame{
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForBlock()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 Block block = new Block();
                 try {
 
                     int id = Integer.valueOf(MaKhoi.getText());
-                    if (id >= 1){
+                    if (Validation.isNumeric(MaKhoi.getText())){
                         String tenkhoi = TenKhoi.getText();
 
                         if (tenkhoi.equals("")){

@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
@@ -49,6 +50,10 @@ public class TeacherManagement extends JInternalFrame{
             String dateString = insBirthday.getText();
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTeacher()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 if(!Validation.isFullName(instName.getText())){JOptionPane.showMessageDialog(null,"Tên không hợp lệ"); return;};
                 String dateString = insBirthday.getText();
                 try {
@@ -131,6 +136,10 @@ public class TeacherManagement extends JInternalFrame{
              */
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTeacher()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 if (!Validation.isNumeric(insID.getText())){
                     JOptionPane.showMessageDialog(null,"ID  không hợp lệ");
                     return;
@@ -148,6 +157,10 @@ public class TeacherManagement extends JInternalFrame{
              */
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTeacher()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 if (!Validation.isNumeric(insID.getText())){
                     JOptionPane.showMessageDialog(null,"ID  không hợp lệ");
                     return;

@@ -14,8 +14,8 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
         boolean result = false;
         String sql;
         if(item.getID() == -1){sql = "INSERT INTO `type_score`(`name`) VALUES ('"+item.getName()+"')";}
-        else {sql = "INSERT INTO `type_score`(`name`,`ts_id`) VALUES ('"+item.getID()+"','"+item.getName()+"')";}
-
+        else {sql = "INSERT INTO `type_score`(`ts_id`,`name`) VALUES ("+item.getID()+",'"+item.getName()+"')";}
+        System.out.println(sql);
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("them du lieu thành công:"+a);
@@ -24,7 +24,7 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return result;
+        return true;
     }
 
     @Override
@@ -37,6 +37,7 @@ public class TypeScoreHandle extends AbsSQLAccess<TypeScore> {
            b.setName(resultSet.getString("name"));
            a.add(b);
        }
+       JDBCDriver.DestroyConnection();
        return a;
     }
 

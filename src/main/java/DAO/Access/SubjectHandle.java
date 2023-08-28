@@ -41,6 +41,7 @@ public class SubjectHandle extends AbsSQLAccess<Subject> {
             b.setGrandID(resultSet.getInt("grant_id"));
             a.add(b);
         }
+        JDBCDriver.DestroyConnection();
         return a;
     }
 

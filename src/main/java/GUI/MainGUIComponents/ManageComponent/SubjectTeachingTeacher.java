@@ -1,5 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
+import Controllers.Validation;
 import DAO.Access.InstructorHandle;
 import DAO.Access.InstructorSubjectHandle;
 import DAO.Access.SubjectHandle;
@@ -41,6 +43,10 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTeacher()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 InstructorSubject instructorSubject = new InstructorSubject();
                 try {
                     if(String.valueOf(MaGVBM.getText()).equals("")){
@@ -78,6 +84,10 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTeacher()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 int id = Integer.valueOf(MaGVBM.getText());
                 InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
                 instructorSubjectHandle.DELETE(id);
@@ -90,6 +100,10 @@ public class SubjectTeachingTeacher extends JInternalFrame{
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTeacher()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 int id = Integer.valueOf(MaGVBM.getText());
                 int magv = (int)MaGV.getSelectedItem();
                 int mamh = (int)MaMH.getSelectedItem();

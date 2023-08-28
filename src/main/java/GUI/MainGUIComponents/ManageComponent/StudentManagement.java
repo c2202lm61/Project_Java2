@@ -1,6 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 
+import Controllers.Authorization.Authorization;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
@@ -59,6 +60,10 @@ public class StudentManagement extends JInternalFrame {
         insertButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForStudent()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 Student student = new Student();
                 try {
                     if(String.valueOf(stdID.getText()).equals("")){
@@ -116,6 +121,10 @@ public class StudentManagement extends JInternalFrame {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForStudent()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 try {
                     Integer.parseInt(stdID.getText());
                 } catch (NumberFormatException ex) {
@@ -123,7 +132,9 @@ public class StudentManagement extends JInternalFrame {
                     return;
                 }
                 try {
-                   Boolean a = JDBCDriver.SetQuery("DELETE FROM `student` WHERE `Student_id` = "+stdID.getText());
+                    JDBCDriver.SetQuery("DELETE score_student FROM `subject_student` INNER JOIN score_student ON subject_student.Subject_student_id = score_student.ss_id WHERE subject_student.student_id = "+stdID.getText());
+                    JDBCDriver.SetQuery("DELETE FROM `subject_student` WHERE student_id = "+stdID.getText());
+                    Boolean a = JDBCDriver.SetQuery("DELETE FROM `student` WHERE `Student_id` = "+stdID.getText());
                     if (a)
                         JOptionPane.showMessageDialog(null,"Xóa học sinh thành công");
                     else
@@ -143,6 +154,10 @@ public class StudentManagement extends JInternalFrame {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForStudent()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
 
                 Student student = new Student();
                 try {

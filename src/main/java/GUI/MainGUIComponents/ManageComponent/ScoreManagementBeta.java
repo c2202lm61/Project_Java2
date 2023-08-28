@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
 import Controllers.SortZ_A;
 import DAO.Access.*;
 import DAO.ViewScore;
@@ -48,6 +49,11 @@ public class ScoreManagementBeta extends JInternalFrame {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
+                ComboBoxItem comboBoxItem1 = (ComboBoxItem) scrSubject.getSelectedItem();
+                if(!Authorization.getPermisionForScore((Integer) comboBoxItem1.getHiddenValue())){
+                    JOptionPane.showMessageDialog(null,"Bạn không được giao nhiệm vụ này");
+                    return;
+                }
                 try{
                     ComboBoxItem comboBoxSubject = (ComboBoxItem) scrSubject.getSelectedItem();
                     ComboBoxItem comboBoxTypeScore = (ComboBoxItem) scrTypeScore.getSelectedItem();

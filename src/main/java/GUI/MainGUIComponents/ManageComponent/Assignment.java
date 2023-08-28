@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
 import DAO.Access.ClassHandle;
 import DAO.Access.InstructorSubjectHandle;
 import DAO.Access.TeacherClassHandle;
@@ -40,6 +41,10 @@ public class Assignment extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForAsignment()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 try{
                     TeacherClass teacherClass = new TeacherClass();
                     if(String.valueOf(tc_id.getText()).equals("")){
@@ -83,6 +88,10 @@ public class Assignment extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForAsignment()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 try{
                     int id = Integer.valueOf(tc_id.getText());
                     if(id<1){
@@ -105,6 +114,10 @@ public class Assignment extends JInternalFrame{
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForAsignment()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 try{
                     TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
                     int id = Integer.valueOf(tc_id.getText());

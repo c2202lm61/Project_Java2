@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import DAO.Access.TypeScoreHandle;
@@ -39,6 +40,10 @@ public class TypescoreManagement extends JInternalFrame {
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTypeScore()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 TypeScore typeScore = new TypeScore();
                 try{
                     if(String.valueOf(ts_id.getText()).equals("")){
@@ -71,6 +76,10 @@ public class TypescoreManagement extends JInternalFrame {
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTypeScore()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 int id = Integer.valueOf(ts_id.getText());
                 TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
                 typeScoreHandle.DELETE(id);
@@ -82,6 +91,10 @@ public class TypescoreManagement extends JInternalFrame {
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForTypeScore()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 TypeScore typeScore = new TypeScore();
                 int id = Integer.valueOf(ts_id.getText());
                 String tenloaidiem = name.getText();

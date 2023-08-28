@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
 import DAO.Access.ClassHandle;
 
 import DAO.Access.GrantHandle;
@@ -47,6 +48,10 @@ public class ClassManagement extends JInternalFrame{
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForClass()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 MClass mClass = new MClass();
                 try {
                     if(String.valueOf(Malop.getText()).equals("")){
@@ -85,6 +90,10 @@ public class ClassManagement extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForClass()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 try {
                     int id = Integer.valueOf(Malop.getText());
                     ClassHandle classHandle = new ClassHandle();
@@ -103,10 +112,14 @@ public class ClassManagement extends JInternalFrame{
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!Authorization.getPermisionForClass()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
                 try {
                     MClass mClass = new MClass();
                     int id = Integer.valueOf(Malop.getText());
-                    if(id >= 1){
+                    if(id < 1){
                         JOptionPane.showMessageDialog(null,"Mã Lớp không hợp lệ");
                     return;
                     }else {

@@ -15,6 +15,6 @@ public class TeacherClass {
     public String getNumberofsemester(){return this.numberofsemester;}
     public void setClass_code(int Class_code){this.Class_code = Class_code;}
     public int getClass_code(){return this.Class_code;}
-    public void setId_tc(int Id_tc){this.id_tc = id_tc;}
+    public void setId_tc(int Id_tc){this.id_tc = Id_tc;}
     public int getId_tc(){return this.id_tc ;}
 }

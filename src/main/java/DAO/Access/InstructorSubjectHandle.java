@@ -43,6 +43,7 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
             b.setID_Teach(resultSet.getInt("ID_Teach"));
             a.add(b);
         }
+        JDBCDriver.DestroyConnection();
         return a;
     }
 
@@ -67,6 +68,7 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
     public Boolean DELETE(int id) {
         Boolean result = false;
         try {
+            JDBCDriver.SetQuery("DELETE FROM `teach_class` WHERE ID_Teach = "+id);
             boolean a =JDBCDriver.SetQuery("DELETE FROM `instructor_subject` WHERE `ID_Teach` = "+id);
             if (a)System.out.println("Xóa dữ liệu thành công");
             else System.out.println("Dữ liệu đó không tồn tại");

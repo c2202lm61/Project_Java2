@@ -117,6 +117,12 @@ public class JPannelViewScore extends JPanel {
 
             }
         });
+        viewProfile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                new myProfile();
+            }
+        });
     }
 
     public void refresh(){
@@ -182,7 +188,7 @@ public class JPannelViewScore extends JPanel {
     private JButton search;
     private JTextField Search;
     private JTable table1;
-    private JButton xemĐiểmCủaTôiButton;
+    private JButton viewProfile;
     private JCheckBox grantCheckBox;
     private JComboBox comboBox2;
     private JComboBox comboBox3;

@@ -45,6 +45,7 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
             b.setManagerID(resultSet.getInt("ID_manager"));
             a.add(b);
         }
+        JDBCDriver.DestroyConnection();
         return a;
     }
 

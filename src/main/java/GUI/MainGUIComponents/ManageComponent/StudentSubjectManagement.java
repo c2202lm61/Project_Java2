@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
 import DAO.Access.SubjectHandle;
 import DAO.Access.SubjectStudentHandle;
 import Model.Subject;

@@ -36,11 +36,12 @@ public class TeacherClassHandle extends AbsSQLAccess<TeacherClass> {
        while(resultSet.next()){
            TeacherClass b = new TeacherClass();
            b.setClass_code(resultSet.getInt("Class_code"));
-           b.setId_tc(resultSet.getInt("ID_tc"));
+           b.setId_tc(resultSet.getInt("id_tc"));
            b.setID_Teach(resultSet.getInt("ID_Teach"));
            b.setNumberofsemester(resultSet.getString("numberofsemester"));
         a.add(b);
        }
+       JDBCDriver.DestroyConnection();
     return a;
     }
 
@@ -76,4 +77,5 @@ public class TeacherClassHandle extends AbsSQLAccess<TeacherClass> {
         }
         return result;
     }
+
 }

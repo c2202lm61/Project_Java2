@@ -52,7 +52,7 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
             b.setPhone(resultSet.getString("Phone"));
             a.add(b);
         }
-
+        JDBCDriver.DestroyConnection();
         return a;
 
     }
@@ -77,16 +77,11 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
 
     @Override
     public Boolean DELETE(int id) {
-        Boolean result = false;
         try {
-            boolean a =JDBCDriver.SetQuery(" DELETE FROM `instructor` WHERE `ID_NUMBER` = "+id);
-            if (a)System.out.println("Xóa dữ liệu thành công");
-            else System.out.println("Dữ liệu đó không tồn tại");
-            result = true;
-
+            JDBCDriver.SetQuery("CALL deleteFromInstructor("+id+")");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return result;
+        return true;
     }
 }

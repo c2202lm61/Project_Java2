@@ -42,6 +42,7 @@ public class SubjectStudentHandle extends AbsSQLAccess<SubjectStudent> {
             a.add(b);
 
         }
+        JDBCDriver.DestroyConnection();
         return a;
     }
 

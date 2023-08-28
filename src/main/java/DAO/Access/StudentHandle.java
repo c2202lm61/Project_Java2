@@ -51,6 +51,7 @@ public class StudentHandle extends AbsSQLAccess<Student>{
             b.setClassID(resultSet.getInt("Class_code"));
             a.add(b);
         }
+        JDBCDriver.DestroyConnection();
         return a;
     }
 
@@ -74,11 +75,9 @@ public class StudentHandle extends AbsSQLAccess<Student>{
     @Override
     public Boolean DELETE(int id) throws SQLException {
         Boolean result;
-
             boolean a =JDBCDriver.SetQuery("DELETE FROM `student` WHERE `Student_id` = "+id);
             if (a)System.out.println("Xóa dữ liệu thành công");
             result = true;
-
         return result;
     }
 }

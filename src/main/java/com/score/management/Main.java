@@ -2,7 +2,6 @@ package com.score.management;
 
 import GUI.Login;
 import GUI.MainGUI;
-import javafx.embed.swing.JFXPanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

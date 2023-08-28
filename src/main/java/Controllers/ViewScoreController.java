@@ -35,6 +35,7 @@ public class ViewScoreController  {
             b.setTongDien();
             a.add(b);
         }
+        JDBCDriver.DestroyConnection();
         return a;
     }
 

@@ -1,221 +1,198 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.Authorization.Authorization;
 import Controllers.Validation;
-import DAO.Access.InstructorRoleHandle;
 import DAO.Access.RoleHandle;
-import DAO.JDBCDriver;
-import GUI.ComboBoxItem;
-import Model.InstructorRole;
 import Model.Role;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
-import DAO.Access.InstructorRoleHandle;
 
 public class RoleManagement extends JInternalFrame {
 
-    public RoleManagement(){
-        updateClassCombobox();
-        updateRoleCombobox();
-        updateTableAsigment();
+    public RoleManagement() {
+        updateTable();
         setContentPane(mainPanel);
         setVisible(true);
-        chooseTable.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if(chooseTable.getSelectedIndex() == 0){
-                    updateTableAsigment();
-                    updateRoleCombobox();
-                }else {
-                    updateTableRole();
-                    updateRoleCombobox();
-                };
-            }
-        });
-        roleInsert.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if(!Validation.isFullName(roleName.getText())){
-                    JOptionPane.showMessageDialog(null,"Tên không hợp lệ");
-                    return;
-                }
-                Role role = new Role();
-                role.setName(roleName.getText());
-                new RoleHandle().INSERT(role);
-                JOptionPane.showMessageDialog(null,"Thêm dữ liệu thành công");
-                updateTableRole();
-                updateRoleCombobox();
-            }
-        });
-        RoleUpdate.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if(!Validation.isNumeric(roleID.getText())){
-                    JOptionPane.showMessageDialog(null,"ID không hợp lệ");
-                    return;
-                }
-                if(!Validation.isFullName(roleName.getText())){
-                    JOptionPane.showMessageDialog(null,"Tên không hợp lệ");
-                    return;
-                }
-                Role  role = new Role();
-                role.setId(Integer.parseInt(roleID.getText()));
-                role.setName(roleName.getText());
-                new  RoleHandle().UPDATE(role);
-                JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu thành công");
-                updateTableRole();
-                updateRoleCombobox();
-            }
-        });
-        RoleDelete.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if(!Validation.isNumeric(roleID.getText())){
-                    JOptionPane.showMessageDialog(null,"ID không hợp lệ");
-                    return;
-                }
-                new  RoleHandle().DELETE(Integer.parseInt(roleID.getText()));
-                JOptionPane.showMessageDialog(null,"Xóa dữ liệu thành công");
-                updateTableRole();
-                updateRoleCombobox();
-            }
-        });
-        insertIR.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if(!Validation.isNumeric(insID.getText())){
-                    JOptionPane.showMessageDialog(null,"ID không hợp lệ");
-                    return;
-                }
-                InstructorRole instructorRole = new InstructorRole();
-                instructorRole.setTclass_id((int)ClassID.getSelectedItem());
-                instructorRole.setID_NUMBER(Integer.parseInt(insID.getText()));
-                ComboBoxItem comboBoxItem =  (ComboBoxItem) roleCombobox.getSelectedItem();
-                instructorRole.setRole_id((Integer) comboBoxItem.getHiddenValue());
-                new InstructorRoleHandle().INSERT(instructorRole);
-                JOptionPane.showMessageDialog(null,"Thêm dữ liệu thành công");
-                updateTableAsigment();
-            }
-        });
-        deleteIR.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                new InstructorRoleHandle().DELETE(Integer.parseInt(insRoleID.getText()));
-                JOptionPane.showMessageDialog(null,"Xóa dữ liệu thành công");
-                updateTableAsigment();
-            }
-        });
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(chooseTable.getSelectedIndex() == 0){
-                    int clickedRow = table1.rowAtPoint(e.getPoint());
-                    int teachid =  Integer.parseInt(String.valueOf( table1.getValueAt(clickedRow, 2)));
-                    try {
-                        List<InstructorRole> a = new InstructorRoleHandle().SELECT("SELECT * FROM `instructor_role` WHERE `tclass_id` =" +teachid);
-                        for(InstructorRole instructorRole : a){
-                            roleCombobox.setSelectedItem(instructorRole.getRole_id());
-                            insID.setText(String.valueOf(instructorRole.getID_NUMBER()));
-                        }
-
-                    } catch (SQLException e1) {
-                        throw new RuntimeException(e1);
-                    }
-                }else if(chooseTable.getSelectedIndex() == 1){
-                    int clickedRow = table1.rowAtPoint(e.getPoint());
-                    roleID.setText( String.valueOf( table1.getValueAt(clickedRow, 0)));
-                    roleName.setText(String.valueOf( table1.getValueAt(clickedRow,1)));
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf( table1.getValueAt(clickedRow, 0));
+                String name =String.valueOf( table1.getValueAt(clickedRow,1));
+                roleID.setText(id);
+                roleName.setText(name);
+                studentCheck.setSelected((Boolean) table1.getValueAt(clickedRow,2));
+                teacherCheck.setSelected((Boolean) table1.getValueAt(clickedRow,3));
+                blockCheck.setSelected((Boolean) table1.getValueAt(clickedRow,4));
+                classCheck.setSelected((Boolean) table1.getValueAt(clickedRow,5));
+                subjectCheck.setSelected((Boolean) table1.getValueAt(clickedRow,6));
+                asignmentCheck.setSelected((Boolean) table1.getValueAt(clickedRow,7));
+                typescoreCheck.setSelected((Boolean) table1.getValueAt(clickedRow,8));
+                roleCheck.setSelected((Boolean) table1.getValueAt(clickedRow,9));
+                positionCheck.setSelected((Boolean) table1.getValueAt(clickedRow,10));
+            }
+        });
+        insertButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(!Authorization.getPermisionForRole()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
                 }
+                if(!Validation.isFullName(roleName.getText())){
+                    JOptionPane.showMessageDialog(null,"Tên không hợp lệ");
+                    return;
+                }
+                new RoleHandle().INSERT(new Role(
+                        roleName.getText(),
+                        studentCheck.isSelected(),
+                        teacherCheck.isSelected(),
+                        blockCheck.isSelected(),
+                        classCheck.isSelected(),
+                        subjectCheck.isSelected(),
+                        asignmentCheck.isSelected(),
+                        typescoreCheck.isSelected(),
+                        roleCheck.isSelected(),
+                        positionCheck.isSelected()
+                        ));
+                JOptionPane.showMessageDialog(null,"Thêm dũ liệu thành công");
+                updateTable();
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(!Authorization.getPermisionForRole()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
+                if(!Validation.isNumeric(roleID.getText())){
+                    JOptionPane.showMessageDialog(null,"ID không hợp lệ");
+                    return;
+                }
+                if (!Validation.isFullName(roleName.getText())){
+                    JOptionPane.showMessageDialog(null,"Tên không hợp lệ");
+                    return;
+                }
+                boolean result = new RoleHandle().UPDATE(new Role(
+                        Integer.parseInt(roleID.getText()),
+                        roleName.getText(),
+                        studentCheck.isSelected(),
+                        teacherCheck.isSelected(),
+                        blockCheck.isSelected(),
+                        classCheck.isSelected(),
+                        subjectCheck.isSelected(),
+                        asignmentCheck.isSelected(),
+                        typescoreCheck.isSelected(),
+                        roleCheck.isSelected(),
+                        positionCheck.isSelected()
+                ));
+                if (result)
+                    JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu thành công");
+                else JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu không thành công");
+                updateTable();
+            }
+        });
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(!Authorization.getPermisionForRole()){
+                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
+               Boolean result = new RoleHandle().DELETE(Integer.parseInt(roleID.getText()));
+               if (result) JOptionPane.showMessageDialog(null,"Xóa dữ liệu thành công");
+               else JOptionPane.showMessageDialog(null,"Xóa dữ liệu không thành công");
+               updateTable();
+            }
+        });
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                roleID.setText("");
+                roleName.setText("");
+                studentCheck.setSelected(false);
+                teacherCheck.setSelected(false);
+                blockCheck.setSelected(false);
+                classCheck.setSelected(false);
+                subjectCheck.setSelected(false);
+                asignmentCheck.setSelected(false);
+                typescoreCheck.setSelected(false);
+                roleCheck.setSelected(false);
+                positionCheck.setSelected(false);
+                updateTable();
             }
         });
     }
-    public void updateTableRole(){
+    public void updateTable(){
         DefaultTableModel tableModel = new DefaultTableModel();
-        tableModel.addColumn("Mã  vai trò");
+        tableModel.addColumn("id");
         tableModel.addColumn("Tên vai trò");
-        try {
-            List<Role> roleList = new RoleHandle().SELECT("SELECT * FROM `role`");
-            Iterator<Role>  roleIterator = roleList.iterator();
-            while (roleIterator.hasNext()){
-               Role role  = roleIterator.next();
-               tableModel.addRow(new Object[]{role.getId(),role.getName()});
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        tableModel.addColumn("Học sinh");
+        tableModel.addColumn("Giáo viên");
+        tableModel.addColumn("Khối");
+        tableModel.addColumn("Lớp");
+        tableModel.addColumn("Môn");
+        tableModel.addColumn("Phân công");
+        tableModel.addColumn("Loại điểm");
+        tableModel.addColumn("Vai trò");
+        tableModel.addColumn("Chức vụ");
+        List<Role> roleList = new RoleHandle().SELECT("SELECT * FROM role");
+        for (Role role:roleList) {
+            tableModel.addRow(new Object[]{role.getId()
+                    ,role.getName()
+                    ,role.getStudent_mngs()
+                    ,role.getTeach_mngs()
+                    ,role.getBlock_mngs()
+                    ,role.getClass_mngs()
+                    ,role.getSubject_mngs()
+                    ,role.getAsignment_mngs()
+                    ,role.getTypescore_mngs()
+                    ,role.getRole_mngs()
+                    ,role.getPosition_mngs()});
         }
         table1.setModel(tableModel);
     }
-
-    public void updateTableAsigment(){
-        DefaultTableModel tableModel = new DefaultTableModel();
-        tableModel.addColumn("Mã  giáo  viên");
-        tableModel.addColumn("Tên giáo viên");
-        tableModel.addColumn("Mã vai  trò đảm nhiệm");
-        tableModel.addColumn("Vai trò đảm nhiệm");
-        try {
-            ResultSet resultSet = JDBCDriver.ExecQuery("SELECT ins.ID_NUMBER AS insID,ins.name  AS insName, insRole.Role_id, insRole.tclass_id  FROM instructor AS ins LEFT  JOIN instructor_role AS insRole ON ins.ID_NUMBER =  insRole.ID_NUMBER");
-            while (resultSet.next()){
-                tableModel.addRow(new Object[]{resultSet.getString("insID"), resultSet.getString("insName"),resultSet.getString("tclass_id"), resultSet.getString("Role_id")});
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        table1.setModel(tableModel);
-    }
-    public void updateRoleCombobox(){
-        roleCombobox.removeAllItems();
-        try {
-            ResultSet resultSet = JDBCDriver.ExecQuery("SELECT * FROM role");
-            while (resultSet.next()) {
-                Role role = new Role();
-                role.setName(resultSet.getString("role_name"));
-                role.setId(resultSet.getInt("id"));
-                // Thêm mục vào ComboBox
-                ComboBoxItem comboBoxItem = new ComboBoxItem(role.getName(), role.getId());
-                roleCombobox.addItem(comboBoxItem);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    void updateClassCombobox() {
-        ResultSet resultSet = null;
-        try {
-            resultSet = JDBCDriver.ExecQuery("SELECT * FROM  class");
-            while (resultSet.next()){
-                ClassID.addItem(resultSet.getInt("class_code"));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
     private JPanel mainPanel;
     private JTable table1;
-    private JButton insertIR;
-    private JButton deleteIR;
+    private JCheckBox blockCheck;
+    private JCheckBox classCheck;
+    private JCheckBox asignmentCheck;
+    private JCheckBox typescoreCheck;
+    private JCheckBox roleCheck;
+    private JCheckBox positionCheck;
+    private JCheckBox subjectCheck;
     private JTextField roleID;
-    private JComboBox roleCombobox;
     private JTextField roleName;
-    private JButton roleInsert;
-    private JButton RoleDelete;
-    private JButton RoleUpdate;
-    private JComboBox chooseTable;
-    private JTextField insID;
-    private JComboBox ClassID;
-    private JLabel insRoleID;
+    private JButton updateButton;
+    private JButton insertButton;
+    private JButton deleteButton;
+    private JButton resetButton;
+    private JCheckBox teacherCheck;
+    private JCheckBox studentCheck;
 
     private void createUIComponents() {
-        insRoleID = new JLabel();
+        table1 = new JTable() {
+
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Integer.class;
+                    case 1:
+                        return String.class;
+                    default:
+                        return Boolean.class;
+                }
+            }
+        };
+        table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
     }
 }

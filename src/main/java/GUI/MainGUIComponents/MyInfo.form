@@ -8,19 +8,62 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="90f36" class="javax.swing.JLabel">
+      <component id="c29d7" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Trang giới thiệu"/>
+          <font size="20"/>
+          <text value="Giới thiệu ứng dụng"/>
         </properties>
       </component>
-      <vspacer id="cc4a1">
+      <grid id="5fa02" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="10">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-      </vspacer>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="ad2c4" class="javax.swing.JButton" binding="hướngDẫnSửDụngButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-335523"/>
+              <font/>
+              <text value="Hướng dẫn sử dụng"/>
+            </properties>
+          </component>
+          <component id="20943" class="javax.swing.JButton" binding="LogoutButton">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-57828"/>
+              <text value="Đăng xuất"/>
+            </properties>
+          </component>
+          <component id="52aeb" class="javax.swing.JButton" binding="ủngHộNhàPhátButton" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-10552758"/>
+              <text value="Ủng hộ nhà phát triển"/>
+            </properties>
+          </component>
+          <component id="4621b" class="javax.swing.JButton" binding="giớiThiệuỨngDụngButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-351298"/>
+              <text value="Giới thiệu ứng dụng"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

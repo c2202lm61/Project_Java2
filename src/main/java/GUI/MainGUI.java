@@ -16,7 +16,7 @@ public class MainGUI extends JFrame {
         String relativePath = "./src/main/resources/images/";
         setIconImage(img.getImage());
         setTitle("Quản lý điểm học sinh");
-        setSize(1200,600);
+        setSize(1200,630);
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.addTab("Trang chủ",new ImageIcon(relativePath+"house.png"),new JpanelHome());
         tabbedPane.addTab("Quản lý",new ImageIcon(relativePath+"management.png"), new JPannelManage());

@@ -44,6 +44,7 @@ public class ScoreStudentHandle extends AbsSQLAccess<Score> {
             b.setTypeScoreID(resultSet.getInt("ts_id"));
             a.add(b);
         }
+        JDBCDriver.DestroyConnection();
         return a;
     }
 

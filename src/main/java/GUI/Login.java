@@ -10,7 +10,6 @@ import java.sql.SQLException;
 public class Login extends JFrame{
     public Login(){
         ImageIcon img = new ImageIcon("./icon.png");
-        String relativePath = "./src/main/resources/images/";
         setIconImage(img.getImage());
         setTitle("Login");
         setContentPane(loginPanel);
@@ -26,6 +25,7 @@ public class Login extends JFrame{
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
+                dispose();
 //                if (textField1.getText().equals("admin")&&passwordField1.getText().equals("1111")) {
 //                    new MainGUI();
 //                    dispose();
