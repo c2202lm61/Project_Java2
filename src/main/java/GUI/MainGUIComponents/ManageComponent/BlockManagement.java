@@ -1,11 +1,13 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 
+import Controllers.Authenlication.Authenlication;
 import Controllers.Authorization.Authorization;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
 import DAO.Access.GrantHandle;
+import DAO.JDBCDriver;
 import Model.Block;
 
 import javax.swing.*;
@@ -16,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,6 +51,18 @@ public class BlockManagement extends JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Bạn không có quyền truy  cập");
                     return;
                 }
+                Object[] options = { "Có", "Không" };
+                int result = JOptionPane.showOptionDialog(
+                        null,
+                        "Bạn có chắc không?",
+                        "Xác nhận",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options,
+                        options[0]
+                );
+                if(result != 0)return;
                 Block block = new Block();
                 try {
                     if (String.valueOf(MaKhoi.getText()).equals("")) {
@@ -105,6 +120,38 @@ public class BlockManagement extends JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Mã khối không hợp lệ");
                     return;
                 }
+                Object[] options = { "Có", "Không" };
+                int result = JOptionPane.showOptionDialog(
+                        null,
+                        "Xóa khối sẽ gây mất mát dữ liệu, bạn có muốn tiếp tục không?",
+                        "Xác nhận",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options,
+                        options[0]
+                );
+                if(result != 0)return;
+                JPasswordField pwd = new JPasswordField();
+                Object[] message = { "Nhập mật khẩu của bạn:", pwd };
+
+                int option = JOptionPane.showConfirmDialog(null, message, "Nhập Mật Khẩu", JOptionPane.OK_CANCEL_OPTION);
+                if (option == JOptionPane.CANCEL_OPTION) return;
+                Boolean pwdtrue = false;
+                try {
+                    ResultSet resultSet = JDBCDriver.ExecQuery("SELECT * FROM instructor WHERE ID_NUMBER="+ Authenlication.insLogin.getID_NUMBER()+" AND password ='"+pwd.getText()+"'");
+                    if (resultSet.next()){
+                        pwdtrue = true;
+                    }
+                    JDBCDriver.DestroyConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+                if(!pwdtrue) {
+                    JOptionPane.showMessageDialog(null,"Mật khẩu không chính xác");
+                    return;
+                }
+
                 try {
                     int id = Integer.valueOf(MaKhoi.getText());
                     if(new GrantHandle().DELETE(id))
@@ -128,6 +175,18 @@ public class BlockManagement extends JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Bạn không có quyền truy  cập");
                     return;
                 }
+                Object[] options = { "Có", "Không" };
+                int result = JOptionPane.showOptionDialog(
+                        null,
+                        "Bạn có chắc không?",
+                        "Xác nhận",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options,
+                        options[0]
+                );
+                if(result != 0)return;
 
                 if (!Validation.isNumeric(MaKhoi.getText())) {
                     JOptionPane.showMessageDialog(null, "Mã khối không hợp lệ");

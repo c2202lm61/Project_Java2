@@ -1,5 +1,6 @@
 package GUI.MainGUIComponents;
 
+import Controllers.ExportData;
 import Controllers.ViewScoreController;
 import DAO.Access.ClassHandle;
 import DAO.Access.GrantHandle;
@@ -14,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
@@ -123,6 +125,14 @@ public class JPannelViewScore extends JPanel {
                 new myProfile();
             }
         });
+        chooseModel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(chooseModel.getSelectedIndex() == 1){
+                    ExportData.exportData(table1);
+                }
+            }
+        });
     }
 
     public void refresh(){
@@ -182,7 +192,7 @@ public class JPannelViewScore extends JPanel {
     }
     public List<ViewScore> a;
     private JPanel panel1;
-    private JComboBox comboBox1;
+    private JComboBox chooseModel;
     private JButton aZButton;
     private JButton zAButton;
     private JButton search;

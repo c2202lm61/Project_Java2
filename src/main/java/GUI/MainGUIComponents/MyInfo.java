@@ -15,9 +15,21 @@ public class MyInfo extends JPanel{
                 System.exit(1);
             }
         });
+        giớiThiệuỨngDụngButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                new About();
+            }
+        });
+        tutorialButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                new Tutorial();
+            }
+        });
     }
     private JPanel panel1;
-    private JButton hướngDẫnSửDụngButton;
+    private JButton tutorialButton;
     private JButton LogoutButton;
     private JButton ủngHộNhàPhátButton;
     private JButton giớiThiệuỨngDụngButton;
