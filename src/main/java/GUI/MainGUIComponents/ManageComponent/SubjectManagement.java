@@ -27,7 +27,18 @@ import java.util.List;
 public class SubjectManagement extends JInternalFrame{
     public List<Subject> a = new ArrayList<>();
     public SubjectManagement(){
+        GrantHandle grantHandle = new GrantHandle();
+        List<Block> idList = new ArrayList<>();
+        try {
+            idList = grantHandle.SELECT("SELECT * FROM grants");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
+        // Add the IDs to the JComboBox
+        for (Block obj : idList) {
+            comboBox1.addItem(obj.getID());
+        }
         //--------------------------------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
@@ -227,21 +238,6 @@ public class SubjectManagement extends JInternalFrame{
         });
     }
     public void refreshTable() {
-        GrantHandle grantHandle = new GrantHandle();
-        List<Block> idList = new ArrayList<>();
-        try {
-            idList = grantHandle.SELECT("SELECT * FROM grants");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        // Add the IDs to the JComboBox
-        for (Block obj : idList) {
-            comboBox1.addItem(obj.getID());
-        }
-
-
-
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table
 

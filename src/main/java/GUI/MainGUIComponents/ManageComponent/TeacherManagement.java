@@ -5,6 +5,7 @@ import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
 import DAO.Access.InstructorHandle;
+import DAO.JDBCDriver;
 import Model.Instructor;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -139,6 +141,24 @@ public class TeacherManagement extends JInternalFrame{
                 if(!Authorization.getPermisionForTeacher()){
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
                     return;
+                }
+                try {
+                    ResultSet rs = JDBCDriver.ExecQuery("SELECT * FROM instructor JOIN class ON instructor.ID_NUMBER = class.ID_manager WHERE instructor.ID_NUMBER = "+insID.getText());
+                    while (rs.next()){
+                        String a ="";
+                        ResultSet rs1 = JDBCDriver.ExecQuery("SELECT * FROM instructor JOIN class ON instructor.ID_NUMBER = class.ID_manager WHERE instructor.ID_NUMBER = "+insID.getText());
+                        while (rs1.next()){
+                             a += rs1.getString("class_code")+",";
+                        }
+                        if (a.length() > 0) {
+                            a = a.substring(0, a.length() - 1);
+                        }
+                        JOptionPane.showMessageDialog(null,"Bạn cần thay  đổi giáo viên chủ nhiệm cho các lớp "+a+" để xóa giáo viên này!");
+                        JDBCDriver.DestroyConnection();
+                        return;
+                    }
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
                 }
                 if (!Validation.isNumeric(insID.getText())){
                     JOptionPane.showMessageDialog(null,"ID  không hợp lệ");
@@ -294,8 +314,8 @@ public class TeacherManagement extends JInternalFrame{
     private JButton deleteButton;
     private JButton tảiLạiButton;
     private JButton chọnẢnhButton;
-    private JCheckBox checkBox1;
-    private JCheckBox checkBox2;
+    private JCheckBox chọnCheckBox;
+    private JCheckBox chọnTấtCảCheckBox;
     private JComboBox comboBox1;
 
     private JTextField insID;

@@ -66,54 +66,14 @@ public class ViewScore {
         score.setScoreID(-1);
         return new ScoreStudentHandle().INSERT(score);
     }
-    public boolean DELETE(ViewScoreBeta tempViewScore){
-        String sql;
-        int subjectStudentID;
+    public boolean DELETE(int stID, int subjID,int tsID){
         try {
-            sql = "SELECT * FROM `subject_student` WHERE student_id = "+tempViewScore.getStudentID()+" AND Subject_code = "+tempViewScore.getSubjectCode();
-            final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
-            if (resultSet.next()) {
-                subjectStudentID = resultSet.getInt("Subject_student_id");
-            } else {
-                return false;
-            }
+            Boolean result = JDBCDriver.SetQuery("DELETE score_student FROM `student` INNER JOIN subject_student ON student.Student_id  = subject_student.student_id INNER JOIN score_student ON subject_student.Subject_student_id = score_student.ss_id " +
+                    "WHERE student.Student_id = "+stID+" AND subject_student.Subject_code = "+subjID+" AND score_student.ts_id = "+tsID);
+            return result;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        int countnumber = 0;
-        try {
-            sql = "SELECT COUNT(ScoreID) AS numberScore FROM `score_student` WHERE `ss_id` = "+subjectStudentID;
-            final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
-            if (resultSet.next()) {
-                countnumber = resultSet.getInt("numberScore");
-            } else {
-                return false;
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        if (countnumber == 0){
-            return new SubjectStudentHandle().DELETE(subjectStudentID);
-        }else if(countnumber > 0) {
-            int ScoreID;
-            try {
-                sql = "SELECT TOP 1 `ScoreID`  FROM `score_student` WHERE `ts_id` "+tempViewScore.getScoreType()+" AND `ss_id` = "+subjectStudentID+ " AND `ScoreValue` +" +tempViewScore.getScoreValue();
-                final ResultSet resultSet = JDBCDriver.ExecQuery(sql);
-                if(resultSet.next()){
-                    ScoreID = resultSet.getInt("ScoreID");
-                }else {
-                    return false;
-                }
-                return  new ScoreStudentHandle().DELETE(ScoreID);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-        }
-        return false;
     }
     public boolean UPDATE(ViewScoreBeta tempViewScore,int typescoreID, float Value){
         String sql;

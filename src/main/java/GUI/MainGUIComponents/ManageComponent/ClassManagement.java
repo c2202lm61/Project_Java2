@@ -25,11 +25,34 @@ import java.util.List;
 
 
 public class ClassManagement extends JInternalFrame{
+
     public List<MClass> a = new ArrayList<>();
 
     public ClassManagement(){
+        InstructorHandle instructorHandle = new InstructorHandle();
+        List<Instructor> maGVCNlist = new ArrayList<>();
+        try {
+            maGVCNlist = instructorHandle.SELECT("SELECT * FROM `instructor`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
+        // Add the IDs to the JComboBox
+        for (Instructor inst : maGVCNlist) {
+            MaGVCN.addItem(inst.getID_NUMBER());
+        }
 
+        GrantHandle grantHandle = new GrantHandle();
+        List<Block> idList = new ArrayList<>();
+        try {
+            idList = grantHandle.SELECT("SELECT * FROM grants");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        // Add the IDs to the JComboBox
+        for (Block obj : idList) {
+            MaKhoi.addItem(obj.getID());
+        }
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
         modelScoreManage.addColumn("Mã Lớp");
@@ -64,7 +87,13 @@ public class ClassManagement extends JInternalFrame{
                     int magvcn = (int)MaGVCN.getSelectedItem();
                     mClass.setGrandID(makhoi);
                     mClass.setManagerID(magvcn);
-                    new ClassHandle().INSERT(mClass);
+                    try {
+                        if(new ClassHandle().INSERT(mClass))
+                            JOptionPane.showMessageDialog(null,"Thêm dữ liệu thành công");
+                        else JOptionPane.showMessageDialog(null,"Thêm dữ liệu không thành công");
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     refreshTable();
                 }catch (NumberFormatException e1){
                     JOptionPane.showMessageDialog(null,"Mã Lớp không hợp lệ");
@@ -96,8 +125,9 @@ public class ClassManagement extends JInternalFrame{
                 }
                 try {
                     int id = Integer.valueOf(Malop.getText());
-                    ClassHandle classHandle = new ClassHandle();
-                    classHandle.DELETE(id);
+                    if (new ClassHandle().DELETE(id))
+                        JOptionPane.showMessageDialog(null,"Xóa dữ liệu thành công");
+                    else  JOptionPane.showMessageDialog(null,"Xóa dữ liệu không thành công");
                     Malop.setText(null);
                     MaGVCN.setSelectedItem(null);
                     MaKhoi.setSelectedItem(null);
@@ -128,7 +158,10 @@ public class ClassManagement extends JInternalFrame{
                         mClass.setGrandID(makhoi);
                         mClass.setID(id);
                         mClass.setManagerID(magvcn);
-                        new ClassHandle().UPDATE(mClass);
+                        if (new ClassHandle().UPDATE(mClass))
+                            JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu thành công");
+                        else JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu không thành công");
+
                         refreshTable();
                     }
                 }catch (NumberFormatException e1){
@@ -162,33 +195,6 @@ public class ClassManagement extends JInternalFrame{
     }
 
     public void refreshTable() {
-
-        GrantHandle grantHandle = new GrantHandle();
-        List<Block> idList = new ArrayList<>();
-        try {
-            idList = grantHandle.SELECT("SELECT * FROM grants");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        // Add the IDs to the JComboBox
-        for (Block obj : idList) {
-            MaKhoi.addItem(obj.getID());
-        }
-
-        InstructorHandle instructorHandle = new InstructorHandle();
-        List<Instructor> maGVCNlist = new ArrayList<>();
-        try {
-            maGVCNlist = instructorHandle.SELECT("SELECT * FROM `instructor`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        // Add the IDs to the JComboBox
-        for (Instructor inst : maGVCNlist) {
-            MaGVCN.addItem(inst.getID_NUMBER());
-        }
-
-
         // Assuming you want to preselect an ID in the JComboBox (let's call it selectedID):
 
         DefaultTableModel modelScoreManage = (DefaultTableModel) labelTable1.getModel();
@@ -212,17 +218,17 @@ public class ClassManagement extends JInternalFrame{
     private JComboBox MaKhoi;
     private JPanel ClassManagementPanel;
     private JTable labelTable1;
-    private JButton button1;
     private JButton insert;
     private JButton update;
     private JButton delete;
     private JButton reload;
-    private JCheckBox checkBox1;
-    private JCheckBox checkBox2;
+    private JCheckBox chọnCheckBox;
+    private JCheckBox chọnTấtCảCheckBox;
     private JTextField Malop;
     private JComboBox MaGVCN;
     private JTextField searchinput;
     private JButton searchButton;
+    private JComboBox comboBox1;
 
 
 }

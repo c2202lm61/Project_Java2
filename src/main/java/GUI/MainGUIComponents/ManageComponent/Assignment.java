@@ -1,6 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authorization.Authorization;
+import Controllers.Validation;
 import DAO.Access.ClassHandle;
 import DAO.Access.InstructorSubjectHandle;
 import DAO.Access.TeacherClassHandle;
@@ -19,7 +20,33 @@ import java.util.List;
 public class Assignment extends JInternalFrame{
     public List<TeacherClass> a = new ArrayList();
     public Assignment(){
+        InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
+        List<InstructorSubject> maGVBMlist = new ArrayList<>();
 
+
+        try {
+            maGVBMlist = instructorSubjectHandle.SELECT("SELECT * FROM `instructor_subject`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Add the IDs to the JComboBox
+        for (InstructorSubject inst : maGVBMlist) {
+            comboBox2.addItem(inst.getID_Teach());
+        }
+
+        ClassHandle classHandle = new ClassHandle();
+        List<MClass> classList = new ArrayList<>();
+
+        try {
+            classList = classHandle.SELECT("SELECT * FROM `class`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        // Add the IDs to the JComboBox
+        for (MClass lop : classList) {
+            comboBox3.addItem(lop.getID());
+        }
 
         //-------------------------------------------------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
@@ -45,6 +72,14 @@ public class Assignment extends JInternalFrame{
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
                     return;
                 }
+                if(!Validation.isNumeric(tc_id.getText())){
+                    JOptionPane.showMessageDialog(null,"Mã phân công không hợp lệ");
+                    return;
+                }
+                if(!Validation.isNumeric(textField2.getText())){
+                    JOptionPane.showMessageDialog(null,"Số  học kì không hợp lệ");
+                    return;
+                }
                 try{
                     TeacherClass teacherClass = new TeacherClass();
                     if(String.valueOf(tc_id.getText()).equals("")){
@@ -62,9 +97,10 @@ public class Assignment extends JInternalFrame{
                     teacherClass.setClass_code(MaLH);
                     teacherClass.setID_Teach(MaGVBM);
                     teacherClassHandle.INSERT(teacherClass);
+                    JOptionPane.showMessageDialog(null,"Thêm nhiệm vụ thành công");
                     refreshTable();
                 }catch (Exception e1){
-                    JOptionPane.showMessageDialog(null,"Mã Phân Công không hợp lệ");
+                    JOptionPane.showMessageDialog(null,"Đã đảm nhiệm nhiệm vụ này");
                     return;
                 }
 
@@ -118,6 +154,14 @@ public class Assignment extends JInternalFrame{
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
                     return;
                 }
+                if(!Validation.isNumeric(tc_id.getText())){
+                    JOptionPane.showMessageDialog(null,"Mã phân công không hợp lệ");
+                    return;
+                }
+                if(!Validation.isNumeric(textField2.getText())){
+                    JOptionPane.showMessageDialog(null,"Số học kì không hợp lệ");
+                    return;
+                }
                 try{
                     TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
                     int id = Integer.valueOf(tc_id.getText());
@@ -134,44 +178,16 @@ public class Assignment extends JInternalFrame{
                     teacherClass.setClass_code(MaLH);
                     teacherClass.setID_Teach(MaGVBM);
                     teacherClassHandle.UPDATE(teacherClass);
+                    JOptionPane.showMessageDialog(null,"Cập nhật nhiệm vụ thành công");
                     refreshTable();
-                }catch (Exception e1){
-                    JOptionPane.showMessageDialog(null, "Mã Phân Công không hợp lệ");
+                }catch (Exception ex){
+                    ex.printStackTrace();
                 }
 
             }
         });
     }
     public void refreshTable() {
-        InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
-        List<InstructorSubject> maGVBMlist = new ArrayList<>();
-
-
-        try {
-            maGVBMlist = instructorSubjectHandle.SELECT("SELECT * FROM `instructor_subject`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        // Add the IDs to the JComboBox
-        for (InstructorSubject inst : maGVBMlist) {
-            comboBox2.addItem(inst.getID_Teach());
-        }
-
-        ClassHandle classHandle = new ClassHandle();
-        List<MClass> classList = new ArrayList<>();
-
-        try {
-            classList = classHandle.SELECT("SELECT * FROM `class`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        // Add the IDs to the JComboBox
-        for (MClass lop : classList) {
-            comboBox3.addItem(lop.getID());
-        }
-
-
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table
 

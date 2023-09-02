@@ -127,7 +127,7 @@
                         </constraints>
                         <properties>
                           <model>
-                            <item value="Item1"/>
+                            <item value="Mặc định"/>
                           </model>
                         </properties>
                       </component>

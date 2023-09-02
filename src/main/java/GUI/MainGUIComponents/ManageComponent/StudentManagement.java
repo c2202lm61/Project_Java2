@@ -37,6 +37,18 @@ public class StudentManagement extends JInternalFrame {
     private List<Student> a = new ArrayList<>();
     public StudentManagement(){
 
+        this.mClassList = null;
+        try {
+            mClassList = new ClassHandle().SELECT("SELECT * FROM `class`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Iterator<MClass> classIterator = mClassList.iterator();
+
+        while(classIterator.hasNext()){
+            MClass mclass = classIterator.next();
+            stdClass.addItem(mclass.getID());
+        }
 
         // table view (phan nay ko duoc code)--------------
         DefaultTableModel modelStudentManage = new DefaultTableModel();
@@ -265,18 +277,6 @@ public class StudentManagement extends JInternalFrame {
     }
     public void refreshTable() {
         //get  classitem add combobox
-        this.mClassList = null;
-        try {
-            mClassList = new ClassHandle().SELECT("SELECT * FROM `class`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        Iterator<MClass> classIterator = mClassList.iterator();
-
-        while(classIterator.hasNext()){
-            MClass mclass = classIterator.next();
-            stdClass.addItem(mclass.getID());
-        }
 
         //prindata
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();

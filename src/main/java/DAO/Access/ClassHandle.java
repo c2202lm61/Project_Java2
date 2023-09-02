@@ -12,8 +12,7 @@ import java.util.List;
 public class ClassHandle extends AbsSQLAccess<MClass>{
     @Override
     // check lại hộ em nhe
-    public Boolean INSERT(MClass item) {
-        Boolean result = false;
+    public Boolean INSERT(MClass item) throws SQLException {
         String sql;
         if(item.getID() == -1){
             sql = "INSERT INTO `class`(`grant_id`,`ID_MANAGER`) VALUES ('"+item.getGrandID()+"','"+item.getManagerID()+"')";
@@ -21,17 +20,7 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
             sql = "INSERT INTO `class`(`class_code`,`grant_id`,`ID_MANAGER`) VALUES ("+item.getID()+","+item.getGrandID()+",'"+item.getManagerID()+"')";
 
         }
-
-
-
-        try {
-            boolean a = JDBCDriver.SetQuery(sql);
-            System.out.println("thêm dữ .iệu thành công "+a);
-            result = true;
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return result;
+            return JDBCDriver.SetQuery(sql);
     }
 
     @Override
@@ -51,34 +40,22 @@ public class ClassHandle extends AbsSQLAccess<MClass>{
 
     @Override
     public Boolean UPDATE(MClass item) {
-
-        Boolean result = false;
         String  sql= "UPDATE `class` SET `class_code`="+item.getID()+",`grant_id`="+item.getGrandID()+",`ID_manager`="+item.getManagerID()+" WHERE `class_code`="+item.getID();
         System.out.println(sql);
         try {
-            boolean a =JDBCDriver.SetQuery(sql);
-            if (a)System.out.println("Cập nhật dữ liệu thành công");
-            else System.out.println("Cập nhật dữ liệu không thành công");
-            result = true;
-
+            return JDBCDriver.SetQuery(sql);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return result;
     }
 
     @Override
     public Boolean DELETE(int id) {
-        Boolean result = false;
         try {
-            boolean a =JDBCDriver.SetQuery("DELETE FROM `class` WHERE `class_code` = "+id);
-            if (a)System.out.println("Xóa dữ liệu thành công");
-            else System.out.println("Dữ liệu đó không tồn tại");
-            result = true;
-
+            JDBCDriver.SetQuery("CALL deleteFromClass("+id+")");
+            return JDBCDriver.SetQuery("DELETE FROM `class` WHERE `class_code` = "+id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return result;
     }
 }

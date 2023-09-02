@@ -25,7 +25,7 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
         try {
             boolean a = JDBCDriver.SetQuery(sql);
             System.out.println("thêm dữ .iệu thành công "+a);
-            result = true;
+            result = a;
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -49,34 +49,30 @@ public class InstructorSubjectHandle extends AbsSQLAccess<InstructorSubject> {
 
     @Override
     public Boolean UPDATE(InstructorSubject item) {
-        Boolean result = false;
         String  sql= "UPDATE `instructor_subject` SET `ID_Teach`="+item.getID_Teach()+",`ID_NUMBER`="+item.getID_NUMBER()+",`Subject_code`="+item.getSubject_code()+" WHERE `ID_Teach`="+item.getID_Teach();
         System.out.println(sql);
         try {
             boolean a =JDBCDriver.SetQuery(sql);
             if (a)System.out.println("Cập nhật dữ liệu thành công");
             else System.out.println("Cập nhật dữ liệu không thành công");
-            result = true;
+            return a;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return result;
     }
 
     @Override
     public Boolean DELETE(int id) {
-        Boolean result = false;
         try {
             JDBCDriver.SetQuery("DELETE FROM `teach_class` WHERE ID_Teach = "+id);
             boolean a =JDBCDriver.SetQuery("DELETE FROM `instructor_subject` WHERE `ID_Teach` = "+id);
             if (a)System.out.println("Xóa dữ liệu thành công");
             else System.out.println("Dữ liệu đó không tồn tại");
-            result = true;
+            return  a;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return result;
     }
 }

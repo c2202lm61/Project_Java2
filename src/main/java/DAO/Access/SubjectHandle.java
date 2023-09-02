@@ -16,7 +16,7 @@ public class SubjectHandle extends AbsSQLAccess<Subject> {
         Boolean result = false;
         String sql;
         if(item.getID() == -1){sql = "INSERT INTO `subject`( `Name`, `Credits`, `grant_id`) VALUES ('"+item.getName()+"',"+item.getCredits()+","+ item.getGrandID()+")";}
-        else {sql = "INSERT INTO `subject`(`Subject_code` `Name`, `Credits`, `grant_id`) VALUES ('"+item.getID()+"','"+item.getName()+"',"+item.getCredits()+","+ item.getGrandID()+")";}
+        else {sql = "INSERT INTO `subject`(`Subject_code`, `Name`, `Credits`, `grant_id`) VALUES ("+item.getID()+",'"+item.getName()+"',"+item.getCredits()+","+ item.getGrandID()+")";}
 
         System.out.println(sql);
         try {
@@ -64,16 +64,11 @@ public class SubjectHandle extends AbsSQLAccess<Subject> {
 
     @Override
     public Boolean DELETE(int id) {
-        Boolean result = false;
         try {
-            boolean a =JDBCDriver.SetQuery("DELETE FROM `subject` WHERE `Subject_code` = "+id);
-            if (a)System.out.println("Xóa dữ liệu thành công");
-            else System.out.println("Dữ liệu đó không tồn tại");
-            result = true;
-
+            JDBCDriver.SetQuery("CALL deleteFromSubject("+id+")");
+            return JDBCDriver.SetQuery("DELETE FROM `subject` WHERE `Subject_code` = "+id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return result;
     }
 }

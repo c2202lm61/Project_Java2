@@ -44,7 +44,7 @@ public class InstructorHandle  extends AbsSQLAccess<Instructor>{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate date = LocalDate.parse(resultSet.getString("birthday"), formatter);
             b.setBirthday(date);
-            System.out.println(resultSet.getString("birthday"));
+         //   System.out.println(resultSet.getString("birthday"));
             b.setName(resultSet.getString("name"));
             b.setGender(resultSet.getBoolean("gender"));
             b.setPassword(resultSet.getString("password"));

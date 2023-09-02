@@ -3,6 +3,7 @@ package GUI.MainGUIComponents.ManageComponent;
 import Controllers.Authorization.Authorization;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
+import Controllers.Validation;
 import DAO.Access.TypeScoreHandle;
 import Model.TypeScore;
 import javax.swing.*;
@@ -40,8 +41,13 @@ public class TypescoreManagement extends JInternalFrame {
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 if(!Authorization.getPermisionForTypeScore()){
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                    return;
+                }
+                if(name.getText().length()<2){
+                    JOptionPane.showMessageDialog(null,"Tên loại điềm không hợp lệ");
                     return;
                 }
                 TypeScore typeScore = new TypeScore();
@@ -55,7 +61,9 @@ public class TypescoreManagement extends JInternalFrame {
                     String tenloaidiem = name.getText();
                     typeScore.setName(tenloaidiem);
                     TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
-                    typeScoreHandle.INSERT(typeScore);
+                    if (typeScoreHandle.INSERT(typeScore))
+                        JOptionPane.showMessageDialog(null,"Thêm dữ liệu thành công");
+                    else JOptionPane.showMessageDialog(null,"Thêm dữ liệu không thành công");
                     refreshTable();
                 }catch (NumberFormatException e1){
                     throw new RuntimeException(e1);
@@ -80,9 +88,15 @@ public class TypescoreManagement extends JInternalFrame {
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
                     return;
                 }
+                if(!Validation.isNumeric(ts_id.getText())){
+                    JOptionPane.showMessageDialog(null,"ID không hợp lệ");
+                    return;
+                }
                 int id = Integer.valueOf(ts_id.getText());
                 TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
-                typeScoreHandle.DELETE(id);
+                if (typeScoreHandle.DELETE(id)){
+                    JOptionPane.showMessageDialog(null,"Xóa dữ liệu thành công");
+                }else JOptionPane.showMessageDialog(null,"Xóa dũ liệu không thành công");
                 ts_id.setText(null);
                 name.setText(null);
                 refreshTable();
@@ -95,13 +109,22 @@ public class TypescoreManagement extends JInternalFrame {
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
                     return;
                 }
+                if(!Validation.isNumeric(ts_id.getText())){
+                    JOptionPane.showMessageDialog(null,"ID không hợp lệ");
+                    return;
+                }
+                if(name.getText().length()<2){
+                    JOptionPane.showMessageDialog(null,"Tên loại điềm không hợp lệ");
+                    return;
+                }
                 TypeScore typeScore = new TypeScore();
                 int id = Integer.valueOf(ts_id.getText());
                 String tenloaidiem = name.getText();
                 typeScore.setID(id);
                 typeScore.setName(tenloaidiem);
                 TypeScoreHandle typeScoreHandle = new TypeScoreHandle();
-                typeScoreHandle.UPDATE(typeScore);
+                if (typeScoreHandle.UPDATE(typeScore)) JOptionPane.showMessageDialog(null,"Cập nhật dũ liệu thành công");
+                else  JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu không thành công");
                 refreshTable();
             }
         });
@@ -157,6 +180,6 @@ public class TypescoreManagement extends JInternalFrame {
     private JComboBox comboBox1;
     private JTextField ts_id;
     private JTextField name;
-    private JCheckBox checkBox1;
-    private JCheckBox checkBox2;
+    private JCheckBox chọnTấtCảCheckBox;
+    private JCheckBox chọnCheckBox;
 }

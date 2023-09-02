@@ -74,20 +74,20 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="62ee9" class="javax.swing.JCheckBox" binding="checkBox1" default-binding="true">
+                  <component id="62ee9" class="javax.swing.JCheckBox" binding="chọnCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Chọn"/>
                     </properties>
                   </component>
-                  <component id="683e7" class="javax.swing.JCheckBox" binding="checkBox2" default-binding="true">
+                  <component id="683e7" class="javax.swing.JCheckBox" binding="chọnTấtCảCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Chọn tất cả"/>
                     </properties>
                   </component>
                   <component id="58994" class="javax.swing.JLabel">
@@ -95,7 +95,7 @@
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="Label"/>
+                      <text value="Sắp xếp"/>
                     </properties>
                   </component>
                   <component id="31237" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
@@ -104,8 +104,8 @@
                     </constraints>
                     <properties>
                       <model>
-                        <item value="Item1"/>
-                        <item value="Item2"/>
+                        <item value="A-Z"/>
+                        <item value="Z-A"/>
                       </model>
                     </properties>
                   </component>
@@ -114,7 +114,7 @@
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="Ma Khoi"/>
+                      <text value="Mã khối"/>
                     </properties>
                   </component>
                   <component id="72d09" class="javax.swing.JLabel">
@@ -122,7 +122,7 @@
                       <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="Ten Khoi"/>
+                      <text value="Tên khối"/>
                     </properties>
                   </component>
                   <component id="63bf2" class="javax.swing.JTextField" binding="MaKhoi" custom-create="true">

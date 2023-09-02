@@ -29,20 +29,20 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="e8004" class="javax.swing.JCheckBox" binding="checkBox1" default-binding="true">
+                  <component id="e8004" class="javax.swing.JCheckBox" binding="chọnCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Chọn"/>
                     </properties>
                   </component>
-                  <component id="3598d" class="javax.swing.JCheckBox" binding="checkBox2" default-binding="true">
+                  <component id="3598d" class="javax.swing.JCheckBox" binding="chọnTấtCảCheckBox" default-binding="true">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="CheckBox"/>
+                      <text value="Chọn tất cả"/>
                     </properties>
                   </component>
                   <component id="61cb7" class="javax.swing.JLabel">

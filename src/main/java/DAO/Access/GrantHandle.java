@@ -14,24 +14,14 @@ import static DAO.JDBCDriver.conn;
 public class GrantHandle extends AbsSQLAccess<Block>{
 
     @Override
-    public Boolean INSERT(Block item)
-    {
-        Boolean result = false;
+    public Boolean INSERT(Block item) throws SQLException {
         String sql;
         if(item.getID() == -1){
             sql = "INSERT INTO `grants`(`name`) VALUES ('"+item.getName()+"')";
         }else {
             sql = "INSERT INTO `grants`(`id`,`name`) VALUES ("+item.getID()+",'"+item.getName()+"')";
         }
-
-         try{
-            boolean a = JDBCDriver.SetQuery(sql);
-            System.out.println("them du lieu thành công:"+a);
-            result = true;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return result;
+            return JDBCDriver.SetQuery(sql);
     }
 
 
@@ -51,33 +41,20 @@ public class GrantHandle extends AbsSQLAccess<Block>{
     }
 
     @Override
-    public Boolean UPDATE(Block item) {
-        Boolean result = false;
+    public Boolean UPDATE(Block item) throws SQLException {
         String  sql= "UPDATE `grants` SET `id`="+item.getID()+", `name`='"+item.getName()+"' WHERE id="+item.getID();
         System.out.println(sql);
-        try {
-            boolean a =JDBCDriver.SetQuery(sql);
-            if (a)System.out.println("Cập nhật dữ liệu thành công");
-            else System.out.println("Cập nhật dữ liệu không thành công");
-            result = true;
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return result;
+        return JDBCDriver.SetQuery(sql);
     }
 
     @Override
     public Boolean DELETE(int id) {
         Boolean result = false;
         try {
-            boolean a =JDBCDriver.SetQuery("DELETE FROM `grants` WHERE `id` = "+id);
-            if (a)System.out.println("Xóa dữ liệu thành công");
-            else System.out.println("Dữ liệu đó không tồn tại");
-            result = true;
-
+            JDBCDriver.SetQuery("CALL deleteFromGrant("+id+")");
+            return JDBCDriver.SetQuery("DELETE FROM `grants` WHERE `id` = "+id);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return result;
     }

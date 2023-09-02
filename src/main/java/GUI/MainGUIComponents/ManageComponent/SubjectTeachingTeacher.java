@@ -5,6 +5,7 @@ import Controllers.Validation;
 import DAO.Access.InstructorHandle;
 import DAO.Access.InstructorSubjectHandle;
 import DAO.Access.SubjectHandle;
+import DAO.JDBCDriver;
 import Model.Instructor;
 import Model.InstructorSubject;
 import Model.Subject;
@@ -15,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,7 +26,27 @@ public class SubjectTeachingTeacher extends JInternalFrame{
     private List<InstructorSubject> a = new ArrayList<>();
     public SubjectTeachingTeacher(){
 
+        List<Instructor> maGV = null;
+        InstructorHandle instructorHandle = new InstructorHandle();
+        try {
+            maGV = instructorHandle.SELECT("SELECT * FROM `instructor`");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for(Instructor obj: maGV){
+            MaGV.addItem(obj.getID_NUMBER());
+        }
 
+        List<Subject> maMH = null;
+        SubjectHandle subjectHandle = new SubjectHandle();
+        try {
+            maMH = subjectHandle.SELECT("SELECT * FROM `subject`");
+        } catch (SQLException e1) {
+            throw new RuntimeException(e1);
+        }
+        for(Subject obj1: maMH){
+            MaMH.addItem(obj1.getID());
+        }
         //-----------------------------------------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
         modelScoreManage.addColumn("Chọn");
@@ -47,6 +69,20 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
                     return;
                 }
+                if(!Validation.isNumeric(MaGVBM.getText())){
+                    JOptionPane.showMessageDialog(null,"Mã giáo viên bộ môn không hợp lệ");
+                    return;
+                }
+                try {
+                    ResultSet rs = JDBCDriver.ExecQuery("SELECT * FROM `instructor_subject` WHERE ID_Teach = "+MaGVBM.getText());
+                    while (rs.next()){
+                        JOptionPane.showMessageDialog(null,"Mã giáo viên bộ môn đã tồn tại");
+                        return;
+                    }
+                    JDBCDriver.DestroyConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
                 InstructorSubject instructorSubject = new InstructorSubject();
                 try {
                     if(String.valueOf(MaGVBM.getText()).equals("")){
@@ -60,7 +96,9 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                     instructorSubject.setSubject_code(mamh);
                     instructorSubject.setID_NUMBER(magv);
                     InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
-                    instructorSubjectHandle.INSERT(instructorSubject);
+                    Boolean result = instructorSubjectHandle.INSERT(instructorSubject);
+                    if (result)
+                        JOptionPane.showMessageDialog(null,"Thêm dữ liệu thành công");
                     refreshTable();
                 }
                 catch (NumberFormatException e1){
@@ -88,9 +126,15 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
                     return;
                 }
+                if(!Validation.isNumeric(MaGVBM.getText())){
+                    JOptionPane.showMessageDialog(null,"Mã giáo viên bộ môn không hợp lệ");
+                    return;
+                }
                 int id = Integer.valueOf(MaGVBM.getText());
                 InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
-                instructorSubjectHandle.DELETE(id);
+                if (instructorSubjectHandle.DELETE(id))
+                    JOptionPane.showMessageDialog(null,"Xóa dữ liệu thành công");
+                else JOptionPane.showMessageDialog(null,"Xóa dữ liệu không thành công");
                 MaGVBM.setText(null);
                 MaGV.setSelectedItem(null);
                 MaMH.setSelectedItem(null);
@@ -104,6 +148,10 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                     JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
                     return;
                 }
+                if(!Validation.isNumeric(MaGVBM.getText())){
+                    JOptionPane.showMessageDialog(null,"Mã giáo viên bộ môn không hợp lệ");
+                    return;
+                }
                 int id = Integer.valueOf(MaGVBM.getText());
                 int magv = (int)MaGV.getSelectedItem();
                 int mamh = (int)MaMH.getSelectedItem();
@@ -113,37 +161,15 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                 instructorSubject.setSubject_code(mamh);
                 instructorSubject.setID_NUMBER(magv);
                 InstructorSubjectHandle instructorSubjectHandle = new InstructorSubjectHandle();
-                instructorSubjectHandle.UPDATE(instructorSubject);
+                Boolean result = instructorSubjectHandle.UPDATE(instructorSubject);
+                if (result) JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu thành công");
+                else JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu không thành công");
                 refreshTable();
             }
         });
     }
 
     public void refreshTable() {
-        List<Instructor> maGV = null;
-        InstructorHandle instructorHandle = new InstructorHandle();
-        try {
-            maGV = instructorHandle.SELECT("SELECT * FROM `instructor`");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        for(Instructor obj: maGV){
-            MaGV.addItem(obj.getID_NUMBER());
-        }
-
-        List<Subject> maMH = null;
-        SubjectHandle subjectHandle = new SubjectHandle();
-        try {
-            maMH = subjectHandle.SELECT("SELECT * FROM `subject`");
-        } catch (SQLException e1) {
-            throw new RuntimeException(e1);
-        }
-        for(Subject obj1: maMH){
-            MaMH.addItem(obj1.getID());
-        }
-
-
-
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
         modelScoreManage.setRowCount(0); // Clear existing data in the table
 

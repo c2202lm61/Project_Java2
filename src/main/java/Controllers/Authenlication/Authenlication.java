@@ -14,13 +14,13 @@ public class Authenlication {
     //Session Login
     public static Instructor insLogin = new Instructor();
     public static Instructor InstructorAccess;
-    public static void Login(String email, String password) throws SQLException {
+    public static Boolean Login(String email, String password) throws SQLException {
         if(!Validation.isEmail(email)){
-            JOptionPane.showMessageDialog( null,"Địa chỉ email không hợp lệ"); return;
+            JOptionPane.showMessageDialog( null,"Địa chỉ email không hợp lệ"); return false;
         }
         if(!Validation.isStrongPassword(password)){
             JOptionPane.showMessageDialog( null,"Mật khẩu không hợp lệ");
-            System.out.println("Password is not valid"); return;
+            System.out.println("Password is not valid"); return false;
         }
         ResultSet resultSet =JDBCDriver.ExecQuery("SELECT * FROM instructor WHERE Email = "+"'"+email+"'");
 
@@ -31,12 +31,14 @@ public class Authenlication {
             insLogin.setID_NUMBER(resultSet.getInt("ID_NUMBER"));
             if(email.equals(insLogin.getEmail()) && password.equals(insLogin.getPassword())){
                 new MainGUI();
+                return true;
             }else {
                 JOptionPane.showMessageDialog( null,"Thông tin tài khoản hoặc mật khẩu không chính xác");
+                return false;
             }
-            return;
         }
         JOptionPane.showMessageDialog( null,"Email không tồn tại");
+        return false;
         //do something
     }
     public static void Register(String email,String password, String fullname){

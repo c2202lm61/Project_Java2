@@ -2,6 +2,7 @@ package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authorization.Authorization;
 import Controllers.SortZ_A;
+import Controllers.Validation;
 import DAO.Access.*;
 import DAO.ViewScore;
 import GUI.ComboBoxItem;
@@ -52,6 +53,10 @@ public class ScoreManagementBeta extends JInternalFrame {
                 ComboBoxItem comboBoxItem1 = (ComboBoxItem) scrSubject.getSelectedItem();
                 if(!Authorization.getPermisionForScore((Integer) comboBoxItem1.getHiddenValue())){
                     JOptionPane.showMessageDialog(null,"Bạn không được giao nhiệm vụ này");
+                    return;
+                }
+                if(!Validation.isNumeric(scrStudentID.getText())){
+                    JOptionPane.showMessageDialog(null,"Mã học sinh không hợp lệ");
                     return;
                 }
                 try{
@@ -270,13 +275,13 @@ public class ScoreManagementBeta extends JInternalFrame {
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    new ViewScore().DELETE(tempViewScore);
-                    refreshTable();
-                }catch (Exception e1){
-                    JOptionPane.showMessageDialog(null, "Xóa Không Hợp Lệ");
-                }
-
+                ComboBoxItem typeSC = (ComboBoxItem) scrTypeScore.getSelectedItem();
+                ComboBoxItem subj = (ComboBoxItem) scrSubject.getSelectedItem();
+                Boolean result = new ViewScore().DELETE(Integer.parseInt(scrStudentID.getText()),(Integer) subj.getHiddenValue(), (Integer) typeSC.getHiddenValue());
+                if (result){
+                    JOptionPane.showMessageDialog(null,"Xóa dữ liệu thành công!");
+                }else JOptionPane.showMessageDialog(null,"Xóa  dữ liệu không thành công");
+                refreshTable();
             }
         });
         update.addActionListener(new ActionListener() {
@@ -450,7 +455,6 @@ public class ScoreManagementBeta extends JInternalFrame {
     private JComboBox scrBlock;
     private JComboBox scrClass;
     private JButton scrReset;
-    private JButton scrResetForm;
     private JButton scrReload;
     private JButton scrEval;
     private JComboBox scrSubject;

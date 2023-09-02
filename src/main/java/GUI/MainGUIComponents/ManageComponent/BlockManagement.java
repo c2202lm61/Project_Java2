@@ -22,8 +22,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class BlockManagement extends JInternalFrame{
-    public BlockManagement(){
+public class BlockManagement extends JInternalFrame {
+    public BlockManagement() {
 
         // table view (phan nay ko duoc code)--------------
         DefaultTableModel modelScoreManage = new DefaultTableModel();
@@ -37,37 +37,43 @@ public class BlockManagement extends JInternalFrame{
 
 
         // set layout (phan nay ko duoc code) -----------------------
-        setBorder(new LineBorder(new Color(168, 167, 167, 226),1));
+        setBorder(new LineBorder(new Color(168, 167, 167, 226), 1));
         setContentPane(panel1);
         setVisible(true);
         //---------------------------------
         insert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!Authorization.getPermisionForBlock()){
-                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                if (!Authorization.getPermisionForBlock()) {
+                    JOptionPane.showMessageDialog(null, "Bạn không có quyền truy  cập");
                     return;
                 }
                 Block block = new Block();
                 try {
-                    if(String.valueOf(MaKhoi.getText()).equals("")){
+                    if (String.valueOf(MaKhoi.getText()).equals("")) {
                         block.setID(-1);
-                    }else {
+                    } else {
                         int id = Integer.valueOf(MaKhoi.getText());
                         block.setID(id);
                     }
-                } catch (NumberFormatException e1){
-                    JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
+                } catch (NumberFormatException e1) {
+                    JOptionPane.showMessageDialog(null, "Mã Khối không hợp lệ");
                     return;
                 }
                 String tenkhoi = TenKhoi.getText();
-                if(tenkhoi.equals("")){
-                    JOptionPane.showMessageDialog(null,"Tên Khối không hợp lệ");
+                if (tenkhoi.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Tên Khối không hợp lệ");
                     return;
-                }else{
+                } else {
                     block.setName(tenkhoi);
                     GrantHandle grantHandle = new GrantHandle();
-                    grantHandle.INSERT(block);
+                    try {
+                        if (grantHandle.INSERT(block))
+                            JOptionPane.showMessageDialog(null,"Thêm khối thành công");
+                        else JOptionPane.showMessageDialog(null,"Thêm khối không thành công");
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     refreshTable();
                 }
             }
@@ -78,12 +84,12 @@ public class BlockManagement extends JInternalFrame{
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                 int clickedRow = table1.rowAtPoint(e.getPoint());
-                 String id = String.valueOf( table1.getValueAt(clickedRow, 1));
-                 String Name =String.valueOf( table1.getValueAt(clickedRow,2));
+                int clickedRow = table1.rowAtPoint(e.getPoint());
+                String id = String.valueOf(table1.getValueAt(clickedRow, 1));
+                String Name = String.valueOf(table1.getValueAt(clickedRow, 2));
 
-                 MaKhoi.setText(id);
-                 TenKhoi.setText(Name);
+                MaKhoi.setText(id);
+                TenKhoi.setText(Name);
             }
         });
 
@@ -91,22 +97,24 @@ public class BlockManagement extends JInternalFrame{
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!Authorization.getPermisionForBlock()){
-                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                if (!Authorization.getPermisionForBlock()) {
+                    JOptionPane.showMessageDialog(null, "Bạn không có quyền truy  cập");
                     return;
                 }
-                if(!Validation.isNumeric(MaKhoi.getText())){
-                    JOptionPane.showMessageDialog(null,"Mã khối không hợp lệ");
+                if (!Validation.isNumeric(MaKhoi.getText())) {
+                    JOptionPane.showMessageDialog(null, "Mã khối không hợp lệ");
                     return;
                 }
                 try {
                     int id = Integer.valueOf(MaKhoi.getText());
-                    GrantHandle grantHandle = new GrantHandle();
-                    grantHandle.DELETE(id);
+                    if(new GrantHandle().DELETE(id))
+                        JOptionPane.showMessageDialog(null,"Xóa khối thành công");
+                    else
+                        JOptionPane.showMessageDialog(null,"Xóa khối không thành công");
                     MaKhoi.setText(null);
                     TenKhoi.setText(null);
                     refreshTable();
-                }catch (Exception ex){
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
 
@@ -116,36 +124,34 @@ public class BlockManagement extends JInternalFrame{
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!Authorization.getPermisionForBlock()){
-                    JOptionPane.showMessageDialog(null,"Bạn không có quyền truy  cập");
+                if (!Authorization.getPermisionForBlock()) {
+                    JOptionPane.showMessageDialog(null, "Bạn không có quyền truy  cập");
+                    return;
+                }
+
+                if (!Validation.isNumeric(MaKhoi.getText())) {
+                    JOptionPane.showMessageDialog(null, "Mã khối không hợp lệ");
+                    return;
+                }
+                String tenkhoi = TenKhoi.getText();
+                if (tenkhoi.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Tên khối không hợp lệ");
                     return;
                 }
                 Block block = new Block();
                 try {
 
                     int id = Integer.valueOf(MaKhoi.getText());
-                    if (Validation.isNumeric(MaKhoi.getText())){
-                        String tenkhoi = TenKhoi.getText();
 
-                        if (tenkhoi.equals("")){
-                            JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
-                            return;
-                        }else {
-                            block.setID(id);
-
-                            block.setName(tenkhoi);
-                            GrantHandle grantHandle = new GrantHandle();
-                            grantHandle.UPDATE(block);
-                            refreshTable();
-                        }
-
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
-                        return;
-                    }
-                }catch (Exception e1){
-                    JOptionPane.showMessageDialog(null,"Mã Khối không hợp lệ");
+                    block.setID(id);
+                    block.setName(tenkhoi);
+                    GrantHandle grantHandle = new GrantHandle();
+                    if (grantHandle.UPDATE(block))
+                        JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu thành công");
+                    else JOptionPane.showMessageDialog(null,"Cập nhật dữ liệu không thành công");
+                    refreshTable();
+                } catch (Exception e1) {
+                    JOptionPane.showMessageDialog(null, "Mã Khối không hợp lệ");
                     return;
                 }
             }
@@ -156,17 +162,21 @@ public class BlockManagement extends JInternalFrame{
                 GrantHandle grantHandle = new GrantHandle();
                 DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
                 modelScoreManage.setRowCount(0); // Clear existing data in the table
-                if(searchByNameCheckBox.isSelected()){
+                if (searchByNameCheckBox.isSelected()) {
                     Iterator<Block> blockIterator = a.iterator();
-                    while (blockIterator.hasNext()){
+                    while (blockIterator.hasNext()) {
                         Block block = blockIterator.next();
-                        if(String.valueOf(block.getName()).contains(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
+                        if (String.valueOf(block.getName()).contains(TextSearch.getText())) {
+                            modelScoreManage.addRow(new Object[]{true, block.getID(), block.getName()});
+                        }
                     }
-                }else{
+                } else {
                     Iterator<Block> blockIterator = a.iterator();
-                    while (blockIterator.hasNext()){
+                    while (blockIterator.hasNext()) {
                         Block block = blockIterator.next();
-                        if(block.getID() == Integer.valueOf(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
+                        if (block.getID() == Integer.valueOf(TextSearch.getText())) {
+                            modelScoreManage.addRow(new Object[]{true, block.getID(), block.getName()});
+                        }
                     }
                 }
 
@@ -181,26 +191,29 @@ public class BlockManagement extends JInternalFrame{
         comboBox2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(comboBox2.getSelectedIndex()==0) {
+                if (comboBox2.getSelectedIndex() == 0) {
                     Collections.sort(a, new SortA_Z());
                     DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
                     modelScoreManage.setRowCount(0); // Clear existing data in the table
 
                     Iterator<Block> blockIterator = a.iterator();
-                    while (blockIterator.hasNext()){
+                    while (blockIterator.hasNext()) {
                         Block block = blockIterator.next();
-                        if(String.valueOf(block.getName()).contains(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
+                        if (String.valueOf(block.getName()).contains(TextSearch.getText())) {
+                            modelScoreManage.addRow(new Object[]{true, block.getID(), block.getName()});
+                        }
                     }
-                }
-                else if (comboBox2.getSelectedIndex()==1){
+                } else if (comboBox2.getSelectedIndex() == 1) {
                     Collections.sort(a, new SortZ_A());
                     DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
                     modelScoreManage.setRowCount(0); // Clear existing data in the table
 
                     Iterator<Block> blockIterator = a.iterator();
-                    while (blockIterator.hasNext()){
+                    while (blockIterator.hasNext()) {
                         Block block = blockIterator.next();
-                        if(String.valueOf(block.getName()).contains(TextSearch.getText())){modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});}
+                        if (String.valueOf(block.getName()).contains(TextSearch.getText())) {
+                            modelScoreManage.addRow(new Object[]{true, block.getID(), block.getName()});
+                        }
                     }
 
                 }
@@ -223,10 +236,10 @@ public class BlockManagement extends JInternalFrame{
         }
 
         Iterator<Block> blockIterator = a.iterator();
-        while (blockIterator.hasNext()){
+        while (blockIterator.hasNext()) {
             Block block = blockIterator.next();
 
-            modelScoreManage.addRow(new Object[]{true,block.getID(),block.getName()});
+            modelScoreManage.addRow(new Object[]{true, block.getID(), block.getName()});
         }
 
 
@@ -240,8 +253,8 @@ public class BlockManagement extends JInternalFrame{
     private JButton delete;
     private JButton refreshButton;
     private JTable table1;
-    private JCheckBox checkBox1;
-    private JCheckBox checkBox2;
+    private JCheckBox chọnCheckBox;
+    private JCheckBox chọnTấtCảCheckBox;
     private JComboBox comboBox1;
     private JTextField MaKhoi;
     private JTextField TenKhoi;
@@ -252,6 +265,6 @@ public class BlockManagement extends JInternalFrame{
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        MaKhoi =new JTextField(8);
+        MaKhoi = new JTextField(8);
     }
 }

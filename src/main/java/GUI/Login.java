@@ -9,6 +9,8 @@ import java.sql.SQLException;
 
 public class Login extends JFrame{
     public Login(){
+        EmailTextFiled.setText("quanqqq111@gmail.com");
+        passwordField.setText("wwWW11@@");
         ImageIcon img = new ImageIcon("./icon.png");
         setIconImage(img.getImage());
         setTitle("Login");
@@ -21,11 +23,11 @@ public class Login extends JFrame{
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    Authenlication.Login(EmailTextFiled.getText(),passwordField.getText());
+                    if (Authenlication.Login(EmailTextFiled.getText(),passwordField.getText()))
+                        dispose();
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-                dispose();
 //                if (textField1.getText().equals("admin")&&passwordField1.getText().equals("1111")) {
 //                    new MainGUI();
 //                    dispose();
