@@ -17,10 +17,10 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="fce03" class="javax.swing.JButton" binding="chọnẢnhButton" default-binding="true">
+              <component id="fce03" class="javax.swing.JButton" binding="exportButton">
                 <constraints border-constraint="East"/>
                 <properties>
-                  <text value="Chọn ảnh..."/>
+                  <text value="Xuất dữ liệu..."/>
                 </properties>
               </component>
               <grid id="71e37" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -37,11 +37,12 @@
                       <text value="Chọn"/>
                     </properties>
                   </component>
-                  <component id="3598d" class="javax.swing.JCheckBox" binding="chọnTấtCảCheckBox" default-binding="true">
+                  <component id="3598d" class="javax.swing.JCheckBox" binding="selectAllCheckBox">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font/>
                       <text value="Chọn tất cả"/>
                     </properties>
                   </component>
@@ -163,7 +164,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font size="20"/>
+                      <font/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -174,7 +175,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font size="20"/>
+                      <font/>
                     </properties>
                   </component>
                   <component id="4ed37" class="javax.swing.JTextField" binding="insBirthday">
@@ -184,7 +185,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font size="20"/>
+                      <font/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -195,7 +196,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font size="20"/>
+                      <font/>
                     </properties>
                   </component>
                 </children>
@@ -243,7 +244,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font size="20"/>
+                      <font/>
                     </properties>
                   </component>
                   <component id="60a87" class="javax.swing.JLabel">
@@ -261,7 +262,7 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <font size="20"/>
+                      <font/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -281,7 +282,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="dc953" class="javax.swing.JTable" binding="table1" default-binding="true">
+          <component id="dc953" class="javax.swing.JTable" binding="table1" custom-create="true" default-binding="true">
             <constraints/>
             <properties/>
           </component>

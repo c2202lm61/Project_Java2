@@ -18,22 +18,34 @@ public class ExportData {
         }
         return null;
     }
-    public static void  exportData(JTable table){
+    public static void  exportData(JTable table, int index){
         int rowCount = table.getRowCount();
         int columnCount = table.getColumnCount();
         try {
             Workbook workbook = new XSSFWorkbook();
             Sheet sheet = workbook.createSheet("Dữ liệu");
+            Row headerRow = sheet.createRow(0);
+
+            for (int i = index; i < columnCount; i++) {
+                Cell cell = headerRow.createCell(i);
+                cell.setCellValue(table.getColumnName(i));
+            }
             for (int row = 0; row < rowCount; row++) {
                 Row r1 = sheet.createRow(row + 1);
+                if (!(Boolean) table.getValueAt(row,0) && index > 0){
+                    continue;
+                }
                 for (int col = 0; col < columnCount; col++) {
+                    if (index > 0 && col == 0)  continue;
                     Cell cell = r1.createCell(col);
                     cell.setCellValue(table.getValueAt(row, col).toString());
                 }
             }
             String filename = JOptionPane.showInputDialog(null,"Vui lòng nhập tên file");
             if (filename == null || filename.equals("")) return;
-            String filePath =getLocation()+"/"+ filename +".xlsx";
+            String location = getLocation();
+            if (location == null) return;
+            String filePath =location+"/"+ filename +".xlsx";
             FileOutputStream outputStream = new FileOutputStream(filePath);
             workbook.write(outputStream);
             outputStream.close();
@@ -43,30 +55,39 @@ public class ExportData {
             throw new RuntimeException(e);
         }
 
-//        try {
-//            Workbook workbook = new XSSFWorkbook();
-//            Sheet sheet = workbook.createSheet("Dữ liệu");
-//            Row headerRow = sheet.createRow(0);
-//            for (int i = 0; i < headers.length; i++) {
-//                Cell cell = headerRow.createCell(i);
-//                cell.setCellValue(headers[i]);
-//            }
-//            for (int i = 0; i < data.length; i++) {
-//                Row row = sheet.createRow(i + 1);
-//                for (int j = 0; j < data[i].length; j++) {
-//                    Cell cell = row.createCell(j);
-//                    cell.setCellValue(data[i][j]);
-//                }
-//            }
-//            String filePath =getLocation()+"/"+ "data.xlsx";
-//            FileOutputStream outputStream = new FileOutputStream(filePath);
-//            workbook.write(outputStream);
-//            outputStream.close();
+    }
+    public static void  exportData1(JTable table){
+        int rowCount = table.getRowCount();
+        int columnCount = table.getColumnCount();
+        try {
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Dữ liệu");
+            Row headerRow = sheet.createRow(0);
+
+            for (int i = 0; i < columnCount; i++) {
+                Cell cell = headerRow.createCell(i);
+                cell.setCellValue(table.getColumnName(i));
+            }
+            for (int row = 0; row < rowCount; row++) {
+                Row r1 = sheet.createRow(row + 1);
+                for (int col = 0; col < columnCount; col++) {
+                    Cell cell = r1.createCell(col);
+                    cell.setCellValue(table.getValueAt(row, col).toString());
+                }
+            }
+            String filename = JOptionPane.showInputDialog(null,"Vui lòng nhập tên file");
+            if (filename == null || filename.equals("")) return;
+            String location = getLocation();
+            if (location == null) return;
+            String filePath =location+"/"+ filename +".xlsx";
+            FileOutputStream outputStream = new FileOutputStream(filePath);
+            workbook.write(outputStream);
+            outputStream.close();
 //
-//            JOptionPane.showMessageDialog(null,"Xuất dữ liệu thành công");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+            JOptionPane.showMessageDialog(null,"Xuất dữ liệu thành công");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

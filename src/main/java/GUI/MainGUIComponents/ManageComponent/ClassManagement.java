@@ -1,6 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authorization.Authorization;
+import Controllers.ExportData;
 import DAO.Access.ClassHandle;
 
 import DAO.Access.GrantHandle;
@@ -192,6 +193,12 @@ public class ClassManagement extends JInternalFrame{
                 refreshTable();
             }
         });
+        exportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ExportData.exportData(labelTable1,1);
+            }
+        });
     }
 
     public void refreshTable() {
@@ -229,6 +236,23 @@ public class ClassManagement extends JInternalFrame{
     private JTextField searchinput;
     private JButton searchButton;
     private JComboBox comboBox1;
+    private JButton exportButton;
 
 
+    private void createUIComponents() {
+        labelTable1 = new JTable() {
+
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Boolean.class;
+                    default:
+                        return String.class;
+                }
+            }
+        };
+        labelTable1.setPreferredScrollableViewportSize(labelTable1.getPreferredSize());
+    }
 }

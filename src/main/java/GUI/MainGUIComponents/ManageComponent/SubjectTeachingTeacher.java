@@ -1,6 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authorization.Authorization;
+import Controllers.ExportData;
 import Controllers.Validation;
 import DAO.Access.InstructorHandle;
 import DAO.Access.InstructorSubjectHandle;
@@ -167,6 +168,18 @@ public class SubjectTeachingTeacher extends JInternalFrame{
                 refreshTable();
             }
         });
+        exportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ExportData.exportData(table1,1);
+            }
+        });
+        reloadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                refreshTable();
+            }
+        });
     }
 
     public void refreshTable() {
@@ -188,11 +201,11 @@ public class SubjectTeachingTeacher extends JInternalFrame{
 
     }
     private JPanel subjectTeachingTeacherPanel;
-    private JButton tảiLạiButton;
+    private JButton reloadButton;
     private JButton delete;
     private JButton update;
     private JButton insert;
-    private JButton chọnẢnhButton;
+    private JButton exportButton;
     private JCheckBox chọnTấtCảCheckBox;
     private JCheckBox bỏChọnCheckBox;
     private JComboBox comboBox1;
@@ -200,4 +213,21 @@ public class SubjectTeachingTeacher extends JInternalFrame{
     private JTable table1;
     private JComboBox MaGV;
     private JComboBox MaMH;
+
+    private void createUIComponents() {
+        table1 = new JTable() {
+
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Boolean.class;
+                    default:
+                        return String.class;
+                }
+            }
+        };
+        table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
+    }
 }

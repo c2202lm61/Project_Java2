@@ -1,6 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authorization.Authorization;
+import Controllers.ExportData;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
@@ -236,6 +237,21 @@ public class SubjectManagement extends JInternalFrame{
                 }
             }
         });
+        ExportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ExportData.exportData(table1,1);
+            }
+        });
+        removeFormButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                mamh.setText(null);
+                TenMon.setText(null);
+                tinchi.setText(null);
+
+            }
+        });
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -263,8 +279,7 @@ public class SubjectManagement extends JInternalFrame{
     private JButton insert;
     private JButton update;
     private JButton resetButton;
-    private JButton chọnButton;
-    private JButton bỏChọnButton;
+    private JButton removeFormButton;
     private JTable table1;
     private JComboBox comboBox2;
     private JButton zAButton;
@@ -273,4 +288,21 @@ public class SubjectManagement extends JInternalFrame{
     private JTextField searchinput;
     private JButton searchButton;
     private JCheckBox searchByNameCheckBox;
+    private JButton ExportButton;
+
+    private void createUIComponents() {
+        table1 = new JTable() {
+
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Boolean.class;
+                    default:
+                        return String.class;
+                }
+            }
+        };
+    }
 }

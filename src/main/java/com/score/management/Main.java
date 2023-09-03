@@ -3,15 +3,12 @@ package com.score.management;
 import GUI.Login;
 import GUI.MainGUI;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import static javax.swing.JDialog.setDefaultLookAndFeelDecorated;
 
 public class Main {
 
@@ -33,7 +30,7 @@ public class Main {
            aboutItem.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent actionEvent) {
-                   trayIcon.displayMessage("Thông báo tiêu đề", "Nội dung thông báo",TrayIcon.MessageType.INFO);
+                   trayIcon.displayMessage("Thông báo", "Cấm dùng chùa nha! hehe",TrayIcon.MessageType.INFO);
                }
            });
 

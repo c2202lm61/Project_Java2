@@ -3,6 +3,7 @@ package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authenlication.Authenlication;
 import Controllers.Authorization.Authorization;
+import Controllers.ExportData;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
@@ -278,6 +279,12 @@ public class BlockManagement extends JInternalFrame {
                 }
             }
         });
+        exportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ExportData.exportData(table1,1);
+            }
+        });
     }
 
     public void refreshTable() {
@@ -314,16 +321,31 @@ public class BlockManagement extends JInternalFrame {
     private JTable table1;
     private JCheckBox chọnCheckBox;
     private JCheckBox chọnTấtCảCheckBox;
-    private JComboBox comboBox1;
     private JTextField MaKhoi;
     private JTextField TenKhoi;
     private JTextField TextSearch;
     private JButton searchButton;
     private JCheckBox searchByNameCheckBox;
     private JComboBox comboBox2;
+    private JButton exportButton;
+    private JPanel e;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
         MaKhoi = new JTextField(8);
+        table1 = new JTable() {
+
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Boolean.class;
+                    default:
+                        return String.class;
+                }
+            }
+        };
+        table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
     }
 }

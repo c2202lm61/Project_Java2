@@ -2,6 +2,7 @@ package GUI.MainGUIComponents.ManageComponent;
 
 
 import Controllers.Authorization.Authorization;
+import Controllers.ExportData;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
@@ -274,6 +275,12 @@ public class StudentManagement extends JInternalFrame {
                 }
             }
         });
+        exportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ExportData.exportData(table1,1);
+            }
+        });
     }
     public void refreshTable() {
         //get  classitem add combobox
@@ -323,6 +330,23 @@ public class StudentManagement extends JInternalFrame {
     private JTextField searchinput;
     private JButton Search;
     private JCheckBox searchByNameCheckBox;
+    private JButton exportButton;
 
 
+    private void createUIComponents() {
+        table1 = new JTable() {
+
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Boolean.class;
+                    default:
+                        return String.class;
+                }
+            }
+        };
+        table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
+    }
 }

@@ -7,7 +7,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="76f09" layout-manager="BorderLayout" hgap="0" vgap="0">
+      <grid id="76f09" binding="e" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="South"/>
         <properties/>
         <border type="none"/>
@@ -50,15 +50,12 @@
                   <text value="Tải lại"/>
                 </properties>
               </component>
-              <component id="eb090" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+              <component id="7f99a" class="javax.swing.JButton" binding="exportButton">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <model>
-                    <item value="A-Z"/>
-                    <item value="Z-A"/>
-                  </model>
+                  <text value="Xuất dữ liệu..."/>
                 </properties>
               </component>
             </children>
@@ -69,7 +66,7 @@
             <border type="none"/>
             <children>
               <grid id="a242d" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
+                <margin top="10" left="0" bottom="0" right="0"/>
                 <constraints border-constraint="North"/>
                 <properties/>
                 <border type="none"/>
@@ -96,17 +93,6 @@
                     </constraints>
                     <properties>
                       <text value="Sắp xếp"/>
-                    </properties>
-                  </component>
-                  <component id="31237" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
-                    <constraints>
-                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <model>
-                        <item value="A-Z"/>
-                        <item value="Z-A"/>
-                      </model>
                     </properties>
                   </component>
                   <component id="7c483" class="javax.swing.JLabel">
@@ -143,13 +129,18 @@
                     </constraints>
                     <properties/>
                   </component>
+                  <component id="eb090" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <model>
+                        <item value="A-Z"/>
+                        <item value="Z-A"/>
+                      </model>
+                    </properties>
+                  </component>
                 </children>
-              </grid>
-              <grid id="1c725" layout-manager="BorderLayout" hgap="0" vgap="0">
-                <constraints border-constraint="Center"/>
-                <properties/>
-                <border type="none"/>
-                <children/>
               </grid>
             </children>
           </grid>
@@ -177,7 +168,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="75244" class="javax.swing.JTable" binding="table1" default-binding="true">
+          <component id="75244" class="javax.swing.JTable" binding="table1" custom-create="true" default-binding="true">
             <constraints/>
             <properties/>
           </component>

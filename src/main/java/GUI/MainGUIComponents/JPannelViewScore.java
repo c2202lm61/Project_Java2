@@ -129,7 +129,7 @@ public class JPannelViewScore extends JPanel {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if(chooseModel.getSelectedIndex() == 1){
-                    ExportData.exportData(table1);
+                    ExportData.exportData1(table1);
                 }
             }
         });

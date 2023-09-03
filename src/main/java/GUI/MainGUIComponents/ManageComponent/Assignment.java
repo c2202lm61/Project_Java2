@@ -1,6 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authorization.Authorization;
+import Controllers.ExportData;
 import Controllers.Validation;
 import DAO.Access.ClassHandle;
 import DAO.Access.InstructorSubjectHandle;
@@ -134,8 +135,11 @@ public class Assignment extends JInternalFrame{
                         JOptionPane.showMessageDialog(null, "Mã Phân Công không hợp lệ");
                         return;
                     }
-                    TeacherClassHandle teacherClassHandle = new TeacherClassHandle();
-                    teacherClassHandle.DELETE(id);
+                    if(new TeacherClassHandle().DELETE(id))
+                        JOptionPane.showMessageDialog(null,"Xóa dữ liệu thành công");
+                    else JOptionPane.showMessageDialog(null,"Xóa dữ liệu không thành công");
+
+
                     tc_id.setText(null);
                     textField2.setText(null);
                     comboBox2.setSelectedItem(null);
@@ -186,6 +190,12 @@ public class Assignment extends JInternalFrame{
 
             }
         });
+        exportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ExportData.exportData(table1,1);
+            }
+        });
     }
     public void refreshTable() {
         DefaultTableModel modelScoreManage = (DefaultTableModel) table1.getModel();
@@ -220,7 +230,7 @@ public class Assignment extends JInternalFrame{
     private JButton delete;
     private JButton update;
     private JButton insert;
-    private JButton chọnẢnhButton;
+    private JButton exportButton;
     private JTable table1;
     private JComboBox comboBox2;
     private JComboBox comboBox3;

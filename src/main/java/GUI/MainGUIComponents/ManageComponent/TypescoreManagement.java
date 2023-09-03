@@ -1,6 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authorization.Authorization;
+import Controllers.ExportData;
 import Controllers.SortA_Z;
 import Controllers.SortZ_A;
 import Controllers.Validation;
@@ -155,6 +156,12 @@ public class TypescoreManagement extends JInternalFrame {
                 }
             }
         });
+        exportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ExportData.exportData(table1,1);
+            }
+        });
     }
     public void refreshTable(){
         TypeScoreHandle TypeScoreHandle = new TypeScoreHandle();
@@ -172,7 +179,7 @@ public class TypescoreManagement extends JInternalFrame {
     }
     private JPanel panel1;
     private JTable table1;
-    private JButton chọnẢnhButton;
+    private JButton exportButton;
     private JButton insert;
     private JButton update;
     private JButton tảiLạiButton;
@@ -182,4 +189,21 @@ public class TypescoreManagement extends JInternalFrame {
     private JTextField name;
     private JCheckBox chọnTấtCảCheckBox;
     private JCheckBox chọnCheckBox;
+
+    private void createUIComponents() {
+        table1 = new JTable() {
+
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Boolean.class;
+                    default:
+                        return String.class;
+                }
+            }
+        };
+        table1.setPreferredScrollableViewportSize(table1.getPreferredSize());
+    }
 }

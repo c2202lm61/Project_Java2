@@ -35,7 +35,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="931f" class="javax.swing.JButton" binding="tảiLạiButton" default-binding="true">
+              <component id="931f" class="javax.swing.JButton" binding="reloadButton">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -67,12 +67,12 @@
                   <text value="Thêm"/>
                 </properties>
               </component>
-              <component id="11e85" class="javax.swing.JButton" binding="chọnẢnhButton" default-binding="true">
+              <component id="11e85" class="javax.swing.JButton" binding="exportButton">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Chọn ảnh.."/>
+                  <text value="Xuất dữ liệu ..."/>
                 </properties>
               </component>
             </children>
@@ -233,7 +233,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="8ed52" class="javax.swing.JTable" binding="table1" default-binding="true">
+          <component id="8ed52" class="javax.swing.JTable" binding="table1" custom-create="true" default-binding="true">
             <constraints/>
             <properties/>
           </component>

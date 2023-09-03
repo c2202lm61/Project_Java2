@@ -65,17 +65,11 @@ public class TeacherClassHandle extends AbsSQLAccess<TeacherClass> {
 
     @Override
     public Boolean DELETE(int id) {
-        Boolean result = false;
         try {
-            boolean a =JDBCDriver.SetQuery("DELETE FROM `teach_class` WHERE `id_tc` = "+id);
-            if (a)System.out.println("Xóa dữ liệu thành công");
-            else System.out.println("Dữ liệu đó không tồn tại");
-            result = true;
-
+           return  JDBCDriver.SetQuery("DELETE FROM `teach_class` WHERE `id_tc` = "+id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return result;
     }
 
 }
