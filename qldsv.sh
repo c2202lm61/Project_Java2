@@ -1,3 +1,8 @@
 #!/bin/bash
-cd /home/user/Desktop/QLDSV
-/usr/lib/jvm/java-20-openjdk-amd64/bin/java --module-path /opt/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml,javafx.base,javafx.graphics,javafx.media,javafx.swing,javafx.web -Djava.library.path=/opt/javafx-sdk-20.0.2/lib -javaagent:/opt/idea-IC-231.9392.1/lib/idea_rt.jar=35321:/opt/idea-IC-231.9392.1/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/user/Desktop/QLDSV/target/classes:/home/user/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar:/home/user/.m2/repository/com/google/protobuf/protobuf-java/3.21.9/protobuf-java-3.21.9.jar:/opt/javafx-sdk-20.0.2/lib/javafx-swt.jar:/opt/javafx-sdk-20.0.2/lib/javafx.web.jar:/opt/javafx-sdk-20.0.2/lib/javafx.base.jar:/opt/javafx-sdk-20.0.2/lib/javafx.fxml.jar:/opt/javafx-sdk-20.0.2/lib/javafx.media.jar:/opt/javafx-sdk-20.0.2/lib/javafx.swing.jar:/opt/javafx-sdk-20.0.2/lib/javafx.controls.jar:/opt/javafx-sdk-20.0.2/lib/javafx.graphics.jar -jar ./out/artifacts/Project_Java_2_jar/Project_Java_2.jar
+
+#!/bin/bash
+
+# Lấy vị trí hiện tại của file .sh
+current_directory="$(cd "$(dirname "$0")" && pwd)"
+cd $current_directory
+java -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -jar out/artifacts/Project_Java_2_jar/Project_Java_2.jar

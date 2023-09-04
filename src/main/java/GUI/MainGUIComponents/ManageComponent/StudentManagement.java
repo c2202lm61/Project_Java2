@@ -281,6 +281,12 @@ public class StudentManagement extends JInternalFrame {
                 ExportData.exportData(table1,1);
             }
         });
+        checkAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                modelStudentManage.setValueAt(true,0,0);
+            }
+        });
     }
     public void refreshTable() {
         //get  classitem add combobox
@@ -313,8 +319,8 @@ public class StudentManagement extends JInternalFrame {
     private JButton insertButton;
     private JButton updateButton;
     private JButton deleteButton;
-    private JCheckBox chọnTấtCảCheckBox;
-    private JCheckBox bỏChọnCheckBox;
+    private JCheckBox checkAll;
+    private JCheckBox chọnCheckBox;
     private JTextField stdID;
     private JTextField stdName;
     private JComboBox stdGender;
