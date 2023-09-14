@@ -211,8 +211,8 @@ public class StudentManagement extends JInternalFrame {
         subjectStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StudentSubjectManagement studentSubjectManagement = new StudentSubjectManagement(Integer.parseInt(stdID.getText()));
-
+              //  StudentSubjectManagement studentSubjectManagement = new StudentSubjectManagement(Integer.parseInt(stdID.getText()));
+                JOptionPane.showMessageDialog(null,"Chức năng đang bảo trì");
             }
         });
         reloadButton.addActionListener(new ActionListener() {
@@ -285,6 +285,16 @@ public class StudentManagement extends JInternalFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 modelStudentManage.setValueAt(true,0,0);
+            }
+        });
+        checkAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(checkAll.isSelected()){
+                    System.out.println("Đã chọn");
+                }else{
+                    System.out.println("Chưa chọn");
+                }
             }
         });
     }

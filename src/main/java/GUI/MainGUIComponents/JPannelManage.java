@@ -1,5 +1,8 @@
 package GUI.MainGUIComponents;
 
+import Controllers.Authenlication.Authenlication;
+import Controllers.Authorization.Authorization;
+import DAO.JDBCDriver;
 import GUI.MainGUIComponents.ManageComponent.*;
 
 import javax.swing.*;
@@ -8,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class JPannelManage extends JPanel{
@@ -216,6 +220,36 @@ class LeftPanel extends JPanel{
         button9 = new JButton("Chấm điểm");
         button10  = new JButton("Vai trò giáo viên");
         button11 = new JButton("Uỷ quyền");
+        button.setEnabled(false);
+        button1.setEnabled(false);
+        button3.setEnabled(false);
+        button4.setEnabled(false);
+        button5.setEnabled(false);
+        button6.setEnabled(false);
+        button7.setEnabled(false);
+        button8.setEnabled(false);
+        button9.setEnabled(false);
+        button10.setEnabled(false);
+        button11.setEnabled(false);
+        if(Authorization.getPermisionForStudent()) button.setEnabled(true);
+        if(Authorization.getPermisionForTeacher()) button1.setEnabled(true);
+        if(Authorization.getPermisionForBlock()) button3.setEnabled(true);
+        if(Authorization.getPermisionForClass()) button4.setEnabled(true);
+        if(Authorization.getPermisionForSubject()) button5.setEnabled(true);
+        if(Authorization.getPermisionForAsignment()) button6.setEnabled(true);
+        if(Authorization.getPermisionForTeacher()) button7.setEnabled(true);
+        if(Authorization.getPermisionForTypeScore()) button8.setEnabled(true);
+        try {
+            ResultSet rs = JDBCDriver.ExecQuery("SELECT * FROM instructor INNER JOIN instructor_subject  ON instructor.ID_NUMBER = instructor_subject.ID_NUMBER WHERE instructor.ID_NUMBER = "+Authenlication.insLogin.getID_NUMBER());
+            while (rs.next())
+                button9.setEnabled(true);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        JDBCDriver.DestroyConnection();
+        if(Authorization.getPermisionForRole()) button10.setEnabled(true);
+        if(Authorization.getPermisionForRole()) button11.setEnabled(true);
+
         panel.add(button);
         panel.add(button1);
         panel.add(button3);
