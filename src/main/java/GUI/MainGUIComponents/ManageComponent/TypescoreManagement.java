@@ -1,10 +1,7 @@
 package GUI.MainGUIComponents.ManageComponent;
 
+import Controllers.*;
 import Controllers.Authorization.Authorization;
-import Controllers.ExportData;
-import Controllers.SortA_Z;
-import Controllers.SortZ_A;
-import Controllers.Validation;
 import DAO.Access.TypeScoreHandle;
 import Model.TypeScore;
 import javax.swing.*;
@@ -162,6 +159,19 @@ public class TypescoreManagement extends JInternalFrame {
                 ExportData.exportData(table1,1);
             }
         });
+        checkAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                table1.setModel(GetDataFromTable.setAllCheckboxFromTable(table1,checkAll.isSelected()));
+            }
+        });
+        check.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (!Validation.isNumeric(ts_id.getText())) return;
+                table1.setModel(GetDataFromTable.setCheckboxTableFromID(table1,check.isSelected(),Integer.parseInt(ts_id.getText())));
+            }
+        });
     }
     public void refreshTable(){
         TypeScoreHandle TypeScoreHandle = new TypeScoreHandle();
@@ -187,8 +197,8 @@ public class TypescoreManagement extends JInternalFrame {
     private JComboBox comboBox1;
     private JTextField ts_id;
     private JTextField name;
-    private JCheckBox chọnTấtCảCheckBox;
-    private JCheckBox chọnCheckBox;
+    private JCheckBox checkAll;
+    private JCheckBox check;
 
     private void createUIComponents() {
         table1 = new JTable() {

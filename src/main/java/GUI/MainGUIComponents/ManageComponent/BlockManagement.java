@@ -1,12 +1,9 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 
+import Controllers.*;
 import Controllers.Authenlication.Authenlication;
 import Controllers.Authorization.Authorization;
-import Controllers.ExportData;
-import Controllers.SortA_Z;
-import Controllers.SortZ_A;
-import Controllers.Validation;
 import DAO.Access.GrantHandle;
 import DAO.JDBCDriver;
 import Model.Block;
@@ -285,6 +282,19 @@ public class BlockManagement extends JInternalFrame {
                 ExportData.exportData(table1,1);
             }
         });
+        checkAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                table1.setModel(GetDataFromTable.setAllCheckboxFromTable(table1,checkAll.isSelected()));
+            }
+        });
+        check.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (!Validation.isNumeric(MaKhoi.getText())) return;
+                table1.setModel(GetDataFromTable.setCheckboxTableFromID(table1,check.isSelected(),Integer.valueOf(MaKhoi.getText())));
+            }
+        });
     }
 
     public void refreshTable() {
@@ -319,8 +329,8 @@ public class BlockManagement extends JInternalFrame {
     private JButton delete;
     private JButton refreshButton;
     private JTable table1;
-    private JCheckBox chọnCheckBox;
-    private JCheckBox chọnTấtCảCheckBox;
+    private JCheckBox check;
+    private JCheckBox checkAll;
     private JTextField MaKhoi;
     private JTextField TenKhoi;
     private JTextField TextSearch;

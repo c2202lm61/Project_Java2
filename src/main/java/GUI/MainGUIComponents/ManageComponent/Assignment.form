@@ -148,13 +148,14 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="c1ef7" class="javax.swing.JCheckBox" binding="chọnTấtCảCheckBox" default-binding="true">
+                      <component id="c1ef7" class="javax.swing.JCheckBox" binding="checkAll">
                         <constraints/>
                         <properties>
+                          <selected value="true"/>
                           <text value="Chọn tất cả"/>
                         </properties>
                       </component>
-                      <component id="e9d70" class="javax.swing.JCheckBox" binding="bỏChọnCheckBox" default-binding="true">
+                      <component id="e9d70" class="javax.swing.JCheckBox" binding="check">
                         <constraints/>
                         <properties>
                           <text value="Bỏ chọn"/>

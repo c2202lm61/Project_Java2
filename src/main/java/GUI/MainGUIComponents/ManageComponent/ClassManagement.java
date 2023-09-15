@@ -2,6 +2,8 @@ package GUI.MainGUIComponents.ManageComponent;
 
 import Controllers.Authorization.Authorization;
 import Controllers.ExportData;
+import Controllers.GetDataFromTable;
+import Controllers.Validation;
 import DAO.Access.ClassHandle;
 
 import DAO.Access.GrantHandle;
@@ -199,6 +201,19 @@ public class ClassManagement extends JInternalFrame{
                 ExportData.exportData(labelTable1,1);
             }
         });
+        checkAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                labelTable1.setModel(GetDataFromTable.setAllCheckboxFromTable(labelTable1,checkAll.isSelected()));
+            }
+        });
+        check.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (!Validation.isNumeric(Malop.getText())) return;
+                labelTable1.setModel(GetDataFromTable.setCheckboxTableFromID(labelTable1,check.isSelected(),Integer.parseInt(Malop.getText())));
+            }
+        });
     }
 
     public void refreshTable() {
@@ -229,8 +244,8 @@ public class ClassManagement extends JInternalFrame{
     private JButton update;
     private JButton delete;
     private JButton reload;
-    private JCheckBox chọnCheckBox;
-    private JCheckBox chọnTấtCảCheckBox;
+    private JCheckBox check;
+    private JCheckBox checkAll;
     private JTextField Malop;
     private JComboBox MaGVCN;
     private JTextField searchinput;

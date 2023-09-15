@@ -29,7 +29,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="e8004" class="javax.swing.JCheckBox" binding="chọnCheckBox" default-binding="true">
+                  <component id="e8004" class="javax.swing.JCheckBox" binding="check">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -37,12 +37,13 @@
                       <text value="Chọn"/>
                     </properties>
                   </component>
-                  <component id="3598d" class="javax.swing.JCheckBox" binding="selectAllCheckBox">
+                  <component id="3598d" class="javax.swing.JCheckBox" binding="checkAll">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font/>
+                      <selected value="true"/>
                       <text value="Chọn tất cả"/>
                     </properties>
                   </component>

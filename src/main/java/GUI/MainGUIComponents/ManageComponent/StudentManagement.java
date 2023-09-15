@@ -1,11 +1,8 @@
 package GUI.MainGUIComponents.ManageComponent;
 
 
+import Controllers.*;
 import Controllers.Authorization.Authorization;
-import Controllers.ExportData;
-import Controllers.SortA_Z;
-import Controllers.SortZ_A;
-import Controllers.Validation;
 import DAO.Access.ClassHandle;
 import DAO.Access.StudentHandle;
 
@@ -284,17 +281,15 @@ public class StudentManagement extends JInternalFrame {
         checkAll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                modelStudentManage.setValueAt(true,0,0);
+                table1.setModel(GetDataFromTable.setAllCheckboxFromTable(table1,checkAll.isSelected()));
+               // GetDataFromTable.getAllDataFromTable(table1);
             }
         });
-        checkAll.addActionListener(new ActionListener() {
+        check.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(checkAll.isSelected()){
-                    System.out.println("Đã chọn");
-                }else{
-                    System.out.println("Chưa chọn");
-                }
+                if(!Validation.isNumeric(stdID.getText())) return;
+                table1.setModel(GetDataFromTable.setCheckboxTableFromID(table1,check.isSelected(),Integer.parseInt(stdID.getText())));
             }
         });
     }
@@ -330,7 +325,7 @@ public class StudentManagement extends JInternalFrame {
     private JButton updateButton;
     private JButton deleteButton;
     private JCheckBox checkAll;
-    private JCheckBox chọnCheckBox;
+    private JCheckBox check;
     private JTextField stdID;
     private JTextField stdName;
     private JComboBox stdGender;
