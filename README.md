@@ -21,5 +21,4 @@ Member:
     username=yourusername  
     password=yourpassword  
  How to login?   
-  email:admin<br>  
-  password:1111  
+login with account
